@@ -1,0 +1,469 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LRBOOMERANG_fix_throwvar_sledge:
+  Conditions:
+  - children{a=>0} false
+  Skills:
+  - setvar{var=caster.throw_boomerang;val=false;type=STRING} @self
+
+## JUMP ##
+
+LRBOOMERANG_sledge_superjump:
+  Cooldown: 1
+  Conditions:
+  - varequals{var=caster.sledge_jump_charges;val=1} true
+  - onground true
+  - crouching true
+  Skills:
+  - sound{s=littleroom_boomerang_pack:boomerang.sledge_leap;v=0.5;sc=HOSTILE;p=<random.float.0.95to1.05>}
+  - setvar{var=caster.sledge_jump_charges;val=0;type=INTEGER} @self
+  - lunge{v=1;vy=1} @self
+
+
+## SWING ##
+
+LRBOOMERANG_swing_sledge:
+  Skills:
+  - sound{s=littleroom_boomerang_pack:boomerang.sledge_hit;v=0.5;sc=HOSTILE;p=<random.float.0.95to1.05>}
+  - CancelEvent{sync=true}
+  - damage{a=10}
+  - throw{v=12;vy=4}
+  
+LRBOOMERANG_swing_ground_slam_telegraph:
+  Conditions:
+  - fallspeed{s=>6} true
+  Skills:
+  - e:p{p=poof;a=1;hs=.25;vs=.5;y=1} @self
+  
+LRBOOMERANG_swing_ground_slam:
+  Cooldown: 1
+  TargetConditions:
+  - distance{d=<4} true
+  Conditions:
+  - fallspeed{s=>6} true
+  - pitch{p=>45} true
+  Skills:
+  ##- message{m="BOOM!"} @self
+  - sound{s=littleroom_boomerang_pack:boomerang.sledge_slam;v=0.5;sc=HOSTILE;p=<random.float.0.95to1.05>}
+  - summon{t=LR_boomerang_sledge_ground} @targetlocation
+  - totem{md=2;oH=LRBOOMERANG_swing_ground_slam_damage;hr=3;vr=3;drawhitbox=false;hnp=true} @selflocation
+
+
+LRBOOMERANG_swing_ground_slam_damage:
+  Skills:
+  - e:p{p=poof;a=1;hs=.25;vs=.25;y=0.5;repeat=20;repeati=1}
+  - damage{5}
+  - throw{v=3;vy=12}
+  - potion{type=SLOW;duration=120;level=4}
+
+## BOOMERANG THROW ##
+
+LRBOOMERANG_throw_sledge:
+  Cooldown: 1
+  TargetConditions:
+  - distance{d=>3} true
+  Conditions:
+  - offgcd true
+  - varequals{var=caster.throw_boomerang;val="true"} false
+  Skills:
+  #- message{m="LRBOOMERANG_throw_sledge"} @self
+  - setvar{var=caster.boomerang_target_block;val="<caster.raytrace>";type=STRING} @self
+  - skill{s=LRBOOMERANG_throw_sledge_MISSILE}
+  
+LRBOOMERANG_throw_sledge_MISSILE:
+  Conditions:
+  - varequals{var=caster.boomerang_target_block;val="OAK_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="SPRUCE_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="BIRCH_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="JUNGLE_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="ACACIA_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="DARK_OAK_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="MANGROVE_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="CHERRY_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="BAMBOO_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="CRIMSON_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="WARPED_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="IRON_DOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="OAK_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="SPRUCE_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="BIRCH_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="JUNGLE_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="ACACIA_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="DARK_OAK_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="MANGROVE_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="CHERRY_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="BAMBOO_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="CRIMSON_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="WARPED_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="IRON_TRAPDOOR"} false
+  - varequals{var=caster.boomerang_target_block;val="COBBLESTONE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="MOSSY_COBBLESTONE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="GRANITE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="DIORITE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="GRANITE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="ANDESITE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="BRICK_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="STONE_BRICK_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="MOSSY_STONE_BRICK_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="SANDSTONE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="RED_SANDSTONE_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="NETHER_BRICK_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="RED_NETHER_BRICK_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="END_STONE_BRICK_WALL"} false
+  - varequals{var=caster.boomerang_target_block;val="OAK_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="SPRUCE_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="BIRCH_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="JUNGLE_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="ACACIA_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="DARK_OAK_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="MANGROVE_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="CHERRY_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="BAMBOO_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="CRIMSON_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="WARPED_FENCE"} false
+  - varequals{var=caster.boomerang_target_block;val="IRON_BARS"} false
+  - varequals{var=caster.boomerang_target_block;val="OAK_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="SPRUCE_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="BIRCH_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="JUNGLE_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="ACACIA_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="DARK_OAK_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="MANGROVE_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="CHERRY_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="BAMBOO_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="CRIMSON_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="WARPED_GATE"} false
+  - varequals{var=caster.boomerang_target_block;val="IRON_GATE"} false
+  Skills:
+  - CancelEvent{sync=true} @self
+  - gcd{ticks=10}  
+  - consumeslot{} @self
+  #- message{m="LRBOOMERANG_throw_sledge_MISSILE"} @self
+  - remove @children{target=marker}
+  - projectile{v=150;interpolation=20;hnp=true;oE=[ - summon{t=LR_boomerang_marker}];mr=8;hr=0.25;vr=0.25;tyo=-1;sfo=0} @targetlocation
+  - delay 1
+  - setvar{var=skill.boomerang_bounce_counter;val="0";type=INTEGER} @self
+  - playanimation{a=0;audience=World} @Self
+  - missile{interpolation=2;
+            bulletType=DISPLAY;
+            mat=CARROT_ON_A_STICK;
+            model=18;
+            ys=0.75;
+            v=22;
+            oS=LRBOOMERANG_throw_lifespan_sledge;
+            oT=LRBOOMERANG_throw_tick_sledge;
+            oH=LRBOOMERANG_hit_sledge;
+            oE=LRBOOMERANG_end_sledge;
+            sdir=@forward{f=5;soffset=-10;yo=1.5;lockpitch=true};
+            md=240;
+            mr=256;
+            in=20;
+            sfo=1.5;
+            sso=-0.5;
+            sB=false;
+            sE=false;
+            tyo=1;
+            HitSelf=true;
+            drawhitbox=false;
+            hr=1;
+            vr=1;
+            bounce=true;
+            bv=.5;
+            syo=1.5;
+            onbounce=LRBOOMERANG_bounce_sledge;
+            ty=-0.5;
+            hft=true;
+            id=40;
+            delay=2;
+            bulletViewDistance=128} @children{target=marker}
+
+
+LRBOOMERANG_end_sledge:
+  Conditions:
+  - varequals{var=caster.throw_boomerang;val=true} true
+  Skills:
+  - setvar{var=caster.throw_boomerang;val=false;type=STRING} @self
+  
+## BOOMERANG TICKS ##
+
+LRBOOMERANG_throw_tick_sledge:
+  Skills:
+  - modifyProjectile{trait=INERTIA;action=MULTIPLY;value=0.999}
+  - modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=1.001}
+  - signal{s=BOOMERANGDUMMY;fromorigin=true;origin=@projectileforward{f=1}} @ENO{r=6;target=marker}
+  - skill{s=LRBOOMERANG_throw_tick_splash_in_sledge} @origin
+  - skill{s=LRBOOMERANG_throw_tick_splash_out_sledge} @origin
+  - skill{s=LRBOOMERANG_throw_tick_bubbles_sledge} @origin
+  - skill{s=LRBOOMERANG_slow_in_water_sledge} @origin
+  - sudoskill{s=LRBOOMERANG_throw_pickupitem_sledge;cat=true} @ItemsNearOrigin{r=4}
+  - skill{s=LRBOOMERANG_cut_grass_sledge} @BNO{r=1}
+  - skill{s=LRBOOMERANG_throw_tick_splash_in_lava_sledge} @origin
+  - skill{s=LRBOOMERANG_throw_spin_sound_sledge;cd=0.25} @origin
+  - setvar{var=caster.throw_boomerang;val="true";type=STRING} @self
+  - skill{s=LRBOOMERANG_stuck_fix_sledge} @self
+  
+LRBOOMERANG_stuck_fix_sledge:
+  Cooldown: 1
+  Conditions:
+  - varequals{var=skill.boomerang_bounce_counter;val=5} true
+  Skills:
+  - skill{s=LRBOOMERANG_hit_self_sledge} @self
+  
+  
+LRBOOMERANG_throw_spin_sound_sledge:
+  TargetConditions:
+  - blocktype{type=AIR} true
+  Skills:
+  - sound{s=littleroom_boomerang_pack:boomerang.spin;v=0.25;sc=HOSTILE;p=<random.float.0.95to1.05>}
+
+## BOOMERANG IMPACT ##
+
+# HIT ENEMY #
+
+LRBOOMERANG_hit_sledge:
+  Cooldown: 0.25
+  TargetConditions:
+  - entitytype{t=ARMOR_STAND} false
+  - varequals{var=target.throw_boomerang;val="true"} castinstead LRBOOMERANG_hit_self_sledge
+  Skills:
+  #- message{m="LRBOOMERANG_hit_sledge"} @self
+  - sound{s=littleroom_boomerang_pack:boomerang.sledge_hit;v=0.5;sc=HOSTILE;p=<random.float.0.95to1.05>}
+  - effect:particles{p=sweep_attack;hs=0;vs=0;a=1}
+  - effect:particles{p=crit;a=15;hs=.25;vs=.25;s=1} @origin
+  - throw{v=12;vy=4}
+  - skill{s=LRBOOMERANG_heroic_leap_ready_message} @self
+  - damage{a=10}
+  - setvar{var=caster.throw_boomerang_melee_damage;val=10;type=INTEGER;duration=120} @self
+  - modifyProjectile{trait=INERTIA;action=MULTIPLY;value=1.01}
+  - setprojectiledirection{} @projectileforward{f=3;yo=0.25}
+  - potion{type=SLOW;duration=100;level=4}
+  
+  
+LRBOOMERANG_heroic_leap_ready_message:
+  Conditions:
+  - varequals{var=caster.sledge_jump_charges;val=1} false
+  Skills:
+  - sound{s=littleroom_boomerang_pack:boomerang.sledge_leap_ready;v=1;sc=HOSTILE;p=<random.float.0.95to1.05>} @self
+  - setvar{var=caster.sledge_jump_charges;val=1;type=INTEGER} @self
+  - actionmessage{m="&6- Heroic Leap Ready! -"} @self
+  
+# CATCH BOOMERANG #
+
+LRBOOMERANG_hit_self_sledge:
+  Cooldown: 1
+  TargetConditions:
+  - holding{m=AIR} orElseCast LRBOOMERANG_hit_self_handsfull_sledge
+  Skills:
+  #- message{m="LRBOOMERANG_hit_self_sledge"} @self
+  - setvar{var=caster.throw_boomerang;val=false;type=STRING;repeat=10;repeati=1} @self
+  - sound{s=littleroom_boomerang_pack:boomerang.catch;v=1;sc=HOSTILE;cd=0.25;p=<random.float.0.95to1.05>}
+  - playanimation{a=0;audience=World} @Self
+  - endprojectile
+  - equip{item=LR_sledge_boomerang HAND}
+  - remove @children{target=marker}
+  - delay 5
+  - parseweapon @self
+  
+# CANT CATCH BOOMERANG #
+
+LRBOOMERANG_hit_self_handsfull_sledge:
+  Cooldown: 1
+  TargetConditions:
+  - hasinventoryspace orElseCast LRBOOMERANG_hit_self_invfull_sledge
+  Skills:
+  #- message{m="LRBOOMERANG_hit_self_handsfull_sledge"} @self
+  - endprojectile
+  - setvar{var=caster.throw_boomerang;val=false;type=STRING;repeat=10;repeati=1} @self
+  - sound{s=littleroom_boomerang_pack:boomerang.catch;v=1;sc=HOSTILE;cd=0.25;p=<random.float.0.95to1.05>}
+  - remove @children{target=marker}
+  - giveitem{i=LR_sledge_boomerang} @self
+  
+# FULL INVENTORY BOOMERANG #
+
+LRBOOMERANG_hit_self_invfull_sledge:
+  Cooldown: 1
+  Skills:
+  #- message{m="LRBOOMERANG_hit_self_invfull_sledge"} @self
+  - endprojectile
+  - setvar{var=caster.throw_boomerang;val=false;type=STRING;repeat=10;repeati=1} @self
+  - sound{s=littleroom_boomerang_pack:boomerang.catch;v=1;sc=HOSTILE;cd=0.25;p=<random.float.0.95to1.05>}
+  - remove @children{target=marker}
+  - dropitem{i=LR_sledge_boomerang} @self
+
+
+       ## BOOMERANG LIFESPAN ##
+# THIS KEEPS THE BOOMERANG FROM BEING LOST #
+
+LRBOOMERANG_throw_lifespan_sledge:
+  Skills:
+  - consumeslot{} @self
+  - remove{fromorigin=true;origin=@projectileforward} @ItemsNearOrigin{r=2;conditions[ - entityitemissimilar{i=LR_sledge_boomerang} true]}
+  - skill{s=LRBOOMERANG_check_in_water_start_sledge} @origin
+  - setvar{var=caster.throw_boomerang;val="true";type=STRING;repeat=10;repeati=1} @self
+  - delay 20
+  - skill{s=LRBOOMERANG_throw_lifespan_INERTIA_sledge;repeat=5;repeati=5}
+  - delay 20
+  - setprojectiledirection @self
+  - skill{s=LRBOOMERANG_throw_lifespan_velocity_sledge;repeat=5;repeati=5}
+  
+LRBOOMERANG_check_in_water_start_sledge:
+  TargetConditions:
+  - blocktype{type=water}
+  Skills:
+  - setvar{var=skill.boomerang_water;val=true;type=STRING}
+  
+  
+LRBOOMERANG_throw_lifespan_INERTIA_sledge:
+  Skills:
+  - modifyProjectile{trait=INERTIA;action=MULTIPLY;value=0.75}
+  
+LRBOOMERANG_throw_lifespan_velocity_sledge:
+  Skills:
+  - modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=1.025}
+  
+## CUT GRASS ##
+
+LRBOOMERANG_cut_grass_sledge:
+  TargetConditions:
+  - blocktype{type=GRASS_BLOCK,TALL_GRASS,VINES,SUNFLOWER} true
+  Skills:
+  - breakblock{forcesync=true;doEffect=true;doDrops=true}
+  - effect:particles{p=block;m=GRASS_BLOCK;a=5;hs=.25;vs=.25}
+  
+  
+  
+## BOOMERANG IN WATER ##
+  
+LRBOOMERANG_throw_tick_splash_in_sledge:
+  Conditions:
+  - varequals{var=skill.boomerang_water;val=true} false
+  TargetConditions:
+  - inblock{b=WATER} true
+  Skills:
+  - summon{t=LR_boomerang_splash_water}
+  - sound{s=littleroom_boomerang_pack:boomerang.splash;v=0.5;sc=HOSTILE;p=<random.float.0.9to1.1>}
+  - setvar{var=skill.boomerang_water;val=true;type=STRING}
+  - effect:particles{p=rain;a=50;hs=.25;vs=.25;s=1}
+  
+LRBOOMERANG_slow_in_water_sledge:
+  TargetConditions:
+  - inblock{b=WATER} true
+  Skills:
+  - modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.995}
+  
+LRBOOMERANG_throw_tick_splash_out_sledge:
+  Conditions:
+  - varequals{var=skill.boomerang_water;val=true} true
+  TargetConditions:
+  - inblock{b=AIR} true
+  Skills:
+  - summon{t=LR_boomerang_splash_water}
+  - sound{s=littleroom_boomerang_pack:boomerang.splash_out;v=0.5;sc=HOSTILE;p=<random.float.0.9to1.1>}
+  - setvar{var=skill.boomerang_water;val=false;type=STRING}
+  - effect:particles{p=rain;a=50;hs=.25;vs=.25;s=1}
+  
+LRBOOMERANG_throw_tick_bubbles_sledge:
+  TargetConditions:
+  - inblock{b=WATER} true
+  Skills:
+  - effect:particles{p=bubble;a=5;hs=.25;vs=.15;cd=.05}
+  
+  
+## BOOMERANG IN LAVA ##
+  
+LRBOOMERANG_throw_tick_splash_in_lava_sledge:
+  Cooldown: 1
+  TargetConditions:
+  - inblock{b=LAVA} true
+  Skills:
+  - summon{t=LR_boomerang_splash_lava}
+  - endprojectile
+  - setvar{var=caster.throw_boomerang;val=false;type=STRING} @self
+  - effect:particles{p=lava;a=25;hs=.25;vs=.25;s=1}
+  - remove @children{target=marker}
+  
+  
+  
+## BOOMERANG PICKUP ITEM ##
+  
+LRBOOMERANG_throw_pickupitem_sledge:
+  Skills:
+  - propel{v=1} @projectileforward{f=-0.5;yo=-0.25} 
+  
+
+
+## BOOMERANG BOUNCE ##
+
+LRBOOMERANG_bounce_sledge:
+  Conditions:
+  - inblock{type=WATER} false
+  Skills:
+  - variableadd{var=skill.boomerang_bounce_counter;amount=1;cd=1} @self
+  - pushbutton{x=<target.l.x>;y=<target.l.y>;z=<target.l.z>} @origin
+  - togglelever{duration=20;x=<target.l.x>;y=<target.l.y>;z=<target.l.z>} @origin
+  - skill{s=LRBOOMERANG_throw_sledge_BREAK_BLOCK} @BlocksNearOrigin{r=0.5;shape=CUBE}
+  - skill{s=LRBOOMERANG_bounce_flash_sledge} @BlocksNearOrigin{r=0.5;na=false;oa=true;shape=CUBE}
+  - sound{s=littleroom_boomerang_pack:boomerang.bounce;v=0.25;p=<random.float.0.9to1.1>;sc=HOSTILE;cd=.25}
+  - modifyProjectile{trait=INERTIA;action=MULTIPLY;value=1.5;cd=5}
+  - modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.8;cd=5}
+  - effect:particles{p=crit;a=15;hs=.25;vs=.25;s=1;cd=0.25}
+  - projectile{interpolation=2;
+            bulletType=DISPLAY;
+            mat=CARROT_ON_A_STICK;
+            model=13;
+            v=20;
+            md=15;
+            sfo=0;
+            sso=0;
+            sB=false;
+            sE=false;
+            tyo=1;
+            drawhitbox=false;
+            hr=0.75;
+            vr=0.5;
+            bounce=true;
+            bv=.5;
+            syo=0.25;
+            ty=-0.5;
+            hft=true;
+            id=40;
+            g=0.35;
+            bv=0.75;
+            oT=LRBOOMERANG_spark_tick_sledge;
+            bulletViewDistance=128;
+            bulletbrightnessblock=15;
+            bulletbrightnesssky=15;
+            fromorigin=true;
+            origin=@projectileforward{f=0.5;yo=-1};
+            a=0.75;
+            scale=0.75,0.75,0.75;
+            eso=<random.float.-3to3>;
+            sso=<random.float.-0.5to0.5>;
+            cd=0.25} @RLNTE{a=5;s=10;yo=5}
+    
+    
+LRBOOMERANG_throw_sledge_BREAK_BLOCK:
+  TargetConditions:
+  - blocktype{type=OAK_DOOR,SPRUCE_DOOR,JUNGLE_DOOR,ACACIA_DOOR,BIRCH_DOOR,JUNGLE_DOOR,CHERRY_DOOR,WARPED_DOOR,CRIMSON_DOOR,GLASS_PANE} true
+  Skills:
+  - breakblock{sync=true}
+  
+LRBOOMERANG_bounce_flash_sledge:
+  TargetConditions:
+  - blocktype{type=air} true
+  Skills:
+  - effect:blockmask{m=LIGHT;r=0;d=2;oa=true;na=false;repeat=4;repeati=1}
+  
+LRBOOMERANG_spark_tick_sledge:
+  Skills:
+  - skill{s=LRBOOMERANG_spark_in_water_sledge} @origin
+  
+LRBOOMERANG_spark_in_water_sledge:
+  TargetConditions:
+  - inblock{b=WATER} true
+  Skills:
+  - effect:particles{p=smoke}
+  - endprojectile

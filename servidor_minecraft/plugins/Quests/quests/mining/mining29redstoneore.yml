@@ -1,0 +1,48 @@
+tasks:
+  mine:
+    type: "blockbreakcertain"
+    amount: 100
+    block: REDSTONE_ORE
+display:
+  name: "&bMisiones de Minero &8▪ &7Mineral de Redstone"
+  lore-normal:
+  - "&8Necesitas minar una cierta cantidad"
+  - "&8de recursos antes de recibir la recompensa."
+  - ""
+  - "&bOpciones:"
+  - "&8■ &7Objetivo: &bMinar 100 Mineral de Redstone."
+  - "&8■ &7Progreso: &b{mine:progress}/100 Mineral de Redstone."
+  - ""
+  - "&bRecompensas:"
+  - "&8■ &7Usted recibirá &a&l$&a1500&7."
+  - ""
+  lore-started:
+  - "&e▲ Se ha iniciado la misión."
+  type: "REDSTONE_ORE"
+# Here you can list messages which will be sent to the player (if they are online) upon the quest starting.
+startstring:
+- "&7Al completar esta misión, serás recompensado con"
+- " &8■ &a&l$&a1500"
+rewards:
+- "eco give {player} 1500"
+# Here you can list messages which will be sent to the player (if they are online) upon completion.
+rewardstring:
+- " &8■ &a&l$&a1500 &7se agregó a tu saldo en el juego."
+
+# These placeholders are accessible using PlaceholderAPI, for example %quests_tracked_p:description%
+# They are useful for putting information about the players tracked quest on a scoreboard
+# You may want to keep the names of them the same for ALL quests for this use-case
+#### TOOSIE NOTE: I removed this section to get rid of all errors when doing /quests a reload.
+ #### I will add it only to people who need it, so contact me on discord if you do.
+options:
+  category: "mining"
+  requires: []
+  repeatable: true
+  cooldown:
+    enabled: true
+    time: 2880
+  sort-order: 29
+placeholders:
+  description: ''
+  progress: '{mine:progress}'
+  max: '100'

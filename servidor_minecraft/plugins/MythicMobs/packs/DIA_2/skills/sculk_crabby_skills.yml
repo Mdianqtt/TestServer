@@ -1,0 +1,47 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Spawn
+sculk_crabby_summoned:
+  Conditions:
+  - hasaura{n=ScrabbySpawn} false
+  - hasaura{n=ScrabbyPinch} false
+  Skills:
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=ScrabbySpawn;d=80} @self
+  - state{model=sculk_crabby;state=spawn} @self
+  - lockmodel @self
+  - delay 2
+  - setNoDamageTicks{ticks=80;delay=1} @self
+  - delay 78
+  - lockmodel{l=false} @self
+  - setspeed{speed=1.5;type=WALKING} @self
+
+#Pinch
+sculk_crabby_pinch:
+  Cooldown: 1
+  Conditions:
+  - incombat true
+  - targetwithin{d=3} true
+  - hasaura{n=ScrabbySpawn} false
+  - hasaura{n=ScrabbyPinch} false
+  Skills:
+  - delay 1
+  - CancelEvent @self
+  - aura{auraName=ScrabbyPinch;d=25} @self
+  - state{model=sculk_crabby;state=pinch} @self
+  - delay 5
+  - sound{s=entity.evoker_fangs.attack;v=2;p=2} @self
+  - delay 4
+  - damage{a=15} @target
+
+#Ambient
+sculk_crabby_ambient:
+  Skills:
+  - sound{s=entity.strider.ambient;v=1.5;p=1} @self

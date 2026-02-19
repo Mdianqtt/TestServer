@@ -1,0 +1,11 @@
+Id: 1bit_elite_pillager_pet
+MythicMob: 1bit_elite_pillager_pet
+Permission: mcpet.1bit_elite_pillager_pet
+Mountable: false
+Distance: 5
+ComingBackRange: 5
+SpawnRange: 3
+Icon:
+  Name: §3Elite Pillager Pet
+  Material: PAPER
+  CustomModelData: 15888318

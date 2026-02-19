@@ -1,0 +1,234 @@
+info:
+  namespace: weapons_me
+items:
+  iron_spear:
+    display_name: "Iron Spear"
+    permission: weaponsme.ironspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/iron_spear
+    durability:
+      max_durability: 145
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 6
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+      offhand:
+        attackDamage: 6
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+
+  cobblestone_spear:
+    display_name: "Cobblestone Spear"
+    permission: weaponsme.cobblestonespear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/cobblestone_spear
+    durability:
+      max_durability: 95
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 5
+        attackSpeed: 1.6
+        player.entity_interaction_range: 1.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+      offhand:
+        attackDamage: 5
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+
+  gold_spear:
+    display_name: "Gold Spear"
+    permission: weaponsme.goldspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/gold_spear
+    durability:
+      max_durability: 75
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 4
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+      offhand:
+        attackDamage: 4
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+
+  diamond_spear:
+    display_name: "Diamond Spear"
+    permission: weaponsme.diamondspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/diamond_spear
+    durability:
+      max_durability: 450
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 7
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+      offhand:
+        attackDamage: 7
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+
+  netherite_spear:
+    display_name: "Netherite Spear"
+    permission: weaponsme.netheritespear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/netherite_spear
+    durability:
+      max_durability: 600
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 8
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+      offhand:
+        attackDamage: 8
+        attackSpeed: 1.8
+        player.entity_interaction_range: 1.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 10.0
+
+# BLIND LANZAS-------------------
+
+  iron_blind_spear:
+    display_name: "Iron Blind Spear"
+    permission: weaponsme.ironblindspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/iron_blind_spear
+    durability:
+      max_durability: 435
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 7
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+      offhand:
+        attackDamage: 7
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+
+  diamond_blind_spear:
+    display_name: "Diamond Blind Spear"
+    permission: weaponsme.diamondblindspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/diamond_blind_spear
+    durability:
+      max_durability: 1350
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 8
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+      offhand:
+        attackDamage: 8
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+
+  cobblestone_blind_spear:
+    display_name: "Cobblestone Blind Spear"
+    permission: weaponsme.cobblestoneblindspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/cobblestone_blind_spear
+    durability:
+      max_durability: 285
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 6
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+      offhand:
+        attackDamage: 6
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+
+  gold_blind_spear:
+    display_name: "Gold Blind Spear"
+    permission: weaponsme.goldblindspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/gold_blind_spear
+    durability:
+      max_durability: 225
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 5
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+      offhand:
+        attackDamage: 5
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+        
+  netherite_blind_spear:
+    display_name: "Netherite Blind Spear"
+    permission: weaponsme.netheriteblindspear
+    resource:
+      material: STONE_AXE
+      generate: false
+      model_path: item/spears_and_blind/netherite_blind_spear
+    durability:
+      max_durability: 1800
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 9
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0 #ESTO ES AÑADIRLE BLOQUES, NO ES EL TOTAL, OSEA, ESTO LE DA 0.5 BLOQUES MAS DE REACH
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0
+      offhand:
+        attackDamage: 9
+        attackSpeed: 1.7
+        player.entity_interaction_range: 2.0
+        player.block_break_speed: 0.1
+        player.block_interaction_range: 15.0 #cada 5 bloques es un bloque, aparentemente, esta bug y debe ser acompañado del interacion range

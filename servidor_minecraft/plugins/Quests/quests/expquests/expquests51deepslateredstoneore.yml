@@ -1,0 +1,50 @@
+tasks:
+  mine:
+    type: "blockbreakcertain"
+    amount: 400
+    block: DEEPSLATE_REDSTONE_ORE
+    reverse-if-placed: true
+display:
+  name: "&aMisiones de EXP &8▪ &7Deepslate Redstone Ore"
+  lore-normal:
+  - "&8Necesitas minar una cierta cantidad"
+  - "&8de recursos antes de recibir la recompensa."
+  - ""
+  - "&aOpciones:"
+  - "&8■ &7Objetivo: &aMinar 400 Deepslate Redstone Ore."
+  - "&8■ &7Progreso: &a{mine:progress}/400 deepslate redstone ore."
+  - ""
+  - "&aRecompensas:"
+  - "&8■ &7Usted recibirá &d1260 exp&7."
+  - ""
+  lore-started:
+  - "&e▲ Se ha iniciado la misión."
+  type: "DEEPSLATE_REDSTONE_ORE"
+# Here you can list messages which will be sent to the player (if they are online) upon the quest starting.
+startstring:
+- "&7Al completar esta misión, serás recompensado con"
+- " &8■ &d1260 exp"
+rewards:
+- "xp give {player} 1260"
+# Here you can list messages which will be sent to the player (if they are online) upon completion.
+rewardstring:
+- " &8■ &d1260 exp &7se agregó a tu saldo en el juego."
+
+# These placeholders are accessible using PlaceholderAPI, for example %quests_tracked_p:description%
+# They are useful for putting information about the players tracked quest on a scoreboard
+# You may want to keep the names of them the same for ALL quests for this use-case
+#### TOOSIE NOTE: I removed this section to get rid of all errors when doing /quests a reload.
+ #### I will add it only to people who need it, so contact me on discord if you do.
+
+options:
+  category: "expquests"
+  requires: []
+  repeatable: true
+  cooldown:
+    enabled: true
+    time: 2880
+  sort-order: 51
+placeholders:
+  description: ''
+  progress: '{mine:progress}'
+  max: '400'

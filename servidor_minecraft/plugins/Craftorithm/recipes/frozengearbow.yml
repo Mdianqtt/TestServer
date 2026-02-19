@@ -1,0 +1,12 @@
+type: shaped
+shape:
+- 'ab '
+- ' cd'
+- 'ab '
+source:
+  a: mythic_mobs:blue_crystal
+  b: minecraft:gold_ingot
+  c: minecraft:bow
+  d: minecraft:diamond
+unlock: true
+result: items_adder:weapons_me:frozengear_bow 1

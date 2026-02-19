@@ -1,0 +1,41 @@
+nm_orca:
+  Type: GUARDIAN
+  Display: 'Orca'
+  Health: 70
+  Damage: 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack{attackReach=6} # Alcance de ataque aumentado
+  - followplayer{radius=200;speed=0.5} # Sigue siempre al jugador a corta distancia
+  - randomstroll{radius=20;speed=0.35} # Deambula activamente para buscar jugadores
+  AITargetSelectors:
+  - players # Prioriza siempre a los jugadores como objetivo
+  - withinradius{radius=200} # Detecta jugadores dentro de un radio de 200 bloques
+  - agressive{aggro=true} # Siempre será agresiva y atacará al jugador
+  Options:
+    FollowRange: 64
+    Collidable: false
+    MovementSpeed: 0.7
+    PreventOtherDrops: true
+    Silent: true
+    PreventRenaming: false
+    PreventLeashing: false
+    AlwaysShowName: false
+  Modules:
+    ThreatTable: true
+  Skills:
+  ### Aplica el modelo al generarse
+  - model{mid=nm_orca;n=name} @self ~onSpawn
+  - model{mid=nm_orca;n=name} @self ~onLoad
+
+  ### Sonido cuando recibe daño
+  - sound{s=entity.warden.hurt;p=0.5;v=1} @self ~onDamaged
+
+  ### Sonido al morir
+  - sound{s=entity.warden.death;p=0.5;v=1} @self ~onDeath
+
+  ### Habilidades de ataque
+  - randomskill{s=nm_orca_bite_parse;sync=true;cd=1.5} ~onAttack
+
+  Drops:
+  - nm_orca_drops

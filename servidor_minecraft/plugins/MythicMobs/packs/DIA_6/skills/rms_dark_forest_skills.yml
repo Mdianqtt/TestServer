@@ -1,0 +1,34 @@
+######## created by samus2002 #########
+
+Changetarget:  
+  Cooldown: 0
+  Skills:
+  - runaitargetselector{target=clear}
+  - runaitargetselector{target=players}
+  
+Cancelattack:
+  Skills:
+  - CancelEvent
+  
+Plant_Monster_Attack:
+  Conditions:
+  - offgcd
+  - targetwithin{d=3} true
+  Skills:
+  - gcd{ticks=29}
+  - state{s=attack;li=7;lo=10} @self
+  - effect:sound{s=rms_dark_forest_sounds:samus.plant_monster_attack;volume=1;pitch=1} @self
+  - delay 12
+  - totem{md=2;c=1;oH=Plant_Monster_Attack_DAMAGE;hnp=false;hp=true;hR=1;vR=1;i=1} @forward{f=2}
+
+Plant_Monster_Attack_DAMAGE:
+  TargetConditions:
+  - isblocking false
+  Skills:
+  - damage{a=10;pkb=false;hnp=false;hp=true}
+  - heal{amount=5} @self
+  
+Plant_Monster_Hit:
+  Cooldown: 1
+  Skills:
+  - effect:sound{s=rms_dark_forest_sounds:samus.plant_monster_idle;volume=1;pitch=1.2} @self

@@ -1,0 +1,12 @@
+info:
+    namespace: 1bit_elite_pillager
+categories:
+    1bit_elite_pillager:
+        name: Elite Pillager Mob
+        enabled: true
+        icon: 1bit_elite_pillager:elite_pillager_doll
+        permission: ia.menu.1bit_elite_pillager
+        items:
+        - 1bit_elite_pillager:elite_pillager_doll
+        - 1bit_elite_pillager:elite_pillager_head
+        - 1bit_elite_pillager:elite_pillager_treasure_bag

@@ -1,0 +1,360 @@
+﻿#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+#              Kingdom Cats                #
+#                  ---                    #
+#               by Nocsy                   #
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-#
+
+############################################
+#                  Cats                    #
+############################################
+
+Nocsy_Cat-Munchkin:
+  Type: WOLF
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - lookatplayers
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  - specificfactionmonsters ThreadBall
+  Drops: []
+  Equipment: []
+  Modules:
+    ThreatTable: true
+  Skills:
+   - addtag{t=munchkin} @self ~onSpawn
+   - model{mid=nocsy_cat1;n=false} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_CancelAttack;sync=true} ~onAttack
+   - skill{s=Nocsy_KingdomCat_Spawn} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Sound_Hurt} ~onDamaged
+   - skill{s=Nocsy_KingdomCat_Interact} @self ~onInteract
+   - skill{s=Nocsy_KingdomCat_Thread_Signal} ~onSignal:PLAY
+   - skill{s=Nocsy_KingdomCat_Attack} @self ~onAttack
+   - skill{s=Nocsy_KingdomCat_PrepareAttack} @self ~onEnterCombat
+   - skill{s=Nocsy_KingdomCat_FollowBack} @self ~onDropCombat
+   - skill{s=Nocsy_KingdomCat_Sound_Ambient} @self ~onTimer:600
+   - skill{s=Nocsy_KingdomCat_Despawn} @self ~onDespawn
+  Display: "&6Munchkin cat"
+  Health: 40
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.28
+
+Nocsy_Cat-Bombay:
+  Type: WOLF
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - lookatplayers
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  - specificfactionmonsters ThreadBall
+  Drops: []
+  Equipment: []
+  Modules:
+    ThreatTable: true
+  Skills:
+   - addtag{t=bombay} @self ~onSpawn
+   - model{mid=nocsy_cat2;n=false} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_CancelAttack;sync=true} ~onAttack
+   - skill{s=Nocsy_KingdomCat_Spawn} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Sound_Hurt} ~onDamaged
+   - skill{s=Nocsy_KingdomCat_Interact} @self ~onInteract
+   - skill{s=Nocsy_KingdomCat_Thread_Signal} ~onSignal:PLAY
+   - skill{s=Nocsy_KingdomCat_Attack} @self ~onAttack
+   - skill{s=Nocsy_KingdomCat_PrepareAttack} @self ~onEnterCombat
+   - skill{s=Nocsy_KingdomCat_FollowBack} @self ~onDropCombat
+   - skill{s=Nocsy_KingdomCat_Sound_Ambient} @self ~onTimer:600
+   - skill{s=Nocsy_KingdomCat_Despawn} @self ~onDespawn
+  Display: "&9Bombay cat"
+  Health: 40
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.28
+
+Nocsy_Cat-Siamese:
+  Type: WOLF
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - lookatplayers
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  - specificfactionmonsters ThreadBall
+  Drops: []
+  Equipment: []
+  Modules:
+    ThreatTable: true
+  Skills:
+   - addtag{t=siamese} @self ~onSpawn
+   - model{mid=nocsy_cat3;n=false} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_CancelAttack;sync=true} ~onAttack
+   - skill{s=Nocsy_KingdomCat_Spawn} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Sound_Hurt} ~onDamaged
+   - skill{s=Nocsy_KingdomCat_Interact} @self ~onInteract
+   - skill{s=Nocsy_KingdomCat_Thread_Signal} ~onSignal:PLAY
+   - skill{s=Nocsy_KingdomCat_Attack} @self ~onAttack
+   - skill{s=Nocsy_KingdomCat_PrepareAttack} @self ~onEnterCombat
+   - skill{s=Nocsy_KingdomCat_FollowBack} @self ~onDropCombat
+   - skill{s=Nocsy_KingdomCat_Sound_Ambient} @self ~onTimer:600
+   - skill{s=Nocsy_KingdomCat_Despawn} @self ~onDespawn
+  Display: "&fSiamese cat"
+  Health: 40
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.28
+
+Nocsy_Cat-ScottishFold:
+  Type: WOLF
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - lookatplayers
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  - specificfactionmonsters ThreadBall
+  Drops: []
+  Equipment: []
+  Modules:
+    ThreatTable: true
+  Skills:
+   - addtag{t=scottish} @self ~onSpawn
+   - model{mid=nocsy_cat4;n=false} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_CancelAttack;sync=true} ~onAttack
+   - skill{s=Nocsy_KingdomCat_Spawn} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Sound_Hurt} ~onDamaged
+   - skill{s=Nocsy_KingdomCat_Interact} @self ~onInteract
+   - skill{s=Nocsy_KingdomCat_Thread_Signal} ~onSignal:PLAY
+   - skill{s=Nocsy_KingdomCat_Attack} @self ~onAttack
+   - skill{s=Nocsy_KingdomCat_PrepareAttack} @self ~onEnterCombat
+   - skill{s=Nocsy_KingdomCat_FollowBack} @self ~onDropCombat
+   - skill{s=Nocsy_KingdomCat_Sound_Ambient} @self ~onTimer:600
+   - skill{s=Nocsy_KingdomCat_Despawn} @self ~onDespawn
+  Display: "&7Scottish Fold cat"
+  Health: 40
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.28
+
+Nocsy_Cat-MaineCoon:
+  Type: WOLF
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - lookatplayers
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  - specificfactionmonsters ThreadBall
+  Drops: []
+  Equipment: []
+  Modules:
+    ThreatTable: true
+  Skills:
+   - addtag{t=mainecoon} @self ~onSpawn
+   - model{mid=nocsy_cat5;n=false} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_CancelAttack;sync=true} ~onAttack
+   - skill{s=Nocsy_KingdomCat_Spawn} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Sound_Hurt} ~onDamaged
+   - skill{s=Nocsy_KingdomCat_Interact} @self ~onInteract
+   - skill{s=Nocsy_KingdomCat_Thread_Signal} ~onSignal:PLAY
+   - skill{s=Nocsy_KingdomCat_Attack} @self ~onAttack
+   - skill{s=Nocsy_KingdomCat_PrepareAttack} @self ~onEnterCombat
+   - skill{s=Nocsy_KingdomCat_FollowBack} @self ~onDropCombat
+   - skill{s=Nocsy_KingdomCat_Sound_Ambient} @self ~onTimer:600
+   - skill{s=Nocsy_KingdomCat_Despawn} @self ~onDespawn
+  Display: "&6Maine Coon cat"
+  Health: 40
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.28
+
+Nocsy_Cat-European:
+  Type: WOLF
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - lookatplayers
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - specificfactionmonsters ThreadBall
+  Drops: []
+  Equipment: []
+  Modules:
+    ThreatTable: true
+  Skills:
+   - addtag{t=european} @self ~onSpawn
+   - model{mid=nocsy_cat6;n=false} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_CancelAttack;sync=true} ~onAttack
+   - skill{s=Nocsy_KingdomCat_Spawn} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Sound_Hurt} ~onDamaged
+   - skill{s=Nocsy_KingdomCat_Interact} @self ~onInteract
+   - skill{s=Nocsy_KingdomCat_Thread_Signal} ~onSignal:PLAY
+   - skill{s=Nocsy_KingdomCat_Attack} @self ~onAttack
+   - skill{s=Nocsy_KingdomCat_PrepareAttack} @self ~onEnterCombat
+   - skill{s=Nocsy_KingdomCat_FollowBack} @self ~onDropCombat
+   - skill{s=Nocsy_KingdomCat_Sound_Ambient} @self ~onTimer:600
+   - skill{s=Nocsy_KingdomCat_Despawn} @self ~onDespawn
+  Display: "&9European cat"
+  Health: 40
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.28
+
+Nocsy_Cat-Fallen:
+  Type: WOLF
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - lookatplayers
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  - specificfactionmonsters ThreadBall
+  Drops: []
+  Equipment: []
+  Modules:
+    ThreatTable: true
+  Skills:
+   - addtag{t=fallen} @self ~onSpawn
+   - model{mid=nocsy_cat_fallen;n=false} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_CancelAttack;sync=true} ~onAttack
+   - skill{s=Nocsy_KingdomCat_Spawn} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Sound_Hurt} ~onDamaged
+   - skill{s=Nocsy_KingdomCat_Interact} @self ~onInteract
+   - skill{s=Nocsy_KingdomCat_Thread_Signal} ~onSignal:PLAY
+   - skill{s=Nocsy_KingdomCat_Attack} @self ~onAttack
+   - skill{s=Nocsy_KingdomCat_PrepareAttack} @self ~onEnterCombat
+   - skill{s=Nocsy_KingdomCat_FollowBack} @self ~onDropCombat
+   - skill{s=Nocsy_KingdomCat_Sound_Ambient} @self ~onTimer:600
+   - skill{s=Nocsy_KingdomCat_Despawn} @self ~onDespawn
+  Display: "&cFallen cat"
+  Health: 80
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.3
+
+############################################
+#              Thread ball                 #
+############################################
+
+Nocsy_Cat-ThreadBall:
+  Type: ENDERMITE
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  Drops: []
+  Equipment: []
+  Faction: ThreadBall
+  Skills:
+   - model{mid=nocsy_thread_ball;n=false;tint=false} @self ~onSpawn
+   - potion{type=SLOW;duration=2147483646;lvl=126;hasParticles=false} @self ~onSpawn
+   - setVariable{var=caster.count_attacks;value=0} @self ~onSpawn
+   - skill{s=Nocsy_KingdomCat_Thread_Roll} ~onTimer:10
+   - skill{s=Nocsy_KingdomCat_Thread_Effect} ~onTimer:10
+   - skill{s=Nocsy_KingdomCat_Thread_Damaged} ~onDamaged
+   - skill{s=[
+              - delay 800
+              - skill{s=Nocsy_KingdomCat_Thread_Remove-Force}
+             ]} ~onSpawn
+  Display: "&cThread Ball"
+  Health:  60
+  Damage: 0
+  Options:
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+    MovementSpeed: 0.01

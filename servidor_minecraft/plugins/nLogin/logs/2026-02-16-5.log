@@ -1,0 +1,16 @@
+[2026/02/16 03:27:01]: §9          __             _       
+[2026/02/16 03:27:01]: §9  _ __   / /  ___   __ _(_)_ __  
+[2026/02/16 03:27:01]: §9 | '_ \ / /  / _ \ / _` | | '_ \ 
+[2026/02/16 03:27:01]: §9 | | | / /__| (_) | (_| | | | | |
+[2026/02/16 03:27:01]: §9 |_| |_\____/\___/ \__, |_|_| |_|
+[2026/02/16 03:27:01]: §9                  |___/            
+[2026/02/16 03:27:01]: §9 By: www.nickuc.com - V 10.4.27
+[2026/02/16 03:27:01]: §9 
+[2026/02/16 03:27:01]: §3[nLogin] [DEBUG] All settings were loaded in 105 ms.
+[2026/02/16 03:27:02]: §3[nLogin] [DEBUG] Loading the messages_es.yml message file...
+[2026/02/16 03:27:02]: §3[nLogin] [DEBUG] All plugin messages were loaded in 87 ms (languageByClient=false).
+[2026/02/16 03:27:02]: §3[nLogin] [DEBUG] All proxy settings were loaded in 2 ms.
+[2026/02/16 03:27:02]: §3[nLogin] [DEBUG] Loading database...
+[2026/02/16 03:27:02]: §3[nLogin] [DEBUG] Starting logger filter...
+[2026/02/16 03:29:41]: §4[nLogin] [ERROR] §cCould not connect to the api - internet unavailable or HTTPS port closed (this likely is a hosting error!)
+[2026/02/16 03:30:33]: [nLogin] Successful plugin core shutdown (took 0.00s)

@@ -1,0 +1,425 @@
+SecuenciaVeneno_PINK:
+  Cooldown: 5 # <--- IMPORTANTE: La seta no volverá a atacar hasta pasar 5 segundos
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Solo una vez)
+  - effect:particles{p=dust_color_transition;color=255,100,255;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=enchant;amount=20;hS=1;vS=2} @self
+  - sound{s=entity.allay.item_taken;p=0.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN (Solo una vez)
+  - skill{s=ExplosionEsporas_PINK} @self
+
+ExplosionEsporas_PINK:
+  Skills:
+  # Combinación de 3 partículas a la vez en un solo golpe visual
+  - effect:particles{p=dust;color=255,0,150;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=dragon_breath;amount=40;speed=0.05;hS=2;vS=1} @self
+  
+  - sound{s=entity.puffer_fish.blow_out;p=0.5;v=2} @self
+  
+  # Daño único
+  - damage{amount=4;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=POISON;duration=120;level=2} @PlayersInRadius{r=5}
+
+
+
+  # ------------------BLUE---------------------- #
+
+
+SecuenciaVeneno_BLUE:
+  Cooldown: 5
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Cian neón y partículas de nieve)
+  - effect:particles{p=dust_color_transition;color=0,255,255;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=snowflake;amount=20;hS=1;vS=2} @self
+  - sound{s=block.glass.break;p=1.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_BLUE} @self
+
+ExplosionEsporas_BLUE:
+  Skills:
+  - effect:particles{p=dust;color=0,100,255;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=glow;amount=40;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.player.hurt_freeze;p=0.5;v=2} @self
+  
+  # Daño y Lentitud extrema
+  - damage{amount=3;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=SLOW;duration=100;level=3} @PlayersInRadius{r=5}
+
+
+  # ------------------MARRON---------------------- #
+
+
+SecuenciaVeneno_BROWN:
+  Cooldown: 7 # Un poco más lento en recargar
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Arena y partículas de tierra)
+  - effect:particles{p=dust_color_transition;color=139,69,19;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=falling_dust;material=DIRT;amount=15;hS=1;vS=1} @self
+  - sound{s=block.sand.place;p=0.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_BROWN} @self
+
+ExplosionEsporas_BROWN:
+  Skills:
+  - effect:particles{p=dust;color=90,50,20;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=poof;amount=30;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.zombie.break_wooden_door;p=0.8;v=1} @self
+  
+  # Daño alto y Debilidad (le cuesta más atacar)
+  - damage{amount=6;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=WEAKNESS;duration=160;level=2} @PlayersInRadius{r=5}
+  - potion{type=HUNGER;duration=100;level=1} @PlayersInRadius{r=5}
+
+
+  # ------------------CHAMPIGNON---------------------- #
+
+
+SecuenciaVeneno_CHAMPIGNON:
+  Cooldown: 6
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Polvo blanco y partículas de nubes)
+  - effect:particles{p=dust_color_transition;color=240,240,240;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=cloud;amount=15;hS=1;vS=2} @self
+  - sound{s=block.wool.step;p=0.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_CHAMPIGNON} @self
+
+ExplosionEsporas_CHAMPIGNON:
+  Skills:
+  # Mezcla de Gris claro y Blanco puro
+  - effect:particles{p=dust;color=200,200,200;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=white_smoke;amount=40;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.creeper.primed;p=1.5;v=1} @self
+  
+  # Daño y Ceguera (Simulando la nube de esporas en los ojos)
+  - damage{amount=4;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=BLINDNESS;duration=80;level=1} @PlayersInRadius{r=5}
+
+
+
+  # ------------------CHANTERELLE---------------------- #
+
+
+SecuenciaVeneno_CHANTERELLE:
+  Cooldown: 5
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Amarillo brillante y chispas)
+  - effect:particles{p=dust_color_transition;color=255,215,0;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=wax_on;amount=15;hS=1;vS=2} @self
+  - sound{s=block.candle.extinguish;p=1.2;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_CHANTERELLE} @self
+
+ExplosionEsporas_CHANTERELLE:
+  Skills:
+  # Naranja y Amarillo fuego
+  - effect:particles{p=dust;color=255,140,0;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=glow_squid_ink;amount=30;speed=0.05;hS=2;vS=1} @self
+  - sound{s=item.firecharge.use;p=0.8;v=1} @self
+  
+  # Daño y Hambre intensa
+  - damage{amount=5;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=HUNGER;duration=200;level=3} @PlayersInRadius{r=5}
+  - potion{type=CONFUSION;duration=100;level=1} @PlayersInRadius{r=5}
+
+
+  # ------------------ENOKITATE---------------------- #
+
+
+SecuenciaVeneno_ENOKITATE:
+  Cooldown: 5
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Blanco Crema y chispas mágicas)
+  - effect:particles{p=dust_color_transition;color=255,250,205;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=end_rod;amount=10;hS=1;vS=2} @self
+  - sound{s=block.amethyst_block.chime;p=1.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_ENOKITATE} @self
+
+ExplosionEsporas_ENOKITATE:
+  Skills:
+  # Blanco brillante y partículas de brillo
+  - effect:particles{p=dust;color=255,255,240;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=glow;amount=40;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.allay.item_thrown;p=0.5;v=2} @self
+  
+  # Daño moderado y Debilidad (Fatiga)
+  - damage{amount=3;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=WEAKNESS;duration=140;level=2} @PlayersInRadius{r=5}
+
+
+  # ------------------GREEN AMANITA---------------------- #
+
+
+SecuenciaVeneno_GREEN_AMANITA:
+  Cooldown: 4 # Ataca más rápido por ser altamente reactiva
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Verde Lima Radiactivo)
+  - effect:particles{p=dust_color_transition;color=50,255,0;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=happy_villager;amount=10;hS=1;vS=2} @self # Partículas verdes de aldeano
+  - sound{s=block.bubble_column.upwards_ambient;p=2.0;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_GREEN_AMANITA} @self
+
+ExplosionEsporas_GREEN_AMANITA:
+  Skills:
+  # Verde oscuro y partículas de poción
+  - effect:particles{p=dust;color=0,100,0;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=spore_blossom_air;amount=50;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.puffer_fish.blow_out;p=0.2;v=2} @self
+  
+  # Daño alto y Veneno fuerte
+  - damage{amount=5;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=POISON;duration=200;level=2} @PlayersInRadius{r=5}
+  - potion{type=HUNGER;duration=120;level=2} @PlayersInRadius{r=5}
+
+
+  # ------------------MOREL---------------------- #
+
+
+SecuenciaVeneno_MOREL:
+  Cooldown: 6
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Ocre/Marrón claro y partículas de humo)
+  - effect:particles{p=dust_color_transition;color=194,178,128;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=campfire_cosy_smoke;amount=5;hS=0.5;vS=1} @self
+  - sound{s=block.gravel.step;p=0.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_MOREL} @self
+
+ExplosionEsporas_MOREL:
+  Skills:
+  # Mezcla de Ocre y Marrón tierra
+  - effect:particles{p=dust;color=139,115,85;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=ash;amount=40;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.horse.breathing;p=0.5;v=1} @self
+  
+  # Daño y efectos de "indigestión"
+  - damage{amount=4;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=CONFUSION;duration=120;level=1} @PlayersInRadius{r=5}
+  - potion{type=HUNGER;duration=160;level=2} @PlayersInRadius{r=5}
+
+
+  # ------------------PURPLE---------------------- #
+
+
+SecuenciaVeneno_PURPLE:
+  Cooldown: 5
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Púrpura neón y partículas de portal)
+  - effect:particles{p=dust_color_transition;color=200,0,255;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=portal;amount=20;hS=1;vS=2} @self
+  - sound{s=block.respawn_anchor.charge;p=1.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_PURPLE} @self
+
+ExplosionEsporas_PURPLE:
+  Skills:
+  # Magenta y Morado oscuro
+  - effect:particles{p=dust;color=128,0,128;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=witch;amount=50;speed=0.05;hS=2;vS=1} @self
+  - effect:particles{p=reverse_portal;amount=30;hS=2;vS=2} @self
+  - sound{s=entity.enderman.teleport;p=0.5;v=1} @self
+  
+  # Daño y efectos de distorsión espacial
+  - damage{amount=4;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=LEVITATION;duration=40;level=1} @PlayersInRadius{r=5}
+  - potion{type=NIGHT_VISION;duration=100;level=1} @PlayersInRadius{r=5} # El flash de luz blanca molesta la vista
+
+
+  # ------------------RED AMANITA---------------------- #
+
+
+SecuenciaVeneno_RED_AMANITA:
+  Cooldown: 5
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Rojo Sangre y chispas de lava)
+  - effect:particles{p=dust_color_transition;color=255,0,0;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=lava;amount=10;hS=1;vS=1} @self
+  - sound{s=block.furnace.fire_crackle;p=1.0;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_RED_AMANITA} @self
+
+ExplosionEsporas_RED_AMANITA:
+  Skills:
+  # Rojo puro y partículas de explosión pequeña
+  - effect:particles{p=dust;color=200,0,0;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=flame;amount=30;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.generic.explode;p=2.0;v=1} @self
+  
+  # Daño alto y efecto de "Hambre" (simulando debilidad por toxina)
+  - damage{amount=6;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=WITHER;duration=100;level=1} @PlayersInRadius{r=5}
+
+
+  # ------------------RUSSULA---------------------- #
+
+
+SecuenciaVeneno_RUSSULA:
+  Cooldown: 6
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Rosa fuerte y partículas de burbujas)
+  - effect:particles{p=dust_color_transition;color=220,20,60;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=bubble;amount=15;hS=1;vS=2} @self
+  - sound{s=block.bubble_column.bubble_pop;p=1.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_RUSSULA} @self
+
+ExplosionEsporas_RUSSULA:
+  Skills:
+  # Carmesí y partículas de humo de colores
+  - effect:particles{p=dust;color=150,0,50;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=entity_effect;color=#DC143C;amount=40;hS=2;vS=1} @self
+  - sound{s=entity.squid.squirt;p=0.5;v=1} @self
+  
+  # Daño y Fatiga Minera (para que no puedan romper bloques rápido)
+  - damage{amount=4;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=SLOW;duration=120;level=2} @PlayersInRadius{r=5}
+
+
+  # ------------------TOADSTOOL---------------------- #
+
+
+SecuenciaVeneno_TOADSTOOL:
+  Cooldown: 5
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Naranja Neón y chispas de colores)
+  - effect:particles{p=dust_color_transition;color=255,140,0;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=scrape;amount=15;hS=1;vS=2} @self
+  - sound{s=block.respawn_anchor.ambient;p=2.0;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_TOADSTOOL} @self
+
+ExplosionEsporas_TOADSTOOL:
+  Skills:
+  # Naranja intenso y partículas de "Witch" (moradas) para el toque mágico
+  - effect:particles{p=dust;color=255,69,0;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=witch;amount=40;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.illusioner.cast_spell;p=0.5;v=1} @self
+  
+  # Daño y confusión total
+  - damage{amount=4;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=CONFUSION;duration=160;level=1} @PlayersInRadius{r=5}
+  - potion{type=POISON;duration=100;level=1} @PlayersInRadius{r=5}
+
+
+  # ------------------WHITE---------------------- #
+
+
+SecuenciaVeneno_WHITE:
+  Cooldown: 6
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Blanco puro y partículas de nieve)
+  - effect:particles{p=dust_color_transition;color=255,255,255;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=snowflake;amount=10;hS=1;vS=2} @self
+  - sound{s=block.powder_snow.step;p=0.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_WHITE} @self
+
+ExplosionEsporas_WHITE:
+  Skills:
+  # Blanco brillante y partículas de "Poof" (humo blanco denso)
+  - effect:particles{p=dust;color=240,240,240;amount=100;speed=0.15;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=poof;amount=50;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.snow_golem.shear;p=0.8;v=1} @self
+  
+  # Daño y Debilidad física
+  - damage{amount=4;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=WEAKNESS;duration=120;level=2} @PlayersInRadius{r=5}
+  - potion{type=SLOW;duration=80;level=1} @PlayersInRadius{r=5}
+
+
+  # ------------------YELLOW AMANITA---------------------- #
+
+
+SecuenciaVeneno_YELLOW_AMANITA:
+  Cooldown: 5
+  Conditions:
+  - playerWithin{d=5} true
+  Skills:
+  # 1. EL AVISO (Amarillo Azufre y chispas eléctricas)
+  - effect:particles{p=dust_color_transition;color=255,255,0;amount=40;speed=0.05;hS=0.8;vS=1;size=1.2} @self
+  - effect:particles{p=electric_spark;amount=15;hS=1;vS=2} @self
+  - sound{s=block.honey_block.slide;p=1.5;v=1} @self
+  
+  - delay 15
+  
+  # 2. LA EXPLOSIÓN
+  - skill{s=ExplosionEsporas_YELLOW_AMANITA} @self
+
+ExplosionEsporas_YELLOW_AMANITA:
+  Skills:
+  # Amarillo Intenso y partículas de Glow (Brillo)
+  - effect:particles{p=dust;color=255,220,0;amount=100;speed=0.2;hS=2.5;vS=1.5;size=1.6} @self
+  - effect:particles{p=glow;amount=40;speed=0.05;hS=2;vS=1} @self
+  - sound{s=entity.puffer_fish.blow_out;p=1.2;v=1} @self
+  
+  # Daño y efectos de "Corrosión" (Hambre y Debilidad)
+  - damage{amount=5;ignoreArmor=false} @PlayersInRadius{r=5}
+  - potion{type=HUNGER;duration=150;level=3} @PlayersInRadius{r=5}
+  - potion{type=WEAKNESS;duration=100;level=1} @PlayersInRadius{r=5}

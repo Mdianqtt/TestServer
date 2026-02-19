@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/1bit_elite_baby_pillager"},"elements":[{"from":[6.8,7.2,8.0],"to":[9.2,8.8,8.0],"faces":{"south":{"uv":[11.0,4.5,10.25,5.0],"tintindex":0,"rotation":0,"texture":"#0"},"north":{"uv":[10.25,4.5,11.0,5.0],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

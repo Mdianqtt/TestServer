@@ -1,0 +1,185 @@
+  redstone:
+    name: "&8Redstone ✚ (page %page% ┃ 1)"
+    buttons:
+      goBack:
+        slot: 4     
+      previousPage:
+        slot: 2
+      nextPage:
+        slot: 6   
+    fillItem:
+        material: ORANGE_STAINED_GLASS_PANE
+        name: "" 
+    items:
+       1:
+        type: item
+        item:
+          material: hopper
+          quantity: 1
+        buyPrice: 900
+        sellPrice: -1
+        slot: 9      
+       2:
+        type: item
+        item:
+          material: redstone_torch
+          quantity: 1
+        buyPrice: 10
+        sellPrice: -1
+        slot: 10        
+       3:
+        type: item
+        item:
+          material: redstone_block  
+          quantity: 1
+        buyPrice: 145
+        sellPrice: 27
+        slot: 11          
+       4:
+        type: item
+        item:
+          material: redstone_lamp 
+          quantity: 1
+        buyPrice: 20
+        sellPrice: -1
+        slot: 12    
+       5:
+        type: item
+        item:
+          material: daylight_detector   
+          quantity: 1
+        buyPrice: 15
+        sellPrice: -1
+        slot: 13         
+       6:
+        type: item
+        item:
+          material: comparator  
+          quantity: 1
+        buyPrice: 50
+        sellPrice: -1
+        slot: 14      
+       7:
+        type: item
+        item:
+          material: repeater  
+          quantity: 1
+        buyPrice: 50
+        sellPrice: -1
+        slot: 15
+       8:
+        type: item
+        item:
+          material: piston      
+          quantity: 1
+        buyPrice: 125
+        sellPrice: -1
+        slot: 16 
+       9:
+        type: item
+        item:
+          material: sticky_piston     
+          quantity: 1
+        buyPrice: 150
+        sellPrice: -1
+        slot: 17   
+       10:
+        type: item
+        item:
+          material: dispenser       
+          quantity: 1
+        buyPrice: 50
+        sellPrice: -1
+        slot: 18      
+       11:
+        type: item
+        item:
+          material: dropper       
+          quantity: 1
+        buyPrice: 50
+        sellPrice: -1
+        slot: 19       
+       12:
+        type: item
+        item:
+          material: rail          
+          quantity: 1
+        buyPrice: 10
+        sellPrice: -1
+        slot: 20        
+       13:
+        type: item
+        item:
+          material: detector_rail       
+          quantity: 1
+        buyPrice: 35
+        sellPrice: -1
+        slot: 21      
+       14:
+        type: item
+        item:
+          material: powered_rail            
+          quantity: 1
+        buyPrice: 62.5
+        sellPrice: -1
+        slot: 22
+       15:
+        type: item
+        item:
+          material: activator_rail            
+          quantity: 1
+        buyPrice: 34
+        sellPrice: -1
+        slot: 23
+       16:
+        type: item
+        item:
+          material: OBSERVER            
+          quantity: 1
+        buyPrice: 40
+        sellPrice: -1
+        slot: 24
+       17:
+        type: item
+        item:
+          material: LIGHT_WEIGHTED_PRESSURE_PLATE          
+          quantity: 1
+        buyPrice: 12.5
+        sellPrice: -1
+        slot: 25
+       18:
+        type: item
+        item:
+          material: HEAVY_WEIGHTED_PRESSURE_PLATE           
+          quantity: 1
+        buyPrice: 12.5
+        sellPrice: -1
+        slot: 26
+       19:
+        type: item
+        item:
+          material: LEVER           
+          quantity: 1
+        buyPrice: 17
+        sellPrice: -1
+        slot: 27
+       20:
+        type: item
+        item:
+          material: TRIPWIRE_HOOK           
+          quantity: 1
+        buyPrice: 18.75
+        sellPrice: -1
+        slot: 28
+       21:
+        type: item      
+        item:
+          material: sculk_sensor    
+          quantity: 1
+        buyPrice: 1500
+        sellPrice: -1
+        slot: 29
+       22:
+        type: special
+        special: balance
+        slot: 8                  

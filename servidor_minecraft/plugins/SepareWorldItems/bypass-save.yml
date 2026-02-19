@@ -1,0 +1,5 @@
+save-bypass:
+  uuid:
+    name: player
+    worlds:
+      world: {}

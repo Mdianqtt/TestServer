@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/bl_ice_elemental_vfx3"},"elements":[{"from":[1.625,-12.0,7.75],"to":[14.625,12.0,7.75],"faces":{"south":{"uv":[6.5,0.0,13.0,12.0],"tintindex":0,"rotation":0,"texture":"#0"},"north":{"uv":[0.0,0.0,6.5,12.0],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

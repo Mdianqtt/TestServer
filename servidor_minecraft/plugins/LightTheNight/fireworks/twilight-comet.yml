@@ -1,0 +1,28 @@
+twilight-comet:
+  fireworks:
+    tail:
+      type: BALL_LARGE
+      colors:
+        - "#5c6bff"
+        - "#3a1bff"
+      fade:
+        - "#9e8eff"
+      power: 2
+      trail: true
+      flicker: false
+      count: 2
+      spread: 0.3
+      fo: 0.7
+    head:
+      type: STAR
+      colors:
+        - "#ffe7a6"
+      fade:
+        - "#ffb347"
+      power: 1
+      trail: true
+      flicker: true
+      count: 1
+      spread: 0.0
+      delay: 4
+      fo: 1.0

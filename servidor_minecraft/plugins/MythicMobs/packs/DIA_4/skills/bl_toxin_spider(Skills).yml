@@ -1,0 +1,121 @@
+bl_toxin_spider_death:
+  Skills:
+  - sound{s=minecraft:entity.spider.death;v=3;p=0.8;delay=5} @self
+
+bl_toxin_spider_skills:
+  Skills:
+  - randomskill{s=bl_toxin_spider_fang_attack,bl_toxin_spider_web_attack,bl_toxin_spider_projectile} @target
+
+bl_toxin_spider_step:
+  Conditions:
+  - moving true
+  - inblock{b=WATER,LAVA} false
+  - offgcd
+  Skills:
+  - sound{s=minecraft:entity.spider.step;v=3;p=0.9} @self
+
+bl_toxin_spider_idle:
+  Conditions:
+  - moving false
+  - offgcd
+  Skills:
+  - sound{s=minecraft:entity.spider.ambient;v=3;p=0.7} @self
+
+bl_toxin_spider_fang_attack:
+  Cooldown: 4
+  Conditions:
+  - targetwithin{d=5} true
+  - offgcd
+  Skills:
+  - gcd{ticks=35} @self
+  - state{mid=bl_toxin_spider;s=attack;li=3;lo=3} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=0.8;delay=15} @self
+  - aura{auraName=bl_toxin_spider_fang_attack_totem;onTick=bl_toxin_spider_fang_attack_totem_tick;interval=1;duration=7;delay=13} @self
+  - delay 14
+  - setspeed{s=2.5} @self
+  - delay 8
+  - setspeed{s=0} @self
+  - delay 13
+  - setspeed{s=1.4} @self
+
+bl_toxin_spider_fang_attack_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_toxin_spider_fang_attack_damage;hr=1;vr=1;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=hurt_box;o=model;z=0;y=0}
+
+bl_toxin_spider_fang_attack_damage:
+  Skills:
+  - damage{a=10}
+  - throw{v=2;vy=0}
+  - potion{type=POISON;duration=30;level=3}
+  - shieldbreak{duration=60}
+
+bl_toxin_spider_web_attack:
+  Cooldown: 8
+  TargetConditions:
+  - distance{d=>2} true
+  Conditions:
+  - targetwithin{d=7} true
+  - offgcd
+  Skills:
+  - gcd{ticks=36} @self
+  - state{mid=bl_toxin_spider;s=web_attack;li=3;lo=3} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=1;delay=20} @self
+  - setspeed{s=0} @self
+  - delay 20
+  - projectile{oT=bl_toxin_spider_projectile_tick;oH=bl_toxin_spider_projectile_hit;b=MOB;mm=bl_toxin_spider_projectile;byo=1;hR=1;vR=1;mr=30;v=18;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawhitbox=false} @forward{f=10;y=1}
+  - propel{v=1} @forward{f=-1.5;yo=0.1;lockpitch=true}
+  - delay 20
+  - setspeed{s=1.4} @self
+
+bl_toxin_spider_projectile_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#a5b70a;color2=#feee3f;amount=5;hS=0.2;vS=0.2;speed=0;size=0.5;y=-1}
+
+bl_toxin_spider_projectile_hit:
+  Skills:
+  - summon{m=bl_toxin_spider_web;a=1;r=0;yr=0;os=true} @TargetLocation{y=0}
+  - endprojectile
+
+bl_toxin_spider_web_attack_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_toxin_spider_web_attack_damage;hr=1;vr=1;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=bone3;o=model;z=0;y=0}
+
+bl_toxin_spider_web_attack_damage:
+  Skills:
+  - damage{a=5}
+  - throw{v=0;vy=0}
+  - potion{type=SLOW;duration=10;level=5}
+  - potion{type=POISON;duration=30;level=2}
+  - shieldbreak{duration=80}
+
+bl_toxin_spider_projectile:
+  Cooldown: 12
+  Conditions:
+  - targetwithin{d=3} true
+  - offgcd
+  Skills:
+  - gcd{ticks=35} @self
+  - state{mid=bl_toxin_spider;s=toxin_attack;li=3;lo=3} @self
+  - sound{s=minecraft:entity.slime.attack;v=3;p=0.8;delay=36} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=0.8;delay=25} @self
+  - setspeed{s=0} @self
+  - lockmodel{l=true;delay=18} @self
+  - lockmodel{l=false;delay=40} @self
+  - partvis{mid=bl_toxin_spider;p=toxin_vfx;v=true;child=true} @self
+  - partvis{mid=bl_toxin_spider;p=toxin_vfx;v=false;child=true;delay=50} @self
+  - delay 33
+  - summon{m=bl_toxin_spider_projectile_end;a=1;r=0;yr=0;os=true} @modelpart{pid=toxin_box_1;o=model;z=0;y=0}
+  - summon{m=bl_toxin_spider_projectile_end;a=1;r=0;yr=0;os=true} @modelpart{pid=toxin_box_2;o=model;z=0;y=0}
+  - delay 2
+  - setspeed{s=1.4} @self
+
+bl_toxin_spider_projectile_end_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_toxin_spider_projectile_end_damage;hr=1;vr=1;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=root;o=model;z=0;y=0}
+
+bl_toxin_spider_projectile_end_damage:
+  Skills:
+  - damage{a=5}
+  - throw{v=0;vy=0}
+  - potion{type=POISON;duration=30;level=2}
+  - shieldbreak{duration=80}

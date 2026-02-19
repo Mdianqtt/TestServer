@@ -1,0 +1,19 @@
+slime_creep_attack:
+  Conditions:
+  - targetwithin{d=1.7} true
+  Skills:
+  - effect:particles{particle=block;m=slime_block;amount=50;hS=.25;vS=.25;speed=1;y=.25} @self
+  - effect:particles{particle=item_slime;amount=50;hS=.25;vS=.25;speed=2;y=0} @self
+  - damage{a=15} @pir{r=4}
+  - dropitem{i=gunpowder} @self .5
+  - effect:explosion @selflocation{y=.5;bd=true}
+  - remove @self
+  
+slime_creep_death:
+  Skills:
+  - effect:particles{particle=block;m=slime_block;amount=50;hS=.25;vS=.25;speed=1;y=.25} @self
+  - effect:particles{particle=item_slime;amount=50;hS=.25;vS=.25;speed=2;y=0} @self
+  - damage{a=15} @pir{r=3}
+  - dropitem{i=slime_ball} @self .5
+  - effect:explosion @selflocation{y=.5;bd=true}
+  - remove @self

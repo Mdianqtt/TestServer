@@ -1,0 +1,27 @@
+ember-ring:
+  fireworks:
+    halo:
+      type: BURST
+      colors:
+        - "#ff884d"
+        - "#ff5e36"
+      fade:
+        - "#ffce85"
+      power: 1
+      trail: true
+      flicker: true
+      count: 10
+      spread: 1.6
+      ho: 0.3
+    spark-core:
+      type: BALL
+      colors:
+        - "#ffd2a4"
+      fade:
+        - "#ff7a3c"
+      power: 1
+      trail: false
+      flicker: true
+      count: 2
+      spread: 0.1
+      delay: 4

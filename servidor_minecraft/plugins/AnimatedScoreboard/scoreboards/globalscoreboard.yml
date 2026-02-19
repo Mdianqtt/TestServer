@@ -1,0 +1,56 @@
+display:
+    title:
+      text:
+        # You can change the colors (#EC97C7,#86A8E7,#5FFBF1)
+        # NOTE: You can also add as many hex colors as you want! (seperated by a comma)
+        - "%gradient2_style:l_#EC97C7,#86A8E7,#5FFBF1_{customfont_style:1,ZONA CERO}%"
+    1:
+      text:
+      - ""
+    2:
+      text:
+      - " %utils_parse_gradient2_style:l_#F2EFE9,#FFFFFF_{customfont_style:1,{player_name}}% %utils_parse_changeoutput_equals_input:{essentials_nickname_stripped}_matcher:{player_name}_ifmatch:_else:&8| {gradient2_#F2EFE9,#FFFFFF_{customfont_style:1,{essentials_nickname_stripped}}}%"
+    3:
+      text:
+      - "  &#deb887🛡 &f%customfont_style:1,Rango% &#deb887%customfont_style:1,{vault_rank}%"
+    4:
+      text:
+      - "  &#FFFF00© &f%customfont_style:1,Dinero% &#FFFF00$%customfont_style:1,{vault_eco_balance_formatted}%"
+    5:
+      text:
+      - "  &#ff2052❤ &f%customfont_style:1,Vida% &#ff2052%math_1:0_{player_health}/2%♥"
+      interval: 20
+    6:
+      text:
+      - "  &#bcd4e6🗡 &f%customfont_style:1,Kills% &#bcd4e6%statistic_player_kills%"
+      - "  &#e3dac9☠ &f%customfont_style:1,Muertes% &#e3dac9%statistic_deaths%"
+      interval: 100
+    7:
+      text: ""      
+    8:
+      text:
+      - " %utils_parse_gradient2_style:l_#F2EFE9,#FFFFFF_{customfont_style:1,Info}%"
+    9:
+      text:
+      - "  &#86A8E7⌛ &f%customfont_style:1,Latencia% &#86A8E7%player_ping%%customfont_style:1,ms%"
+    10:
+      text:
+      - "   &#6AE2FF♟ &f%customfont_style:1,Online% &#6AE2FF%server_online%&f/&#6AE2FF%server_max_players%"
+    11:
+      text:
+      - ""
+    12:
+      text:
+      - "  &#ffff99⌚ &f%utils_parse_gradient2_#F2EFE9,#FFFFFF_{localtime_time_MMM d, H:mm}%"
+      # - "  &#ffff99⌚ &f%utils_parse_gradient2_#F2EFE9,#FFFFFF_{localtime_time_MMM d, h:mm a}%" # 12-hour clock format
+    13:
+      text:
+      - ""
+    14:
+      text:
+      - "  &f%utils_parse_gradient2_#F2EFE9,#FFFFFF_{customfont_style:1,survivalzc.vultam.host}%"
+    15:
+      text:
+      - ""
+
+# 0623IWYSD5DF8NC1

@@ -1,0 +1,42 @@
+
+# ~Written by RopeFire~
+
+sculk_crabby:
+  Type: WOLF
+  Display: 'Sculk Crabby'
+  Faction: SCULK
+  Health: 25
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - movetowardstarget
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0.3
+    FollowRange: 8
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 8
+  Skills: 
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=sculk_crabby;n=false;step=1;usm=true;scale=1.25} @self ~onSpawn
+  - model{mid=sculk_crabby;n=false;step=1;usm=true;scale=1.25} @self ~onLoad
+  - skill{s=sculk_crabby_summoned} @self ~onSpawn
+  - skill{s=sculk_crabby_pinch} @self ~onTimer:30
+  - skill{s=sculk_crabby_ambient} @self ~onTimer:200

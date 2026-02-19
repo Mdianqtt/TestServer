@@ -1,0 +1,26 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "weapons_me:item/warden_set/warden_shovel"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-30, -90, 0],
+			"translation": [0, 6.75, 3.75]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-30, 90, 0],
+			"translation": [0, 6.75, 3.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [30, 90, 0],
+			"translation": [0, 4, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-60, 90, 0],
+			"translation": [0, 4, 1]
+		}
+	}
+}

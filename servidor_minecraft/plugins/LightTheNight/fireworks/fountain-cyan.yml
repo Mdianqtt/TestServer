@@ -1,0 +1,27 @@
+fountain-cyan:
+  fireworks:
+    lift:
+      type: BALL
+      colors:
+        - "#8ef1ff"
+      fade:
+        - "#5de4ff"
+      power: 1
+      trail: true
+      flicker: false
+      count: 5
+      spread: 0.3
+      ho: 0.8
+    plume:
+      type: BALL_LARGE
+      colors:
+        - "#57cfff"
+      fade:
+        - "#2f9cff"
+      power: 2
+      trail: true
+      flicker: true
+      count: 2
+      spread: 0.5
+      delay: 6
+      fo: 0.2

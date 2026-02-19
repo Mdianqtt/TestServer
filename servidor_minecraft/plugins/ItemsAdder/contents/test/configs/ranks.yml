@@ -1,0 +1,206 @@
+info:
+  namespace: test
+font_images:
+  member:
+    permission: "ranks.member"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/member.png"
+    scale_ratio: 13
+    y_position: 9
+  staff:
+    permission: "ranks.staff"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/staff.png"
+    scale_ratio: 13
+    y_position: 9    
+  owner:
+    permission: "ranks.owner"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/owner.png"
+    scale_ratio: 13
+    y_position: 9    
+  admin:
+    permission: "ranks.admin"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/admin.png"
+    scale_ratio: 13
+    y_position: 9
+  manager:
+    permission: "ranks.manager"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/manager.png"
+    scale_ratio: 13
+    y_position: 9    
+  builder:
+    permission: "ranks.builder"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/builder/builder.png"
+    scale_ratio: 13
+    y_position: 9
+  dev:
+    permission: "ranks.dev"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/dev.png"
+    scale_ratio: 13
+    y_position: 9
+  helper:
+    permission: "ranks.helper"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/helper.png"
+    scale_ratio: 13
+    y_position: 9
+  hero:
+    permission: "ranks.hero"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/hero.png"
+    scale_ratio: 13
+    y_position: 9
+  titan:
+    permission: "ranks.titan"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/titan.png"
+    scale_ratio: 13
+    y_position: 9      
+  legend:
+    permission: "ranks.legend"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/legend.png"
+    scale_ratio: 13
+    y_position: 9
+  master:
+    permission: "ranks.master"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/master.png"
+    scale_ratio: 13
+    y_position: 9
+  media:
+    permission: "ranks.media"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/media.png"
+    scale_ratio: 13
+    y_position: 9
+  famous:
+    permission: "ranks.famous"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/famous.png"
+    scale_ratio: 13
+    y_position: 9
+  mod:
+    permission: "ranks.mod"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/mod.png"
+    scale_ratio: 13
+    y_position: 9
+  modplus:
+    permission: "ranks.modplus"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/modplus.png"
+    scale_ratio: 13
+    y_position: 9    
+  srmod:
+    permission: "ranks.srmod"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/srmod.png"
+    scale_ratio: 13
+    y_position: 9    
+  vip:
+    permission: "ranks.vip"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/vip.png"
+    scale_ratio: 13
+    y_position: 9     
+  vipplus:
+    permission: "ranks.vipplus"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/vipplus.png"
+    scale_ratio: 13
+    y_position: 9    
+  mvp:
+    permission: "ranks.mvp"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/mvp.png"
+    scale_ratio: 13
+    y_position: 9       
+  mvpplus:
+    permission: "ranks.mvpplus"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/mvpplus.png"
+    scale_ratio: 13
+    y_position: 9    
+  mvpplusplus:
+    permission: "ranks.mvpplusplus"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/mvpplusplus.png"
+    scale_ratio: 13
+    y_position: 9      
+  tiktok:
+    permission: "ranks.tiktok"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/tiktok.png"
+    scale_ratio: 13
+    y_position: 9     
+  twitch:
+    permission: "ranks.twitch"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/twitch.png"
+    scale_ratio: 13
+    y_position: 9
+  twitter:
+    permission: "ranks.twitter"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/twitter.png"
+    scale_ratio: 13
+    y_position: 9
+  youtube:
+    permission: "ranks.youtube"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/youtube.png"
+    scale_ratio: 13
+    y_position: 9       
+  discord:
+    permission: "ranks.discord"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/discord.png"
+    scale_ratio: 13
+    y_position: 11
+  facebook:
+    permission: "ranks.facebook"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/facebook.png"
+    scale_ratio: 13
+    y_position: 9 
+  instagram:
+    permission: "ranks.instagram"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "ranks/instagram.png"
+    scale_ratio: 13
+    y_position: 9    

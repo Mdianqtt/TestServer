@@ -1,0 +1,49 @@
+tasks:
+  build:
+    type: "blockplacecertain"
+    amount: 256
+    block: "BROWN_TERRACOTTA"
+    reverse-if-broken: true
+display:
+  name: "&2Misiones de Constructor &8▪ &7Brown Terracotta"
+  lore-normal:
+  - "&8Necesitas colocar una cierta cantidad"
+  - "&8de bloques antes de recibir la recompensa."
+  - ""
+  - "&2Opciones:"
+  - "&8■ &7Objetivo: &2Colocar 256 Brown Terracotta."
+  - "&8■ &7Progreso: &2{build:progress}/256 brown terracotta"
+  - ""
+  - "&2Recompensas:"
+  - "&8■ &7Usted recibirá &a&l$&a350&7."
+  - ""
+  lore-started:
+  - "&e▲ Se ha iniciado la misión."
+  type: "BROWN_TERRACOTTA"
+# Here you can list messages which will be sent to the player (if they are online) upon the quest starting.
+startstring:
+- "&7Al completar esta misión, serás recompensado con"
+- " &8■ &a&l$&a350"
+rewards:
+- "eco give {player} 350"
+# Here you can list messages which will be sent to the player (if they are online) upon completion.
+rewardstring:
+- " &8■ &a&l$&a350 &7se agregó a tu saldo en el juego."
+
+# These placeholders are accessible using PlaceholderAPI, for example %quests_tracked_p:description%
+# They are useful for putting information about the players tracked quest on a scoreboard
+# You may want to keep the names of them the same for ALL quests for this use-case
+#### TOOSIE NOTE: I removed this section to get rid of all errors when doing /quests a reload.
+ #### I will add it only to people who need it, so contact me on discord if you do.
+options:
+  category: "building"
+  requires: []
+  repeatable: true
+  cooldown:
+    enabled: true
+    time: 2880
+  sort-order: 88
+placeholders:
+  description: ''
+  progress: '{build:progress}'
+  max: '256'

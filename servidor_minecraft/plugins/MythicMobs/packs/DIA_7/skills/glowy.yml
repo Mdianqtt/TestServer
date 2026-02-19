@@ -1,0 +1,43 @@
+Glowey_Apple_Skills:
+  Skills:
+  # 1. Efectos de Poción (Balanceados)
+  - potion{type=REGENERATION;duration=200;level=2} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=600;level=0} @self
+  - potion{type=ABSORPTION;duration=2400;level=1} @self
+  - potion{type=SATURATION;duration=100;level=1} @self
+
+  # 2. Efecto Visual (El "Brillo" al comer)
+  - effect:particles{p=totem;amount=30;hS=0.5;vS=1;speed=0.05} @self
+  - effect:particles{p=flame;amount=20;hS=0.7;vS=0.7;speed=0.02} @self
+  
+  # 3. Sonido Especial (Diferente a la manzana normal)
+  - sound{s=block.beacon.activate;p=1.5;v=1} @self
+  - sound{s=entity.player.levelup;p=1.2;v=0.5} @self
+
+Glowy_Enchanted_Skills:
+  Skills:
+  # 1. Efectos de Poción (Niveles Superiores)
+  - potion{type=REGENERATION;duration=1000;level=5} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=2000;level=2} @self
+  - potion{type=INCREASE_DAMAGE;duration=1200;level=2} @self
+  - potion{type=FIRE_RESISTANCE;duration=18000;level=0} @self
+  - potion{type=ABSORPTION;duration=1000;level=4} @self
+  - potion{type=HEALTH_BOOST;duration=1200;level=4} @self
+  - potion{type=SPEED;duration=1200;level=1} @self
+  
+  # 2. Curación Total y Limpieza (Versión Compatible)
+  - heal{amount=40} @self
+  - potionclear{type=BAD_OMEN} @self
+  - potionclear{type=WITHER} @self
+  - potionclear{type=POISON} @self
+  - potionclear{type=CONFUSION} @self
+  - potionclear{type=BLINDNESS} @self
+
+  # 3. Efectos Visuales (Impacto Masivo)
+  - effect:particles{p=flash;amount=2;hS=0.5;vS=0.5;speed=0} @self
+  - effect:particles{p=explosion;amount=1} @self
+  - effect:particles{p=dragon_breath;amount=80;hS=1.2;vS=1.2;speed=0.05} @self
+  
+  # 4. Sonido
+  - sound{s=entity.generic.explode;p=0.5;v=1} @self
+  - sound{s=entity.wither.spawn;p=1.5;v=1} @self

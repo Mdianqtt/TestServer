@@ -1,0 +1,10 @@
+Id: nm_mini_you_archer
+MythicMob: nm_mini_you_archer
+Permission: pet.mini_you.archer
+Mountable: false
+Distance: 8
+SpawnRange: 1
+ComingBackRange: 6
+Icon:
+  Name: §2Mini You Archer
+  TextureBase64: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjQ3NDQ5NjZkMWQ0YmQ4MjFmOTczMjlhYmYyMjdlMzZjNjVkZmQ4YjEyYjMxZmM5NjYxNWI4Zjc4MDM2MWRlNCJ9fX0=

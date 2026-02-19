@@ -1,0 +1,63 @@
+#        _       _            ____          _                    __  __                  
+#       | | ___ | |__  ___   / ___|   _ ___| |_ ___  _ __ ___   |  \/  | ___ _ __  _   _ 
+#    _  | |/ _ \| '_ \/ __| | |  | | | / __| __/ _ \| '_ ` _ \  | |\/| |/ _ \ '_ \| | | |
+#   | |_| | (_) | |_) \__ \ | |__| |_| \__ \ || (_) | | | | | | | |  | |  __/ | | | |_| |
+#    \___/ \___/|_.__/|___/  \____\__,_|___/\__\___/|_| |_| |_| |_|  |_|\___|_| |_|\__,_|
+#                                                                                        
+#                     BuiltByBit: VictorAlonsoo | PolyMart: VictorAlonso
+
+menu_title: 'ㆽ&f갃'
+size: 9
+open_command:
+  - jobquest
+  - jobsquest
+  - jobmisiones
+  - jobsmisiones
+
+items:
+  'QUEST_DAILY':
+    display_name: '&#F97C16        Misión Diaria'
+    material: GOLD_NUGGET
+    model_data: 10006
+    slot: 2
+    lore:
+      - '&#A5ACB8Echa un vistazo a las misiones'
+      - '&#A5ACB8que tienes que cumplir hoy.'
+      - ''
+      - '&#A1E6D8[Click para ver sus misiones]'
+    click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs quests'
+      - '[close]'
+  'PROFILE':
+    display_name: '&#F97C16          Perfil laboral'
+    material: head-%player_name%
+    model_data: 10555
+    slot: 4
+    lore:
+      - '&#A5ACB8Resultados del número de misiones'
+      - '&#A5ACB8que has recibido hasta el momento.'
+      - ''
+      - '&8❯ &#A5ACB8Misiones recibidas: &#7996B5%jobsr_user_dailyquests_total%'
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_CHIME 0.6 1.2'
+      - '[openguimenu] jobs_menu_page_1'
+  'QUEST_PROGRESS':
+    display_name: '&#F97C16 Misiones pendientes'
+    material: GOLD_NUGGET
+    model_data: 10007
+    slot: 6
+    lore:
+    - '&#A5ACB8Podrás ver el número de misiones'
+    - '&#A5ACB8pendientes de completar.'
+    - ''
+    - '&8❯ &#A5ACB8Misiones pendientes: &#7996B5%jobsr_user_dailyquests_pending%'
+    - '&8❯ &#A5ACB8Misiones completadas: &#7996B5%jobsr_user_dailyquests_completed%'
+    click_commands:
+    - '[refresh]'
+  'BACK':
+    material: AIR
+    slot: 8
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.6 1.8'
+      - '[openguimenu] jobs_menu_page_1'

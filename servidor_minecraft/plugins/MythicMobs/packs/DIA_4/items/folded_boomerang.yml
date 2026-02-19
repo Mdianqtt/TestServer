@@ -1,0 +1,12 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+  
+LR_folded_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 8
+  Display: 'Folded Boomerang'    
+  Skills:
+  - skill{s=LRBOOMERANG_swing_folded} @target ~onAttack
+  - skill{s=LRBOOMERANG_throw_folded;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_folded} @self ~onHold

@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/carrot_on_a_stick"
+  },
+    "overrides": [
+		{"predicate": {"custom_model_data":1}, "model": "littleroom_boomerang_pack:wooden_boomerang"},
+		{"predicate": {"custom_model_data":2}, "model": "littleroom_boomerang_pack:iron_boomerang"},
+		{"predicate": {"custom_model_data":3}, "model": "littleroom_boomerang_pack:golden_boomerang"},
+		{"predicate": {"custom_model_data":4}, "model": "littleroom_boomerang_pack:diamond_boomerang"},
+		{"predicate": {"custom_model_data":5}, "model": "littleroom_boomerang_pack:netherite_boomerang"},
+		{"predicate": {"custom_model_data":6}, "model": "littleroom_boomerang_pack:chakram"},
+		{"predicate": {"custom_model_data":7}, "model": "littleroom_boomerang_pack:magma_boomerang"},
+		{"predicate": {"custom_model_data":8}, "model": "littleroom_boomerang_pack:foldable_boomerang_closed"},
+		{"predicate": {"custom_model_data":9}, "model": "littleroom_boomerang_pack:foldable_boomerang_open"},
+		{"predicate": {"custom_model_data":10}, "model": "littleroom_boomerang_pack:saw_boomerang"},
+		{"predicate": {"custom_model_data":11}, "model": "littleroom_boomerang_pack:saw_boomerang_projectile"},
+		{"predicate": {"custom_model_data":12}, "model": "littleroom_boomerang_pack:saw_boomerang_projectile_hit"},
+		{"predicate": {"custom_model_data":13}, "model": "littleroom_boomerang_pack:spark"},
+		{"predicate": {"custom_model_data":14}, "model": "littleroom_boomerang_pack:frost_boomerang"},
+		{"predicate": {"custom_model_data":15}, "model": "littleroom_boomerang_pack:gravita_boomerang"},
+		{"predicate": {"custom_model_data":16}, "model": "littleroom_boomerang_pack:gravita_boomerang_projectile"},
+		{"predicate": {"custom_model_data":17}, "model": "littleroom_boomerang_pack:lightsaber_boomerang"},
+		{"predicate": {"custom_model_data":18}, "model": "littleroom_boomerang_pack:sledge_boomerang"},
+		{"predicate": {"custom_model_data":19}, "model": "littleroom_warden:warden_heart"},
+		{"predicate": {"custom_model_data":20}, "model": "littleroom_warden:warden_sword"}
+        ]
+}

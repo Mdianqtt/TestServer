@@ -1,0 +1,10 @@
+info:
+  namespace: tutorial
+items:
+  cointoss:
+    permission: tutorial.cointoss
+    display_name: 'ZC COIN'
+    resource: 
+     material: PAPER
+     generate: false
+     model_path: cointoss

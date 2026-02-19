@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/1bit_elite_zombified_piglin"},"elements":[{"from":[4.0,0.0,8.0],"to":[12.0,8.0,8.0],"faces":{"south":{"uv":[9.5,3.375,8.5,4.375],"tintindex":0,"rotation":0,"texture":"#0"},"north":{"uv":[8.5,3.375,9.5,4.375],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

@@ -1,0 +1,12 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LR_wooden_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 1
+  Display: 'Wooden Boomerang'   
+  Skills:
+  - skill{s=LRBOOMERANG_throw_wooden;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_wooden} @self ~onHold
+   

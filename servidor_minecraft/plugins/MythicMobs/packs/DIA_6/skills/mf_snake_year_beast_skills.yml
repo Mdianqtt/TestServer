@@ -1,0 +1,704 @@
+
+
+
+#phase 1
+
+# smash
+
+mf_snake_year_beast_smash:
+  Cooldown: 6
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to12} true
+  Skills:
+  - gcd{ticks=120} @self
+  - state{s=tail_smash} @self
+  - delay 30
+  - delay 3
+  - effect:sound{s=entity.generic.explode;v=1.7;p=2} @self
+  - sound{s=entity.zombie.attack_wooden_door;v=0.7;p=0.8} @self 
+  - skill{s=mf_snake_year_beast_smash-1} @selflocation{forwardoffset=-5}
+  - setAI{ai=false} @self
+  - delay 57
+  - setAI{ai=true} @self
+ 
+mf_snake_year_beast_smash-1:
+  Skills:
+  - effect:particles{particle=reddust;color=#862543;amount=80;hs=5.7;vs=1.6;y=1.4;size=1} 
+  - totem{ch=1;onStart=mf_snake_year_beast_smash-1-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_smash-1-2:
+  Skills: 
+  - damage{a=14;pk=true;pi=true} @PlayersNearOrigin{r=10} 
+  - throw{velocity=8;velocityY=9.4} @PlayersNearOrigin{r=10} 
+
+# swep
+
+mf_snake_year_beast_swep:
+  Cooldown: 8
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to12} true
+  Skills:
+  - gcd{ticks=150} @self
+  - state{s=tail_swep} @self
+  - delay 30
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=3;p=1.3} @self
+  - skill{s=mf_snake_year_beast_swep-1} @selflocation{forwardoffset=-7}
+  - setAI{ai=false} @self
+  - effect:sound{s=entity.player.attack.sweep;v=1.6;p=2.0;delay=39} @self
+  - delay 76
+  - setAI{ai=true} @self
+ 
+mf_snake_year_beast_swep-1:
+  Skills:
+  - effect:particles{particle=reddust;color=#862543;amount=80;hs=9.7;vs=0.6;y=1.4;size=1} 
+  - totem{ch=1;onStart=mf_snake_year_beast_swep-1-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_swep-1-2:
+  Skills: 
+  - damage{a=10;pk=true;pi=true} @PlayersNearOrigin{r=10} 
+  - throw{velocity=14;velocityY=4.4} @PlayersNearOrigin{r=10} 
+
+# flame
+
+mf_snake_year_beast_flame:
+  Cooldown: 15
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=5to17} true
+  Skills:
+  - gcd{ticks=150} @self
+  - state{s=flame} @self
+  - setAI{ai=false} @self 
+  - delay 10
+  - effect:sound{s=entity.polar_bear.warning;v=1.6;p=1.3} @self
+  - delay 40
+  - effect:sound{s=item.firecharge.use;v=1.3;p=0.7} @self
+  - effect:sound{s=block.fire.extinguish;v=2;p=0;repeat=7;repeatInterval=3} @self
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=-4.0;hnp=false;md=160} @selflocation{forwardoffset=-10;sideoffset=-5;y=1}
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=-3.0;hnp=false;md=160;delay=3} @selflocation{forwardoffset=-10;sideoffset=-3;y=1}
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=-2.0;sfo=1;hnp=false;md=160;delay=6} @selflocation{forwardoffset=-12;sideoffset=-1;y=1}
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=-1.0;sfo=1;hnp=false;md=160;delay=9} @selflocation{forwardoffset=-12;sideoffset=-0;y=1}
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=.0;sfo=1;hnp=false;md=160;delay=12} @selflocation{forwardoffset=-12;sideoffset=-2;y=1}
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=1.0;sfo=1;hnp=false;md=160;delay=15} @selflocation{forwardoffset=-12;sideoffset=4;y=1}
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=2.0;hnp=false;md=160;delay=18} @selflocation{forwardoffset=-10;sideoffset=6;y=1}
+  - projectile{oe=mf_snake_year_beast_flame-os;ot=mf_snake_year_beast_flame-ot;sB=true;sE=false;vr=0.5;v=6;i=1;syo=4.5;sso=3.0;hnp=false;md=160;delay=21} @selflocation{forwardoffset=-10;sideoffset=8;y=1}
+  - delay 40
+  - delay 30
+  - setAI{ai=true} @self
+
+
+mf_snake_year_beast_flame-ot:
+  Skills:
+  - effect:particles{particle=reddust;color=#c43c71;amount=3;hs=0.6;vs=0.4;y=0;size=1} @origin
+  - effect:particles{particle=reddust;color=#cf555f;amount=6;hs=0.8;vs=0.4;y=0;size=1} @origin
+  - damage{a=14;pk=true;pi=false} @PlayersNearOrigin{r=4} 
+  - throw{velocity=4;velocityY=0.3} @PlayersNearOrigin{r=4} 
+
+mf_snake_year_beast_flame-os:
+  Skills:
+  - summon{t=mf_snake_year_beast_butterfly_2;oi=true} @origin
+
+# stick
+
+mf_snake_year_beast_stick:
+  Cooldown: 24
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=7to30} true
+  Skills:
+  - gcd{ticks=150} @self
+  - state{s=stick} @self
+  - setAI{ai=false} @self
+  - delay 37
+  - effect:sound{s=entity.ender_dragon.growl;v=1.6;p=1.8} @self
+  - delay 13
+  - totem{os=mf_snake_year_beast_stick-1;int=1;hR=3;md=110} @PIR{r=30}
+  - totem{os=mf_snake_year_beast_stick-1;int=1;hR=3;md=110} @RandomLocationsNearCaster{a=5;r=40;s=6;minr=5;os=true}
+  - delay 60
+  - setAI{ai=true} @self
+
+mf_snake_year_beast_stick-1:
+  Skills:
+  - summon{t=mf_snake_year_beast_tree;os=true} @origin{y=-1}
+  - delay 35
+  - damage{a=19;pk=false;pi=true} @PlayersNearOrigin{r=2.5} 
+  - damage{a=14;pk=false;pi=true;repeat=6;repeatInterval=10} @PlayersNearOrigin{r=2.5} 
+
+mf_snake_year_beast_tree_sound_1:
+  Skills:
+  - sound{s=entity.zombie.break_wooden_door;v=0.7;p=0.8} @self 
+  
+
+
+mf_snake_year_beast_death:
+  Skills: 
+  - effect:sound{s=entity.ravager.hurt;v=1.6;p=1.0} @self 
+  - effect:sound{s=block.fire.extinguish;v=0.6;p=0;delay=120} @self 
+  - effect:sound{s=entity.zombie.attack_wooden_door;v=0.7;p=0.8;delay=70} @self 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=back} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=front2} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=back3} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=back4} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=back5} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=head} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=right_horn} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=left_horn} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind2} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind3} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind4} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind5} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind6} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind7} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind8} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind9} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind10} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind11} 
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=120} @ModelPart{m=snake_year_beast;p=behind12} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=back} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=front2} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=back3} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=back4} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=back5} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=head} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=right_horn} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=left_horn} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind2} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind3} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind4} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind5} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind6} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind7} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind8} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind9} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind10} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind11} 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=120} @ModelPart{m=snake_year_beast;p=behind12} 
+  - summon{t=mf_snake_year_beast_phase2;delay=120} @self
+  - summon{t=mf_snake_year_beast_butterfly;delay=125} @self
+  
+  
+# phase2
+
+# attack 1
+
+mf_snake_year_beast_phase2_attack1:
+  Cooldown: 8
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to10} true
+  Skills:
+  - gcd{ticks=110} @self
+  - state{s=attack1} @self
+  - setspeed{s=0.001} @self
+  - delay 20
+  - setspeed{s=2.2} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=1.5}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=1}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.5}
+  - delay 3
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.3} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.3} @self
+  - skill{s=mf_snake_year_beast_phase2_attack1-1} @forward{a=3} 
+  - delay 2
+  - setspeed{s=0.001} @self
+  - delay 20
+  - effect:sound{s=entity.polar_bear.warning;v=1.2;p=1.3} @self
+  - delay 6
+  - effect:sound{s=entity.generic.explode;v=1.7;p=2} @self
+  - skill{s=mf_snake_year_beast_phase2_attack1-2} @selflocation{forwardoffset=-5}
+  - delay 3
+  - effect:sound{s=block.fire.extinguish;v=2;p=0} @self
+  - delay 10
+  - setAI{ai=false} @self
+  - delay 39
+  - setspeed{s=1.19} @self
+  - setAI{ai=true} @self
+
+ 
+mf_snake_year_beast_phase2_attack1-1:  
+  Skills:
+  - totem{ch=1;onStart=mf_snake_year_beast_phase2_attack1-1-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_phase2_attack1-1-2:
+  Skills: 
+  - damage{a=16;pk=true;pi=true} @PlayersNearOrigin{r=4} 
+  - throw{velocity=9;velocityY=0.4} @PlayersNearOrigin{r=4} 
+
+
+mf_snake_year_beast_phase2_attack1-2: 
+  Skills:
+  - effect:particles{particle=reddust;color=#ac7557;amount=30;hs=1.3;vs=0.2;y=0.3;size=1} 
+  - totem{ch=1;onStart=mf_snake_year_beast_phase2_attack1-2-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_phase2_attack1-2-2:
+  Skills: 
+  - damage{a=20;pk=true;pi=true} @PlayersNearOrigin{r=5} 
+  - throw{velocity=9;velocityY=7.4} @PlayersNearOrigin{r=5} 
+
+# attack 2
+
+mf_snake_year_beast_phase2_attack2:
+  Cooldown: 8
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to10} true
+  Skills:
+  - gcd{ticks=90} @self
+  - state{s=attack2} @self
+  - setspeed{s=0.001} @self
+  - delay 20
+  - setspeed{s=2.5} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=20;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=20;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=3;y=0.5}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=1}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=-3;y=1.5}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.3} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.3} @self
+  - skill{s=mf_snake_year_beast_phase2_attack2-1} @forward{a=3} 
+  - delay 1
+  - setspeed{s=0.001} @self
+  - delay 15
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=200;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=200;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=1.5}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=1}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.5}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.6} @self
+  - skill{s=mf_snake_year_beast_phase2_attack2-1} @forward{a=3} 
+  - setAI{ai=false} @self
+  - delay 36
+  - setspeed{s=1.17} @self
+  - setAI{ai=true} @self
+ 
+mf_snake_year_beast_phase2_attack2-1:  
+  Skills:
+  - totem{ch=1;onStart=mf_snake_year_beast_phase2_attack2-1-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_phase2_attack2-1-2:
+  Skills: 
+  - damage{a=17;pk=true;pi=true} @PlayersNearOrigin{r=4} 
+  - throw{velocity=9;velocityY=0.4} @PlayersNearOrigin{r=4} 
+
+# attack 3
+
+mf_snake_year_beast_phase2_attack3:
+  Cooldown: 9
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to10} true
+  Skills:
+  - gcd{ticks=110} @self
+  - state{s=attack3} @self
+  - setspeed{s=0.001} @self
+  - delay 20
+  - setspeed{s=2.5} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=-30;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=-30;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=3;y=1.5}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=1}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.5}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.3} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.3} @self
+  - skill{s=mf_snake_year_beast_phase2_attack3-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - delay 15
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=1.5}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=1}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.5}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.6} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.4} @self
+  - skill{s=mf_snake_year_beast_phase2_attack3-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - delay 10
+  - setspeed{s=1.8} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=-20;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ];delay=4} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=-20;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ];delay=4} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=5} @selflocation{forwardoffset=-4;sideoffset=3;y=1.5}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=6} @selflocation{forwardoffset=-5;sideoffset=0;y=1}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=7} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.5}
+  - delay 8
+  - setAI{ai=false} @self
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.6} @self
+  - skill{s=mf_snake_year_beast_phase2_attack3-1} @forward{a=3} 
+  - delay 39
+  - setspeed{s=1.17} @self
+  - setAI{ai=true} @self
+ 
+mf_snake_year_beast_phase2_attack3-1:  
+  Skills:
+  - totem{ch=1;onStart=mf_snake_year_beast_phase2_attack3-1-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_phase2_attack3-1-2:
+  Skills: 
+  - damage{a=24;pk=true;pi=true} @PlayersNearOrigin{r=4} 
+  - throw{velocity=9;velocityY=0.4} @PlayersNearOrigin{r=4} 
+
+# dodge
+
+mf_snake_year_beast_phase2_dodge:
+  Cooldown: 24
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to10} true
+  Skills:
+  - gcd{ticks=110} @self
+  - state{s=dodge} @self
+  - setspeed{s=0.001} @self
+  - delay 16
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.7}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.6} @self
+  - skill{s=mf_snake_year_beast_phase2_dodge-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - delay 1
+  - LockModel{l=true} @self
+  - spin{d=30;v=0} @self
+  - lunge{v=0.7;vY=0.001;repeat=18;repeatInterval=1} @SelfLocation{forwardoffset=5;y=0}
+  - lunge{v=0.3;vY=0.001;repeat=5;repeatInterval=1;delay=18} @SelfLocation{forwardoffset=5;y=0}
+  - delay 23
+  - LockModel{l=false} @self
+  - setAI{ai=false} @self
+  - delay 45
+  - setspeed{s=1.17} @self
+  - setAI{ai=true} @self
+  
+
+mf_snake_year_beast_phase2_dodge-1:  
+  Skills:
+  - totem{ch=1;onStart=mf_snake_year_beast_phase2_dodge-1-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_phase2_dodge-1-2:
+  Skills: 
+  - damage{a=18;pk=true;pi=true} @PlayersNearOrigin{r=4} 
+  - throw{velocity=9;velocityY=0.4} @PlayersNearOrigin{r=4} 
+
+
+# skill random
+
+mf_snake_year_beast_phase2_skill_random:
+  Conditions:
+  - offgcd
+  Cooldown: 17
+  Skills:
+  - randomskill{s=mf_snake_year_beast_phase2_arena,mf_snake_year_beast_phase2_flame,mf_snake_year_beast_phase2_explode}
+
+# skill arena
+
+mf_snake_year_beast_phase2_arena:
+  Cooldown: 40
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to30} true
+  Skills:
+  - gcd{ticks=500} @self
+  - state{s=skill_tree} @self
+  - setspeed{s=0.001} @self
+  - effect:sound{s=entity.allay.item_given;v=1.7;p=1.1;delay=26} @self
+  - sound{s=entity.zombie.break_wooden_door;v=0.7;p=0.8;delay=47} @self 
+  - delay 60
+  - summon{t=mf_snake_year_beast_arena} @self
+  - delay 40
+  - totem{os=mf_snake_year_beast_phase2_arena-1;int=1;hR=3;md=114} @RandomLocationsNearCaster{a=6;r=20;s=6;minr=3;onsurf=true}
+  - totem{os=mf_snake_year_beast_phase2_arena-1;int=1;hR=3;md=114;delay=40} @RandomLocationsNearCaster{a=7;r=20;s=3;onsurf=true}
+  - totem{os=mf_snake_year_beast_phase2_arena-1;int=1;hR=3;md=114;delay=80} @RandomLocationsNearCaster{a=7;r=20;s=3;onsurf=true}
+  - totem{os=mf_snake_year_beast_phase2_arena-1;int=1;hR=3;md=114;delay=120} @RandomLocationsNearCaster{a=8;r=20;s=3;onsurf=true}
+  - totem{os=mf_snake_year_beast_phase2_arena-1;int=1;hR=3;md=114;delay=160} @RandomLocationsNearCaster{a=8;r=20;s=3;onsurf=true}
+  - totem{os=mf_snake_year_beast_phase2_arena-1;int=1;hR=3;md=114;delay=200} @RandomLocationsNearCaster{a=9;r=20;s=3;onsurf=true}
+  - signal{s=END} @EIR{r=64;l=false}
+  - delay 60
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - projectile{bulletType=MOB;mob=mf_snake_year_beast_fireball;ot=mf_snake_year_beast_phase2_arena-ot;oe=mf_snake_year_beast_phase2_arena-oe;sB=true;sE=true;vr=0.5;v=13;i=1;syo=8.5;sso=-1.0;hnp=false} @target
+  - delay 70
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - projectile{bulletType=MOB;mob=mf_snake_year_beast_fireball;ot=mf_snake_year_beast_phase2_arena-ot;oe=mf_snake_year_beast_phase2_arena-oe;sB=true;sE=true;vr=0.5;v=13;i=1;syo=8.5;sso=-1.0;hnp=false} @target
+  - delay 82
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - projectile{bulletType=MOB;mob=mf_snake_year_beast_fireball;ot=mf_snake_year_beast_phase2_arena-ot;oe=mf_snake_year_beast_phase2_arena-oe;sB=true;sE=true;vr=0.5;v=13;i=1;syo=8.5;sso=-1.0;hnp=false} @target
+  - delay 168
+  - setspeed{s=1.17} @self
+  - setAI{ai=true} @self
+
+
+mf_snake_year_beast_phase2_arena-ot:
+  Skills:
+  - effect:particles{particle=reddust;color=#c43c71;amount=3;hs=0.6;vs=0.4;y=0;size=1} @origin
+  - effect:particles{particle=reddust;color=#cf555f;amount=6;hs=0.8;vs=0.4;y=0;size=1} @origin
+
+
+mf_snake_year_beast_phase2_arena-oe:
+  Skills:
+  - effect:sound{s=entity.allay.ambient_without_item;v=2;p=1} @origin
+  - effect:sound{s=entity.generic.explode;v=1;p=1} @origin
+  - damage{a=16;pk=true;pi=true} @PlayersNearOrigin{r=4} 
+  - throw{velocity=4;velocityY=4.4} @PlayersNearOrigin{r=4} 
+  - effect:particles{particle=reddust;color=#c43c71;amount=12;hs=1.6;vs=1.4;y=0.3;size=1} @origin
+  - effect:particles{particle=reddust;color=#cf555f;amount=6;hs=1.8;vs=1.4;y=0.3;size=1} @origin
+  - summon{t=mf_snake_year_beast_butterfly} @origin
+
+
+mf_snake_year_beast_phase2_arena-1:
+  Skills:
+  - summon{t=mf_snake_year_beast_tree;os=true} @origin{y=-1}
+  - delay 35
+  - damage{a=22;pk=false;pi=true} @PlayersNearOrigin{r=3} 
+  - damage{a=16;pk=false;pi=true;repeat=7;repeatInterval=10} @PlayersNearOrigin{r=3} 
+
+mf_snake_year_beast_tree_sound_1:
+  Skills:
+  - sound{s=entity.zombie.break_wooden_door;v=0.7;p=0.8} @self 
+
+mf_snake_year_beast_arena_block:
+  Skills:
+  - throw{velocity=-5;velocityY=1} @PlayersNearOrigin{r=4}
+  
+# skill flame
+
+mf_snake_year_beast_phase2_flame:
+  Cooldown: 52
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to18} true
+  Skills:
+  - gcd{ticks=200} @self
+  - state{s=skill_flame} @self
+  - setspeed{s=0.001} @self
+  - effect:sound{s=entity.allay.item_given;v=1.7;p=1.1;delay=24} @self
+  - delay 60
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.7}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.1} @self
+  - skill{s=mf_snake_year_beast_phase2_flame-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - delay 16
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.7}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.2} @self
+  - skill{s=mf_snake_year_beast_phase2_flame-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - delay 17
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.7}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.1} @self
+  - skill{s=mf_snake_year_beast_phase2_flame-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - delay 12
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.7}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.3} @self
+  - skill{s=mf_snake_year_beast_phase2_flame-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - delay 11
+  - setspeed{s=3} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=reddust;color=#cf555f;amount=8;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - slash{y=1.2;w=30;h=3;mpd=true;a=45;radius=3;roll=180;fo=1;duration=10;oP=[ - effect:particles{particle=flame;amount=1;s=0.2;hs=0.7;vs=0.6;y=1.4;size=1}  ]} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=1} @selflocation{forwardoffset=-4;sideoffset=-3;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=2} @selflocation{forwardoffset=-5;sideoffset=0;y=0.7}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=3} @selflocation{forwardoffset=-4;sideoffset=3;y=0.7}
+  - delay 4
+  - effect:sound{s=entity.player.attack.sweep;v=1.2;p=1.5} @self
+  - effect:sound{s=item.bone_meal.use;v=1.2;p=2.2} @self
+  - effect:sound{s=item.firecharge.use;v=1;p=1.3} @self
+  - skill{s=mf_snake_year_beast_phase2_flame-1} @forward{a=3} 
+  - setspeed{s=0.001} @self
+  - setAI{ai=false} @self
+  - delay 44
+  - setspeed{s=1.17} @self
+  - setAI{ai=true} @self
+  
+
+mf_snake_year_beast_phase2_flame-1:  
+  Skills:
+  - totem{ch=1;onStart=mf_snake_year_beast_phase2_flame-1-2;int=1;hR=3;md=1} 
+  
+mf_snake_year_beast_phase2_flame-1-2:
+  Skills: 
+  - damage{a=16;pk=true;pi=true} @PlayersNearOrigin{r=4} 
+  - throw{velocity=9;velocityY=0.4} @PlayersNearOrigin{r=4} 
+  
+# skill explode
+
+mf_snake_year_beast_phase2_explode:
+  Cooldown: 45
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - distance{d=0to25} true
+  Skills:
+  - gcd{ticks=200} @self
+  - state{s=skill_explode} @self
+  - setAI{ai=false} @self
+  - effect:sound{s=entity.allay.item_given;v=1.7;p=1.1;delay=24} @self
+  - delay 20
+  - summon{t=mf_snake_year_beast_explode} @self
+  - effect:sound{s=entity.guardian.attack;v=1.7;p=1.1;delay=60} @self
+  - potion{type=levitation;duration=55;level=0;i=0;p=false;delay=40} @PlayersNearOrigin{r=14} 
+  - potion{type=slow;duration=60;level=2;i=0;p=false;delay=40} @PlayersNearOrigin{r=14} 
+  - delay 104
+  - effect:sound{s=entity.generic.explode;v=1.7;p=1} @self
+  - summon{t=mf_snake_year_beast_butterfly}  @RandomLocationsNearCaster{a=11;r=6;s=5;minr=1;os=true}
+  - summon{t=mf_snake_year_beast_butterfly_2}  @RandomLocationsNearCaster{a=7;r=12;s=3;minr=1;os=true}
+  - summon{t=mf_snake_year_beast_butterfly;delay=5}  @RandomLocationsNearCaster{a=5;r=12;s=5;minr=1;os=true}
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=5}  @RandomLocationsNearCaster{a=6;r=12;s=3;minr=1;os=true}
+  - effect:particles{particle=reddust;color=#862543;amount=380;hs=9.7;vs=3.6;y=1.4;size=1} @self
+  - damage{a=38;pk=true;pi=true} @PlayersNearOrigin{r=14} 
+  - throw{velocity=9;velocityY=5.4} @PlayersNearOrigin{r=14} 
+  - delay 55
+  - setspeed{s=1.17} @self
+  - setAI{ai=true} @self
+  
+# death
+
+mf_snake_year_beast_death2:
+  Skills: 
+  - effect:sound{s=entity.allay.ambient_without_item;v=1.2;p=1} @self
+  - effect:sound{s=block.fire.extinguish;v=0.6;p=0;delay=80} @self 
+  - effect:particles{particle=reddust;color=#cf555f;amount=46;hs=1.8;vs=1.4;y=0;size=1;delay=80} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=82} @self
+  - summon{t=mf_snake_year_beast_butterfly;delay=82} @self
+  - summon{t=mf_snake_year_beast_butterfly_2;delay=80} @self{y=1}
+  - summon{t=mf_snake_year_beast_butterfly;delay=80} @self{y=1}
+  #- dropitem{i=mf_snake_year_fan,mf_snake_year_sword,mf_snake_year_hat,mf_snake_year_horn;delay=80} @self
+ 
+ # ==================== items
+ 
+ 
+mf_snake_year_fan:
+  Cooldown: 2
+  Skills:
+  - projectile{bulletType=MOB;mob=mf_snake_year_beast_fireball_2;ot=mf_snake_year_fan-ot;oe=mf_snake_year_fan-oe;sB=true;sE=true;vr=0.25;v=13;i=1;syo=1.5;hnp=true} @targetlocation
+  - sound{s=entity.evoker.cast_spell;p=1.9;v=0.8} @self
+
+
+
+mf_snake_year_fan-ot:
+  Skills:
+  - effect:particles{particle=reddust;color=#c43c71;amount=1;hs=0.6;vs=0.4;y=0;size=1} @origin
+  - effect:particles{particle=reddust;color=#cf555f;amount=2;hs=0.8;vs=0.4;y=0;size=1} @origin
+
+
+mf_snake_year_fan-oe:
+  Skills:
+  - effect:sound{s=entity.allay.ambient_without_item;v=1.2;p=1} @origin
+  - effect:sound{s=entity.generic.explode;v=0.8;p=1} @origin
+  - damage{a=32;pk=true;pi=true} @ENO{r=5;ignore=players} 
+  - throw{velocity=4;velocityY=4.4} @ENO{r=5;ignore=players} 
+  - effect:particles{particle=reddust;color=#c43c71;amount=12;hs=1.6;vs=1.4;y=0.3;size=1} @origin
+  - effect:particles{particle=reddust;color=#cf555f;amount=6;hs=1.8;vs=1.4;y=0.3;size=1} @origin
+  - summon{t=mf_snake_year_beast_butterfly} @origin
+
+
+
+mf_snake_year_sword:
+  Cooldown: 3
+  Skills:
+  - totem{onStart=mf_snake_year_sword-os;int=1;hR=3;md=1} @selflocation{forwardoffset=-4}  
+  - summon{t=mf_snake_year_beast_slash} @selflocation{forwardoffset=-4}  
+  
+  
+mf_snake_year_sword-os:
+  Skills:
+  - delay 6
+  - damage{a="14";pi=true;pk=true} @ENO{r=3;ignore=players}  
+  - sound{s=entity.player.attack.sweep;v="<random.float.1.7to2.3>";p="<random.float.2.4to2.8>"} @origin
+  - sound{s=item.trident.throw;v="<random.float.0.8to1.2>";p="<random.float.2.2to2.8>"} @origin
+  - potion{t=slow;d=20;l=2;p=false;i=false} @ENO{r=3;ignore=players}  
+  - delay 6
+  - damage{a="14";pi=true;pk=true} @ENO{r=3;ignore=players}  
+  - sound{s=entity.player.attack.sweep;v="<random.float.1.7to2.3>";p="<random.float.2.4to2.8>"} @origin
+  - sound{s=item.trident.throw;v="<random.float.0.8to1.2>";p="<random.float.2.2to2.8>"} @origin
+  - potion{t=slow;d=14;l=2;p=false;i=false} @ENO{r=3;ignore=players}  
+  - delay 4
+  - damage{a="14";pi=true;pk=true} @ENO{r=3;ignore=players}  
+  - potion{t=slow;d=10;l=2;p=false;i=false} @ENO{r=3;ignore=players}  
+  - sound{s=entity.player.attack.sweep;v="<random.float.1.7to2.3>";p="<random.float.2.4to2.8>"} @origin
+  - sound{s=item.trident.throw;v="<random.float.0.8to1.2>";p="<random.float.2.2to2.8>"} @origin
+  - delay 10
+  - damage{a="14";pi=true} @ENO{r=3;ignore=players}  
+  - sound{s=entity.player.attack.sweep;v="<random.float.1.7to2.3>";p="<random.float.2.4to2.8>"} @origin
+  - sound{s=item.trident.throw;v="2.4";p="<random.float.2.2to2.8>"} @origin
+
+snake_title:
+    Skills:
+        - effect:sound{s=entity.wither.spawn;p=1} @self
+        - delay 38
+        - particles{p=SMOKE;a=20;hs=0.3;vs=0.5;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - particles{p=CRIMSON_SPORE;a=20;s=0.2;hs=0.5;vs=0.2;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - delay 92
+        - particles{p=SMOKE;a=50;s=1;hs=0.3;vs=0.5} @origin
+        - particles{p=end_rod;a=40;hs=1;s=0.3;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=50;s=0.3;hs=0.5;vs=0.2} @origin
+        - particles{p=end_rod;a=80;hs=1;s=0.6;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=100;s=0.6;hs=0.5;vs=0.2} @origin
+        - sendtitle{title="&6&lBOSS DERROTADO";subtitle="TIER 3";d=60;fi=60;fo=60} @PlayersInRadius{r=50}

@@ -1,0 +1,27 @@
+sunrise-blossom:
+  fireworks:
+    petals:
+      type: STAR
+      colors:
+        - "#ffb2c1"
+        - "#ffecb3"
+      fade:
+        - "#ff9f6b"
+      power: 1
+      trail: true
+      flicker: false
+      count: 7
+      spread: 1.2
+      ho: 0.6
+    heart:
+      type: CREEPER
+      colors:
+        - "#ff7a8a"
+      fade:
+        - "#ffb36b"
+      power: 1
+      trail: true
+      flicker: true
+      count: 1
+      spread: 0.0
+      delay: 10

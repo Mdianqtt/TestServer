@@ -1,0 +1,82 @@
+Pluma_Active:
+  Cooldown: 3
+  Skills:
+  # 1. EL IMPULSO (Más rápido y directo)
+  - sound{s=entity.phantom.flap;p=1.5;v=1} @self
+  - velocity{x=0;y=1.1;z=0;force=true} @self
+  - leap{velocity=450} @Forward{length=10} 
+  
+  # 2. EL RASTRO DE PLUMAS (Activo durante el impulso y carrera)
+  # Solo durará 4 segundos (80 ticks) y se detiene al tocar tierra
+  - aura{
+      i=1;
+      d=80; 
+      onTick=Pluma_TrailTick;
+      stopOnGround=true
+    } @self
+
+  # 3. VELOCIDAD DE CAMINATA AUMENTADA
+  - potion{type=SPEED;duration=100;level=3;showParticles=false} @self
+
+Pluma_TrailTick:
+  Skills:
+  # 1. LAS PLUMAS FÍSICAS (Efecto de desprendimiento)
+  # Usamos material=FEATHER pero con una velocidad negativa pequeña 
+  # para que parezca que el viento las empuja un poco hacia atrás.
+  - effect:particles{p=item;material=FEATHER;amount=2;hS=0.3;vS=0.3;speed=0.05;y=1} @self
+  
+  # 2. LÍNEAS DE VELOCIDAD (El efecto visual de "ir rápido")
+  # La partícula 'crit' o 'enchanted_hit' con velocidad alta crea líneas blancas finas
+  - effect:particles{p=crit;amount=3;hS=0.2;vS=0.2;speed=0.5;y=1} @self
+
+  # 3. EL RASTRO DE VIENTO (Vórtice sutil)
+  # 'cloud' con muy poco tamaño para simular el aire cortándose
+  - effect:particles{p=cloud;amount=1;hS=0.1;vS=0.1;speed=0.01;y=0.8} @self
+  
+  # 4. DESTELLO DE FRICCIÓN (Opcional, muy sutil)
+  # Partícula de 'spell' blanca para darle un toque premium
+  - effect:particles{p=spell;amount=1;hS=0.2;vS=0.2;speed=0;y=1.2} @self
+
+
+# FLAMA SOLAR------------------------
+
+
+Llama_Raycast_Final:
+  Skills:
+  # Cambiamos raytrace por missile para que tenga "vuelo"
+  - consumeuseditem @self
+  - missile{
+      onTick=Llama_Ray_Tick;
+      onHit=Llama_Impacto;
+      onHitBlock=Llama_Impacto;
+      v=20;                 
+      i=1;
+      maxDistance=40;
+      raySize=0.2;
+      ignorepassable=true;
+      startOffset=1.5;      
+    } @Forward{length=40}
+
+Llama_Ray_Tick:
+  Skills:
+  - effect:particles{p=flame;amount=5;hS=0.1;vS=0.1;speed=0.02} @origin
+  - effect:particles{p=large_smoke;amount=1;hS=0.05;vS=0.05;speed=0} @origin
+
+Llama_Impacto:
+  Skills:
+  # 1. SONIDOS (Se mantienen)
+  - sound{s=entity.blaze.shoot;p=0.5;v=2} @origin
+  - sound{s=item.firecharge.use;p=0.8;v=1} @origin
+  
+  # 2. EL ANILLO DE FUEGO EN EL SUELO (La clave está en @Location o @origin con ajuste)
+  # Usamos un pequeño truco: spawneamos el anillo un poco más abajo del centro del mob
+  # para que toque el suelo.
+  - effect:particles{p=flame;amount=40;hS=0.5;vS=0.1;speed=0.1} @RingAroundOrigin{r=3;points=25}
+  
+  # 3. EFECTO DE IMPACTO EXPLOSIVO
+  - effect:particles{p=large_smoke;amount=10;hS=0.5;vS=0.5} @origin
+  - effect:particles{p=lava;amount=5;hS=0.2;vS=0.2} @origin
+
+  # 4. DAÑO USANDO TU TARGETER QUE FUNCIONA (@EntitiesNearOrigin)
+  - damage{a=10;element=FIRE} @EntitiesNearOrigin{r=4;ignore=players}
+  - ignite{d=100} @EntitiesNearOrigin{r=4;ignore=players}

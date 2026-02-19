@@ -1,0 +1,28 @@
+stormburst-purple:
+  fireworks:
+    flash:
+      type: BURST
+      colors:
+        - "#a55bff"
+        - "#6b23ff"
+      fade:
+        - "#d19aff"
+      power: 2
+      trail: true
+      flicker: true
+      count: 4
+      spread: 0.9
+      fo: 0.5
+    thunder:
+      type: CREEPER
+      colors:
+        - "#d1b3ff"
+      fade:
+        - "#6f3cff"
+      power: 1
+      trail: false
+      flicker: true
+      count: 2
+      spread: 0.2
+      delay: 8
+      ho: 0.4

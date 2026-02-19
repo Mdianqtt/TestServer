@@ -1,0 +1,19 @@
+### Standard Bite Attack
+  
+nm_orca_bite_parse:
+  Skills:
+  - CancelEvent
+  - skill{s=nm_orca_bite_activate;cd=5}
+  - damage{amount=6} @target ?targetwithin{d=3.5}
+  
+nm_orca_bite_activate:
+  Condition:
+  - offgcd
+  Skills:
+  - sound{s=entity.warden.agitated;p=0.6;v=1} @self
+  - gcd{ticks=20}
+  - state{state=bite;li=1;lo=2;n=false;speed=2.5} @self
+  - delay 16
+    # Nuevo: comprobar distancia antes de dañar
+  - damage{amount=14} @target ?targetwithin{d=6}
+  - sound{s=entity.warden.attack_impact;p=0.6;v=1} @self

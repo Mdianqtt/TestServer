@@ -1,0 +1,45 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Pinch
+sculked_crustacean_pinch:
+  Cooldown: 2
+  Conditions:
+  - incombat true
+  - targetwithin{d=4} true
+  Skills:
+  - delay 1
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - state{model=sculked_crustacean;state=pinch} @self
+  - delay 5
+  - lockmodel @self
+  - delay 5
+  - projectile{sE=false;syo=0;tyo=0;d=5;v=10;onTick=[ - teleport @ProjectileForward{f=-1.2} ]} @forward{f=4;lockpitch=true}
+  - sound{s=entity.evoker_fangs.attack;v=2;p=2} @self
+  - delay 3
+  - aura{auraName=ScrustaceanPinchD;duration=5;oT=sculked_crustacean_pinch_damage} @self
+  - delay 30
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+sculked_crustacean_pinch_damage:
+  Skills:
+  - totem{md=2;oH=[ - damage{a=22} ];hnp=true;hp=true;hR=1.5;vR=1.5;i=1;drawhitbox=false} @ModelPart{mid=sculked_crustacean;pid=hurtbox}
+
+#Death
+sculked_crustacean_death:
+  Skills:
+  - delay 195
+  - summon{type=sculk_crabby;amount=1} @self
+
+#Ambient
+sculked_crustacean_ambient:
+  Skills:
+  - sound{s=entity.strider.ambient;v=1.5;p=1} @self

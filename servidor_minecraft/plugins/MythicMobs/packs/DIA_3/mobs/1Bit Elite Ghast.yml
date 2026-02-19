@@ -1,0 +1,90 @@
+1bit_elite_ghast:
+  Type: ghast
+  Display: '&cElite Ghast'
+  Health: 80
+  Damage: 6
+  Faction: Elite
+  Modules:
+    ThreatTable: true
+  Options:
+    Silent: true
+    Invisible: true
+    Collidable: true
+    FollowRange: 55
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  DamageModifiers:
+  - ENTITY_EXPLOSION -0.1
+  - BLOCK_EXPLOSION -0.1
+  Drops:
+  - elite_ghast_eyes 1to2 1
+  Skills:
+  - model{mid=1bit_elite_ghast;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_ghast;n=false;usestatemachine=true} @self ~onLoad
+  - skill{s=1bit_elite_ghast_spawn;sync=true;delay=5} @self ~onSpawn
+  - onDamaged{auraName=spawn;cE=true;time=20;oS=[ 
+      - stun{d=20;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=20;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - CancelEvent{sync=true} ~onShoot
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_ghast_shoot;sync=false} ~onShoot
+  - skill{s=[
+      - sound{s=entity.ghast.ambient;p=0.66;v=2.0}
+      - sound{s=entity.creaking.ambient;p=1.73;v=2.0}
+      - sound{s=entity.frog.ambient;p=0.60;v=0.8}
+      - sound{s=entity.guardian.ambient;p=2.00;v=0.4}
+      - sound{s=particle.soul_escape;p=2.00;v=2.0}
+      - sound{s=entity.warden.heartbeat;p=2.00;v=0.2}
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}
+  - skill{s=1bit_elite_ghast_death;sync=true} @self ~onDeath
+  - skill{s=1bit_elite_ghast_damaged;sync=true} @self ~onDamaged
+
+
+1bit_elite_baby_ghast:
+  Type: ghast
+  Display: '&cElite Baby GHAST'
+  Health: 40
+  Damage: 3
+  Faction: Elite
+  Modules:
+    ThreatTable: true
+  Options:
+    Silent: true
+    Invisible: true
+    Collidable: true
+    FollowRange: 55
+    MovementSpeed: 0.1
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  DamageModifiers:
+  - ENTITY_EXPLOSION -0.1
+  - BLOCK_EXPLOSION -0.1
+  Drops:
+  - elite_ghast_eyes 1to2 1
+  Skills:
+  - model{mid=1bit_elite_baby_ghast;n=false;usestatemachine=true;scale=2} @self ~onSpawn
+  - model{mid=1bit_elite_baby_ghast;n=false;usestatemachine=true;scale=2} @self ~onLoad
+  - skill{s=1bit_elite_ghast_spawn;sync=true;delay=5} @self ~onSpawn
+  - onDamaged{auraName=spawn;cE=true;time=20;oS=[ 
+      - stun{d=20;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=20;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - CancelEvent{sync=true} ~onShoot
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_baby_ghast_shoot;sync=false} ~onShoot
+  - skill{s=[
+      - sound{s=entity.ghast.ambient;p=0.66;v=2.0}
+      - sound{s=entity.creaking.ambient;p=1.73;v=2.0}
+      - sound{s=entity.frog.ambient;p=0.60;v=0.8}
+      - sound{s=entity.guardian.ambient;p=2.00;v=0.4}
+      - sound{s=particle.soul_escape;p=2.00;v=2.0}
+      - sound{s=entity.warden.heartbeat;p=2.00;v=0.2}
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}
+  - skill{s=1bit_elite_baby_ghast_death;sync=true} @self ~onDeath
+  - skill{s=1bit_elite_ghast_damaged;sync=true} @self ~onDamaged
+

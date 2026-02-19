@@ -1,0 +1,14 @@
+
+# ~Written By RopeFire~
+
+random_echo_enshrouder:
+  Type: echo_enshrouder
+  Worlds: world
+  Chance: 1
+  Priority: 1
+  Action: ADD
+  Biomes: DEEP_DARK
+  PositionType: LAND
+  Cooldown: 300
+  Conditions:
+  - mobsInRadius{a=<1;r=64;type=echo_enshrouder}

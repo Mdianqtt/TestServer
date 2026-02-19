@@ -1,0 +1,94 @@
+
+
+mega_warden:
+  Type: IRON_GOLEM
+  Display: 'THE TRUE WARDEN'
+  Health: 3500
+  BossBar:
+    Enabled: true
+    Title: '&3The True Warden'
+    Range: 48
+    Color: BLUE
+    Style: SEGMENTED_12
+    FollowRange: 48
+  Options:
+    MovementSpeed: 0.17
+    PreventOtherDrops: true
+    Despawn: true
+    Persistent: false
+    KnockbackResistance: 1
+    Collidable: true
+    Silent: true
+    FollowRange: 64
+    PreventSunburn: true  
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=MEGAWARDEN_heartbeat} @self ~onTimer:15
+  - skill{s=MEGAWARDEN_emerge} @self ~onTimer:5
+  - skill{s=MEGAWARDEN_submerge} @self ~onTimer:60
+  - skill{s=MEGAWARDEN_submerged_rocks_fx} @self ~onTimer:5
+  - skill{s=MEGAWARDEN_death} @self ~onDeath
+  - skill{s=MEGAWARDEN_stun_handler} @self ~onDamaged
+  - skill{s=MEGAWARDEN_slam} @target ~onTimer:5
+  - skill{s=MEGAWARDEN_blast} @target ~onTimer:20
+  - skill{s=MEGAWARDEN_swipe_1_sync;sync=true} @self ~onAttack
+  - skill{s=MEGAWARDEN_rage_damage} @self ~onDamaged
+  - skill{s=MEGAWARDEN_rage_prox} @self ~onTimer:5
+  - skill{s=MEGAWARDEN_rage_sonar} @self ~onTimer:5
+  - skill{s=MEGAWARDEN_rage_sprint} @pir{r=32;limit=1} ~onTimer:5
+  - skill{s=MEGWARDEN_sonar_decay} @self ~onTimer:60
+  - skill{s=MEGAWARDEN_sendsonar} @pir{r=32;limit=1} ~onTimer:10
+  - skill{s=MEGAWARDEN_sniff} @self ~onTimer:33
+  - skill{s=MEGAWARDEN_investigate} @pir{r=32;limit=1} ~onTimer:10
+  - skill{s=MEGAWARDEN_spawn} @self ~onSpawn
+  - model{m=mega_warden;usm=true;d=false} @self ~onSpawn
+  - model{m=mega_warden;usm=true;d=false} @self ~onLoad
+ 
+
+MEGAWARDEN_concussion:
+  Type: ARMOR_STAND
+  Options:
+    Marker: true
+  Skills:
+  - skill{s=MEGAWARDEN_concussion} @self ~onSpawn
+  - model{mid=concussion;d=false;usm=true} @self ~onSpawn
+  - model{mid=concussion;d=false;usm=true} @self ~onLoad
+  
+MEGAWARDEN_submerge_rocks:
+  Type: CAT
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    Collidable: false
+    Invicible: true
+    Silent: true
+    PreventOtherDrops: true
+    NoAI: true
+  Skills:
+  - skill{s=MEGAWARDEN_submerge_rocks} @self ~onSpawn
+  - model{mid=mega_warden_rocks;d=false;usm=true} @self ~onSpawn
+  - model{mid=mega_warden_rocks;d=false;usm=true} @self ~onLoad
+  
+MEGAWARDEN_soul:
+  Type: VEX
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Equipment:
+  - AIR HAND
+  Options:
+    Silent: true
+    PreventOtherDrops: true
+    Invincible: true
+    Invisible: true
+  Skills:
+  - skill{s=MEGAWARDEN_blast} @eir{r=1;sort=NEAREST;limit=1} ~onTimer:1
+  - skill{s=MEGAWARDEN_blast_tick} @eir{r=12;sort=NEAREST;limit=1} ~onTimer:1
+  - skill{s=MEGWARDEN_sonar_decay} @self ~onSpawn
+  
+

@@ -1,0 +1,8 @@
+info:
+  namespace: victoralonso
+minecraft_lang_overwrite:
+  disable_minecraft_lang:
+    entries:
+      "container.inventory": ""
+    languages:
+      - ALL

@@ -1,0 +1,175 @@
+1bit_elite_pillager_randoms_attack:
+  Cooldown: 2.75
+  Skills:
+  - skill{s=1bit_elite_pillager_randoms_attacks2;sync=true} ?skillOnCooldown{skill=1bit_elite_pillager_randoms_attack_3}
+  - cancelSkill ?skillOnCooldown{skill=1bit_elite_pillager_randoms_attack_3}
+  - skill{s=1bit_elite_pillager_randoms_attacks;sync=true} ?!skillOnCooldown{skill=1bit_elite_pillager_randoms_attack_3}
+
+1bit_elite_pillager_randoms_attacks:
+  TargetConditions:
+  - distance{d=0-6} castinstead 1bit_elite_pillager_randoms_attack_3
+  Skills:
+  - randomskill{skills=1bit_elite_pillager_randoms_attack_1,1bit_elite_pillager_randoms_attack_2}
+
+1bit_elite_pillager_randoms_attacks2:
+  Skills:
+  - randomskill{skills=1bit_elite_pillager_randoms_attack_1,1bit_elite_pillager_randoms_attack_2}
+1bit_elite_baby_pillager_randoms_attack:
+  Cooldown: 2.65
+  Skills:
+  - skill{s=1bit_elite_baby_pillager_randoms_attacks2;sync=true} ?skillOnCooldown{skill=1bit_elite_baby_pillager_randoms_attack_3}
+  - cancelSkill ?skillOnCooldown{skill=1bit_elite_baby_pillager_randoms_attack_3}
+  - skill{s=1bit_elite_baby_pillager_randoms_attacks;sync=true} ?!skillOnCooldown{skill=1bit_elite_baby_pillager_randoms_attack_3}
+
+1bit_elite_baby_pillager_randoms_attacks:
+  TargetConditions:
+  - distance{d=0-5} castinstead 1bit_elite_baby_pillager_randoms_attack_3
+  Skills:
+  - randomskill{skills=1bit_elite_baby_pillager_randoms_attack_1,1bit_elite_baby_pillager_randoms_attack_2}
+
+1bit_elite_baby_pillager_randoms_attacks2:
+  Skills:
+  - randomskill{skills=1bit_elite_baby_pillager_randoms_attack_1,1bit_elite_baby_pillager_randoms_attack_2}
+
+1bit_elite_pillager_randoms_attack_1:
+  Skills:
+  - potion{t=SLOW;d=45;l=10} @self
+  - state{s=attack1} @self
+  - setNoDamageTicks{ticks=0;delay=6}
+  - delay 7
+  - setNoDamageTicks{ticks=0}
+  - shoot{type=arrow;damage=6;velocity=1.8;accuracy=2.0;verticaloffset=0.1;g=false;damage=<caster.damage>;oh=[
+      - effect:particles{particle=Crit;speed=0.4;Size=1;a=14;hS=0.65;vS=0.45;y=1}
+      - potion{t=SLOW;d=40;l=1}
+      - delay 1
+      - throw{v=14;vy=3.5}
+    ]}
+
+1bit_elite_pillager_randoms_attack_2:
+  Skills:
+  - potion{t=SLOW;d=50;l=10} @self
+  - state{s=attack2} @self
+  - setNoDamageTicks{ticks=0;delay=11}
+  - delay 12
+  - shoot{type=arrow;damage=6;velocity=1.8;accuracy=2.0;verticaloffset=0.1;g=false;damage=<caster.damage>;oh=[
+      - effect:particles{particle=Crit;speed=0.4;Size=1;a=14;hS=0.65;vS=0.45;y=1}
+      - potion{t=SLOW;d=40;l=1}
+      - delay 1
+      - throw{v=14;vy=3.5}
+    ]}
+
+1bit_elite_pillager_randoms_attack_3:
+  Cooldown: 5
+  Skills:
+  - potion{t=SLOW;d=55;l=2} @self
+  - stun{d=55} @self
+  - state{s=attack3} @self
+  - delay 14
+  - effect:particles{particle=flame;speed=0.15;Size=1;a=15;hS=0.05;vS=0.05} @ModelPart{p=tnt2}
+  - effect:particles{particle=Campfire_Cosy_Smoke;speed=0.12;Size=1;a=8;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - effect:particles{particle=Campfire_Cosy_Smoke;speed=0.07;Size=1;a=4;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - effect:particles{particle=Large_Smoke;speed=0.1;Size=1;a=8;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - effect:particles{particle=Large_Smoke;speed=0.07;Size=1;a=8;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - totem{yo=0;md=2;os=[
+      - skill{s=[
+          - damage{a=<caster.damage>}
+          - potion{t=BLINDNESS;d=100}
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=4;Conditions=[ - isPlayer{} true - isCaster{} false]} ?!hastag{t=pet}
+      - skill{s=[
+          - damage{a=<caster.damage>}
+          - potion{t=BLINDNESS;d=100}
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=4;Conditions=[ - isPlayer{} false - isCaster{} false]} ?hastag{t=pet}
+    ]} @ModelPart{p=tnt2}
+1bit_elite_baby_pillager_randoms_attack_1:
+  Skills:
+  - potion{t=SLOW;d=50;l=10} @self
+  - state{s=attack1} @self
+  - setNoDamageTicks{ticks=0;delay=5}
+  - delay 6
+  - setNoDamageTicks{ticks=0}
+  - shoot{type=arrow;velocity=0.8;accuracy=2;vo=0.2;damage=<caster.damage>;oh=[
+      - effect:particles{particle=Crit;speed=0.4;Size=1;a=14;hS=0.65;vS=0.45;y=1}
+      - potion{t=SLOW;d=40;l=1}
+      - delay 1
+      - throw{v=8;vy=2.5}
+    ]}
+
+1bit_elite_baby_pillager_randoms_attack_2:
+  Skills:
+  - potion{t=SLOW;d=50;l=10} @self
+  - state{s=attack2} @self
+  - setNoDamageTicks{ticks=0;delay=9}
+  - delay 10
+  - shoot{type=arrow;velocity=0.8;accuracy=2;vo=0.2;damage=<caster.damage>;oh=[
+      - effect:particles{particle=Crit;speed=0.4;Size=1;a=14;hS=0.65;vS=0.45;y=1}
+      - potion{t=SLOW;d=40;l=1}
+      - delay 1
+      - throw{v=8;vy=2.5}
+    ]}
+
+1bit_elite_baby_pillager_randoms_attack_3:
+  Cooldown: 5
+  Skills:
+  - potion{t=SLOW;d=53;l=2} @self
+  - stun{d=53} @self
+  - state{s=attack3} @self
+  - delay 14
+  - effect:particles{particle=flame;speed=0.15;Size=1;a=15;hS=0.05;vS=0.05} @ModelPart{p=tnt2}
+  - effect:particles{particle=Campfire_Cosy_Smoke;speed=0.12;Size=1;a=12;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - effect:particles{particle=Campfire_Cosy_Smoke;speed=0.07;Size=1;a=7;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - effect:particles{particle=Large_Smoke;speed=0.1;Size=1;a=12;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - effect:particles{particle=Large_Smoke;speed=0.07;Size=1;a=12;hS=0.1;vS=0.1;repeat=2;repeatInterval=1} @ModelPart{p=tnt2}
+  - totem{yo=0;md=2;os=[
+      - skill{s=[
+          - damage{a=<caster.damage>}
+          - potion{t=BLINDNESS;d=100}
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=5;Conditions=[ - isPlayer{} true - isCaster{} false]} ?!hastag{t=pet}
+      - skill{s=[
+          - damage{a=<caster.damage>}
+          - potion{t=BLINDNESS;d=100}
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=5;Conditions=[ - isPlayer{} false - isCaster{} false]} ?hastag{t=pet}
+    ]} @ModelPart{p=tnt2}
+
+1bit_elite_pillager_sound_reload_s1:
+  Skills:
+  - sound{s=item.crossbow.loading_start;p=1.1;v=0.8} @self
+  - sound{s=item.crossbow.quick_charge_1;p=1.1;v=0.5} @self
+1bit_elite_pillager_sound_reload_s2:
+  Skills:
+  - sound{s=item.crossbow.loading_middle;p=1.0;v=1.0} @self
+1bit_elite_pillager_sound_reload_s3:
+  Skills:
+  - sound{s=item.crossbow.loading_end;p=0.88;v=1.0} @self
+1bit_elite_pillager_sound_shoot:
+  Skills:
+  - sound{s=item.crossbow.shoot;p=1.20;v=1.0} @self
+1bit_elite_pillager_sound_shoot_s2:
+  Skills:
+  - sound{s=item.crossbow.shoot;p=1.20;v=1.0} @self
+1bit_elite_pillager_sound_shoot_s3:
+  Skills:
+  - sound{s=block.glass.break;p=1.00;v=1.0} @self
+  - sound{s=entity.generic.extinguish_fire;p=1.51;v=0.6} @self
+  - sound{s=item.firecharge.use;p=1.52;v=0.5} @self
+1bit_elite_pillager_sound_spawn:
+  Skills:
+  - effect:particles{particle=Campfire_Signal_Smoke;speed=0.05;Size=1;a=7;hS=0.55;vS=0} @SelfLocation{y=0.1} ?!hastag{t=baby}
+  - effect:particles{particle=Campfire_Signal_Smoke;speed=0.05;Size=1;a=3;hS=0.55;vS=0} @SelfLocation{y=0.1} ?hastag{t=baby}
+  - sound{s=block.resin.step;p=1.00;v=0.8} @self
+1bit_elite_pillager_sound_walk:
+  Skills:
+  - sound{s=block.resin.step;p=1.00;v=0.8} @self
+  - sound{s=block.stone.step;p=1.00;v=0.5} @self
+1bit_elite_pillager_death:
+  Skills:
+  - delay 38
+  - effect:particles{particle=Cloud;speed=0.035;Size=1;a=7;hS=0.6;vS=0.2;y=0.35;repeat=1;repeatInterval=1} @ModelPart{p=body}
+  - effect:particles{particle=Cloud;speed=0.035;Size=1;a=7;hS=0.6;vS=0.2;y=0.35;repeat=1;repeatInterval=1} @ModelPart{p=head}
+1bit_elite_baby_pillager_death:
+  Skills:
+  - delay 28
+  - effect:particles{particle=Cloud;speed=0.035;Size=1;a=7;hS=0.4;vS=0.1;y=0.25;repeat=1;repeatInterval=1} @ModelPart{p=head}

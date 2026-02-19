@@ -1,0 +1,10 @@
+type: shaped
+shape:
+- ab
+- 'c '
+source:
+  a: minecraft:poppy
+  b: minecraft:golden_apple
+  c: mythic_mobs:scorpid_tail
+unlock: true
+result: mythic_mobs:RosaCurativa 1

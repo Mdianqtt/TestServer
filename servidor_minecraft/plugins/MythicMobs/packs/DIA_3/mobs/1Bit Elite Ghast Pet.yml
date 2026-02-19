@@ -1,0 +1,96 @@
+1bit_elite_ghast_pet:
+  Type: bee
+  Display: '&cElite Ghast Pet'
+  Health: 80
+  Damage: 8
+  Faction: pet
+  Modules:
+    ThreatTable: true
+  Options:
+    Silent: true
+    Invisible: false
+    Collidable: true
+    FollowRange: 55
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  DamageModifiers:
+  - ENTITY_EXPLOSION -0.1
+  - BLOCK_EXPLOSION -0.1
+  AIGoalSelectors:
+  - clear
+  - gotoowner 7
+  - randomFly
+  AITargetSelectors:
+  - 0 clear
+  - 1 attacker
+  Skills:
+  - model{mid=1bit_elite_ghast;n=false;usestatemachine=true;drive=true} @self ~onSpawn
+  - model{mid=1bit_elite_ghast;n=false;usestatemachine=true} @self ~onLoad
+  - skill{s=1bit_elite_ghast_spawn;sync=true;delay=5} @self ~onSpawn
+  - addtag{t=pet} @self ~onSpawn
+  - onDamaged{auraName=spawn;cE=true;time=20;oS=[
+      - stun{d=20;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=20;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged
+  - CancelEvent{sync=true} ~onShoot
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_ghast_shoot;sync=false} ~onShoot
+  - skill{s=[
+      - sound{s=entity.ghast.ambient;p=0.66;v=2.0}
+      - sound{s=entity.creaking.ambient;p=1.73;v=2.0}
+      - sound{s=entity.frog.ambient;p=0.60;v=0.8}
+      - sound{s=entity.guardian.ambient;p=2.00;v=0.4}
+      - sound{s=particle.soul_escape;p=2.00;v=2.0}
+      - sound{s=entity.warden.heartbeat;p=2.00;v=0.2}
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}
+  - skill{s=1bit_elite_ghast_death;sync=true} @self ~onDeath
+
+
+1bit_elite_baby_ghast_pet:
+  Type: bee
+  Display: '&cElite Baby Ghast Pet'
+  Health: 35
+  Damage: 5
+  Faction: pet
+  Modules:
+    ThreatTable: false
+  Options:
+    Silent: true
+    Invisible: false
+    Collidable: false
+    FollowRange: 55
+    MovementSpeed: 0.15
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  DamageModifiers:
+  - ENTITY_EXPLOSION -0.1
+  - BLOCK_EXPLOSION -0.1
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomFly
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  Skills:
+  - model{mid=1bit_elite_baby_ghast;n=false;usestatemachine=true;scale=1} @self ~onSpawn
+  - model{mid=1bit_elite_baby_ghast;n=false;usestatemachine=true;scale=1} @self ~onLoad
+  - skill{s=1bit_elite_ghast_spawn;sync=true;delay=5} @self ~onSpawn
+  - addtag{t=pet} @self ~onSpawn
+  - onDamaged{auraName=spawn;cE=true;time=20;oS=[
+      - stun{d=20;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=20;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - skill{s=[
+      - sound{s=entity.ghast.ambient;p=0.66;v=2.0}
+      - sound{s=entity.creaking.ambient;p=1.73;v=2.0}
+      - sound{s=entity.frog.ambient;p=0.60;v=0.8}
+      - sound{s=entity.guardian.ambient;p=2.00;v=0.4}
+      - sound{s=particle.soul_escape;p=2.00;v=2.0}
+      - sound{s=entity.warden.heartbeat;p=2.00;v=0.2}
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}
+  - skill{s=1bit_elite_baby_ghast_death;sync=true} @self ~onDeath

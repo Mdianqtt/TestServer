@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/bl_flying_spider"},"elements":[{"from":[3.85739,7.9535484,7.94631],"to":[9.85739,7.9535484,18.94631],"faces":{"up":{"uv":[4.5,10.5,3.5,8.666667],"tintindex":0,"rotation":0,"texture":"#0"},"down":{"uv":[8.666667,8.833334,7.666667,10.666667],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

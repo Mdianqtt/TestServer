@@ -1,0 +1,22 @@
+
+
+warden_sword:
+  Id: CARROT_ON_A_STICK
+  Display: '&fWarden Sword'
+  Model: 20
+  Lore:
+    - 'Made from the Teeth of the Mega Warden!'
+    
+warden_heart:
+  Id: CARROT_ON_A_STICK
+  Display: '&fWarden Heart'
+  Model: 19
+  Lore:
+    - 'I wonder what makes it beat'
+    
+warden_hat:
+  Id: INK_SAC
+  Display: '&fWarden Hat'
+  Model: 555
+  Lore:
+    - 'You look kind of cool!'

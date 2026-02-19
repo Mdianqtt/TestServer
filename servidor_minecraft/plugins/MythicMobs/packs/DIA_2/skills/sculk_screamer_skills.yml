@@ -1,0 +1,92 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Scream
+sculk_screamer_scream:
+  Cooldown: 15
+  Conditions:
+  - incombat true
+  - targetwithin{d=10} false
+  - hasaura{n=SscreamerScream} false
+  - hasaura{n=SscreamerRightSlash} false
+  - hasaura{n=SscreamerLeftSlash} false
+  Skills:
+  - delay 1
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=SscreamerScream;d=140} @self
+  - state{model=sculk_screamer;state=scream} @self
+  - sound{s=tugkandeman.sculk_scream1;v=5;p=1} @self
+  - lockmodel @self
+  - delay 140
+  - lockmodel{l=false} @self
+  - setspeed{speed=2;type=WALKING} @self
+
+#Right Slash
+sculk_screamer_right_slash:
+  Conditions:
+  - incombat true
+  - targetwithin{d=5} true
+  - hasaura{n=SscreamerScream} false
+  - hasaura{n=SscreamerRightSlash} false
+  - hasaura{n=SscreamerLeftSlash} false
+  Skills:
+  - delay 1
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=SscreamerRightSlash;d=25} @self
+  - state{model=sculk_screamer;state=right_slash} @self
+  - delay 4
+  - lockmodel @self
+  - projectile{sE=false;syo=0;tyo=0;d=5;v=10;onTick=[ - teleport @ProjectileForward{f=-1.2} ]} @forward{f=2;lockpitch=true}
+  - delay 1
+  - aura{auraName=SscreamerRightSlashD;duration=5;oT=sculk_screamer_right_slash_damage} @self
+  - sound{s=entity.phantom.bite;v=2;p=2} @self
+  - delay 20
+  - lockmodel{l=false} @self
+  - setspeed{speed=2;type=WALKING} @self
+
+sculk_screamer_right_slash_damage:
+  Skills:
+  - totem{md=2;oH=[ - damage{a=20} ];hnp=true;hp=true;hR=1.5;vR=1.5;i=1;drawhitbox=false} @ModelPart{mid=sculk_screamer;pid=hurtbox}
+
+#Left Slash
+sculk_screamer_left_slash:
+  Conditions:
+  - incombat true
+  - targetwithin{d=5} true
+  - hasaura{n=SscreamerScream} false
+  - hasaura{n=SscreamerRightSlash} false
+  - hasaura{n=SscreamerLeftSlash} false
+  Skills:
+  - delay 1
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=SscreamerLeftSlash;d=25} @self
+  - state{model=sculk_screamer;state=left_slash} @self
+  - delay 4
+  - lockmodel @self
+  - projectile{sE=false;syo=0;tyo=0;d=5;v=10;onTick=[ - teleport @ProjectileForward{f=-1.2} ]} @forward{f=2;lockpitch=true}
+  - delay 1
+  - aura{auraName=SscreamerLeftSlashD;duration=5;oT=sculk_screamer_left_slash_damage} @self
+  - sound{s=entity.phantom.bite;v=2;p=2} @self
+  - delay 20
+  - lockmodel{l=false} @self
+  - setspeed{speed=2;type=WALKING} @self
+
+sculk_screamer_left_slash_damage:
+  Skills:
+  - totem{md=2;oH=[ - damage{a=20} ];hnp=true;hp=true;hR=1.5;vR=1.5;i=1;drawhitbox=false} @ModelPart{mid=sculk_screamer;pid=hurtbox}
+
+#Ambient
+sculk_screamer_ambient:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=tugkandeman.sculk_screamer_idle;v=1.5;p=1} @self

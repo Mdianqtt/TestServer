@@ -1,0 +1,91 @@
+info:
+  namespace: weapons_me
+items:
+  warden_sword:
+    display_name: "&bWarden Sword"
+    permission: weaponsme.wardensword
+    resource:
+      material: NETHERITE_SWORD
+      generate: false
+      model_path: item/warden_set/warden_sword
+    durability:
+      max_durability: 2452
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 15
+        attackSpeed: 1.3
+      offhand:
+        attackDamage: 15
+  warden_pickaxe:
+    display_name: "&bWarden Pickaxe"
+    permission: weaponsme.wardenpickaxe
+    resource:
+      material: NETHERITE_PICKAXE
+      generate: false
+      model_path: item/warden_set/warden_pickaxe
+    durability:
+      max_durability: 2452
+    item_flags:
+        - HIDE_ATTRIBUTES
+    attribute_modifiers:
+      mainhand:
+        player.mining_efficiency: 1.7
+      offhand:
+        player.mining_efficiency: 1.7
+  warden_shovel:
+    display_name: "&bWarden Shovel"
+    permission: weaponsme.wardenshovel
+    resource:
+      material: NETHERITE_SHOVEL
+      generate: false
+      model_path: item/warden_set/warden_shovel
+    durability:
+      max_durability: 2452
+    item_flags:
+        - HIDE_ATTRIBUTES
+    attribute_modifiers:
+      mainhand:
+        player.mining_efficiency: 1.6
+      offhand:
+        player.mining_efficiency: 1.6
+  warden_hoe:
+    display_name: "&bWarden Hoe"
+    permission: weaponsme.wardenshoe
+    resource:
+      material: NETHERITE_HOE
+      generate: false
+      model_path: item/warden_set/warden_hoe
+    durability:
+      max_durability: 2452
+    item_flags:
+        - HIDE_ATTRIBUTES
+    attribute_modifiers:
+      mainhand:
+        player.mining_efficiency: 1.8
+      offhand:
+        player.mining_efficiency: 1.8
+  warden_axe:
+    display_name: "&bWarden AXE"
+    permission: weaponsme.wardensaxe
+    resource:
+      material: NETHERITE_AXE
+      generate: false
+      model_path: item/warden_set/warden_axe
+    durability:
+      max_durability: 2452
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 16
+        attackSpeed: 0.9
+      offhand:
+        attackDamage: 16
+        attackSpeed: 0.9
+  warden_bow:
+    display_name: "&bWarden Bow"
+    permission: weaponsme.wardenbow
+    durability:
+      max_custom_durability: 1005
+    resource:
+      material: BOW
+      generate: false
+      model_path:  item/warden_set/bow/warden_bow

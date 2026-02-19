@@ -1,0 +1,101 @@
+
+
+  
+  
+EndBeast:
+  Mobtype: zombie
+  Display: 'End Beast'
+  Health: 2750
+  BossBar:
+    Enabled: true
+    Title: '&3End Beast'
+    Range: 48
+    Color: BLUE
+    Style: SEGMENTED_12
+    FollowRange: 48
+  Damage: 15
+  ShowHealth: true
+  Despawn: true
+  Options:
+    LockPitch: true
+    KnockbackResistance: 1
+    PreventOtherDrops: true
+    ApplyInvisibility: true
+    Silent: true
+    FollowRange: 32
+    MaxCombatDistance: 64
+    Collidable: false
+    MovementSpeed: 0.36
+    PreventMobKillDrops: true
+    PreventItemPickup: true
+    PreventSunburn: true
+  Modules:
+    ImmunityTable: true
+    ThreatTable: true
+  DamageModifiers:
+  - MAGIC 0.1
+  - SUFFOCATION 0
+  Faction: EndBeast 
+  BossBar:
+    Enabled: true
+    Range: 100
+    Color: PURPLE
+    Style: SOLID
+    Title: "&6&lEnd Beast"
+  AIGoalSelectors:
+  - 0 Clear
+  - 1 MeleeAttack
+  - 2 RandomStroll 
+  - 3 Float 
+  AITargetSelectors:
+  - 0 clear
+  - 1 attacker
+  - 2 players
+  - 3 OtherFaction
+  Skills:
+  - effect:particles{p=dragon_breath;a=50;hS=1;vS=0.7;size=0.5;y=4.5} @self ~onTimer:15
+  - model{mid=endbeast;n=false;damagetint=false;i=true;mount=true;drive=true;ride=true;pbone=seat1} @self ~onSpawn
+  - randomskill{skills=grabplayer,stomp,punch,smash;sync=true} @self ~onAttack
+  - randomskill{skills=roar,clawprojectile,stoneprojectile;sync=true} @self ~onTimer:35
+  - randomskill{skills=lunge;sync=true} @self ~onTimer:25
+
+
+
+
+  
+
+  LevelModifiers:
+     Health: 0.0
+
+
+groundshake:
+  Type: ARMOR_STAND
+  Health: 1
+  Damage: 0
+  Faction: Ender
+  Skills:
+  - model{mid=groundshake;n=false} @self ~onSpawn
+  - skill{s=groundshake} @self ~onSpawn
+  Options:
+    AlwaysShowName: false
+    MaxCombatDistance: 32
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Invisible: true
+    
+projectile:
+  Type: ARMOR_STAND
+  Health: 1
+  Damage: 0
+  Faction: Ender
+  Skills:
+  - model{mid=projectile;n=false} @self ~onSpawn
+  - skill{s=projectile} @self ~onSpawn
+  Options:
+    AlwaysShowName: false
+    MaxCombatDistance: 32
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Invisible: true
+
+# 65508P0OA6

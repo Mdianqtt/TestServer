@@ -1,0 +1,302 @@
+#Delete or add your own items.
+
+#Items: {}
+
+Items:
+  TEST:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST2:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST3:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST4:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST5:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST6:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST7:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST8:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple
+  TEST9:
+    pointPrice: 100000.0
+    vaultPrice: 100000.0
+    Icon:
+      Id: BARRIER
+      Amount: 1
+      Name: "&cThere are no items"
+      Lore:
+      - "&aVery soon"
+      HideWithoutPermission: true
+      HideIfThereIsNoEnoughPoints: false
+    RequiredJobLevels:
+    - Miner-100
+    RequiredTotalLevels: 100
+    PerformCommands:
+    - "msg &ePlease configure the file shopItems.yml"
+    GiveItems:
+      PickAxe:
+        Id: diamond_pickaxe
+        Amount: 1
+        Name: "&r"
+        Lore:
+        - "&r"
+        Enchants:
+        - DIG_SPEED=5
+        - DURABILITY=3
+      Giving-Potion:
+        Id: potion
+        Amount: 1
+        Name: "&6Jump boost"
+        potion-type: jump
+      Apple:
+        Id: apple

@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/bl_toxin_spider"},"elements":[{"from":[6.82985,8.0,5.81603],"to":[10.82985,8.0,9.8160305],"faces":{"up":{"uv":[10.833334,4.8333335,11.5,4.166667],"tintindex":0,"rotation":0,"texture":"#0"},"down":{"uv":[10.833334,4.8333335,11.5,5.5],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

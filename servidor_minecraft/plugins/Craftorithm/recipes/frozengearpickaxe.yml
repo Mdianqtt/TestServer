@@ -1,0 +1,11 @@
+type: shaped
+shape:
+- aba
+- ' c '
+- ' b '
+source:
+  a: mythic_mobs:blue_crystal
+  b: minecraft:diamond
+  c: minecraft:gold_ingot
+unlock: true
+result: items_adder:weapons_me:frozengear_pickaxe 1

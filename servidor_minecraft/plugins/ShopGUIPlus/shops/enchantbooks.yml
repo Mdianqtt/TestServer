@@ -1,0 +1,779 @@
+  enchantbooks:
+    name: "&8Enchantment Books ✚ (page %page% ┃ 2)"
+    buttons:
+      goBack:
+        slot: 4     
+      previousPage:
+        slot: 2
+      nextPage:
+        slot: 6   
+    fillItem:
+        material: ORANGE_STAINED_GLASS_PANE
+        name: "" 
+    items:
+       1:
+        type: enchantment
+        enchantment: FORTUNE
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bFortune I"
+          enchantments:
+            - FORTUNE:1
+        buyPrice: 20000
+        slot: 9
+       2:
+        type: enchantment
+        enchantment: FORTUNE
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bFortune II"
+          enchantments:
+            - FORTUNE:2
+        buyPrice: 40000
+        slot: 10
+       3:
+        type: enchantment
+        enchantment: FORTUNE
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bFortune III"
+          enchantments:
+            - FORTUNE:3
+        buyPrice: 60000
+        slot: 11
+       4:
+        type: enchantment
+        enchantment: POWER
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPower I"
+          enchantments:
+            - POWER:1
+        buyPrice: 10000
+        slot: 12 
+       5:
+        type: enchantment
+        enchantment: POWER
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPower II"
+          enchantments:
+            - POWER:2
+        buyPrice: 20000
+        slot: 13 
+       6:
+        type: enchantment
+        enchantment: POWER
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPower III"
+          enchantments:
+            - POWER:3
+        buyPrice: 40000
+        slot: 14   
+       7:
+        type: enchantment
+        enchantment: POWER
+        enchantmentLevel: 4
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPower IV"
+          enchantments:
+            - POWER:4
+        buyPrice: 80000
+        slot: 15    
+       8:
+        type: enchantment
+        enchantment: POWER
+        enchantmentLevel: 5
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPower V"
+          enchantments:
+            - POWER:5
+        buyPrice: 160000
+        slot: 16      
+       9:
+        type: enchantment
+        enchantment: FLAME
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bFLAME I"
+          enchantments:
+            - FLAME:1
+        buyPrice: 30000
+        slot: 17
+       10:
+        type: enchantment
+        enchantment: INFINITY
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bInfinity I"
+          enchantments:
+            - INFINITY:1
+        buyPrice: 60000
+        slot: 18
+       11:
+        type: enchantment
+        enchantment: PUNCH
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPunch I"
+          enchantments:
+            - PUNCH:1
+        buyPrice: 20000
+        slot: 19
+       12:
+        type: enchantment
+        enchantment: PUNCH
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPunch II"
+          enchantments:
+            - PUNCH:2
+        buyPrice: 40000
+        slot: 20
+       13:
+        type: enchantment
+        enchantment: SHARPNESS
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSharpness I"
+          enchantments:
+            - SHARPNESS:1
+        buyPrice: 10000
+        slot: 21
+       14:
+        type: enchantment
+        enchantment: SHARPNESS
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSharpness II"
+          enchantments:
+            - SHARPNESS:2
+        buyPrice: 20000
+        slot: 22
+       15:
+        type: enchantment
+        enchantment: SHARPNESS
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSharpness III"
+          enchantments:
+            - SHARPNESS:3
+        buyPrice: 40000
+        slot: 23
+       16:
+        type: enchantment
+        enchantment: SHARPNESS
+        enchantmentLevel: 4
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSharpness IV"
+          enchantments:
+            - SHARPNESS:4
+        buyPrice: 80000
+        slot: 24
+       17:
+        type: enchantment
+        enchantment: SHARPNESS
+        enchantmentLevel: 5
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSharpness V"
+          enchantments:
+            - SHARPNESS:5
+        buyPrice: 160000
+        slot: 25
+       18:
+        type: enchantment
+        enchantment: EFFICIENCY
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bEfficiency I"
+          enchantments:
+            - EFFICIENCY:1
+        buyPrice: 10000
+        slot: 26
+       19:
+        type: enchantment
+        enchantment: EFFICIENCY
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bEfficiency II"
+          enchantments:
+            - EFFICIENCY:2
+        buyPrice: 20000
+        slot: 27
+       20:
+        type: enchantment
+        enchantment: EFFICIENCY
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bEfficiency III"
+          enchantments:
+            - EFFICIENCY:3
+        buyPrice: 40000
+        slot: 28
+       21:
+        type: enchantment
+        enchantment: EFFICIENCY
+        enchantmentLevel: 4
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bEfficiency IV"
+          enchantments:
+            - EFFICIENCY:4
+        buyPrice: 80000
+        slot: 29
+       22:
+        type: enchantment
+        enchantment: EFFICIENCY
+        enchantmentLevel: 5
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bEfficiency V"
+          enchantments:
+            - EFFICIENCY:5
+        buyPrice: 160000
+        slot: 30
+       23:
+        type: enchantment
+        enchantment: UNBREAKING
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bUnbreaking I"
+          enchantments:
+            - UNBREAKING:1
+        buyPrice: 10000
+        slot: 31
+       24:
+        type: enchantment
+        enchantment: UNBREAKING
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bUnbreaking II"
+          enchantments:
+            - UNBREAKING:2
+        buyPrice: 20000
+        slot: 32
+       25:
+        type: enchantment
+        enchantment: UNBREAKING
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bUnbreaking III"
+          enchantments:
+            - UNBREAKING:3
+        buyPrice: 40000
+        slot: 33
+       26:
+        type: enchantment
+        enchantment: LOOTING
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bLooting I"
+          enchantments:
+            - LOOTING:1
+        buyPrice: 20000
+        slot: 34
+       27:
+        type: enchantment
+        enchantment: LOOTING
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bLooting II"
+          enchantments:
+            - LOOTING:2
+        buyPrice: 40000
+        slot: 35
+       28:
+        type: enchantment
+        enchantment: LOOTING
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bLooting III"
+          enchantments:
+            - LOOTING:3
+        buyPrice: 80000
+        slot: 36
+       29:
+        type: enchantment
+        enchantment: PROTECTION
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bProtection I"
+          enchantments:
+            - PROTECTION:1
+        buyPrice: 10000
+        slot: 37
+       30:
+        type: enchantment
+        enchantment: PROTECTION
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bProtection II"
+          enchantments:
+            - PROTECTION:2
+        buyPrice: 20000
+        slot: 38
+       31:
+        type: enchantment
+        enchantment: PROTECTION
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bProtection III"
+          enchantments:
+            - PROTECTION:3
+        buyPrice: 40000
+        slot: 39
+       32:
+        type: enchantment
+        enchantment: PROTECTION
+        enchantmentLevel: 4
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bProtection IV"
+          enchantments:
+            - PROTECTION:4
+        buyPrice: 80000
+        slot: 40
+       33:
+        type: enchantment
+        enchantment: FIREASPECT
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bFire Aspect I"
+          enchantments:
+            - FIREASPECT:1
+        buyPrice: 20000
+        slot: 41
+       34:
+        type: enchantment
+        enchantment: FIREASPECT
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bFire Aspect II"
+          enchantments:
+            - FIREASPECT:2
+        buyPrice: 40000
+        slot: 42
+       35:
+        type: enchantment
+        enchantment: KNOCKBACK
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bKnockback I"
+          enchantments:
+            - KNOCKBACK:1
+        buyPrice: 20000
+        slot: 43
+       36:
+        type: enchantment
+        enchantment: KNOCKBACK
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bKnockback II"
+          enchantments:
+            - KNOCKBACK:2
+        buyPrice: 40000
+        slot: 44
+       37:
+        type: enchantment
+        enchantment: LOYALTY
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bLoyalty I"
+          enchantments:
+            - LOYALTY:1
+        buyPrice: 30000
+        slot: 9
+        page: 2
+       38:
+        type: enchantment
+        enchantment: LOYALTY
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bLoyalty II"
+          enchantments:
+            - LOYALTY:2
+        buyPrice: 60000
+        slot: 10
+        page: 2
+       39:
+        type: enchantment
+        enchantment: LOYALTY
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bLoyalty III"
+          enchantments:
+            - LOYALTY:3
+        buyPrice: 120000
+        slot: 11
+        page: 2
+       40:
+        type: enchantment
+        enchantment: IMPALING
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bImpaling I"
+          enchantments:
+            - IMPALING:1
+        buyPrice: 10000
+        slot: 12
+        page: 2
+       41:
+        type: enchantment
+        enchantment: IMPALING
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bImpaling II"
+          enchantments:
+            - IMPALING:2
+        buyPrice: 20000
+        slot: 13
+        page: 2
+       42:
+        type: enchantment
+        enchantment: IMPALING
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bImpaling III"
+          enchantments:
+            - IMPALING:3
+        buyPrice: 40000
+        slot: 14
+        page: 2
+       43:
+        type: enchantment
+        enchantment: IMPALING
+        enchantmentLevel: 4
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bImpaling IV"
+          enchantments:
+            - IMPALING:4
+        buyPrice: 80000
+        slot: 15
+        page: 2
+       44:
+        type: enchantment
+        enchantment: IMPALING
+        enchantmentLevel: 5
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bImpaling V"
+          enchantments:
+            - IMPALING:5
+        buyPrice: 160000
+        slot: 16
+        page: 2
+       45:
+        type: enchantment
+        enchantment: RIPTIDE
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bRiptide I"
+          enchantments:
+            - RIPTIDE:1
+        buyPrice: 20000
+        slot: 17
+        page: 2
+       46:
+        type: enchantment
+        enchantment: RIPTIDE
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bRiptide II"
+          enchantments:
+            - RIPTIDE:2
+        buyPrice: 40000
+        slot: 18
+        page: 2
+       47:
+        type: enchantment
+        enchantment: RIPTIDE
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bRiptide III"
+          enchantments:
+            - RIPTIDE:3
+        buyPrice: 80000
+        slot: 19
+        page: 2
+       48:
+        type: enchantment
+        enchantment: QUICK_CHARGE
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bQuick Charge I"
+          enchantments:
+            - QUICK_CHARGE:1
+        buyPrice: 10000
+        slot: 20
+        page: 2
+       49:
+        type: enchantment
+        enchantment: QUICK_CHARGE
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bQuick Charge II"
+          enchantments:
+            - QUICK_CHARGE:2
+        buyPrice: 20000
+        slot: 21
+        page: 2
+       50:
+        type: enchantment
+        enchantment: QUICK_CHARGE
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bQuick Charge III"
+          enchantments:
+            - QUICK_CHARGE:3
+        buyPrice: 40000
+        slot: 22
+        page: 2
+       51:
+        type: enchantment
+        enchantment: MULTISHOT
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bMultiShot I"
+          enchantments:
+            - MULTISHOT:1
+        buyPrice: 100000
+        slot: 23
+        page: 2
+       52:
+        type: enchantment
+        enchantment: PIERCING
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPiercing I"
+          enchantments:
+            - PIERCING:1
+        buyPrice: 20000
+        slot: 24
+        page: 2
+       53:
+        type: enchantment
+        enchantment: PIERCING
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPiercing II"
+          enchantments:
+            - PIERCING:2
+        buyPrice: 40000
+        slot: 25
+        page: 2
+       54:
+        type: enchantment
+        enchantment: PIERCING
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPiercing III"
+          enchantments:
+            - PIERCING:3
+        buyPrice: 80000
+        slot: 26
+        page: 2
+       55:
+        type: enchantment
+        enchantment: PIERCING
+        enchantmentLevel: 4
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bPiercing IV"
+          enchantments:
+            - PIERCING:4
+        buyPrice: 160000
+        slot: 27
+        page: 2
+       56:
+        type: enchantment
+        enchantment: SOUL_SPEED
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSoul Speed I"
+          enchantments:
+            - SOUL_SPEED:1
+        buyPrice: 10000
+        slot: 28
+        page: 2
+       57:
+        type: enchantment
+        enchantment: SOUL_SPEED
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSoul Speed II"
+          enchantments:
+            - SOUL_SPEED:2
+        buyPrice: 20000
+        slot: 29
+        page: 2
+       58:
+        type: enchantment
+        enchantment: SOUL_SPEED
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSoul Speed III"
+          enchantments:
+            - SOUL_SPEED:3
+        buyPrice: 40000
+        slot: 30
+        page: 2
+       59:
+        type: enchantment
+        enchantment: SWIFT_SNEAK
+        enchantmentLevel: 1
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSwift Sneak I"
+          enchantments:
+            - SWIFT_SNEAK:1
+        buyPrice: 10000
+        slot: 31
+        page: 2
+       60:
+        type: enchantment
+        enchantment: SWIFT_SNEAK
+        enchantmentLevel: 2
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSwift Sneak II"
+          enchantments:
+            - SWIFT_SNEAK:2
+        buyPrice: 20000
+        slot: 32
+        page: 2
+       61:
+        type: enchantment
+        enchantment: SWIFT_SNEAK
+        enchantmentLevel: 3
+        item:
+          material: BOOK
+          quantity: 1
+          name: "&bSwift Sneak III"
+          enchantments:
+            - SWIFT_SNEAK:3
+        buyPrice: 40000
+        slot: 33
+        page: 2
+       62:
+        type: special
+        special: balance
+        slot: 8
+       63:
+        type: special
+        special: balance
+        slot: 8
+        page: 2       

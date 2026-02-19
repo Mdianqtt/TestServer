@@ -1,0 +1,175 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Soul Explosion
+echo_enshrouder_soul_explosion:
+  Cooldown: 30
+  Conditions:
+  - incombat true
+  - playerwithin{d=20} true
+  - hasaura{n=EenshrouderSoulExplosion} false
+  - hasaura{n=EenshrouderSummonSpike} false
+  - hasaura{n=EenshrouderEnshroud} false
+  - hasaura{n=EenshrouderRightShot} false
+  - hasaura{n=EenshrouderLeftShot} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=EenshrouderSoulExplosion;duration=80} @self
+  - state{model=echo_enshrouder;state=soul_explosion} @self
+  - delay 15
+  - sound{s=tugkandeman.sculk_soul_explosion;v=3;p=1} @self
+  - delay 5
+  - lockmodel @self
+  - delay 12
+  - aura{auraName=EenshrouderSoulExplosionD;duration=25;oT=echo_enshrouder_soul_explosion_damage} @self
+  - sound{s=tugkandeman.soul_shot1;v=3;p=1} @self
+  - delay 5
+  - sound{s=tugkandeman.soul_shot1;v=3;p=1} @self
+  - delay 5
+  - sound{s=tugkandeman.soul_shot1;v=3;p=1} @self
+  - delay 38
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+echo_enshrouder_soul_explosion_damage:
+  Skills:
+  - missile{bulletscale=1,1,1;bulletType=display;bulletcolor=#ffffff;material=leather_horse_armor;model=87;inertia=5;i=2;hR=1;vR=1;
+      oH=[ - damage{a=6;ia=true} ];
+      oT=[ - particles{p=sculk_soul;a=1;hs=0.5} ];d=300;v=15;mr=30;hp=true;sE=false;sB=true;hnp=true;syo=2;tyo=2;sfo=0} @RandomLocationsNearCaster{a=2;r=20}
+  - missile{bulletscale=1,1,1;bulletType=display;bulletcolor=#ffffff;material=leather_horse_armor;model=87;inertia=5;i=2;hR=1;vR=1;
+      oH=[ - damage{a=6;ia=true} ];
+      oT=[ - particles{p=sculk_soul;a=1;hs=0.5} ];d=300;v=15;mr=30;hp=true;sE=false;sB=true;hnp=true;syo=2;tyo=2;sfo=0;vO=0.5} @RandomLocationsNearCaster{a=1;r=20}
+  - missile{bulletscale=1,1,1;bulletType=display;bulletcolor=#ffffff;material=leather_horse_armor;model=87;inertia=5;i=2;hR=1;vR=1;
+      oH=[ - damage{a=6;ia=true} ];
+      oT=[ - particles{p=sculk_soul;a=1;hs=0.5} ];d=300;v=15;mr=30;hp=true;sE=false;sB=true;hnp=true;syo=2;tyo=2;sfo=0;vO=1} @RandomLocationsNearCaster{a=1;r=20}
+
+#Summon Spike
+echo_enshrouder_summon_spike:
+  Cooldown: 8
+  Conditions:
+  - incombat true
+  - targetwithin{d=8} true
+  - hasaura{n=EenshrouderSoulExplosion} false
+  - hasaura{n=EenshrouderSummonSpike} false
+  - hasaura{n=EenshrouderEnshroud} false
+  - hasaura{n=EenshrouderRightShot} false
+  - hasaura{n=EenshrouderLeftShot} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=EenshrouderSummonSpike;d=60} @self
+  - state{model=echo_enshrouder;state=summon_spike} @self
+  - delay 10
+  - lockmodel @self
+  - delay 5
+  - summon{type=sculk_spike;amount=1} @PLIR{r=12}
+  - delay 45
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+#Enshroud
+echo_enshrouder_enshroud:
+  Cooldown: 30
+  Conditions:
+  - incombat true
+  - targetwithin{d=8} true
+  - hasaura{n=EenshrouderSoulExplosion} false
+  - hasaura{n=EenshrouderSummonSpike} false
+  - hasaura{n=EenshrouderEnshroud} false
+  - hasaura{n=EenshrouderRightShot} false
+  - hasaura{n=EenshrouderLeftShot} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=EenshrouderEnshroud;d=140} @self
+  - state{model=echo_enshrouder;state=enshroud} @self
+  - lockmodel @self
+  - delay 20
+  - sound{s=tugkandeman.sculk_cry2;v=3;p=1} @self
+  - delay 40
+  - summon{type=shroud_of_darkness;amount=1} @ModelPart{mid=echo_enshrouder;pid=darkness1}
+  - delay 80
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+#Right Shot
+echo_enshrouder_right_shot:
+  Cooldown: 4
+  Conditions:
+  - incombat true
+  - targetwithin{d=20} true
+  - hasaura{n=EenshrouderSoulExplosion} false
+  - hasaura{n=EenshrouderSummonSpike} false
+  - hasaura{n=EenshrouderEnshroud} false
+  - hasaura{n=EenshrouderRightShot} false
+  - hasaura{n=EenshrouderLeftShot} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=EenshrouderRightShot;d=60} @self
+  - state{model=echo_enshrouder;state=right_shot} @self
+  - delay 10
+  - lockmodel @self
+  - delay 9
+  - missile{bulletscale=1,1,1;bulletType=display;bulletcolor=#ffffff;material=leather_horse_armor;model=87;inertia=50;i=2;hR=1;vR=1;
+      oH=[ - damage{a=6;ia=true} ];
+      oT=[ - particles{p=sculk_soul;a=1;hs=0.5} ];d=200;v=10;hp=true;sE=false;hnp=true;syo=2;tyo=3;fo=true;origin=@forward{f=1}} @target
+  - sound{s=tugkandeman.soul_shot1;v=3;p=1} @self
+  - delay 41
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+#Left Shot
+echo_enshrouder_left_shot:
+  Cooldown: 4
+  Conditions:
+  - incombat true
+  - targetwithin{d=20} true
+  - hasaura{n=EenshrouderSoulExplosion} false
+  - hasaura{n=EenshrouderSummonSpike} false
+  - hasaura{n=EenshrouderEnshroud} false
+  - hasaura{n=EenshrouderRightShot} false
+  - hasaura{n=EenshrouderLeftShot} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=EenshrouderLeftShot;d=60} @self
+  - state{model=echo_enshrouder;state=left_shot} @self
+  - delay 10
+  - lockmodel @self
+  - delay 9
+  - missile{bulletscale=1,1,1;bulletType=display;bulletcolor=#ffffff;material=leather_horse_armor;model=87;inertia=50;i=2;hR=1;vR=1;
+      oH=[ - damage{a=6;ia=true} ];
+      oT=[ - particles{p=sculk_soul;a=1;hs=0.5} ];d=200;v=10;hp=true;sE=false;hnp=true;syo=2;tyo=3;fo=true;origin=@forward{f=1}} @target
+  - sound{s=tugkandeman.soul_shot1;v=3;p=1} @self
+  - delay 41
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+#Death
+echo_enshrouder_death:
+  Skills:
+  - sound{s=tugkandeman.sculk_cry2;v=3;p=1} @self
+  - delay 22
+  - sound{s=tugkandeman.sculk_soul_explosion;v=3;p=1} @self
+  - delay 38
+  - summon{type=echo_enshrouder_effect;amount=1} @self
+
+#Ambient
+echo_enshrouder_ambient:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=tugkandeman.echo_enshrouder_idle;v=1.5;p=1} @self

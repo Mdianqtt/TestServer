@@ -1,0 +1,50 @@
+info:
+  namespace: 1bit_elite_ghast
+items:
+  1bit_elite_ghast_doll:
+    display_name: Elite Ghast Doll
+    permission: 1bit_elite_ghast.doll
+    resource:
+      material: PAPER
+      generate: false
+      model_path: doll
+      model_id: 9927043
+    behaviours:
+      furniture:
+        entity: item_frame
+        fixed_rotation: false
+        hitbox:
+          height: 1
+          height_offset: 0
+          length: 1
+          length_offset: 0
+          width: 1
+          width_offset: 0
+        placeable_on:
+          ceiling: false
+          floor: true
+          walls: false
+        solid: false
+  1bit_elite_ghast_eyes:
+    display_name: Elite Ghast Eyes
+    permission: 1bit_elite_ghast.eyes
+    resource:
+      material: PAPER
+      generate: false
+      model_path: eyes
+      model_id: 9927044
+  1bit_elite_ghast_head:
+    display_name: Elite Ghast Head
+    permission: 1bit_elite_ghast.head
+    resource:
+      material: PAPER
+      generate: false
+      model_path: head
+      model_id: 9927045
+    attribute_modifiers:
+      head:
+        armor: 2
+    behaviours:
+      hat: true
+    durability:
+      max_custom_durability: 165

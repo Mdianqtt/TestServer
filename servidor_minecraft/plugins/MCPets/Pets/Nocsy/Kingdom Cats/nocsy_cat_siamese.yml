@@ -1,0 +1,22 @@
+Id: Nocsy_Cat-Siamese
+MythicMob: Nocsy_Cat-Siamese
+Permission: mcpets.nocsy_siamese
+Mountable: false
+Distance: 6
+SpawnRange: 1
+ComingBackRange: 3
+Icon:
+  Name: §fSiamese
+  Material: BLAZE_ROD
+  CustomModelData: 87603
+  Description:
+  - §7Meow :3
+Signals:
+  Values:
+  - PLAY
+  Item:
+    Name: §cThread ball
+    Material: BLAZE_ROD
+    CustomModelData: 87600
+    Description:
+    - §7Right click to throw a thread ball

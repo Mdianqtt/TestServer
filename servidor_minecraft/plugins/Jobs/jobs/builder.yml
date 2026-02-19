@@ -1,0 +1,1145 @@
+Constructor:
+  fullname: Builder
+  shortname: Bu
+  displayName: '{#E8BB8B}Constructor'
+  FullDescription:
+  - "{#D6E3CC}En este trabajo, debes construir"
+  - "{#D6E3CC}cualquier estructura para"
+  - "{#D6E3CC}ganar dinero."
+  ChatColour: "{#E8BB8B}"
+  BossBarColour: PURPLE
+  chat-display: none
+  max-level: 100
+  vip-max-level: 150
+  leveling-progression-equation: 98*(joblevel)+(joblevel*joblevel*2)
+  income-progression-equation: baseincome+(baseincome*(joblevel-2)*0.01)-((baseincome+(baseincome*(joblevel-2)*0.01))
+    * ((numjobs-1)*0.01))
+  points-progression-equation: basepoints+(basepoints*(joblevel-2)*0.01)-((basepoints+(basepoints*(joblevel-2)*0.01))
+    * ((numjobs-1)*0.01))
+  experience-progression-equation: baseexperience-(baseexperience*((numjobs-1) *0.01))
+  rejoinCooldown: 172800
+  maxDailyQuests: 1
+  Quests: []
+  Gui:
+    Item: QUARTZ_BLOCK
+  Craft:
+    materials:
+      - CRAFTING_TABLE;0.02;0.001;0.02
+      - STONECUTTER;0.04;0.005;0.05
+  Place:
+    materials:
+      - BOOKSHELF;0.2;0.2;0.5
+      - CHEST;0.04;0.02;0.2
+      - TRAPPED_CHEST;0.04;0.02;0.3
+      - COAL_BLOCK;0.1;0.1;0.1
+      - DIAMOND_BLOCK;0.2;0.2;0.4
+      - EMERALD_BLOCK;0.1;0.05;0.1
+      - ENCHANTING_TABLE;1.0;0.5;0.5
+      - ENDER_CHEST;0.8;0.5;0.7
+      - GOLD_BLOCK;0.3;0.1;0.2
+      - HAY_BLOCK;0.1;0.02;0.2
+      - IRON_BLOCK;0.1;0.05;0.2
+      - MELON;0.2;0.02;0.1
+      - REDSTONE_BLOCK;0.01;0.01;0.05
+      - BRICK_SLAB;0.1;0.05;0.01
+      - BRICK_STAIRS;0.1;0.05;0.01
+      - BRICKS;0.1;0.05;0.01
+      - CARVED_PUMPKIN;0.5;0.01;0.05
+      - JACK_O_LANTERN;0.5;0.01;0.05
+      - PUMPKIN;0.5;0.01;0.05
+      - SMOOTH_STONE;0.01;0.005;0.005
+      - SMOOTH_STONE_SLAB;0.01;0.005;0.005
+      - STONE;0.005;0.001;0.005
+      - STONE_SLAB;0.005;0.001;0.005
+      - STONE_STAIRS;0.005;0.001;0.005
+      - STONE_BRICKS;0.01;0.005;0.01
+      - STONE_BRICK_SLAB;0.01;0.005;0.01
+      - STONE_BRICK_STAIRS;0.01;0.005;0.01
+      - CHISELED_STONE_BRICKS;0.01;0.005;0.01
+      - CRACKED_STONE_BRICKS;0.01;0.005;0.01
+      - COBBLESTONE;0.001;0.001;0.002
+      - COBBLESTONE_STAIRS;0.001;0.001;0.002
+      - COBBLESTONE_SLAB;0.001;0.001;0.002
+      - MOSSY_COBBLESTONE;0.005;0.005;0.01
+      - MOSSY_STONE_BRICKS;0.1;0.02;0.2
+      - MOSSY_COBBLESTONE_SLAB;0.005;0.005;0.01
+      - MOSSY_STONE_BRICK_SLAB;0.1;0.02;0.2
+      - MOSSY_COBBLESTONE_STAIRS;0.005;0.005;0.01
+      - MOSSY_STONE_BRICK_STAIRS;0.1;0.02;0.2
+      - GRANITE;0.01;0.01;0.02
+      - GRANITE_SLAB;0.01;0.01;0.02
+      - GRANITE_STAIRS;0.01;0.01;0.02
+      - POLISHED_GRANITE;0.01;0.01;0.02
+      - POLISHED_GRANITE_SLAB;0.01;0.01;0.02
+      - POLISHED_GRANITE_STAIRS;0.01;0.01;0.02
+      - DIORITE;0.01;0.01;0.02
+      - DIORITE_SLAB;0.01;0.01;0.02
+      - DIORITE_STAIRS;0.01;0.01;0.02
+      - POLISHED_DIORITE;0.01;0.01;0.02
+      - POLISHED_DIORITE_SLAB;0.01;0.01;0.02
+      - POLISHED_DIORITE_STAIRS;0.01;0.01;0.02
+      - ANDESITE;0.01;0.01;0.02
+      - ANDESITE_SLAB;0.01;0.01;0.02
+      - ANDESITE_STAIRS;0.01;0.01;0.02
+      - POLISHED_ANDESITE;0.01;0.01;0.02
+      - POLISHED_ANDESITE_SLAB;0.01;0.01;0.02
+      - POLISHED_ANDESITE_STAIRS;0.01;0.01;0.02
+      - OAK_LOG;0.05;0.001;0.05
+      - OAK_PLANKS;0.05;0.001;0.05
+      - OAK_SLAB;0.05;0.001;0.05
+      - OAK_STAIRS;0.05;0.001;0.05
+      - OAK_WOOD;0.05;0.001;0.05
+      - PETRIFIED_OAK_SLAB;0.05;0.01;0.02
+      - STRIPPED_OAK_LOG;0.05;0.001;0.05
+      - STRIPPED_OAK_WOOD;0.05;0.001;0.05
+      - SPRUCE_LOG;0.05;0.001;0.05
+      - SPRUCE_PLANKS;0.05;0.001;0.05
+      - SPRUCE_SLAB;0.05;0.001;0.05
+      - SPRUCE_STAIRS;0.05;0.001;0.05
+      - SPRUCE_WOOD;0.05;0.001;0.05
+      - STRIPPED_SPRUCE_LOG;0.05;0.001;0.05
+      - STRIPPED_SPRUCE_WOOD;0.05;0.001;0.05
+      - BIRCH_LOG;0.05;0.001;0.05
+      - BIRCH_PLANKS;0.05;0.001;0.05
+      - BIRCH_SLAB;0.05;0.001;0.05
+      - BIRCH_STAIRS;0.05;0.001;0.05
+      - BIRCH_WOOD;0.05;0.001;0.05
+      - STRIPPED_BIRCH_LOG;0.05;0.001;0.05
+      - STRIPPED_BIRCH_WOOD;0.05;0.001;0.05
+      - JUNGLE_LOG;0.05;0.001;0.05
+      - JUNGLE_PLANKS;0.05;0.001;0.05
+      - JUNGLE_SLAB;0.05;0.001;0.05
+      - JUNGLE_STAIRS;0.05;0.001;0.05
+      - JUNGLE_WOOD;0.05;0.001;0.05
+      - STRIPPED_JUNGLE_LOG;0.05;0.001;0.05
+      - STRIPPED_JUNGLE_WOOD;0.05;0.001;0.05
+      - ACACIA_LOG;0.05;0.001;0.05
+      - ACACIA_PLANKS;0.05;0.001;0.05
+      - ACACIA_SLAB;0.05;0.001;0.05
+      - ACACIA_STAIRS;0.05;0.001;0.05
+      - ACACIA_WOOD;0.05;0.001;0.05
+      - STRIPPED_ACACIA_LOG;0.05;0.001;0.05
+      - STRIPPED_ACACIA_WOOD;0.05;0.001;0.05
+      - DARK_OAK_LOG;0.05;0.001;0.05
+      - DARK_OAK_PLANKS;0.05;0.001;0.05
+      - DARK_OAK_SLAB;0.05;0.001;0.05
+      - DARK_OAK_STAIRS;0.05;0.001;0.05
+      - DARK_OAK_WOOD;0.05;0.001;0.05
+      - STRIPPED_DARK_OAK_LOG;0.05;0.001;0.05
+      - STRIPPED_DARK_OAK_WOOD;0.05;0.001;0.05
+      - CRIMSON_HYPHAE;0.05;0.005;0.05
+      - CRIMSON_PLANKS;0.05;0.005;0.05
+      - CRIMSON_SLAB;0.05;0.005;0.05
+      - CRIMSON_STAIRS;0.05;0.005;0.05
+      - CRIMSON_STEM;0.05;0.005;0.05
+      - STRIPPED_CRIMSON_HYPHAE;0.05;0.005;0.05
+      - STRIPPED_CRIMSON_STEM;0.05;0.005;0.05
+      - WARPED_HYPHAE;0.05;0.005;0.05
+      - WARPED_PLANKS;0.05;0.005;0.05
+      - WARPED_SLAB;0.05;0.005;0.05
+      - WARPED_STAIRS;0.05;0.005;0.05
+      - WARPED_STEM;0.05;0.005;0.05
+      - STRIPPED_WARPED_HYPHAE;0.05;0.005;0.05
+      - STRIPPED_WARPED_STEM;0.05;0.005;0.05
+      - BLACK_WOOL;0.01;0.005;0.05
+      - BLUE_WOOL;0.01;0.005;0.05
+      - BROWN_WOOL;0.01;0.005;0.05
+      - CYAN_WOOL;0.01;0.005;0.05
+      - GRAY_WOOL;0.01;0.005;0.05
+      - GREEN_WOOL;0.01;0.005;0.05
+      - LIGHT_BLUE_WOOL;0.01;0.005;0.05
+      - LIGHT_GRAY_WOOL;0.01;0.005;0.05
+      - LIME_WOOL;0.01;0.005;0.05
+      - MAGENTA_WOOL;0.01;0.005;0.05
+      - ORANGE_WOOL;0.01;0.005;0.05
+      - PINK_WOOL;0.01;0.005;0.05
+      - PURPLE_WOOL;0.01;0.005;0.05
+      - RED_WOOL;0.01;0.005;0.05
+      - WHITE_WOOL;0.01;0.005;0.05
+      - YELLOW_WOOL;0.01;0.005;0.05
+      - GLASS;0.1;0.02;0.3
+      - BLACK_STAINED_GLASS;0.2;0.05;0.4
+      - BLUE_STAINED_GLASS;0.2;0.05;0.4
+      - BROWN_STAINED_GLASS;0.2;0.05;0.4
+      - CYAN_STAINED_GLASS;0.2;0.05;0.4
+      - GRAY_STAINED_GLASS;0.2;0.05;0.4
+      - GREEN_STAINED_GLASS;0.2;0.05;0.4
+      - LIGHT_BLUE_STAINED_GLASS;0.2;0.05;0.4
+      - LIGHT_GRAY_STAINED_GLASS;0.2;0.05;0.4
+      - LIME_STAINED_GLASS;0.2;0.05;0.4
+      - MAGENTA_STAINED_GLASS;0.2;0.05;0.4
+      - ORANGE_STAINED_GLASS;0.2;0.05;0.4
+      - PINK_STAINED_GLASS;0.2;0.05;0.4
+      - PURPLE_STAINED_GLASS;0.2;0.05;0.4
+      - RED_STAINED_GLASS;0.2;0.05;0.4
+      - WHITE_STAINED_GLASS;0.2;0.05;0.4
+      - YELLOW_STAINED_GLASS;0.2;0.05;0.4
+      - BLACK_CONCRETE;0.05;0.01;0.05
+      - BLUE_CONCRETE;0.05;0.01;0.05
+      - BROWN_CONCRETE;0.05;0.01;0.05
+      - CYAN_CONCRETE;0.05;0.01;0.05
+      - GRAY_CONCRETE;0.05;0.01;0.05
+      - GREEN_CONCRETE;0.05;0.01;0.05
+      - LIGHT_BLUE_CONCRETE;0.05;0.01;0.05
+      - LIGHT_GRAY_CONCRETE;0.05;0.01;0.05
+      - LIME_CONCRETE;0.05;0.01;0.05
+      - MAGENTA_CONCRETE;0.05;0.01;0.05
+      - ORANGE_CONCRETE;0.05;0.01;0.05
+      - PINK_CONCRETE;0.05;0.01;0.05
+      - PURPLE_CONCRETE;0.05;0.01;0.05
+      - RED_CONCRETE;0.05;0.01;0.05
+      - WHITE_CONCRETE;0.05;0.01;0.05
+      - YELLOW_CONCRETE;0.05;0.01;0.05
+      - TERRACOTTA;0.01;0.001;0.05
+      - BLACK_TERRACOTTA;0.01;0.001;0.05
+      - BLUE_TERRACOTTA;0.01;0.001;0.05
+      - BROWN_TERRACOTTA;0.01;0.001;0.05
+      - CYAN_TERRACOTTA;0.01;0.001;0.05
+      - GRAY_TERRACOTTA;0.01;0.001;0.05
+      - GREEN_TERRACOTTA;0.01;0.001;0.05
+      - LIGHT_BLUE_TERRACOTTA;0.01;0.001;0.05
+      - LIGHT_GRAY_TERRACOTTA;0.01;0.001;0.05
+      - LIME_TERRACOTTA;0.01;0.001;0.05
+      - MAGENTA_TERRACOTTA;0.01;0.001;0.05
+      - ORANGE_TERRACOTTA;0.01;0.001;0.05
+      - PINK_TERRACOTTA;0.01;0.001;0.05
+      - PURPLE_TERRACOTTA;0.01;0.001;0.05
+      - RED_TERRACOTTA;0.01;0.001;0.05
+      - WHITE_TERRACOTTA;0.01;0.001;0.05
+      - YELLOW_TERRACOTTA;0.01;0.001;0.05
+      - CHISELED_RED_SANDSTONE;0.07;0.01;0.05
+      - CUT_RED_SANDSTONE;0.07;0.01;0.05
+      - CUT_RED_SANDSTONE_SLAB;0.07;0.01;0.05
+      - CUT_SANDSTONE_SLAB;0.07;0.01;0.05
+      - RED_SANDSTONE;0.07;0.01;0.05
+      - RED_SANDSTONE_SLAB;0.07;0.01;0.05
+      - RED_SANDSTONE_STAIRS;0.07;0.01;0.05
+      - SANDSTONE_SLAB;0.07;0.01;0.05
+      - SANDSTONE_STAIRS;0.07;0.01;0.05
+      - SMOOTH_RED_SANDSTONE;0.07;0.01;0.05
+      - SMOOTH_RED_SANDSTONE_SLAB;0.07;0.01;0.05
+      - SMOOTH_RED_SANDSTONE_STAIRS;0.07;0.01;0.05
+      - SMOOTH_SANDSTONE;0.07;0.01;0.05
+      - SMOOTH_SANDSTONE_SLAB;0.07;0.01;0.05
+      - SMOOTH_SANDSTONE_STAIRS;0.07;0.01;0.05
+      - BRAIN_CORAL_BLOCK;0.2;0.05;0.1
+      - BUBBLE_CORAL_BLOCK;0.2;0.05;0.1
+      - FIRE_CORAL_BLOCK;0.2;0.05;0.1
+      - HORN_CORAL_BLOCK;0.2;0.05;0.1
+      - TUBE_CORAL_BLOCK;0.2;0.05;0.1
+      - DEAD_BRAIN_CORAL_BLOCK;0.1;0.02;0.05
+      - DEAD_BUBBLE_CORAL_BLOCK;0.1;0.02;0.05
+      - DEAD_FIRE_CORAL_BLOCK;0.1;0.02;0.05
+      - DEAD_HORN_CORAL_BLOCK;0.1;0.02;0.05
+      - DEAD_TUBE_CORAL_BLOCK;0.1;0.02;0.05
+      - END_STONE_BRICK_SLAB;0.05;0.01;0.02
+      - END_STONE_BRICK_STAIRS;0.05;0.01;0.02
+      - END_STONE_BRICKS;0.05;0.01;0.02
+      - PURPUR_BLOCK;0.005;0.005;0.01
+      - PURPUR_PILLAR;0.005;0.005;0.01
+      - PURPUR_SLAB;0.005;0.005;0.01
+      - PURPUR_STAIRS;0.005;0.005;0.01
+      - BLUE_ICE;0.05;0.05;0.05
+      - DARK_PRISMARINE;0.1;0.05;0.1
+      - DARK_PRISMARINE_SLAB;0.1;0.05;0.1
+      - DARK_PRISMARINE_STAIRS;0.1;0.05;0.1
+      - DRIED_KELP_BLOCK;0.01;0.05;0.1
+      - ICE;0.05;0.05;0.05
+      - PACKED_ICE;0.1;0.04;0.2
+      - PRISMARINE;0.05;0.01;0.1
+      - PRISMARINE_BRICK_SLAB;0.05;0.01;0.1
+      - PRISMARINE_BRICK_STAIRS;0.05;0.01;0.1
+      - PRISMARINE_BRICKS;0.05;0.01;0.1
+      - PRISMARINE_SLAB;0.05;0.01;0.1
+      - PRISMARINE_STAIRS;0.05;0.01;0.1
+      - SEA_LANTERN;0.2;0.05;0.3
+      - SNOW_BLOCK;0.01;0.01;0.01
+      - CHISELED_QUARTZ_BLOCK;
+      - QUARTZ_BLOCK;0.1;0.1;0.2
+      - QUARTZ_BRICKS;0.1;0.1;0.2
+      - QUARTZ_PILLAR;0.1;0.1;0.2
+      - QUARTZ_SLAB;0.05;0.1;0.1
+      - QUARTZ_STAIRS;0.05;0.1;0.1
+      - SMOOTH_QUARTZ;0.1;0.1;0.2
+      - SMOOTH_QUARTZ_SLAB;0.05;0.1;0.1
+      - SMOOTH_QUARTZ_STAIRS;0.05;0.1;0.1
+      - BLACKSTONE_SLAB;0.05;0.01;0.1
+      - BLACKSTONE_STAIRS;0.05;0.01;0.1
+      - CHISELED_POLISHED_BLACKSTONE;0.05;0.01;0.1
+      - CRACKED_POLISHED_BLACKSTONE_BRICKS;0.05;0.01;0.1
+      - GILDED_BLACKSTONE;0.05;0.01;0.1
+      - POLISHED_BLACKSTONE;0.05;0.01;0.1
+      - POLISHED_BLACKSTONE_BRICK_SLAB;0.05;0.01;0.1
+      - POLISHED_BLACKSTONE_BRICK_STAIRS;0.05;0.01;0.1
+      - POLISHED_BLACKSTONE_BRICKS;0.05;0.01;0.1
+      - POLISHED_BLACKSTONE_SLAB;0.05;0.01;0.1
+      - POLISHED_BLACKSTONE_STAIRS;0.05;0.01;0.1
+      - CHISELED_NETHER_BRICKS;0.1;0.01;0.05
+      - CRACKED_NETHER_BRICKS;0.1;0.01;0.05
+      - NETHER_BRICK_SLAB;0.1;0.01;0.02
+      - NETHER_BRICK_STAIRS;0.1;0.01;0.02
+      - NETHER_BRICKS;0.1;0.01;0.05
+      - RED_NETHER_BRICK_SLAB;0.1;0.01;0.05
+      - RED_NETHER_BRICK_STAIRS;0.1;0.01;0.05
+      - RED_NETHER_BRICKS;0.2;0.02;0.1
+      - POLISHED_BASALT;0.01;0.01;0.02
+      - BONE_BLOCK;0.1;0.02;0.1
+      - CRYING_OBSIDIAN;0.4;0.1;1.0
+      - GLOWSTONE;0.1;0.02;0.2
+      - MAGMA_BLOCK;0.3;0.04;0.1
+      - OBSIDIAN;0.2;0.1;1.0
+      - SHROOMLIGHT;0.05;0.01;0.1
+    #1.17+
+      - AMETHYST_BLOCK;0.1;0.1;0.2
+      - CALCITE;0.02;0.01;0.05
+      - CHISELED_DEEPSLATE;0.02;0.02;0.04
+      - COBBLED_DEEPSLATE;0.02;0.02;0.04
+      - COBBLED_DEEPSLATE_SLAB;0.02;0.02;0.04
+      - COBBLED_DEEPSLATE_STAIRS;0.01;0.01;0.04
+      - COPPER_BLOCK;0.03;0.05;0.1
+      - CRACKED_DEEPSLATE_BRICKS;0.02;0.02;0.04
+      - CRACKED_DEEPSLATE_TILES;0.02;0.02;0.04
+      - CUT_COPPER;0.03;0.05;0.1
+      - CUT_COPPER_SLAB;0.03;0.05;0.1
+      - CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - DEEPSLATE_BRICK_SLAB;0.02;0.02;0.04
+      - DEEPSLATE_BRICK_STAIRS;0.01;0.01;0.04
+      - DEEPSLATE_BRICKS;0.02;0.02;0.04
+      - DEEPSLATE_TILE_SLAB;0.02;0.02;0.04
+      - DEEPSLATE_TILE_STAIRS;0.01;0.01;0.04
+      - DEEPSLATE_TILES;0.02;0.02;0.04
+      - DRIPSTONE_BLOCK;0.01;0.005;0.005
+      - EXPOSED_COPPER;0.03;0.05;0.1
+      - EXPOSED_CUT_COPPER;0.03;0.05;0.1
+      - EXPOSED_CUT_COPPER_SLAB;0.03;0.05;0.1
+      - EXPOSED_CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - OXIDIZED_COPPER;0.03;0.05;0.1
+      - OXIDIZED_CUT_COPPER;0.03;0.05;0.1
+      - OXIDIZED_CUT_COPPER_SLAB;0.03;0.05;0.1
+      - OXIDIZED_CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - POLISHED_DEEPSLATE;0.02;0.02;0.04
+      - POLISHED_DEEPSLATE_SLAB;0.02;0.02;0.04
+      - POLISHED_DEEPSLATE_STAIRS;0.01;0.01;0.04
+      - RAW_COPPER_BLOCK;0.05;0.01;0.05
+      - RAW_GOLD_BLOCK;0.1;0.02;0.1
+      - RAW_IRON_BLOCK;0.1;0.01;0.1
+      - SMOOTH_BASALT;0.01;0.01;0.02
+      - TINTED_GLASS;0.1;0.05;0.5
+      - TUFF;0.1;0.05;0.01
+      - WAXED_COPPER_BLOCK;0.03;0.05;0.1
+      - WAXED_CUT_COPPER;0.03;0.05;0.1
+      - WAXED_CUT_COPPER_SLAB;0.03;0.05;0.1
+      - WAXED_CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - WAXED_EXPOSED_COPPER;0.03;0.05;0.1
+      - WAXED_EXPOSED_CUT_COPPER;0.03;0.05;0.1
+      - WAXED_EXPOSED_CUT_COPPER_SLAB;0.03;0.05;0.1
+      - WAXED_EXPOSED_CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - WAXED_OXIDIZED_COPPER;0.03;0.05;0.1
+      - WAXED_OXIDIZED_CUT_COPPER;0.03;0.05;0.1
+      - WAXED_OXIDIZED_CUT_COPPER_SLAB;0.03;0.05;0.1
+      - WAXED_OXIDIZED_CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - WAXED_WEATHERED_COPPER;0.03;0.05;0.1
+      - WAXED_WEATHERED_CUT_COPPER;0.03;0.05;0.1
+      - WAXED_WEATHERED_CUT_COPPER_SLAB;0.03;0.05;0.1
+      - WAXED_WEATHERED_CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - WEATHERED_COPPER;0.03;0.05;0.1
+      - WEATHERED_CUT_COPPER;0.03;0.05;0.1
+      - WEATHERED_CUT_COPPER_SLAB;0.03;0.05;0.1
+      - WEATHERED_CUT_COPPER_STAIRS;0.03;0.05;0.1
+      - ACACIA_SIGN;0.005;0.005;0.01
+      - BIRCH_SIGN;0.005;0.005;0.01
+      - CRIMSON_SIGN;0.005;0.005;0.01
+      - DARK_OAK_SIGN;0.005;0.005;0.01
+      - JUNGLE_SIGN;0.005;0.005;0.01
+      - OAK_SIGN;0.005;0.005;0.01
+      - SPRUCE_SIGN;0.005;0.005;0.01
+      - WARPED_SIGN;0.005;0.005;0.01
+      - ACACIA_WALL_SIGN;0.005;0.005;0.01
+      - BIRCH_WALL_SIGN;0.005;0.005;0.01
+      - CRIMSON_WALL_SIGN;0.005;0.005;0.01
+      - DARK_OAK_WALL_SIGN;0.005;0.005;0.01
+      - JUNGLE_WALL_SIGN;0.005;0.005;0.01
+      - OAK_WALL_SIGN;0.005;0.005;0.01
+      - SPRUCE_WALL_SIGN;0.005;0.005;0.01
+      - WARPED_WALL_SIGN;0.005;0.005;0.01
+      - ACACIA_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - BIRCH_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - CRIMSON_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - DARK_OAK_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - JUNGLE_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - OAK_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - SPRUCE_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - WARPED_WALL_HANGING_SIGN;0.005;0.005;0.01
+    #1.19+
+      - MANGROVE_LOG;0.05;0.001;0.05
+      - MANGROVE_PLANKS;0.05;0.001;0.05
+      - MANGROVE_ROOTS;0.02;0.001;0.03
+      - MANGROVE_SLAB;0.05;0.001;0.04
+      - MANGROVE_STAIRS;0.05;0.001;0.04
+      - MANGROVE_WOOD;0.05;0.001;0.05
+      - MUD;0.01;0.005;0.01
+      - MUD_BRICK_SLAB;0.1;0.005;0.05
+      - MUD_BRICK_STAIRS;0.1;0.005;0.05
+      - MUD_BRICKS;0.1;0.01;0.05
+      - MUDDY_MANGROVE_ROOTS;0.02;0.01;0.05
+      - OCHRE_FROGLIGHT;0.3;0.1;0.2
+      - PACKED_MUD;0.1;0.01;0.05
+      - PEARLESCENT_FROGLIGHT;0.3;0.1;0.2
+      - SCULK;0.001;0.001;0.005
+      - STRIPPED_MANGROVE_LOG;0.05;0.001;0.05
+      - STRIPPED_MANGROVE_WOOD;0.05;0.001;0.05
+      - VERDANT_FROGLIGHT;0.3;0.1;0.2
+      - MANGROVE_SIGN;0.005;0.005;0.01
+      - MANGROVE_WALL_SIGN;0.005;0.005;0.01
+      - MANGROVE_WALL_HANGING_SIGN;0.005;0.005;0.01
+      
+    #1.20+
+      - TORCHFLOWER;0.05;0.05;0.05
+      - PITCHER_PLANT;
+      - BAMBOO_BLOCK;0.05;0.001;0.05
+      - BAMBOO_HANGING_SIGN;0.005;0.005;0.01
+      - BAMBOO_MOSAIC;0.05;0.001;0.05
+      - BAMBOO_MOSAIC_SLAB;0.1;0.005;0.05
+      - BAMBOO_MOSAIC_STAIRS;0.1;0.005;0.05
+      - BAMBOO_PLANKS;0.05;0.001;0.05
+      - BAMBOO_SIGN;0.005;0.005;0.01
+      - BAMBOO_SLAB;0.1;0.005;0.05
+      - BAMBOO_STAIRS;0.1;0.005;0.05
+      - BAMBOO_WALL_HANGING_SIGN;0.005;0.005;0.01
+      - BAMBOO_WALL_SIGN;0.005;0.005;0.01
+      - CHERRY_HANGING_SIGN;0.005;0.005;0.01
+      - CHERRY_LOG;0.05;0.001;0.05
+      - CHERRY_PLANKS;0.05;0.001;0.05
+      - CHERRY_SIGN;0.005;0.005;0.01
+      - CHERRY_SLAB;0.1;0.005;0.05
+      - CHERRY_STAIRS;0.1;0.005;0.05
+      - CHERRY_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - CHERRY_WALL_SIGN;0.05;0.05;0.01
+      - CHERRY_WOOD;0.05;0.001;0.05
+      - STRIPPED_BAMBOO_BLOCK;0.04;0.01;0.03
+      - STRIPPED_CHERRY_WOOD;0.04;0.01;0.03
+      - STRIPPED_CHERRY_LOG;0.04;0.02;0.02
+      - DECORATED_POT;0.02;0.01;0.05
+      - PINK_PETALS;0.01;0.01;0.01
+      - CHISELED_BOOKSHELF;0.1;0.1;0.05
+      - ACACIA_HANGING_SIGN;0.05;0.05;0.01
+      - ACACIA_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - BIRCH_HANGING_SIGN;0.05;0.05;0.01
+      - BIRCH_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - CRIMSON_HANGING_SIGN;0.05;0.05;0.01
+      - CRIMSON_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - DARK_OAK_HANGING_SIGN;0.05;0.05;0.01
+      - DARK_OAK_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - JUNGLE_HANGING_SIGN;0.05;0.05;0.01
+      - JUNGLE_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - MANGROVE_HANGING_SIGN;0.05;0.05;0.01
+      - MANGROVE_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - OAK_HANGING_SIGN;0.05;0.05;0.01
+      - OAK_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - SPRUCE_HANGING_SIGN;0.05;0.05;0.01
+      - SPRUCE_WALL_HANGING_SIGN;0.05;0.05;0.01
+      - WARPED_HANGING_SIGN;0.05;0.05;0.01
+      - WARPED_WALL_HANGING_SIGN;0.05;0.05;0.01
+  commands:
+    LEVELUP:
+      command:
+      - minecraft:execute at [player] run particle minecraft:happy_villager ~ ~2 ~ 0.5 0.6 0.5 0.4 45 force
+      - minecraft:playsound minecraft:job_level_up player [player] ~ ~ ~ 100
+      - minecraft:tellraw [player] ["",{"text":"관","clickEvent":{"action":"run_command","value":"/jobsbuilder"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#E8BB8B"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#E8BB8B"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괁","clickEvent":{"action":"run_command","value":"/jobsbuilder"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#E8BB8B"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#E8BB8B"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괂","clickEvent":{"action":"run_command","value":"/jobsbuilder"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#E8BB8B"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#E8BB8B"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괃","clickEvent":{"action":"run_command","value":"/jobsbuilder"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#E8BB8B"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#E8BB8B"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}}]
+      - minecraft:effect give [player] minecraft:resistance 1 10 true
+      - minecraft:execute at [player] run summon firework_rocket ~ ~1 ~ {LifeTime:11,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:0,Flicker:1,Colors:[I;12047179],FadeColors:[I;5666128]}],Flight:1}}}}
+      levelFrom: 2
+      levelUntil: 150
+    '2':
+      command:
+      - dm execute [player] [givemoney] 25
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 2
+      levelUntil: 2
+    '3':
+      command:
+      - dm execute [player] [givemoney] 50
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 3
+      levelUntil: 3
+    '4':
+      command:
+      - dm execute [player] [givemoney] 100
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 4
+      levelUntil: 4
+    '5':
+      command:
+      - dm execute [player] [givemoney] 150
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 5
+      levelUntil: 5
+    '6':
+      command:
+      - dm execute [player] [givemoney] 200
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 6
+      levelUntil: 6
+    '7':
+      command:
+      - dm execute [player] [givemoney] 250
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 7
+      levelUntil: 7
+    '8':
+      command:
+      - dm execute [player] [givemoney] 300
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 8
+      levelUntil: 8
+    '9':
+      command:
+      - dm execute [player] [givemoney] 350
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] toughness job 0.1 true true
+      levelFrom: 9
+      levelUntil: 9
+    '10':
+      command:
+      - dm execute [player] [givemoney] 400
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 10
+      levelUntil: 10
+    '11':
+      command:
+      - dm execute [player] [givemoney] 450
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 11
+      levelUntil: 11
+    '12':
+      command:
+      - dm execute [player] [givemoney] 500
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 12
+      levelUntil: 12
+    '13':
+      command:
+      - dm execute [player] [givemoney] 550
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 13
+      levelUntil: 13
+    '14':
+      command:
+      - dm execute [player] [givemoney] 600
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 14
+      levelUntil: 14
+    '15':
+      command:
+      - dm execute [player] [givemoney] 650
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 15
+      levelUntil: 15
+    '16':
+      command:
+      - dm execute [player] [givemoney] 700
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 16
+      levelUntil: 16
+    '17':
+      command:
+      - dm execute [player] [givemoney] 750
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 17
+      levelUntil: 17
+    '18':
+      command:
+      - dm execute [player] [givemoney] 800
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 18
+      levelUntil: 18
+    '19':
+      command:
+      - dm execute [player] [givemoney] 900
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 19
+      levelUntil: 19
+    '20':
+      command:
+      - dm execute [player] [givemoney] 1000
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.2 true true
+      levelFrom: 20
+      levelUntil: 20
+    '21':
+      command:
+      - dm execute [player] [givemoney] 1100
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 21
+      levelUntil: 21
+    '22':
+      command:
+      - dm execute [player] [givemoney] 1200
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 22
+      levelUntil: 22
+    '23':
+      command:
+      - dm execute [player] [givemoney] 1300
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 23
+      levelUntil: 23
+    '24':
+      command:
+      - dm execute [player] [givemoney] 1400
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 24
+      levelUntil: 24
+    '25':
+      command:
+      - dm execute [player] [givemoney] 1500
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 25
+      levelUntil: 25
+    '26':
+      command:
+      - dm execute [player] [givemoney] 1600
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 26
+      levelUntil: 26
+    '27':
+      command:
+      - dm execute [player] [givemoney] 1700
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 27
+      levelUntil: 27
+    '28':
+      command:
+      - dm execute [player] [givemoney] 1800
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 28
+      levelUntil: 28
+    '29':
+      command:
+      - dm execute [player] [givemoney] 1900
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] toughness job 0.3 true true
+      levelFrom: 29
+      levelUntil: 29
+    '30':
+      command:
+      - dm execute [player] [givemoney] 2000
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 30
+      levelUntil: 30
+    '31':
+      command:
+      - dm execute [player] [givemoney] 2100
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 31
+      levelUntil: 31
+    '32':
+      command:
+      - dm execute [player] [givemoney] 2200
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 32
+      levelUntil: 32
+    '33':
+      command:
+      - dm execute [player] [givemoney] 2300
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 33
+      levelUntil: 33
+    '34':
+      command:
+      - dm execute [player] [givemoney] 2400
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 34
+      levelUntil: 34
+    '35':
+      command:
+      - dm execute [player] [givemoney] 2500
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 35
+      levelUntil: 35
+    '36':
+      command:
+      - dm execute [player] [givemoney] 2600
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 36
+      levelUntil: 36
+    '37':
+      command:
+      - dm execute [player] [givemoney] 2700
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 37
+      levelUntil: 37
+    '38':
+      command:
+      - dm execute [player] [givemoney] 2800
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 38
+      levelUntil: 38
+    '39':
+      command:
+      - dm execute [player] [givemoney] 2900
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] toughness job 0.4 true true
+      levelFrom: 39
+      levelUntil: 39
+    '40':
+      command:
+      - dm execute [player] [givemoney] 3000
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 40
+      levelUntil: 40
+    '41':
+      command:
+      - dm execute [player] [givemoney] 3100
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 41
+      levelUntil: 41
+    '42':
+      command:
+      - dm execute [player] [givemoney] 3200
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 42
+      levelUntil: 42
+    '43':
+      command:
+      - dm execute [player] [givemoney] 3300
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 43
+      levelUntil: 43
+    '44':
+      command:
+      - dm execute [player] [givemoney] 3400
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 44
+      levelUntil: 44
+    '45':
+      command:
+      - dm execute [player] [givemoney] 3500
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 45
+      levelUntil: 45
+    '46':
+      command:
+      - dm execute [player] [givemoney] 3600
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 46
+      levelUntil: 46
+    '47':
+      command:
+      - dm execute [player] [givemoney] 3700
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 47
+      levelUntil: 47
+    '48':
+      command:
+      - dm execute [player] [givemoney] 3800
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 48
+      levelUntil: 48
+    '49':
+      command:
+      - dm execute [player] [givemoney] 3900
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 49
+      levelUntil: 49
+    '50':
+      command:
+      - dm execute [player] [givemoney] 4000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 50
+      levelUntil: 50
+    '51':
+      command:
+      - dm execute [player] [givemoney] 4500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 51
+      levelUntil: 51
+    '52':
+      command:
+      - dm execute [player] [givemoney] 5000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 52
+      levelUntil: 52
+    '53':
+      command:
+      - dm execute [player] [givemoney] 5500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 53
+      levelUntil: 53
+    '54':
+      command:
+      - dm execute [player] [givemoney] 6000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 54
+      levelUntil: 54
+    '55':
+      command:
+      - dm execute [player] [givemoney] 6500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 55
+      levelUntil: 55
+    '56':
+      command:
+      - dm execute [player] [givemoney] 7000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 56
+      levelUntil: 56
+    '57':
+      command:
+      - dm execute [player] [givemoney] 7500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 57
+      levelUntil: 57
+    '58':
+      command:
+      - dm execute [player] [givemoney] 8000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 58
+      levelUntil: 58
+    '59':
+      command:
+      - dm execute [player] [givemoney] 8500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 59
+      levelUntil: 59
+    '60':
+      command:
+      - dm execute [player] [givemoney] 9000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 60
+      levelUntil: 60
+    '61':
+      command:
+      - dm execute [player] [givemoney] 9500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 61
+      levelUntil: 61
+    '62':
+      command:
+      - dm execute [player] [givemoney] 10000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 62
+      levelUntil: 62
+    '63':
+      command:
+      - dm execute [player] [givemoney] 10500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 63
+      levelUntil: 63
+    '64':
+      command:
+      - dm execute [player] [givemoney] 11000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 64
+      levelUntil: 64
+    '65':
+      command:
+      - dm execute [player] [givemoney] 11500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 65
+      levelUntil: 65
+    '66':
+      command:
+      - dm execute [player] [givemoney] 12000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 66
+      levelUntil: 66
+    '67':
+      command:
+      - dm execute [player] [givemoney] 12500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 67
+      levelUntil: 67
+    '68':
+      command:
+      - dm execute [player] [givemoney] 13000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 68
+      levelUntil: 68
+    '69':
+      command:
+      - dm execute [player] [givemoney] 13500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 69
+      levelUntil: 69
+    '70':
+      command:
+      - dm execute [player] [givemoney] 14000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 70
+      levelUntil: 70
+    '71':
+      command:
+      - dm execute [player] [givemoney] 14500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 71
+      levelUntil: 71
+    '72':
+      command:
+      - dm execute [player] [givemoney] 15000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 72
+      levelUntil: 72
+    '73':
+      command:
+      - dm execute [player] [givemoney] 15500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 73
+      levelUntil: 73
+    '74':
+      command:
+      - dm execute [player] [givemoney] 16000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 74
+      levelUntil: 74
+    '75':
+      command:
+      - dm execute [player] [givemoney] 16500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 75
+      levelUntil: 75
+    '76':
+      command:
+      - dm execute [player] [givemoney] 17000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 76
+      levelUntil: 76
+    '77':
+      command:
+      - dm execute [player] [givemoney] 17500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 77
+      levelUntil: 77
+    '78':
+      command:
+      - dm execute [player] [givemoney] 18000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 78
+      levelUntil: 78
+    '79':
+      command:
+      - dm execute [player] [givemoney] 18500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 79
+      levelUntil: 79
+    '80':
+      command:
+      - dm execute [player] [givemoney] 19000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 80
+      levelUntil: 80
+    '81':
+      command:
+      - dm execute [player] [givemoney] 20000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 81
+      levelUntil: 81
+    '82':
+      command:
+      - dm execute [player] [givemoney] 21000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 82
+      levelUntil: 82
+    '83':
+      command:
+      - dm execute [player] [givemoney] 22000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 83
+      levelUntil: 83
+    '84':
+      command:
+      - dm execute [player] [givemoney] 23000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 84
+      levelUntil: 84
+    '85':
+      command:
+      - dm execute [player] [givemoney] 24000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 85
+      levelUntil: 85
+    '86':
+      command:
+      - dm execute [player] [givemoney] 25000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 86
+      levelUntil: 86
+    '87':
+      command:
+      - dm execute [player] [givemoney] 26000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 87
+      levelUntil: 87
+    '88':
+      command:
+      - dm execute [player] [givemoney] 27000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 88
+      levelUntil: 88
+    '89':
+      command:
+      - dm execute [player] [givemoney] 28000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 89
+      levelUntil: 89
+    '90':
+      command:
+      - dm execute [player] [givemoney] 29000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 90
+      levelUntil: 90
+    '91':
+      command:
+      - dm execute [player] [givemoney] 30000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 91
+      levelUntil: 91
+    '92':
+      command:
+      - dm execute [player] [givemoney] 31000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 92
+      levelUntil: 92
+    '93':
+      command:
+      - dm execute [player] [givemoney] 32000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 93
+      levelUntil: 93
+    '94':
+      command:
+      - dm execute [player] [givemoney] 33000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 94
+      levelUntil: 94
+    '95':
+      command:
+      - dm execute [player] [givemoney] 34000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 95
+      levelUntil: 95
+    '96':
+      command:
+      - dm execute [player] [givemoney] 35000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 96
+      levelUntil: 96
+    '97':
+      command:
+      - dm execute [player] [givemoney] 36000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 97
+      levelUntil: 97
+    '98':
+      command:
+      - dm execute [player] [givemoney] 37000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 98
+      levelUntil: 98
+    '99':
+      command:
+      - dm execute [player] [givemoney] 38000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 99
+      levelUntil: 99
+    '100':
+      command:
+      - dm execute [player] [givemoney] 40000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] toughness job 0.5 true true
+      levelFrom: 100
+      levelUntil: 100

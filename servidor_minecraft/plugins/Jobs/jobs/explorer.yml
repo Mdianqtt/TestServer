@@ -1,0 +1,754 @@
+Explorador:
+  fullname: Explorer
+  shortname: Ex
+  displayName: '{#8AE294}Explorador'
+  FullDescription:
+  - "{#D6E3CC}En este trabajo, debes"
+  - "{#D6E3CC}explorar el mapa para"
+  - "{#D6E3CC}ganar dinero."
+  ChatColour: "{#8AE294}"
+  BossBarColour: PURPLE
+  chat-display: none
+  max-level: 100
+  vip-max-level: 150
+  leveling-progression-equation: 98*(joblevel)+(joblevel*joblevel*2)
+  income-progression-equation: baseincome+(baseincome*(joblevel-2)*0.01)-((baseincome+(baseincome*(joblevel-2)*0.01))
+    * ((numjobs-1)*0.01))
+  points-progression-equation: basepoints+(basepoints*(joblevel-2)*0.01)-((basepoints+(basepoints*(joblevel-2)*0.01))
+    * ((numjobs-1)*0.01))
+  experience-progression-equation: baseexperience-(baseexperience*((numjobs-1) *0.01))
+  rejoinCooldown: 172800
+  maxDailyQuests: 1
+  Quests: []
+  Gui:
+    Item: GOLDEN_BOOTS
+  Explore:
+    '1':
+      income: 1.0
+      points: 0.1
+      experience: 0.8
+    '2':
+      income: 0.8
+      points: 0.1
+      experience: 0.5
+    '3':
+      income: 0.6
+      points: 0.05
+      experience: 0.5
+    '4':
+      income: 0.4
+      points: 0.05
+      experience: 0.5
+    '5':
+      income: 0.2
+      points: 0.05
+      experience: 0.3
+  Craft:
+    materials:
+      - DIAMOND_BOOTS;2.0;0.2;1.0
+      - GOLDEN_BOOTS;0.3;0.03;0.02
+      - IRON_BOOTS;0.2;0.05;0.01
+      - LEATHER_BOOTS;0.1;0.02;0.01
+  commands:
+    LEVELUP:
+      command:
+      - minecraft:execute at [player] run particle minecraft:happy_villager ~ ~2 ~ 0.5 0.6 0.5 0.4 45 force
+      - minecraft:playsound minecraft:job_level_up player [player] ~ ~ ~ 100
+      - minecraft:tellraw [player] ["",{"text":"관","clickEvent":{"action":"run_command","value":"/jobsexplorer"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#8AE294"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#8AE294"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괁","clickEvent":{"action":"run_command","value":"/jobsexplorer"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#8AE294"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#8AE294"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괂","clickEvent":{"action":"run_command","value":"/jobsexplorer"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#8AE294"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#8AE294"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괃","clickEvent":{"action":"run_command","value":"/jobsexplorer"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#8AE294"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#8AE294"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}}]
+      - minecraft:effect give [player] minecraft:resistance 1 10 true
+      - minecraft:execute at [player] run summon firework_rocket ~ ~1 ~ {LifeTime:11,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:0,Flicker:1,Colors:[I;12047179],FadeColors:[I;5666128]}],Flight:1}}}}
+      levelFrom: 2
+      levelUntil: 150
+    '2':
+      command:
+      - dm execute [player] [givemoney] 25
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 2
+      levelUntil: 2
+    '3':
+      command:
+      - dm execute [player] [givemoney] 50
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 3
+      levelUntil: 3
+    '4':
+      command:
+      - dm execute [player] [givemoney] 100
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 4
+      levelUntil: 4
+    '5':
+      command:
+      - dm execute [player] [givemoney] 150
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 5
+      levelUntil: 5
+    '6':
+      command:
+      - dm execute [player] [givemoney] 200
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 6
+      levelUntil: 6
+    '7':
+      command:
+      - dm execute [player] [givemoney] 250
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 7
+      levelUntil: 7
+    '8':
+      command:
+      - dm execute [player] [givemoney] 300
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 8
+      levelUntil: 8
+    '9':
+      command:
+      - dm execute [player] [givemoney] 350
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] regeneration job 0.1 true true
+      levelFrom: 9
+      levelUntil: 9
+    '10':
+      command:
+      - dm execute [player] [givemoney] 400
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 10
+      levelUntil: 10
+    '11':
+      command:
+      - dm execute [player] [givemoney] 450
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 11
+      levelUntil: 11
+    '12':
+      command:
+      - dm execute [player] [givemoney] 500
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 12
+      levelUntil: 12
+    '13':
+      command:
+      - dm execute [player] [givemoney] 550
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 13
+      levelUntil: 13
+    '14':
+      command:
+      - dm execute [player] [givemoney] 600
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 14
+      levelUntil: 14
+    '15':
+      command:
+      - dm execute [player] [givemoney] 650
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 15
+      levelUntil: 15
+    '16':
+      command:
+      - dm execute [player] [givemoney] 700
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 16
+      levelUntil: 16
+    '17':
+      command:
+      - dm execute [player] [givemoney] 750
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 17
+      levelUntil: 17
+    '18':
+      command:
+      - dm execute [player] [givemoney] 800
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 18
+      levelUntil: 18
+    '19':
+      command:
+      - dm execute [player] [givemoney] 900
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 19
+      levelUntil: 19
+    '20':
+      command:
+      - dm execute [player] [givemoney] 1000
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.2 true true
+      levelFrom: 20
+      levelUntil: 20
+    '21':
+      command:
+      - dm execute [player] [givemoney] 1100
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 21
+      levelUntil: 21
+    '22':
+      command:
+      - dm execute [player] [givemoney] 1200
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 22
+      levelUntil: 22
+    '23':
+      command:
+      - dm execute [player] [givemoney] 1300
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 23
+      levelUntil: 23
+    '24':
+      command:
+      - dm execute [player] [givemoney] 1400
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 24
+      levelUntil: 24
+    '25':
+      command:
+      - dm execute [player] [givemoney] 1500
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 25
+      levelUntil: 25
+    '26':
+      command:
+      - dm execute [player] [givemoney] 1600
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 26
+      levelUntil: 26
+    '27':
+      command:
+      - dm execute [player] [givemoney] 1700
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 27
+      levelUntil: 27
+    '28':
+      command:
+      - dm execute [player] [givemoney] 1800
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 28
+      levelUntil: 28
+    '29':
+      command:
+      - dm execute [player] [givemoney] 1900
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] regeneration job 0.3 true true
+      levelFrom: 29
+      levelUntil: 29
+    '30':
+      command:
+      - dm execute [player] [givemoney] 2000
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 30
+      levelUntil: 30
+    '31':
+      command:
+      - dm execute [player] [givemoney] 2100
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 31
+      levelUntil: 31
+    '32':
+      command:
+      - dm execute [player] [givemoney] 2200
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 32
+      levelUntil: 32
+    '33':
+      command:
+      - dm execute [player] [givemoney] 2300
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 33
+      levelUntil: 33
+    '34':
+      command:
+      - dm execute [player] [givemoney] 2400
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 34
+      levelUntil: 34
+    '35':
+      command:
+      - dm execute [player] [givemoney] 2500
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 35
+      levelUntil: 35
+    '36':
+      command:
+      - dm execute [player] [givemoney] 2600
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 36
+      levelUntil: 36
+    '37':
+      command:
+      - dm execute [player] [givemoney] 2700
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 37
+      levelUntil: 37
+    '38':
+      command:
+      - dm execute [player] [givemoney] 2800
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 38
+      levelUntil: 38
+    '39':
+      command:
+      - dm execute [player] [givemoney] 2900
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] regeneration job 0.4 true true
+      levelFrom: 39
+      levelUntil: 39
+    '40':
+      command:
+      - dm execute [player] [givemoney] 3000
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 40
+      levelUntil: 40
+    '41':
+      command:
+      - dm execute [player] [givemoney] 3100
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 41
+      levelUntil: 41
+    '42':
+      command:
+      - dm execute [player] [givemoney] 3200
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 42
+      levelUntil: 42
+    '43':
+      command:
+      - dm execute [player] [givemoney] 3300
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 43
+      levelUntil: 43
+    '44':
+      command:
+      - dm execute [player] [givemoney] 3400
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 44
+      levelUntil: 44
+    '45':
+      command:
+      - dm execute [player] [givemoney] 3500
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 45
+      levelUntil: 45
+    '46':
+      command:
+      - dm execute [player] [givemoney] 3600
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 46
+      levelUntil: 46
+    '47':
+      command:
+      - dm execute [player] [givemoney] 3700
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 47
+      levelUntil: 47
+    '48':
+      command:
+      - dm execute [player] [givemoney] 3800
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 48
+      levelUntil: 48
+    '49':
+      command:
+      - dm execute [player] [givemoney] 3900
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 49
+      levelUntil: 49
+    '50':
+      command:
+      - dm execute [player] [givemoney] 4000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 50
+      levelUntil: 50
+    '51':
+      command:
+      - dm execute [player] [givemoney] 4500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 51
+      levelUntil: 51
+    '52':
+      command:
+      - dm execute [player] [givemoney] 5000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 52
+      levelUntil: 52
+    '53':
+      command:
+      - dm execute [player] [givemoney] 5500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 53
+      levelUntil: 53
+    '54':
+      command:
+      - dm execute [player] [givemoney] 6000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 54
+      levelUntil: 54
+    '55':
+      command:
+      - dm execute [player] [givemoney] 6500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 55
+      levelUntil: 55
+    '56':
+      command:
+      - dm execute [player] [givemoney] 7000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 56
+      levelUntil: 56
+    '57':
+      command:
+      - dm execute [player] [givemoney] 7500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 57
+      levelUntil: 57
+    '58':
+      command:
+      - dm execute [player] [givemoney] 8000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 58
+      levelUntil: 58
+    '59':
+      command:
+      - dm execute [player] [givemoney] 8500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 59
+      levelUntil: 59
+    '60':
+      command:
+      - dm execute [player] [givemoney] 9000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 60
+      levelUntil: 60
+    '61':
+      command:
+      - dm execute [player] [givemoney] 9500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 61
+      levelUntil: 61
+    '62':
+      command:
+      - dm execute [player] [givemoney] 10000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 62
+      levelUntil: 62
+    '63':
+      command:
+      - dm execute [player] [givemoney] 10500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 63
+      levelUntil: 63
+    '64':
+      command:
+      - dm execute [player] [givemoney] 11000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 64
+      levelUntil: 64
+    '65':
+      command:
+      - dm execute [player] [givemoney] 11500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 65
+      levelUntil: 65
+    '66':
+      command:
+      - dm execute [player] [givemoney] 12000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 66
+      levelUntil: 66
+    '67':
+      command:
+      - dm execute [player] [givemoney] 12500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 67
+      levelUntil: 67
+    '68':
+      command:
+      - dm execute [player] [givemoney] 13000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 68
+      levelUntil: 68
+    '69':
+      command:
+      - dm execute [player] [givemoney] 13500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 69
+      levelUntil: 69
+    '70':
+      command:
+      - dm execute [player] [givemoney] 14000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 70
+      levelUntil: 70
+    '71':
+      command:
+      - dm execute [player] [givemoney] 14500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 71
+      levelUntil: 71
+    '72':
+      command:
+      - dm execute [player] [givemoney] 15000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 72
+      levelUntil: 72
+    '73':
+      command:
+      - dm execute [player] [givemoney] 15500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 73
+      levelUntil: 73
+    '74':
+      command:
+      - dm execute [player] [givemoney] 16000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 74
+      levelUntil: 74
+    '75':
+      command:
+      - dm execute [player] [givemoney] 16500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 75
+      levelUntil: 75
+    '76':
+      command:
+      - dm execute [player] [givemoney] 17000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 76
+      levelUntil: 76
+    '77':
+      command:
+      - dm execute [player] [givemoney] 17500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 77
+      levelUntil: 77
+    '78':
+      command:
+      - dm execute [player] [givemoney] 18000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 78
+      levelUntil: 78
+    '79':
+      command:
+      - dm execute [player] [givemoney] 18500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 79
+      levelUntil: 79
+    '80':
+      command:
+      - dm execute [player] [givemoney] 19000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 80
+      levelUntil: 80
+    '81':
+      command:
+      - dm execute [player] [givemoney] 20000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 81
+      levelUntil: 81
+    '82':
+      command:
+      - dm execute [player] [givemoney] 21000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 82
+      levelUntil: 82
+    '83':
+      command:
+      - dm execute [player] [givemoney] 22000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 83
+      levelUntil: 83
+    '84':
+      command:
+      - dm execute [player] [givemoney] 23000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 84
+      levelUntil: 84
+    '85':
+      command:
+      - dm execute [player] [givemoney] 24000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 85
+      levelUntil: 85
+    '86':
+      command:
+      - dm execute [player] [givemoney] 25000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 86
+      levelUntil: 86
+    '87':
+      command:
+      - dm execute [player] [givemoney] 26000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 87
+      levelUntil: 87
+    '88':
+      command:
+      - dm execute [player] [givemoney] 27000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 88
+      levelUntil: 88
+    '89':
+      command:
+      - dm execute [player] [givemoney] 28000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 89
+      levelUntil: 89
+    '90':
+      command:
+      - dm execute [player] [givemoney] 29000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 90
+      levelUntil: 90
+    '91':
+      command:
+      - dm execute [player] [givemoney] 30000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 91
+      levelUntil: 91
+    '92':
+      command:
+      - dm execute [player] [givemoney] 31000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 92
+      levelUntil: 92
+    '93':
+      command:
+      - dm execute [player] [givemoney] 32000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 93
+      levelUntil: 93
+    '94':
+      command:
+      - dm execute [player] [givemoney] 33000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 94
+      levelUntil: 94
+    '95':
+      command:
+      - dm execute [player] [givemoney] 34000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 95
+      levelUntil: 95
+    '96':
+      command:
+      - dm execute [player] [givemoney] 35000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 96
+      levelUntil: 96
+    '97':
+      command:
+      - dm execute [player] [givemoney] 36000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 97
+      levelUntil: 97
+    '98':
+      command:
+      - dm execute [player] [givemoney] 37000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 98
+      levelUntil: 98
+    '99':
+      command:
+      - dm execute [player] [givemoney] 38000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 99
+      levelUntil: 99
+    '100':
+      command:
+      - dm execute [player] [givemoney] 40000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] regeneration job 0.5 true true
+      levelFrom: 100
+      levelUntil: 100

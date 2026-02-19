@@ -1,0 +1,11 @@
+Id: 1bit_elite_baby_blaze_pet
+MythicMob: 1bit_elite_baby_blaze_pet
+Permission: mcpet.1bit_elite_baby_blaze_pet
+Mountable: false
+Distance: 13
+ComingBackRange: 13
+SpawnRange: 3
+Icon:
+  Name: §3Elite Baby Blaze
+  Material: PAPER
+  CustomModelData: 9926608

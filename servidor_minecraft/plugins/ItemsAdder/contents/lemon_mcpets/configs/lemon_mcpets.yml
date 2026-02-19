@@ -1,0 +1,101 @@
+info:
+  namespace: lemon_mcpets
+font_images:
+  pets_gui:
+    path: pets_gui
+    y_position: 221
+  pets_gui2:
+    path: pets_gui2
+    y_position: 221
+  pets_gui3:
+    path: pets_gui3
+    y_position: 221
+  pets_gui_common:
+    path: pets_gui_common
+    y_position: 221
+  pets_gui_rare:
+    path: pets_gui_rare
+    y_position: 221
+  pets_gui_epic:
+    path: pets_gui_epic
+    y_position: 221
+  pets_gui_legendary:
+    path: pets_gui_legendary
+    y_position: 221
+  pets_gui_inventory:
+    path: pets_gui_inventory
+    y_position: 221
+
+items:
+  pet_category_common:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 121
+      generate: true
+      textures:
+        - pet_category_common.png
+  pet_category_rare:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 122
+      generate: true
+      textures:
+        - pet_category_rare.png
+  pet_category_epic:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 123
+      generate: true
+      textures:
+        - pet_category_epic.png
+  pet_category_legendary:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 124
+      generate: true
+      textures:
+        - pet_category_legendary.png
+  pet_item_name:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 125
+      generate: true
+      textures:
+        - pet_item_name.png
+  pet_item_mount:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 126
+      generate: true
+      textures:
+        - pet_item_mount.png
+  pet_item_inventory:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 127
+      generate: true
+      textures:
+        - pet_item_inventory.png
+  pet_item_back:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 128
+      generate: true
+      textures:
+        - pet_item_back.png
+  pet_item_skin:
+    enabled: true
+    resource:
+      material: YELLOW_DYE
+      model_id: 129
+      generate: true
+      textures:
+        - pet_item_skin.png

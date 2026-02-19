@@ -1,0 +1,46 @@
+GlowyGoldenApple:
+  Id: GOLDEN_APPLE
+  Display: '&e&lGlowy Golden Apple'
+  Model: 1
+  Lore:
+  - " <#707070>| &7Reliquia de Categoría: <#E6C200>Resplandor"
+  - ""
+  - " <#B8860B>Una fruta bendecida por el alba que"
+  - " <#B8860B>purifica el cuerpo del consumidor,"
+  - " <#B8860B>sellando sus heridas con luz sólida."
+  - ""
+  - " <#DAA520>PROPIEDAD AL CONSUMIR:"
+  - " <#B8860B>» <#FFD700>Efecto: <#FFFACD>Vigor Celestial"
+  - "   &8Otorga <#FFD700>Regeneración III &8y <#FFD700>Resistencia I,"
+  - "   &8además de una capa de protección de"
+  - "   &8absorción superior a la fruta común."
+  - ""
+  - " <#E6C200>&lEPICO"
+  Hide:
+  - ATTRIBUTES
+  Skills:
+  - skill{s=Glowey_Apple_Skills} @self ~onConsume
+
+GlowyEnchantedApple:
+  Id: ENCHANTED_GOLDEN_APPLE
+  Display: '<#FB4242>« <#FFA500>&lGlowy Enchanted Apple <#FB4242>»'
+  Model: 1
+  Lore:
+  - " <#707070>| &7Reliquia de Categoría: <#FB4242>Primordial"
+  - ""
+  - " <#8B0000>La fruta prohibida de los antiguos dioses."
+  - " <#8B0000>Su consumo otorga un poder que la carne"
+  - " <#8B0000>mortal apenas puede contener."
+  - ""
+  - " <#FF4500>PROPIEDAD AL CONSUMIR:"
+  - " <#8B0000>» <#FF8C00>Efecto: <#FFD700>Estado de Supernova"
+  - "   <#DAA520>● <#FFD700>Regeneración VI <#707070>(1:40m)"
+  - "   <#DAA520>● <#FFD700>Resistencia III <#707070>(10m)"
+  - "   <#DAA520>● <#FFD700>Fuerza III <#707070>(1m)"
+  - "   <#DAA520>● <#FFD700>Absorción V <#707070>(10 corazones extra)"
+  - "   <#DAA520>● <#FFD700>Vitalidad Titánica <#707070>(+10 corazones rojos)"
+  - "   <#DAA520>● <#FFD700>Inmunidad Térmica <#707070>(15m)"
+  - ""
+  - " <#FB4242>&l&nPRIMORDIAL"
+  Skills:
+  - skill{s=Glowy_Enchanted_Skills} @self ~onConsume

@@ -1,0 +1,1782 @@
+#        _       _            ____          _                    __  __                  
+#       | | ___ | |__  ___   / ___|   _ ___| |_ ___  _ __ ___   |  \/  | ___ _ __  _   _ 
+#    _  | |/ _ \| '_ \/ __| | |  | | | / __| __/ _ \| '_ ` _ \  | |\/| |/ _ \ '_ \| | | |
+#   | |_| | (_) | |_) \__ \ | |__| |_| \__ \ || (_) | | | | | | | |  | |  __/ | | | |_| |
+#    \___/ \___/|_.__/|___/  \____\__,_|___/\__\___/|_| |_| |_| |_|  |_|\___|_| |_|\__,_|
+#                                                                                        
+#                     BuiltByBit: VictorAlonsoo | PolyMart: VictorAlonso
+
+menu_title: 'ㆽ&f가'
+open_command:
+  - jobs
+  - jobs join
+  - jobs browse
+  - jobs:jobs
+  - jobs:jobs join
+  - jobs:jobs browse
+size: 45
+update_interval: 1
+
+items:
+  'INFO':
+    display_name: '&#F97C16              Información'
+    material: GOLD_NUGGET
+    model_data: 10000
+    slot: 0
+    lore:
+      - '&#A5ACB8Podrá encontrar información sobre'
+      - '&#A5ACB8el sistema de trabajos.'
+      - ''
+      - '&f      괈 &#83D130Unirse &8| &f괉 &#D92625Abandonar'
+    click_commands:
+      - '[message] 괇 &#D92625Esta opción está desactivada..'
+  'TOP_GLOBAL':
+    display_name: '&#F97C16     Top Global'
+    material: GOLD_NUGGET
+    model_data: 10000
+    slot: 2
+    lore:
+      - '&#A5ACB8Muestra los 10 principales'
+      - '&#A5ACB8trabajadores globales.'
+    click_commands:
+      - '[console] minecraft:effect give %player_name% minecraft:slowness 1 10 true'
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.8 1.4'
+      - '[player] jobs gtop'
+      - '[close]'
+  'PROFILE':
+    display_name: '&#F97C16  Perfil laboral'
+    material: head-%player_name%
+    model_data: 10555
+    slot: 4
+    lore:
+      - '&8❯ &#A5ACB8Brewing Stand: &#9DC3ED%jobsr_user_bstandcount%&7/&#7996B5%jobsr_user_maxbstandcount%'
+      - '&8❯ &#A5ACB8Blast Furnace: &#9DC3ED%jobsr_user_blastcount%&7/&#7996B5%jobsr_user_maxblastcount%'
+      - '&8❯ &#A5ACB8Furnace: &#9DC3ED%jobsr_user_furncount%&7/&#7996B5%jobsr_user_maxfurncount%'
+      - '&8❯ &#A5ACB8Smoker: &#9DC3ED%jobsr_user_smokercount%&7/&#7996B5%jobsr_user_maxsmokercount%'
+      - ''
+      - '&8❯ &#A5ACB8Max Trabajos: &#9DC3ED%jobsr_user_joinedjobcount%&7/&#7996B5%jobsr_maxjobs%'
+      - '&#A5ACB8  Puntos: &#9FCE54%jobsr_user_points%'
+  'QUEST':
+    display_name: '&#F97C16        Misiones'
+    material: GOLD_NUGGET
+    model_data: 10000
+    slot: 6
+    lore:
+      - '&#A5ACB8Muestra las misiones'
+      - '&#A5ACB8disponibles.'
+    click_requirement:
+      requirements:
+        job_quest:
+          type: "!string equals"
+          input: "%jobsr_user_joinedjobcount%"
+          output: '0'
+      deny_commands:
+        - '[sound] BLOCK_NOTE_BLOCK_BASS 0.8 0.9'
+        - '[message] 괇 &#D92625Primero tienes que unirte a un trabajo.'
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.8 1.4'
+      - '[openguimenu] jobs_menu_quest'
+  'SHOP':
+    display_name: '&#F97C16         Tienda de puntos'
+    material: GOLD_NUGGET
+    model_data: 10000
+    slot: 8
+    lore:
+      - '&#A5ACB8Podrás comprar muchos objetos o'
+      - '&#A5ACB8permisos/comandos con la moneda'
+      - '&#A5ACB8de los puntos de trabajo.'
+      - ''
+      - '&#A5ACB8Total de puntos acumulados: &#9FCE54%jobsr_user_total_points%'
+    click_commands:
+      - '[console] playsound minecraft:job_gui_shop player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs shop'
+  'PAGE-2':
+    display_name: '&#56CE00Página 2'
+    material: GOLD_NUGGET
+    model_data: 10005
+    slot: 35
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.6 1.8'
+      - '[openguimenu] jobs_menu_page_2'
+# ___
+#| _ )_ _ _____ __ _____ _ _ 
+#| _ \ '_/ -_) V  V / -_) '_|
+#|___/_| \___|\_/\_/\___|_|
+  'BREWER':
+    display_name: '%jobsr_chatcolor_brewer%%jobsr_name_brewer%'
+    material: GOLD_NUGGET
+    model_data: 11001
+    priority: 3
+    slot: 20
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_1_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] BLOCK_BREWING_STAND_BREW 0.4 1.5'
+      - '[player] jobs join brewer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+  'BREWER_SELECT':
+    display_name: '%jobsr_chatcolor_brewer%%jobsr_name_brewer%'
+    material: GOLD_NUGGET
+    model_data: 11002
+    priority: 2
+    slot: 20
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_brewer%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_brewer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_brewer%/%jobsr_user_jmaxexp_brewer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_brewer}_c:&#B1CC49괄ㆼ_p:&#B1CC49괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_brewer}_fullbar:&#B1CC49괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_brewer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+  'BREWER_WARNING':
+    display_name: '%jobsr_chatcolor_brewer%%jobsr_name_brewer%'
+    material: GOLD_NUGGET
+    model_data: 11002
+    priority: 1
+    slot: 20
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_brewer%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_brewer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_brewer%/%jobsr_user_jmaxexp_brewer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_brewer}_c:&#B1CC49괄ㆼ_p:&#B1CC49괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_brewer}_fullbar:&#B1CC49괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_brewer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+  'BREWER_DISABLE':
+    display_name: '%jobsr_chatcolor_brewer%&m%jobsr_name_brewer%'
+    material: GOLD_NUGGET
+    model_data: 11003
+    priority: 0
+    slot: 20
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_brewer%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_brewer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_brewer% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+
+  'BREWER_BYPASS':
+    display_name: '&#D92625%jobsr_name_brewer%'
+    material: GOLD_NUGGET
+    model_data: 11001
+    priority: 4
+    slot: 20
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_brewer%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_brewer% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] BLOCK_BREWING_STAND_BREW 0.4 1.5'
+      - '[player] jobs join brewer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+  'BREWER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_brewer%'
+    material: GOLD_NUGGET
+    model_data: 11003
+    priority: 5
+    update: true
+    slot: 20
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_brewer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_brewer% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_1_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join brewer'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_brewer'
+
+# ___      _ _    _
+#| _ )_  _(_) |__| |___ _ _ 
+#| _ \ || | | / _` / -_) '_|
+#|___/\_,_|_|_\__,_\___|_|
+  'BUILDER':
+    display_name: '%jobsr_chatcolor_builder%%jobsr_name_builder%'
+    material: GOLD_NUGGET
+    model_data: 11004
+    priority: 3
+    slot: 22
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_2_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] BLOCK_NETHER_BRICKS_BREAK 0.4 1.5'
+      - '[player] jobs join builder'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+  'BUILDER_SELECT':
+    display_name: '%jobsr_chatcolor_builder%%jobsr_name_builder%'
+    material: GOLD_NUGGET
+    model_data: 11005
+    priority: 2
+    slot: 22
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_builder%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_builder%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_builder%/%jobsr_user_jmaxexp_builder% EXP'
+      - '%progress_bar_{jobsr_user_jexp_builder}_c:&#E8BB8B괄ㆼ_p:&#E8BB8B괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_builder}_fullbar:&#E8BB8B괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    right_click_commands:
+      - '[openguimenu] job_leaving_builder'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+  'BUILDER_WARNING':
+    display_name: '%jobsr_chatcolor_builder%%jobsr_name_builder%'
+    material: GOLD_NUGGET
+    model_data: 11005
+    priority: 1
+    slot: 22
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_builder%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_builder%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_builder%/%jobsr_user_jmaxexp_builder% EXP'
+      - '%progress_bar_{jobsr_user_jexp_builder}_c:&#E8BB8B괄ㆼ_p:&#E8BB8B괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_builder}_fullbar:&#E8BB8B괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    right_click_commands:
+      - '[openguimenu] job_leaving_builder'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+  'BUILDER_DISABLE':
+    display_name: '%jobsr_chatcolor_builder%&m%jobsr_name_builder%'
+    material: GOLD_NUGGET
+    model_data: 11006
+    priority: 0
+    slot: 22
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_builder%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_builder%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_builder% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+
+  'BUILDER_BYPASS':
+    display_name: '&#D92625%jobsr_name_builder%'
+    material: GOLD_NUGGET
+    model_data: 11004
+    priority: 4
+    slot: 22
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_builder%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_builder% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] BLOCK_NETHER_BRICKS_BREAK 0.4 1.5'
+      - '[player] jobs join builder'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+  'BUILDER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_builder%'
+    material: GOLD_NUGGET
+    model_data: 11006
+    priority: 5
+    update: true
+    slot: 22
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_builder%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_builder% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_2_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join builder'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_builder'
+
+#  ___          _           
+# / __|___  ___| |_____ _ _ 
+#| (__/ _ \/ _ \ / / -_) '_|
+# \___\___/\___/_\_\___|_|  
+  'COOKER':
+    display_name: '%jobsr_chatcolor_cooker%%jobsr_name_cooker%'
+    material: GOLD_NUGGET
+    model_data: 11007
+    priority: 3
+    slot: 24
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_3_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_cooker player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join cooker'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+  'COOKER_SELECT':
+    display_name: '%jobsr_chatcolor_cooker%%jobsr_name_cooker%'
+    material: GOLD_NUGGET
+    model_data: 11008
+    priority: 2
+    slot: 24
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_cooker%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_cooker%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_cooker%/%jobsr_user_jmaxexp_cooker% EXP'
+      - '%progress_bar_{jobsr_user_jexp_cooker}_c:&#DB894A괄ㆼ_p:&#DB894A괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_cooker}_fullbar:&#DB894A괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    right_click_commands:
+      - '[openguimenu] job_leaving_cooker'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+  'COOKER_WARNING':
+    display_name: '%jobsr_chatcolor_cooker%%jobsr_name_cooker%'
+    material: GOLD_NUGGET
+    model_data: 11008
+    priority: 1
+    slot: 24
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_cooker%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_cooker%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_cooker%/%jobsr_user_jmaxexp_cooker% EXP'
+      - '%progress_bar_{jobsr_user_jexp_cooker}_c:&#DB894A괄ㆼ_p:&#DB894A괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_cooker}_fullbar:&#DB894A괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    right_click_commands:
+      - '[openguimenu] job_leaving_cooker'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+  'COOKER_DISABLE':
+    display_name: '%jobsr_chatcolor_cooker%&m%jobsr_name_cooker%'
+    material: GOLD_NUGGET
+    model_data: 11009
+    priority: 0
+    slot: 24
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_cooker%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_cooker%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_cooker% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+
+  'COOKER_BYPASS':
+    display_name: '&#D92625%jobsr_name_cooker%'
+    material: GOLD_NUGGET
+    model_data: 11007
+    priority: 4
+    slot: 24
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_cooker%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_cooker% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_cooker player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join cooker'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+  'COOKER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_cooker%'
+    material: GOLD_NUGGET
+    model_data: 11009
+    priority: 5
+    update: true
+    slot: 24
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_cooker%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_cooker% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_3_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join cooker'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_cooker'
+
+#  ___           __ _
+# / __|_ _ __ _ / _| |_ ___ _ _ 
+#| (__| '_/ _` |  _|  _/ -_) '_|
+# \___|_| \__,_|_|  \__\___|_|
+  'CRAFTER':
+    display_name: '%jobsr_chatcolor_crafter%%jobsr_name_crafter%'
+    material: GOLD_NUGGET
+    model_data: 11010
+    priority: 3
+    slot: 28
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_4_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_crafter player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join crafter'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+  'CRAFTER_SELECT':
+    display_name: '%jobsr_chatcolor_crafter%%jobsr_name_crafter%'
+    material: GOLD_NUGGET
+    model_data: 11011
+    priority: 2
+    slot: 28
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_crafter%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_crafter%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_crafter%/%jobsr_user_jmaxexp_crafter% EXP'
+      - '%progress_bar_{jobsr_user_jexp_crafter}_c:&#CEAD8E괄ㆼ_p:&#CEAD8E괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_crafter}_fullbar:&#CEAD8E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    right_click_commands:
+      - '[openguimenu] job_leaving_crafter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+  'CRAFTER_WARNING':
+    display_name: '%jobsr_chatcolor_crafter%%jobsr_name_crafter%'
+    material: GOLD_NUGGET
+    model_data: 11011
+    priority: 1
+    slot: 28
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_crafter%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_crafter%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_crafter%/%jobsr_user_jmaxexp_crafter% EXP'
+      - '%progress_bar_{jobsr_user_jexp_crafter}_c:&#CEAD8E괄ㆼ_p:&#CEAD8E괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_crafter}_fullbar:&#CEAD8E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    right_click_commands:
+      - '[openguimenu] job_leaving_crafter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+  'CRAFTER_DISABLE':
+    display_name: '%jobsr_chatcolor_crafter%&m%jobsr_name_crafter%'
+    material: GOLD_NUGGET
+    model_data: 11012
+    priority: 0
+    slot: 28
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_crafter%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_crafter%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_crafter% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+
+  'CRAFTER_BYPASS':
+    display_name: '&#D92625%jobsr_name_crafter%'
+    material: GOLD_NUGGET
+    model_data: 11010
+    priority: 4
+    slot: 28
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_crafter%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_crafter% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_crafter player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join crafter'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+  'CRAFTER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_crafter%'
+    material: GOLD_NUGGET
+    model_data: 11012
+    priority: 5
+    update: true
+    slot: 28
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_crafter%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_crafter% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_4_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join crafter'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_crafter'
+
+# ___  _
+#|   \(_)__ _ __ _ ___ _ _ 
+#| |) | / _` / _` / -_) '_|
+#|___/|_\__, \__, \___|_|  
+#       |___/|___/
+  'DIGGER':
+    display_name: '%jobsr_chatcolor_digger%%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11013
+    priority: 3
+    slot: 30
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_5_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_digger player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join digger'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+  'DIGGER_SELECT':
+    display_name: '%jobsr_chatcolor_digger%%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11014
+    priority: 2
+    slot: 30
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_digger%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_digger%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_digger%/%jobsr_user_jmaxexp_digger% EXP'
+      - '%progress_bar_{jobsr_user_jexp_digger}_c:&#EFE7A5괄ㆼ_p:&#EFE7A5괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_digger}_fullbar:&#EFE7A5괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    right_click_commands:
+      - '[openguimenu] job_leaving_digger'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+  'DIGGER_WARNING':
+    display_name: '%jobsr_chatcolor_digger%%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11014
+    priority: 1
+    slot: 30
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_digger%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_digger%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_digger%/%jobsr_user_jmaxexp_digger% EXP'
+      - '%progress_bar_{jobsr_user_jexp_digger}_c:&#EFE7A5괄ㆼ_p:&#EFE7A5괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_digger}_fullbar:&#EFE7A5괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    right_click_commands:
+      - '[openguimenu] job_leaving_digger'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+  'DIGGER_DISABLE':
+    display_name: '%jobsr_chatcolor_digger%&m%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11015
+    priority: 0
+    slot: 30
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_digger%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_digger%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_digger% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+
+  'DIGGER_BYPASS':
+    display_name: '&#D92625%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11013
+    priority: 4
+    slot: 30
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_digger%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_digger% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_digger player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join digger'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+  'DIGGER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11015
+    priority: 5
+    update: true
+    slot: 30
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_digger%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_digger% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_5_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join digger'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_digger'
+
+# ___         _             _
+#| __|_ _  __| |_  __ _ _ _| |_ ___ _ _ 
+#| _|| ' \/ _| ' \/ _` | ' \  _/ -_) '_|
+#|___|_||_\__|_||_\__,_|_||_\__\___|_|
+  'ENCHANTER':
+    display_name: '%jobsr_chatcolor_enchanter%%jobsr_name_enchanter%'
+    material: GOLD_NUGGET
+    model_data: 11016
+    priority: 3
+    slot: 32
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_6_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_enchanter player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join enchanter'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+  'ENCHANTER_SELECT':
+    display_name: '%jobsr_chatcolor_enchanter%%jobsr_name_enchanter%'
+    material: GOLD_NUGGET
+    model_data: 11017
+    priority: 2
+    slot: 32
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_enchanter%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_enchanter%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_enchanter%/%jobsr_user_jmaxexp_enchanter% EXP'
+      - '%progress_bar_{jobsr_user_jexp_enchanter}_c:&#E888F7괄ㆼ_p:&#E888F7괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_enchanter}_fullbar:&#E888F7괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    right_click_commands:
+      - '[openguimenu] job_leaving_enchanter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+  'ENCHANTER_WARNING':
+    display_name: '%jobsr_chatcolor_enchanter%%jobsr_name_enchanter%'
+    material: GOLD_NUGGET
+    model_data: 11017
+    priority: 1
+    slot: 32
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_enchanter%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_enchanter%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_enchanter%/%jobsr_user_jmaxexp_enchanter% EXP'
+      - '%progress_bar_{jobsr_user_jexp_enchanter}_c:&#E888F7괄ㆼ_p:&#E888F7괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_enchanter}_fullbar:&#E888F7괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    right_click_commands:
+      - '[openguimenu] job_leaving_enchanter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+  'ENCHANTER_DISABLE':
+    display_name: '%jobsr_chatcolor_enchanter%&m%jobsr_name_enchanter%'
+    material: GOLD_NUGGET
+    model_data: 11018
+    priority: 0
+    slot: 32
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_enchanter%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_enchanter%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_enchanter% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+
+  'ENCHANTER_BYPASS':
+    display_name: '&#D92625%jobsr_name_enchanter%'
+    material: GOLD_NUGGET
+    model_data: 11016
+    priority: 4
+    slot: 32
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_enchanter%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_enchanter% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_enchanter player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join enchanter'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+  'ENCHANTER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_enchanter%'
+    material: GOLD_NUGGET
+    model_data: 11018
+    priority: 5
+    update: true
+    slot: 32
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_enchanter%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_enchanter% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_6_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join enchanter'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_enchanter'
+
+# ___           _
+#| __|_ _  __ _(_)_ _  ___ ___ _ _ 
+#| _|| ' \/ _` | | ' \/ -_) -_) '_|
+#|___|_||_\__, |_|_||_\___\___|_|
+#         |___/
+  'ENGINEER':
+    display_name: '%jobsr_chatcolor_engineer%%jobsr_name_engineer%'
+    material: GOLD_NUGGET
+    model_data: 11019
+    priority: 3
+    slot: 34
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_7_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] ENTITY_DRAGON_FIREBALL_EXPLODE 0.4 1.5'
+      - '[player] jobs join engineer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+  'ENGINEER_SELECT':
+    display_name: '%jobsr_chatcolor_engineer%%jobsr_name_engineer%'
+    material: GOLD_NUGGET
+    model_data: 11020
+    priority: 2
+    slot: 34
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_engineer%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_engineer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_engineer%/%jobsr_user_jmaxexp_engineer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_engineer}_c:&#F45D5D괄ㆼ_p:&#F45D5D괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_engineer}_fullbar:&#F45D5D괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_engineer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+  'ENGINEER_WARNING':
+    display_name: '%jobsr_chatcolor_engineer%%jobsr_name_engineer%'
+    material: GOLD_NUGGET
+    model_data: 11020
+    priority: 1
+    slot: 34
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_engineer%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_engineer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_engineer%/%jobsr_user_jmaxexp_engineer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_engineer}_c:&#F45D5D괄ㆼ_p:&#F45D5D괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_engineer}_fullbar:&#F45D5D괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_engineer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+  'ENGINEER_DISABLE':
+    display_name: '%jobsr_chatcolor_engineer%&m%jobsr_name_engineer%'
+    material: GOLD_NUGGET
+    model_data: 11021
+    priority: 0
+    slot: 34
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_engineer%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_engineer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_engineer% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+
+  'ENGINEER_BYPASS':
+    display_name: '&#D92625%jobsr_name_engineer%'
+    material: GOLD_NUGGET
+    model_data: 11019
+    priority: 4
+    slot: 34
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_engineer%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_engineer% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] ENTITY_DRAGON_FIREBALL_EXPLODE 0.4 1.5'
+      - '[player] jobs join engineer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+  'ENGINEER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_engineer%'
+    material: GOLD_NUGGET
+    model_data: 11021
+    priority: 5
+    update: true
+    slot: 34
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_engineer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_engineer% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_7_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join engineer'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_engineer'
+
+# ___          _ 
+#| __|_ ___ __| |___ _ _ ___ _ _ 
+#| _|\ \ / '_ \ / _ \ '_/ -_) '_|
+#|___/_\_\ .__/_\___/_| \___|_|  
+#        |_|
+  'EXPLORER':
+    display_name: '%jobsr_chatcolor_explorer%%jobsr_name_explorer%'
+    material: GOLD_NUGGET
+    model_data: 11022
+    priority: 3
+    slot: 38
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_8_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] UI_CARTOGRAPHY_TABLE_TAKE_RESULT 0.6 2'
+      - '[player] jobs join explorer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+  'EXPLORER_SELECT':
+    display_name: '%jobsr_chatcolor_explorer%%jobsr_name_explorer%'
+    material: GOLD_NUGGET
+    model_data: 11023
+    priority: 2
+    slot: 38
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_explorer%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_explorer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_explorer%/%jobsr_user_jmaxexp_explorer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_explorer}_c:&#8AE294괄ㆼ_p:&#8AE294괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_explorer}_fullbar:&#8AE294괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_explorer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+  'EXPLORER_WARNING':
+    display_name: '%jobsr_chatcolor_explorer%%jobsr_name_explorer%'
+    material: GOLD_NUGGET
+    model_data: 11023
+    priority: 1
+    slot: 38
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_explorer%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_explorer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_explorer%/%jobsr_user_jmaxexp_explorer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_explorer}_c:&#8AE294괄ㆼ_p:&#8AE294괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_explorer}_fullbar:&#8AE294괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_explorer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+  'EXPLORER_DISABLE':
+    display_name: '%jobsr_chatcolor_explorer%&m%jobsr_name_explorer%'
+    material: GOLD_NUGGET
+    model_data: 11024
+    priority: 0
+    slot: 38
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_explorer%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_explorer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_explorer% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+
+  'EXPLORER_BYPASS':
+    display_name: '&#D92625%jobsr_name_explorer%'
+    material: GOLD_NUGGET
+    model_data: 11022
+    priority: 4
+    slot: 38
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_explorer%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_explorer% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] UI_CARTOGRAPHY_TABLE_TAKE_RESULT 0.6 2'
+      - '[player] jobs join explorer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+  'EXPLORER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_explorer%'
+    material: GOLD_NUGGET
+    model_data: 11024
+    priority: 5
+    update: true
+    slot: 38
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_explorer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_explorer% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_8_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join explorer'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_explorer'
+
+# ___
+#| __|_ _ _ _ _ __  ___ _ _ 
+#| _/ _` | '_| '  \/ -_) '_|
+#|_|\__,_|_| |_|_|_\___|_|
+  'FARMER':
+    display_name: '%jobsr_chatcolor_farmer%%jobsr_name_farmer%'
+    material: GOLD_NUGGET
+    model_data: 11025
+    priority: 3
+    slot: 40
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_9_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_farmer player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join farmer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+  'FARMER_SELECT':
+    display_name: '%jobsr_chatcolor_farmer%%jobsr_name_farmer%'
+    material: GOLD_NUGGET
+    model_data: 11026
+    priority: 2
+    slot: 40
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_farmer%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_farmer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_farmer%/%jobsr_user_jmaxexp_farmer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_farmer}_c:&#DDBC58괄ㆼ_p:&#DDBC58괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_farmer}_fullbar:&#DDBC58괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_farmer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+  'FARMER_WARNING':
+    display_name: '%jobsr_chatcolor_farmer%%jobsr_name_farmer%'
+    material: GOLD_NUGGET
+    model_data: 11026
+    priority: 1
+    slot: 40
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_farmer%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_farmer%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_farmer%/%jobsr_user_jmaxexp_farmer% EXP'
+      - '%progress_bar_{jobsr_user_jexp_farmer}_c:&#DDBC58괄ㆼ_p:&#DDBC58괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_farmer}_fullbar:&#DDBC58괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    right_click_commands:
+      - '[openguimenu] job_leaving_farmer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+  'FARMER_DISABLE':
+    display_name: '%jobsr_chatcolor_farmer%&m%jobsr_name_farmer%'
+    material: GOLD_NUGGET
+    model_data: 11027
+    priority: 0
+    slot: 40
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_farmer%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_farmer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_farmer% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+
+  'FARMER_BYPASS':
+    display_name: '&#D92625%jobsr_name_farmer%'
+    material: GOLD_NUGGET
+    model_data: 11025
+    priority: 4
+    slot: 40
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_farmer%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_farmer% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[console] playsound minecraft:job_farmer player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join farmer'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+  'FARMER_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_farmer%'
+    material: GOLD_NUGGET
+    model_data: 11027
+    priority: 5
+    update: true
+    slot: 40
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_farmer%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_farmer% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_9_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join farmer'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_farmer'
+
+# ___ _    _                            
+#| __(_)__| |_  ___ _ _ _ __  __ _ _ _  
+#| _|| (_-< ' \/ -_) '_| '  \/ _` | ' \ 
+#|_| |_/__/_||_\___|_| |_|_|_\__,_|_||_|
+  'FISHERMAN':
+    display_name: '%jobsr_chatcolor_fisherman%%jobsr_name_fisherman%'
+    material: GOLD_NUGGET
+    model_data: 11028
+    priority: 3
+    slot: 42
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_10_21600%"
+          output: "0s"
+    lore:
+      - '&7Level: &f0'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B0/100 EXP'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] ITEM_BUCKET_FILL_FISH 0.4 1.5'
+      - '[player] jobs join fisherman'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes...'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+  'FISHERMAN_SELECT':
+    display_name: '%jobsr_chatcolor_fisherman%%jobsr_name_fisherman%'
+    material: GOLD_NUGGET
+    model_data: 11029
+    priority: 2
+    slot: 42
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_fisherman%"
+          output: 'True'
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_fisherman%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_fisherman%/%jobsr_user_jmaxexp_fisherman% EXP'
+      - '%progress_bar_{jobsr_user_jexp_fisherman}_c:&#9CE2E2괄ㆼ_p:&#9CE2E2괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_fisherman}_fullbar:&#9CE2E2괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    right_click_commands:
+      - '[openguimenu] job_leaving_fisherman'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+  'FISHERMAN_WARNING':
+    display_name: '%jobsr_chatcolor_fisherman%%jobsr_name_fisherman%'
+    material: GOLD_NUGGET
+    model_data: 11029
+    priority: 1
+    slot: 42
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_fisherman%"
+          output: 'True'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_jlevel_fisherman%'
+      - ''
+      - '&7Siguiente Nivel: &#F19C0B%jobsr_user_jexp_fisherman%/%jobsr_user_jmaxexp_fisherman% EXP'
+      - '%progress_bar_{jobsr_user_jexp_fisherman}_c:&#9CE2E2괄ㆼ_p:&#9CE2E2괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_fisherman}_fullbar:&#9CE2E2괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ%'
+    left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    right_click_commands:
+      - '[openguimenu] job_leaving_fisherman'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+  'FISHERMAN_DISABLE':
+    display_name: '%jobsr_chatcolor_fisherman%&m%jobsr_name_fisherman%'
+    material: GOLD_NUGGET
+    model_data: 11030
+    priority: 0
+    slot: 42
+    view_requirement:
+      requirements:
+        job_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_fisherman%"
+          output: 'False'
+        jobs_limit:
+          type: javascript
+          expression: "%jobsr_user_joinedjobcount% == %jobsr_maxjobs%"
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_fisherman%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_fisherman% EXP'
+      - ''
+      - '&#D92625Debes dejar un trabajo para poder'
+      - '&#D92625unirte a otros o puedes comprar un'
+      - '&#D92625rango para tener más trabajos.'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625Has alcanzado el límite máximo de empleos que puede tener un jugador!'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+
+  'FISHERMAN_BYPASS':
+    display_name: '&#D92625%jobsr_name_fisherman%'
+    material: GOLD_NUGGET
+    model_data: 11028
+    priority: 4
+    slot: 42
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_fisherman%'
+      - ''
+      - '&7Retained exp: &#F19C0B%jobsr_user_archived_jobs_exp_fisherman% EXP'
+      - '&#d14a3e괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+    left_click_commands:
+      - '[sound] ITEM_BUCKET_FILL_FISH 0.4 1.5'
+      - '[player] jobs join fisherman'
+      - '[refresh]'
+    right_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[message] 괇 &#D92625No puedes dejar un trabajo que no tienes..'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+  'FISHERMAN_COOLDOWN':
+    display_name: '&#D92625&m%jobsr_name_fisherman%'
+    material: GOLD_NUGGET
+    model_data: 11030
+    priority: 5
+    update: true
+    slot: 42
+    lore:
+      - '&7Level: &f%jobsr_user_archived_jobs_level_fisherman%'
+      - ''
+      - '&7Experiencia almacenada: &#F19C0B%jobsr_user_archived_jobs_exp_fisherman% EXP'
+      - ''
+      - '&#D92625Cooldown tiempo: &8%javascript_cooldown_10_21600%'
+    left_click_commands:
+      - '[console] playsound minecraft:error player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs join fisherman'
+    right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_left_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'
+    shift_right_click_commands:
+      - '[openguimenu] jobs_progress_fisherman'

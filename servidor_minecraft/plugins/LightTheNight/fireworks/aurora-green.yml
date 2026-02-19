@@ -1,0 +1,28 @@
+aurora-green:
+  fireworks:
+    sweep:
+      type: STAR
+      colors:
+        - "#2aff9f"
+        - "#16e086"
+      fade:
+        - "#0fa66e"
+      power: 1
+      trail: true
+      flicker: true
+      count: 2
+      spread: 0.4
+      ho: 1.2
+    crown:
+      type: BALL_LARGE
+      colors:
+        - "#96ffd7"
+      fade:
+        - "#1ba05e"
+      power: 2
+      trail: true
+      flicker: false
+      count: 1
+      spread: 0.0
+      delay: 5
+      ho: 2.0

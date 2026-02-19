@@ -1,0 +1,308 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+removecranegame:
+  TriggerConditions:
+  - haspermission{p=mythicmobs.admin} true
+  - holding {m=BARRIER} true
+  Skills:
+  - remove @self
+
+rotatecranegame:
+  TriggerConditions:
+  - haspermission{p=mythicmobs.admin} true
+  - crouching true
+  Skills:
+  - actionmessage{m="ROTATING..."} @trigger
+  - look{headOnly=false;immediately=true;repeat=10;repeatInterval=1} @trigger
+  
+cranegameSPAWNinvisible:
+  Skills:
+  - delay 1
+  - potion{type=INVISIBILITY;duration=200;level=4;p=false}
+  
+craneNOMONEY:
+  Cooldown: 1
+  TriggerConditions:
+  - hascurrency{a=1000} false
+  - crouching false
+  Skills:
+  - sound{s=entity.villager.no;v=1;sc=HOSTILE} @self
+  - message{m="&cYou dont have enough gold!"} @trigger
+  
+  
+craneNOTHING1:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game1;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game1} @self
+  - delay 70
+  - sound{s=littleroom_cranegame:littleroom.cranegame.lose;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_nothing} @self
+  - delay 60
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  
+craneNOTHING2:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game2;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game2} @self
+  - delay 60
+  - sound{s=littleroom_cranegame:littleroom.cranegame.lose;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_nothing} @self
+  - delay 60
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  
+craneNOTHING3:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game3;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game3} @self
+  - delay 40
+  - sound{s=littleroom_cranegame:littleroom.cranegame.lose;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_nothing} @self
+  - delay 60
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  
+craneDIAMOND:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game1;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game1} @self
+  - delay 70
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_diamond} @self
+  - delay 60
+  - effect:itemspray{item=diamond;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=diamond} @trigger
+  
+craneLEAD:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game1;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game1} @self
+  - delay 70
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_lead} @self
+  - delay 60
+  - effect:itemspray{item=lead;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=lead} @trigger
+  
+craneCAKE:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game1;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game1} @self
+  - delay 70
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_cake} @self
+  - delay 60
+  - effect:itemspray{item=cake;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=cake} @trigger
+  
+craneBONE:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game1;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game1} @self
+  - delay 70
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_bone} @self
+  - delay 60
+  - effect:itemspray{item=bone;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=bone} @trigger
+  
+craneTOTEM:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game1;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game1} @self
+  - delay 70
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_totem} @self
+  - delay 60
+  - effect:itemspray{item=totem_of_undying;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=totem_of_undying} @trigger
+  
+craneRECORD:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game3;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game3} @self
+  - delay 40
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_record} @self
+  - delay 60
+  - effect:itemspray{item=music_disc_pigstep;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=music_disc_pigstep} @trigger
+  
+cranePICKAXE:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game3;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game3} @self
+  - delay 40
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_pickaxe} @self
+  - delay 60
+  - effect:itemspray{item=diamond_pickaxe;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=diamond_pickaxe} @trigger
+  
+craneEYE:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game2;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game2} @self
+  - delay 60
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_eye} @self
+  - delay 60
+  - effect:itemspray{item=ender_eye;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=ender_eye} @trigger
+  
+craneHONEY:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game2;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game2} @self
+  - delay 60
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_honey} @self
+  - delay 60
+  - effect:itemspray{item=honeycomb;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=honeycomb} @trigger
+  
+craneMUTTON:
+  TriggerConditions:
+  - hascurrency{a=1000} true
+  - crouching false
+  Conditions:
+  - offgcd true
+  Skills:
+  - message{m="&aHas gastado 1000$ en la Maquinita!"} @trigger
+  - currencytake{amount=1000} @trigger
+  - sound{s=littleroom_cranegame:littleroom.cranegame.game2;v=1;sc=HOSTILE} @self
+  - gcd{ticks=140}
+  - state{s=game2} @self
+  - delay 60
+  - sound{s=littleroom_cranegame:littleroom.cranegame.win;v=1;sc=HOSTILE} @self
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame_items;npid=crane_mutton} @self
+  - delay 60
+  - effect:itemspray{item=cooked_mutton;amount=1;velocity=0;d=10} @ModelPart{m=cranegame;p=craneclaw;offset=LOCAL;y=-1.6}
+  - ChangePart{mid=cranegame;pid=craneclaw;nmid=cranegame;npid=craneclaw} @self
+  - delay 10
+  - sound{s=littleroom_cranegame:littleroom.cranegame.drop;v=1;sc=HOSTILE} @self
+  - giveitem{i=cooked_mutton} @trigger

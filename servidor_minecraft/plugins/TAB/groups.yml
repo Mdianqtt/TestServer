@@ -1,0 +1,101 @@
+#This file is for prefixes to work using the TAB plugin and itemsadder in the tab.
+Member:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+staff:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Media:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Famous:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Helper:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Builder:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Mod:
+  tagprefix: '§f§r '
+Modplus:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+SrMod:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Dev:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Admin:
+  tagprefix: '§f§r '
+Manager:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Owner:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Vip:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Vipplus:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Mvp:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Mvpplus:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Mvpplusplus:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Hero:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Legend:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Master:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Titan:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Twitch:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Discord:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Twitter:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Youtube:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Tiktok:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Facebook:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+Instagram:
+  tabprefix: '§f§r '
+  tagprefix: '§f§r '
+example_group:
+  header:
+  - This is an example of per-group header/footer
+  footer:
+  - applied to a group
+_DEFAULT_:
+  tabprefix: '%luckperms-prefix%'
+  tagprefix: '%luckperms-prefix%'
+  tabsuffix: '%luckperms-suffix%'
+  tagsuffix: '%luckperms-suffix%'
+per-world:
+  world1:
+    Owner:
+      tabprefix: '&0&l[&a&lOwner&0&l] &a'
+      tagprefix: '&2&lOwner &a'

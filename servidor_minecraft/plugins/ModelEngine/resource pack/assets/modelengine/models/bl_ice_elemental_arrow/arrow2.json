@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/bl_ice_elemental_arrow"},"elements":[{"from":[8.0,7.63136,13.16096],"to":[8.0,9.8432,15.3728],"faces":{"east":{"uv":[2.5,1.0,4.0,2.5],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[2.5,2.5,4.0,4.0],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

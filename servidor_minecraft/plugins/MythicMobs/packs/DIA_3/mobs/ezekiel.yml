@@ -1,0 +1,41 @@
+ezekiel:
+  Type: IRON_GOLEM
+  Display: '&c&lEzekiel'
+  Faction: demon
+  Health: 3500
+  Damage: 0
+  BossBar:
+    Enabled: true
+    Title: '&3Ezekiel'
+    Range: 48
+    Color: BLUE
+    Style: SEGMENTED_12
+    FollowRange: 48
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 randomstroll
+  AITargetSelectors:
+  - 1 players
+  Options:
+    NoDamageTicks: 1
+    MovementSpeed: 0.3
+    FollowRange: 32
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    LockPitch: true
+  Skills:
+  - randomskill{s=ezekiel_sword_left_slash,ezekiel_sword_rightslash,ezekiel_sword_stepslash,ezekiel_scythe_right_slash,ezekiel_tail_swipe} @target ~onTimer:20
+  - randomskill{s=ezekiel_run2,ezekiel_run1} @self ~onTimer:100
+  - skill{s=ezekiel_onhit;sync=true} @self ~onDamaged
+  - skill{s=CancelEventSkill;sync=true} @self ~onAttack
+  - skill{s=ezekiel_spawn} @self ~onSpawn
+  - skill{s=ezekiel_death} @self ~ondeath
+  # Ezekiel recovers her poise over time, set the onTimer value too small makes her never defencebreak.
+  - skill{s=ezekiel_poise_recovery} @self ~onTimer:200
+  
+  

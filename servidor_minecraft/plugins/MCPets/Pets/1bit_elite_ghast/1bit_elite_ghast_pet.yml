@@ -1,0 +1,12 @@
+Id: 1bit_elite_ghast_pet
+MythicMob: 1bit_elite_ghast_pet
+Permission: mcpet.1bit_elite_ghast_pet
+Mountable: true
+MountType: flying
+Distance: 13
+ComingBackRange: 13
+SpawnRange: 3
+Icon:
+  Name: §3Elite Ghast Pet
+  Material: PAPER
+  CustomModelData: 9927045

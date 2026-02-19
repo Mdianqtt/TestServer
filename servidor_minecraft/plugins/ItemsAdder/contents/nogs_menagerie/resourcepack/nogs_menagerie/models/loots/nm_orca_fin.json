@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "nogs_menagerie:loots/nm_orca_fin_texture"
+  }
+}

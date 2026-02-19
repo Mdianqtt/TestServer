@@ -1,0 +1,40 @@
+nm_mini_you_paladin:
+  Type: WITHER_SKELETON
+  Display: ''
+  Health: 200
+  Damage: 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - gotoowner 6
+  - randomstroll
+  - float
+  AITargetSelectors:
+  - clear
+  - ownerattacker
+  - ownerattack
+  - attacker
+  Modules:
+    ThreatTable: true
+  Options:
+    Collidable: true
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    Silent: true
+    Invincible: false
+    PreventRenaming: false
+    PreventLeashing: true
+    AlwaysShowName: false
+    PreventSunburn: true
+    MaxCombatDistance: 10
+  Skills:
+  
+  - model{mid=nm_mini_you_paladin;n=name} @self ~onSpawn
+  - model{mid=nm_mini_you_paladin;n=name} @self ~onLoad
+  
+  - sound{s=entity.ravager.hurt;p=1.8;v=0.6} @self ~onDamaged
+  - sound{s=entity.pillager.death;p=1.6;v=0.8} @self ~onDeath
+  
+  - randomskill{s=mini_you_paladin_stab_parse,mini_you_paladin_slash_parse;sync=true;cd=2} ~onAttack
+
+# 14951IUYDZPM4O6A

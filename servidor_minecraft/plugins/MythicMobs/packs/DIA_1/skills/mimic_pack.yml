@@ -1,0 +1,274 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+# Leaked By Baff for Nullforums.net
+#  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
+# ( o.o )( o.o )( o.o )( o.o )( o.o )
+#  > ^ <  > ^ <  > ^ <  > ^ <  > ^ < 
+#  /\_/\  ____         __  __  /\_/\ 
+# ( o.o )| __ )  __ _ / _|/ _|( o.o )
+#  > ^ < |  _ \ / _` | |_| |_  > ^ < 
+#  /\_/\ | |_) | (_| |  _|  _| /\_/\ 
+# ( o.o )|____/ \__,_|_| |_|  ( o.o )
+#  > ^ <                       > ^ < 
+#  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
+# ( o.o )( o.o )( o.o )( o.o )( o.o )
+#  > ^ <  > ^ <  > ^ <  > ^ <  > ^ < 
+################## GLOBAL SKILLS ##################
+########### YOU CAN IGNORE THIS STUFF #############
+
+### MEG 3 ### COMPATIBILITY ###
+
+mimic_hideparts:
+  Skills:
+  - delay 1
+  - submodel{mid=mimic_bed;subpart=spit1;remove=true;em=false} @self
+  - submodel{mid=mimic_bed;subpart=spit2;remove=true;em=false} @self
+  - submodel{mid=mimic_bed;subpart=mimic_top;remove=true;em=false} @self
+  - submodel{mid=mimic_bed;subpart=mimic_bottom;remove=true;em=false} @self
+  - submodel{mid=mimic_furnace;subpart=spit1;remove=true;em=false} @self
+  - submodel{mid=mimic_furnace;subpart=spit2;remove=true;em=false} @self
+  - submodel{mid=mimic_furnace;subpart=mimic_top;remove=true;em=false} @self
+  - submodel{mid=mimic_furnace;subpart=mimic_bottom;remove=true;em=false} @self
+  - submodel{mid=mimic_piston;subpart=spit1;remove=true;em=false} @self
+  - submodel{mid=mimic_piston;subpart=spit2;remove=true;em=false} @self
+  - submodel{mid=mimic_piston;subpart=mimic_top;remove=true;em=false} @self
+  - submodel{mid=mimic_piston;subpart=mimic_bottom;remove=true;em=false} @self
+  - submodel{mid=mimic_craftingtable;subpart=spit1;remove=true;em=false} @self
+  - submodel{mid=mimic_craftingtable;subpart=spit2;remove=true;em=false} @self
+  - submodel{mid=mimic_craftingtable;subpart=mimic_top;remove=true;em=false} @self
+  - submodel{mid=mimic_craftingtable;subpart=mimic_bottom;remove=true;em=false} @self
+
+
+## TWO BLOCK SPECIFIC SKILLS ##
+  
+mimic_2block_SPAWN:
+  TargetConditions:
+  - blocktype{type=air} castinstead mimic_2block_SPAWNto2
+  Skills:
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+  
+mimic_2block_SPAWNto2:
+  Skills:
+  - skill{s=mimic_2block_SPAWN2} @selflocation{y=.5;centered=true}
+  
+mimic_2block_SPAWN2:
+  Conditions:
+  - blocktype{type=air}
+  Skills:
+  - delay 1
+  - setowner @pir{r=7;sort=NEAREST;limit=1}
+  - teleport{} @selflocation{centered=true}
+  - setblock{m=BARRIER;md=0} @selflocation{centered=true}
+  - setblock{m=BARRIER;md=0} @selflocation{fo=1;centered=true}
+  - settargetscore{o=rotate;v=1} @self
+  - bodyclamp{mh=0;mb=0} @self
+
+mimic_2block_errorprevention:
+  #Cooldown: 1
+  Conditions:
+  - ismoving orElseCast mimic_2block_errorprevention2
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5}
+  - setblock{m=AIR;md=0} @selflocation{fo=1;y=.5;centered=true}
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+  
+mimic_2block_errorprevention2:
+  Conditions:
+  - blocktype{type=air}
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5}
+  - setblock{m=AIR;md=0} @selflocation{fo=1;y=.5;centered=true}
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+ 
+mimic_2block_errorprevention3:
+  Conditions:
+  - blocktype{type=barrier} false
+  Skills:
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+  
+mimic_2block_rotate:
+  Cooldown: 1
+  TargetConditions:
+  - blocktype{type=air} orElseCast mimic_2block_flip
+  TriggerConditions:
+  - crouching true
+  Conditions:
+  - score{o=rotate;v=>3} castinstead mimic_rotate_reset
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{fo=1;y=.5;centered=true}
+  - speak{offset=1f;radius=30;maxlinelength=22;lineprefix="&f";message="ROTATING...";chatprefix="";duration=20;chat=false} @self
+  - modifytargetscore{o=rotate;a=add;v=1} @self
+  - delay 10
+  - setblock{m=BARRIER;md=0} @selflocation{fo=1;y=.5;centered=true}
+  
+mimic_2block_flip:
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{fo=1;y=.5;centered=true}
+  - modifytargetscore{o=rotate;a=add;v=2} @self
+  - delay 10
+  - setblock{m=BARRIER;md=0} @selflocation{fo=1;y=.5;centered=true}
+  
+### 1 BLOCK SPECIFIC SKILLS ###  
+
+mimic_1block_SPAWN:
+  TargetConditions:
+  - blocktype{type=air} castinstead mimic_1block_SPAWN2
+  Skills:
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+  
+  
+mimic_1block_SPAWN2:
+  Conditions:
+  - blocktype{type=air}
+  Skills:
+  - delay 1
+  - setowner @pir{r=7;sort=NEAREST;limit=1}
+  - teleport{} @selflocation{centered=true}
+  - setblock{m=BARRIER;md=0} @selflocation{centered=true}
+  - settargetscore{o=rotate;v=1} @self
+
+mimic_1block_errorprevention:
+  Cooldown: 1
+  Conditions:
+  - ismoving orElseCast mimic_1block_errorprevention2
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5}
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+  
+mimic_1block_errorprevention2:
+  Conditions:
+  - blocktype{type=air}
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5}
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+ 
+mimic_1block_errorprevention3:
+  Conditions:
+  - blocktype{type=barrier} false
+  Skills:
+  - dropitem{i=<caster.name>} @self
+  - remove @self
+  
+mimic_1block_rotate:
+  TriggerConditions:
+  - crouching true
+  Conditions:
+  - score{o=rotate;v=>3} castinstead mimic_rotate_reset
+  Skills:
+  - speak{offset=1f;radius=30;maxlinelength=22;lineprefix="&f";message="ROTATING...";chatprefix="";duration=20;chat=false} @self
+  - modifytargetscore{o=rotate;a=add;v=1} @self
+  
+mimic_rotate_reset:
+  Skills:
+  - settargetscore{o=rotate;v=0} @self
+  
+mimic_rotatecheck:
+  Skills:
+  - skill{s=mimic_north} @self
+  - skill{s=mimic_east} @self
+  - skill{s=mimic_south} @self
+  - skill{s=mimic_west} @self
+  
+mimic_north:
+  Conditions:
+  - score{o=rotate;v=1} true
+  Skills:
+  - setrotation{relative=false;yaw=0;pitch=0} @Self
+  
+mimic_east:
+  Conditions:
+  - score{o=rotate;v=2} true
+  Skills:
+  - setrotation{relative=false;yaw=-90;pitch=0} @Self
+  
+mimic_south:
+  Conditions:
+  - score{o=rotate;v=3} true
+  Skills:
+  - setrotation{relative=false;yaw=180;pitch=0} @Self
+  
+mimic_west:
+  Conditions:
+  - score{o=rotate;v=4} true
+  Skills:
+  - setrotation{relative=false;yaw=90;pitch=0} @Self
+  
+  
+  
+#### MIMIC STUFF ####
+
+mimic_awaken_bed:
+  TriggerConditions:
+  - owner false
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{fo=1;y=.5;centered=true}
+  - summon{t=mimic_bed_awaken} @self
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - remove @self
+  
+mimic_awaken_craftingtable:
+  TriggerConditions:
+  - owner false
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - summon{t=mimic_craftingtable_awaken} @self
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - remove @self
+  
+mimic_awaken_furnace:
+  TriggerConditions:
+  - owner false
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - summon{t=mimic_furnace_awaken} @self
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - remove @self
+  
+mimic_awaken_piston:
+  TriggerConditions:
+  - owner false
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - summon{t=mimic_piston_awaken} @self
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - remove @self
+
+
+
+
+
+
+mimic_awaken_spawn:
+  Skills:
+  - delay 1
+  - sound{s=littleroom_mimic:littleroom.mimic.awaken;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - propel{v=.5} @pir{r=5;sort=NEAREST;limit=1}
+  - state{s=alive;p=2} @self
+  - defaultstate{type=idle;state=alive_idle} @self
+
+mimic_attack_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=mimic_attack} @self
+  
+mimic_attack:
+  Cooldown: 1
+  Skills:
+  - state{s=attack} @self
+  - propel{v=.25} @forward
+  - delay 5  
+  - totem{md=2;oH=mimic_attack_damage;hR=1;vR=1;repeat=5;repeatInterval=1} @forward{f=1}
+
+mimic_attack_damage:
+  Skills:
+  - damage{a=1}
+  - throw{v=2}

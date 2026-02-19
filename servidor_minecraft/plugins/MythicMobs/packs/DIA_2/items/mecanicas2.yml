@@ -1,0 +1,44 @@
+HuevoDorado:
+  Id: PAPER
+  Model: 15119
+  Display: '<#FFD700>« <#FFFACD>&lHuevo del Gran Progenitor<#FFD700>»'
+  Lore:
+  - ""
+  - " <#DAA520>│ &7Tipo: <#F0E68C>Reliquia de Invocación"
+  - ""
+  - " <#B8860B>&oContiene el linaje de los"
+  - " <#B8860B>&oantiguos señores del corral."
+  - ""
+  - " <#FFD700>HABILIDAD ACTIVA:"
+  - " <#F5F5F5>● <#FFD700>GUARDIA AVÍCOLA"
+  - "   &7Invoca 4 pollos colosales que"
+  - "   &7atacan a tus enemigos por 30s."
+  Skills:
+  - skill{s=Huevo_Invocar_Pollos} @self ~onUse
+
+TotemAureo:
+  Id: PAPER # O el material que uses para tu textura
+  Model: 15086    # La ID de tu textura de tótem
+  Display: '<#FFD700>« <#F5F5DC>&lÍdolo del Resguardo Áureo <#FFD700>»'
+  Lore:
+  - ""
+  - " <#DAA520>│ &7Tipo: <#F0E68C>Reliquia de Providencia"
+  - ""
+  - " <#B8860B>&oUna efigie que late con una"
+  - " <#B8860B>&oenergía protectora ancestral."
+  - ""
+  - " <#FFD700>VÍNCULO DE ALMA (PASIVA):"
+  - "   &7Mientras lo sostienes, si tu vida"
+  - "   &7cae del 25%, el ídolo se activa."
+  - ""
+  - " <#F5F5DC>EFECTO AL ACTIVAR:"
+  - "   <#FFD700>● <#FFFFFF>Sana un 40% de tu salud."
+  - "   <#FFD700>● <#FFFFFF>Onda de choque repulsora."
+  - "   <#FFD700>● <#FFFFFF>Resistencia IV (4s)."
+  - ""
+  - " <#808080>⚠️ &fMáximo 1 por slot."
+  Options:
+    StackSize: 1
+    PreventStacking: true
+  Skills:
+  - skill{s=Totem_Check_Vida} @self ~onTimer:10

@@ -1,0 +1,101 @@
+info:
+  namespace: "victoralonso"
+font_images:
+  level_up_1:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/level_up_1.png"
+    symbol: "관"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  level_up_2:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/level_up_2.png"
+    symbol: "괁"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  level_up_3:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/level_up_3.png"
+    symbol: "괂"
+    y_position: 7 #ascent
+    scale_ratio: 8 #height
+  level_up_4:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/level_up_4.png"
+    symbol: "괃"
+    y_position: 8 #ascent
+    scale_ratio: 8 #height
+  progress_bar:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/progress_bar.png"
+    symbol: "괄"
+    y_position: 3 #ascent
+    scale_ratio: 4 #height
+  job_rank_newbie:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_newbie.png"
+    symbol: "뀀"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_member:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_member.png"
+    symbol: "뀁"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_skilled:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_skilled.png"
+    symbol: "뀂"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_intermediate:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_intermediate.png"
+    symbol: "뀃"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_proficient:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_proficient.png"
+    symbol: "뀄"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_experienced:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_experienced.png"
+    symbol: "뀅"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_advanced:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_advanced.png"
+    symbol: "뀆"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_expert:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_expert.png"
+    symbol: "뀇"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height
+  job_rank_professional:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/jobs/jobs_ranks/job_rank_professional.png"
+    symbol: "뀈"
+    y_position: 7 #ascent
+    scale_ratio: 9 #height

@@ -1,0 +1,19 @@
+info:
+  namespace: nikolai
+items:
+  nikolai_sceptre:
+    display_name: "Nikolai's Sceptre"
+    resource:
+      material: IRON_HOE
+      generate: false
+      model_path: "minecraft:item/nikolai_staff/nikolai_staff.json"
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 11
+        attackSpeed: 1.4
+      offhand:
+        attackDamage: 12
+        attackSpeed: 1.4
+
+
+# 2329SH7ZHRSZCGE0VLIGJR

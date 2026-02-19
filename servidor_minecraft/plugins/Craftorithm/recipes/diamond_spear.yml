@@ -1,0 +1,10 @@
+type: shaped
+shape:
+- ' aa'
+- ' ba'
+- 'a  '
+source:
+  a: minecraft:diamond
+  b: minecraft:stick
+unlock: true
+result: items_adder:weapons_me:diamond_spear 1

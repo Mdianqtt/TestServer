@@ -1,0 +1,68 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Spawn
+shroud_of_darkness_summoned:
+  Skills:
+  - delay 20
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=1.5}
+  - damage{a=2;is=true;pk=true;ia=true;ie=true} @LivingInRadius{r=1.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=2.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=3.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=4.5}
+  - delay 5
+  - damage{a=2;is=true;pk=true;ia=true;ie=true} @LivingInRadius{r=5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=5.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=6.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=5.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=6}
+  - damage{a=2;is=true;pk=true;ia=true;ie=true} @LivingInRadius{r=6}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=7.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=7}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=8}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=9}
+  - damage{a=2;is=true;pk=true;ia=true;ie=true} @LivingInRadius{r=9}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=8.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=9.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=11.5}
+  - delay 5
+  - damage{a=2;is=true;pk=true;ia=true;ie=true} @LivingInRadius{r=12}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=12.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=13.5}
+  - delay 5
+  - potion{type=DARKNESS;duration=1200;l=0} @LivingInRadius{r=14.5}
+  - aura{auraName=SofDarknessE;duration=130;oT=shroud_of_darkness_effect;interval=10} @self
+  - delay 5
+  - aura{auraName=SofDarknessD;duration=125;oT=shroud_of_darkness_damage;interval=20} @self
+  - delay 189
+  - remove @self
+
+shroud_of_darkness_effect:
+  Skills:
+  - potion{type=DARKNESS;duration=1200;l=0} @EntitiesInRing{min=4.5;max=14.5}
+
+shroud_of_darkness_damage:
+  Skills:
+  - damage{a=2;is=true;pk=true;ia=true;ie=true} @LivingInRadius{r=14.5}

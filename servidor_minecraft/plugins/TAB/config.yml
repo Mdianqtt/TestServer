@@ -1,0 +1,186 @@
+# https://github.com/NEZNAMY/TAB/wiki/Feature-guide:-Header-&-Footer
+header-footer:
+  enabled: true
+  header:
+  - <#FFFFFF>&m                                                </#FFFF00>
+  - '&3&lZONA CERO'
+  - '&7Online players: &f%online%'
+  - '&6Online staff: &e%staffonline%'
+  - ''
+  footer:
+  - '&2Ping: %ping%'
+  - '&7&l Used memory: %memory-used% MB / %memory-max% MB'
+  - ''
+  - <#FFFFFF>&m                                                </#FFFF00>
+  per-world:
+    world1:
+      header:
+      - an example of world with custom
+      footer:
+      - header/footer and prefix/suffix
+    world2,world3:
+      header:
+      - This is a shared header for
+      - world2 and world3
+  per-server:
+    server1:
+      header:
+      - an example of server with custom header
+  disable-condition: '%world%=disabledworld|%server%=disabledserver'
+tablist-name-formatting:
+  enabled: true
+  anti-override: true
+  disable-condition: '%world%=disabledworld|%server%=disabledserver'
+scoreboard-teams:
+  enabled: true
+  enable-collision: true
+  invisible-nametags: false
+  anti-override: true
+  sorting-types:
+  - GROUPS:admin,builder,default,dev,famous,helper,hero,legend,manager,media,member,mod,modplus,mvp,mvpplus,mvpplusplus,owner,srmod,staff,titan,vip,vipplus
+  - PLACEHOLDER_A_TO_Z:%player%
+  case-sensitive-sorting: true
+  can-see-friendly-invisibles: false
+  disable-condition: '%world%=disabledworld|%server%=disabledserver'
+belowname-objective:
+  enabled: false
+  disable-condition: '%world%=disabledworld|%server%=disabledserver'
+  fancy-value-default: NPC
+  fancy-value: '&c%health%'
+  value: '%health%'
+  title: '&cHealth'
+prevent-spectator-effect:
+  enabled: false
+bossbar:
+  enabled: false
+  toggle-command: /bossbar
+  remember-toggle-choice: false
+  hidden-by-default: false
+  bars:
+    ServerInfo:
+      style: PROGRESS
+      color: '%animation:barcolors%'
+      progress: '100'
+      text: '&fWebsite: &bwww.domain.com'
+scoreboard:
+  enabled: false
+  toggle-command: /sb
+  remember-toggle-choice: true
+  hidden-by-default: true
+  use-numbers: false
+  static-number: 0
+  delay-on-join-milliseconds: 0
+  scoreboards:
+    premium:
+      title: '%gradient2_style:l_#EC97C7,#86A8E7,#5FFBF1_{customfont_style:1,ZONA CERO}%'
+      lines:
+      - ''
+      - " %utils_parse_gradient2_style:l_#F2EFE9,#FFFFFF_{customfont_style:1,{player_name}}% %utils_parse_changeoutput_equals_input:{essentials_nickname_stripped}_matcher:{player_name}_ifmatch:_else:&8| {gradient2_#F2EFE9,#FFFFFF_{customfont_style:1,{essentials_nickname_stripped}}}%"
+      - "  &#deb887🛡 &f%customfont_style:1,Rango% %luckperms_prefix%"
+      - '  &#FFFF00© &f%customfont_style:1,Dinero% &#FFFF00$%customfont_style:1,{vault_eco_balance_formatted}%'
+      - '  &#ff2052❤ &f%customfont_style:1,Vida% &#ff2052%math_1:0_{player_health}/2%♥'
+      - '%animation:killsDeaths%'
+      - ''
+      - ' %utils_parse_gradient2_style:l_#F2EFE9,#FFFFFF_{customfont_style:1,Info}%'
+      - '  &#86A8E7⌛ &f%customfont_style:1,Latencia% &#86A8E7%player_ping%%customfont_style:1,ms%'
+      - '   &#6AE2FF♟ &f%customfont_style:1,Online% &#6AE2FF%server_online%&f/&#6AE2FF%server_max_players%'
+      - ''
+      - '  &#ffff99⌚ &f%utils_parse_gradient2_#F2EFE9,#FFFFFF_{localtime_time_MMM d , H:mm}%'
+      - ''
+placeholders:
+  date-format: dd.MM.yyyy
+  time-format: '[HH:mm:ss / h:mm a]'
+  time-offset: 0
+  register-tab-expansion: false
+placeholder-output-replacements:
+  '%essentials_vanished%':
+    'yes': '&7| Vanished'
+    'no': ''
+  '%afk%':
+    true: ' &o[AFK]&r'
+    false: ''
+    '%afk%': ''
+  '%essentials_nickname%':
+    '%essentials_nickname%': '%player%'
+conditions:
+  nick:
+    conditions:
+    - '%player%=%essentials_nickname%'
+    true: '%player%'
+    false: ~%essentials_nickname%
+placeholderapi-refresh-intervals:
+  default-refresh-interval: 500
+  '%server_uptime%': 1000
+  '%server_tps_1_colored%': 1000
+  '%server_unique_joins%': 5000
+  '%player_health%': 200
+  '%player_ping%': 1000
+  '%vault_prefix%': 1000
+  '%rel_factionsuuid_relation_color%': 1000
+assign-groups-by-permissions: false
+primary-group-finding-list:
+- Owner
+- Admin
+- Mod
+- Helper
+- default
+debug: false
+mysql:
+  enabled: false
+  host: 127.0.0.1
+  port: 3306
+  database: tab
+  username: user
+  password: password
+  use-online-uuid-in-tablist: true
+global-playerlist:
+  enabled: false
+  update-latency: false
+layout:
+  enabled: true
+  direction: COLUMNS
+  default-skin: mineskin:20f93edf53784fdc96e62affc9b7087e
+  enable-remaining-players-text: false
+  remaining-players-text: '... and %s more'
+  empty-slot-ping-value: 1
+  layouts:
+    default:
+      fixed-slots:
+      - 1|<#A072B8>&l       ᴛᴜ ᴘᴇʀꜰɪʟ
+      - '3|<#A072B8>★ &fʀᴀɴɢᴏ: %luckperms_prefix%'
+      - '4|<#A072B8>⌛ &fᴛɪᴇᴍᴘᴏ ᴊᴜɢᴀᴅᴏ: <#A072B8>%statistic_time_played:days%d %statistic_time_played:hours%h%statistic_time_played:minutes% m'
+      - '5|<#A072B8>⌚ &fᴊᴏɪɴᴇᴅ: <#A072B8>%player_first_join_date%'
+      - '6|<#A072B8>⛏ &fᴊᴏʙꜱ: <#A072B8>%jobsr_user_joinedjobcount% &7/ <#A072B8>%jobsr_maxjobs%'
+      - '7|<#A072B8>❄ &fᴊᴏʙꜱ ʟᴇᴠᴇʟ: <#A072B8>%jobsr_user_totallevels%'
+      - '8|<#A072B8>⛁ &fᴅɪɴᴇʀᴏ: <#A072B8>%vault_eco_balance_formatted%$'
+      - '9|<#A072B8>🔥 &fᴘᴜɴᴛᴏs: <#A072B8>%jobsr_user_points%'
+      - 12|<#A072B8>&l         ꜱᴇʀᴠɪᴅᴏʀ
+      - '14|<#A072B8>&l👑 &fᴛᴘꜱ: <#A072B8>%server_tps_1%'
+      - '16|<#A072B8>&l👾 &Fᴘɪɴɢ: <#A072B8>%player_ping%'
+      - 21|<#A072B8>       &lᴏɴʟɪɴᴇ ᴘʟᴀʏᴇʀꜱ
+      - '22|<#A072B8>      ↳ &7ᴛᴏᴛᴀʟ ᴘʟᴀʏᴇʀꜱ: &f%server_online% <#A072B8>↵'
+      - 41|<#A072B8>&l        ᴇꜱᴛᴀᴅíꜱᴛɪᴄᴀꜱ
+      - '43|<#A072B8>❤ &fᴠɪᴅᴀ: <#A072B8>%player_health%'
+      - '44|<#A072B8>🗡 &fᴋɪʟʟꜱ: <#A072B8>%statistic_player_kills%'
+      - '45|<#A072B8>☠ &fᴍᴜᴇʀᴛᴇꜱ: <#A072B8>%statistic_deaths%'
+      - '46|<#A072B8>⛏ &fʙʟᴏǫᴜᴇꜱ ᴍɪɴᴀᴅᴏꜱ: <#A072B8>%statistic_mine_block%'
+      - '47|<#A072B8>❇ &fɪᴛᴇᴍꜱ ᴄʀᴀꜰᴛᴇᴀᴅᴏꜱ: <#A072B8>%statistic_craft_item%'
+      - '48|<#A072B8>🧪 &fɴɪᴠᴇʟ: <#A072B8>%player_level%'
+      groups:
+        players:
+          slots:
+          - 24-60
+per-world-playerlist:
+  enabled: false
+playerlist-objective:
+  enabled: false
+  value: '%ping%'
+  disable-condition: '%world%=disabledworld'
+  fancy-value: '&7Ping: %ping%'
+ping-spoof:
+  enabled: false
+use-online-uuid-in-tablist: true
+permission-refresh-interval: 1000
+enable-redisbungee-support: true
+effects:
+  hide-scoreboard-numbers: true

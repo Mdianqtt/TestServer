@@ -1,0 +1,38 @@
+nm_mini_you_sorcerer:
+  Type: STRAY
+  Display: ''
+  Health: 150
+  Damage: 0
+  AIGoalSelectors:
+  - clear
+  - rangedattack{radius=25}
+  - gotoowner 6
+  - randomstroll
+  - float
+  AITargetSelectors:
+  - clear
+  - ownerattacker
+  - ownerattack
+  - attacker
+  Modules:
+    ThreatTable: true
+  Options:
+    Collidable: true
+    MovementSpeed: 0.2
+    PreventOtherDrops: true
+    Silent: true
+    Invincible: false
+    PreventRenaming: false
+    PreventLeashing: true
+    AlwaysShowName: false
+    PreventSunburn: true
+    MaxCombatDistance: 10
+  Skills:
+  
+  - model{mid=nm_mini_you_sorcerer;n=name} @self ~onSpawn
+  - model{mid=nm_mini_you_sorcerer;n=name} @self ~onLoad
+  
+  - sound{s=entity.vindicator.hurt;p=1.6;v=0.8} @self ~onDamaged
+  - sound{s=entity.vindicator.death;p=1.6;v=0.8} @self ~onDeath
+  
+  - skill{s=mini_you_sorcerer_bolt_parse;sync=true} ~onShoot

@@ -1,0 +1,95 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+
+lockers_face_east:
+  Skills:
+  - delay 1
+  - setrotation{relative=false;yaw=-90;pitch=0} @Self
+  
+lockers_face_west:
+  Skills:
+  - delay 1
+  - setrotation{relative=false;yaw=90;pitch=0} @Self
+  
+lockers_face_north:
+  Skills:
+  - delay 1
+  - setrotation{relative=false;yaw=0;pitch=0} @Self
+  
+lockers_face_south:
+  Skills:
+  - delay 1
+  - setrotation{relative=false;yaw=180;pitch=0} @Self
+  
+locker_open:
+  Cooldown: 2
+  TriggerConditions:
+  - distance{d=<3}
+  Conditions:
+  - score{o=open;v=1} false
+  Skills:
+  - modifytargetscore{o=open;a=set;v=1} @self
+  - setowner @trigger
+  - state{s=open} @self
+  ##### BACKPACKS PLUGIN IS SET HERE BY DEFAULT #####
+  - command{c="backpack";op=true;at=true} @trigger 
+  ###### YOU WILL NEED TO SET THIS TO YOUR PREFERRED PLUGIN ######
+  - delay 30
+  - state{s=open;r=true} @self
+  - state{s=open_idle} @self
+  - delay 480
+  - skill{s=locker_timeout} @self
+  
+locker_timeout:
+  Conditions:
+  - score{o=open;v=1} true
+  Skills:
+  - state{s=open_idle;r=true} @self
+  - modifytargetscore{o=open;a=set;v=0} @self
+  - state{s=close} @self
+  - delay 20
+  - state{s=close;r=true} @self
+  - state{s=idle} @self
+
+  
+locker_close:
+  Cooldown: 2
+  TargetConditions:
+  - distance{d=>3}
+  Conditions:
+  - score{o=open;v=1} true
+  Skills:
+  - state{s=open_idle;r=true} @self
+  - modifytargetscore{o=open;a=set;v=0} @self
+  - state{s=close} @self
+  - delay 20
+  - state{s=close;r=true} @self
+  - state{s=idle} @self
+  
+  
+lr_coinspawn:
+  Skills:
+  - effect:particles{particle=flash;amount=1} @Origin{y=1}
+  - effect:blockmask{m=light;r=1;d=3600;oa=true} @Origin{y=1}
+  - delay 3600
+  - effect:particles{particle=flash;amount=1} @Origin{y=1}
+  - remove @self
+
+
+lr_coinpickup:
+  Cooldown: 2
+  Conditions:
+  - playerwithin{d=1} true
+  Skills:
+  - effect:blockunmask{r=2} @Origin{y=1}
+  - effect:particles{particle=crit;amount=25;speed=1} @Origin{y=1}
+  - effect:particles{particle=flash;amount=1} @Origin{y=1}
+  - sound{s=littleroom_lockers_coin:littleroom.coin.get;v=1;sc=HOSTILE} @pir{r=2;sort=NEAREST}
+  - message{m="&aHas encontrado una ZCoin!"} @pir{r=2;sort=NEAREST}
+  - giveitem{i=cointoss} @pir{r=2;sort=NEAREST}
+  - remove @self
+  
+
+  

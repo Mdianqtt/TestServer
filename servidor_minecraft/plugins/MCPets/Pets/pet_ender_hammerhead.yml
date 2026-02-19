@@ -1,0 +1,81 @@
+Id: Ender_Hammerhead_PET
+MythicMob: Ender_Hammerhead_PET
+Permission: mcpet.Ender_Hammerhead_PET
+Mountable: true
+Distance: 6
+DismountOnDamaged: false
+SpawnRange: 3
+ComingBackRange: 5
+Icon:
+  Name: §bEnder Hammerhead
+  Material: BRICK
+  CustomModelData: 12029
+  Description:
+  - §fEl Ender Hammerhead!
+  - ''
+  - §f[§cBash§f]
+  - §fGolpea al objetivo con la cabeza.
+  - ''
+  - §f[§cTeleport Rush§f]
+  - §fSe teletransporta 10 bloques frente al objetivo,
+  - §fse lanza hacia él y lo derriba.
+  - ''
+  - '§7Sube de nivel: §a+Daño'
+Levels:
+  Lvl_Common:
+    Name: §fComun
+    ExperienceThreshold: 0
+    MaxHealth: 85
+    Regeneration: 0.1
+    ResistanceModifier: 1
+    DamageModifier: 2
+    Power: 1
+    Cooldowns:
+      Respawn: 15
+      Revoke: 0
+    InventoryExtension: 0
+  Lvl_Rare:
+    Name: §aRaro
+    ExperienceThreshold: 500
+    MaxHealth: 100
+    Regeneration: 0.12
+    ResistanceModifier: 1
+    DamageModifier: 4
+    Power: 1
+    Cooldowns:
+      Respawn: 14
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &aRaro &6!'
+      Type: CHAT
+  Lvl_Epic:
+    Name: §dEpico
+    ExperienceThreshold: 2000
+    MaxHealth: 115
+    Regeneration: 0.14
+    ResistanceModifier: 1
+    DamageModifier: 6
+    Power: 1
+    Cooldowns:
+      Respawn: 13
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &dEpico &6!'
+      Type: CHAT
+  Lvl_Legendary:
+    Name: §eLegendario
+    ExperienceThreshold: 5000
+    MaxHealth: 130
+    Regeneration: 0.2
+    ResistanceModifier: 1
+    DamageModifier: 9
+    Power: 1
+    Cooldowns:
+      Respawn: 12
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &eLegendario &6!'
+      Type: CHAT

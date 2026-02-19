@@ -1,0 +1,43 @@
+PlumaDorada:
+  Id: PAPER
+  Model: 15147 # Cambia esto por el ID de tu textura
+  Display: '<#FFD700>« <#FFFACD>&lPluma del Firmamento <#FFD700>»'
+  Lore:
+  - ""
+  - " <#FFD700>| &7Reliquia de Categoría: <#FFFACD>Celestial"
+  - ""
+  - " <#EEE8AA>Desprendida del ala de una deidad"
+  - " <#EEE8AA>que olvidó cómo tocar el suelo."
+  - " <#EEE8AA>Al sostenerla, el peso del mundo"
+  - " <#EEE8AA>parece desvanecerse."
+  - ""
+  - " <#FFD700>PROPIEDAD ACTIVA:"
+  - " <#B8860B>» <#FFFACD>Impulso de Ícaro"
+  - "   &eTe lanza hacia adelante con la"
+  - "   &efuerza de un vendaval, otorgando"
+  - "   &evuelo temporal."
+  Hide:
+    - ATTRIBUTES
+  Skills:
+  - skill{s=Pluma_Active} @self ~onUse
+
+FlamaSolar:
+  Id: PAPER # O el material que prefieras
+  Model: 15115 
+  Display: '<#FF4500>« <#FFD700>&lFlama de la Supernova <#FF4500>»'
+  Lore:
+  - ""
+  - " <#FF8C00>| &7Reliquia de Categoría: <#FF4500>Primordial"
+  - ""
+  - " <#FFA500>Un latido de fuego capturado"
+  - " <#FFA500>en el centro de una estrella."
+  - " <#FFA500>Quema a los indignos, pero"
+  - " <#FFA500>guía a los valientes."
+  - ""
+  - " <#FF4500>PROPIEDAD ACTIVA:"
+  - " <#B8860B>» <#FFD700>Pulso Ígneo"
+  - "   &eLibera una onda de choque térmica"
+  - "   &eque incinera y repele a los mobs"
+  - "   &ecercanos, otorgándote resistencia."
+  Skills:
+  - skill{s=Llama_Raycast_Final} ~onUse

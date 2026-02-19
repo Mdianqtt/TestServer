@@ -1,0 +1,16 @@
+### Wave Interaction
+
+nm_mini_you_wave_parse:
+  Conditions:
+  - onground{} true cancel
+  Skills:
+  - CancelEvent
+  - skill{s=nm_mini_you_wave_activate}
+  
+nm_mini_you_wave_activate:
+  Condition:
+  - offgcd
+  Skills:
+  - gcd{ticks=60}
+  - sound{s=entity.axolotl.ambient;p=1.5;v=0.7} @self
+  - state{state=wave;li=1;n=false;speed=1} @self

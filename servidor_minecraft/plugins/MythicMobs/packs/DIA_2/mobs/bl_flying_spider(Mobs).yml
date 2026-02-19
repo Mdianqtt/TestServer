@@ -1,0 +1,59 @@
+bl_flying_spider:
+  Type: HUSK
+  Display: 'Flying Spider'
+  Faction: bl_spiders
+  Health: 40
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  - lookatplayers
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Modules:
+    ThreatTable: true
+  Options:
+    MovementSpeed: 0.25
+    FollowRange: 20
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    Collidable: true
+  Skills:
+  - model{mid=bl_flying_spider;n=false;step=1;usm=true;save=true;d=true} @self ~onSpawn
+  - model{mid=bl_flying_spider;n=false;step=1;usm=true;save=true;d=true} @self ~onLoad
+  - CancelEvent{sync=true} @self ~onAttack
+  - setspeed{s=1.4} @self ~onSpawn
+  - skill{s=bl_flying_spider_death} @self ~onDeath
+  - skill{s=bl_flying_spider_step} @self ~onTimer:15
+  - skill{s=bl_flying_spider_idle} @self ~onTimer:80
+  - skill{s=bl_flying_spider_skills} @target ~onTimer:30
+  - BodyClamp{mh=25;rde=0;rdu=0} @self ~onSpawn
+
+bl_flying_spider_waves:
+  Type: ARMOR_STAND
+  AITargetSelectors:
+  - 0 clear
+  AIGoalSelectors:
+  - 0 clear
+  Options:
+    NoAI: true
+    Marker: true
+    ApplyInvisibility: true
+    Invisible: true
+  Skills:
+  - model{mid=bl_flying_spider_waves;n=false;usm=true} @self ~onSpawn
+  - state{s=spawn} @self ~onSpawn
+  - state{s=idle;delay=10} @self ~onSpawn

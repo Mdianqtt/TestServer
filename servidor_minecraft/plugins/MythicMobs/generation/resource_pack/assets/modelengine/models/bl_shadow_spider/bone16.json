@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/bl_shadow_spider"},"elements":[{"from":[8.0,7.50313,7.4979],"to":[8.0,10.50313,11.4979],"faces":{"east":{"uv":[11.75,0.0,10.75,0.75],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[11.25,10.5,10.25,11.25],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

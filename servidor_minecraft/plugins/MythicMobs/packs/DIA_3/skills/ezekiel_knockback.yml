@@ -1,0 +1,19 @@
+ezekiel_lionclaw_knockback:
+    Skills:
+        - delay 1
+        - throw{vy=5}
+
+ezekiel_kick_knockback:
+    Skills:
+        - delay 1
+        - throw{v=10}
+
+ezekiel_sword_smash_knockback:
+    Skills:
+        - delay 1
+        - throw{v=10}
+
+ezekiel_tail_knockback:
+    Skills:
+        - delay 1
+        - throw{v=8}

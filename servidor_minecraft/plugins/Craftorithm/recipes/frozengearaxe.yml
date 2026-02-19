@@ -1,0 +1,11 @@
+type: shaped
+shape:
+- ab
+- bc
+- ' a'
+source:
+  a: minecraft:diamond
+  b: mythic_mobs:blue_crystal
+  c: minecraft:gold_ingot
+unlock: true
+result: items_adder:weapons_me:frozengear_axe 1

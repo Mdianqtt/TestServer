@@ -1,0 +1,880 @@
+#nothing need to be changed in this CancelEvent skill
+CancelEventSkill:
+    Skills:
+        - CancelEvent
+
+#Ezekiel periodically rush to her target, different run pose leads to different attack
+ezekiel_run1:
+    Conditions:
+        - offgcd
+        - incombat true
+        - hastag{t=run1} false
+        - hastag{t=run2} false
+    Skills:
+        - setspeed{speed=2.1;type=walking} @self
+        - defaultstate{m=ezekiel;t=walk;s=run1} @self
+        - addtag{t=run1} @self
+
+ezekiel_run2:
+    Conditions:
+        - offgcd
+        - incombat true
+        - hastag{t=run1} false
+        - hastag{t=run2} false
+    Skills:
+        - setspeed{speed=2.4;type=walking} @self
+        - defaultstate{m=ezekiel;t=walk;s=run2} @self
+        - addtag{t=run2} @self
+
+#if Ezekiel is hit in defencebreak status, she will be executed.
+#if Ezekiel is hit in mid combo, she recieve no damage
+#if Ezekiel is hit out of combo, she will be damaged by once.
+ezekiel_onhit:
+    Conditions:
+        - hastag{t=defencebreak} castInstead ezekiel_executed
+        - offgcd castInstead ezekiel_damaged
+    Skills:
+
+#When ezekiel is not in a combo, she can be damaged by once.
+ezekiel_damaged:
+    Cooldown: 1
+    Skills:
+        - randomSkill{s=ezekiel_hit1,ezekiel_hit2,ezekiel_hit3} @self
+
+
+ezekiel_hit1:
+    Skills:
+        - state{s=hit1} @self
+        - lunge{v=0.1} @forward{f=-1}
+        - delay 5
+        - randomskill{s=ezekiel_sword_left_slash,ezekiel_sword_rightslash,ezekiel_sword_stepslash,ezekiel_scythe_right_slash,ezekiel_tail_swipe} @target
+
+ezekiel_hit2:
+    Skills:
+        - state{s=hit2} @self
+        - lunge{v=0.1} @forward{f=-1}
+        - delay 5
+        - randomskill{s=ezekiel_sword_left_slash,ezekiel_sword_rightslash,ezekiel_sword_stepslash,ezekiel_scythe_right_slash,ezekiel_tail_swipe} @target
+
+
+ezekiel_hit3:
+    Skills:
+        - state{s=hit3} @self
+        - lunge{v=0.1} @forward{f=-1}
+        - delay 5
+        - randomskill{s=ezekiel_sword_left_slash,ezekiel_sword_rightslash,ezekiel_sword_stepslash,ezekiel_scythe_right_slash,ezekiel_tail_swipe} @target
+
+#This is only used when player kill ezekiel through execution, if no hit is performed in the time frame
+#Ezekiel stands up, however, the poise is still high, player can cause a defence break after few parries
+ezekiel_executed:
+    Skills:
+        - gcd{ticks=100} @self
+        - setAI{ai=false} @self
+        - state{s=defencebreak;r=true} @self
+        - defaultstate{m=ezekiel;t=death;s=execute} @self
+        - effect:sound{s=entity.wither.spawn;p=1} @self
+        - particles{p=crit;a=30;s=1;hs=0.5;vs=0.5} @forward{f=1;y=1}
+        - particles{p=block_crack;m=redstone_block;a=60;s=2;hs=1;vs=1} @self
+        - particles{p=end_rod;a=30;s=0.7;hs=0.3;vs=0.3} @self
+        - damage{a=9999;i=true} @self
+
+#Death skill of Ezekiel
+ezekiel_death:
+    Skills:
+        - effect:sound{s=entity.wither.spawn;p=1} @self
+        - delay 38
+        - skill{s=ezekiel_title} @target
+
+#The Soul-like boss defeat title after ezekiel death, lower the amount of particles for better performance
+ezekiel_title:
+    Skills:
+        - particles{p=SMOKE;a=20;hs=0.3;vs=0.5;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - particles{p=CRIMSON_SPORE;a=20;s=0.2;hs=0.5;vs=0.2;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - delay 92
+        - particles{p=SMOKE;a=50;s=1;hs=0.3;vs=0.5} @origin
+        - particles{p=end_rod;a=40;hs=1;s=0.3;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=50;s=0.3;hs=0.5;vs=0.2} @origin
+        - particles{p=end_rod;a=80;hs=1;s=0.6;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=100;s=0.6;hs=0.5;vs=0.2} @origin
+        - sendtitle{title="&6&lBOSS DERROTADO";subtitle="TIER 3";d=60;fi=60;fo=60} @PlayersInRadius{r=50}
+
+#spawn default settings of Ezekiel
+ezekiel_spawn:
+    Skills:
+        - setmobscore{objective=ezekielPoise;v=0} @self #set poise value to zero by default
+        - model{mid=ezekiel;n=false;tint=false} @self
+        - skill{s=ezekiel_hideall} @self
+
+#Following Skills is responsible for hide and display when ezekiel swap her weapons during the combat
+ezekiel_hideall:
+    Skills:
+        - partvis{model=ezekiel;part=scythe;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=scythe_blade;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=scythe_blade2;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=sword;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=sword_vfx;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=tail1;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=tail2;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=tail3;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=tail4;newmodel=ezekiel;newpart=sword_blade} @self
+        - partvis{model=ezekiel;part=tail5;newmodel=ezekiel;newpart=sword_blade} @self
+
+ezekiel_tail_in:
+    Skills:
+        - partvis{model=ezekiel;p=tail1;v=true} @self
+        - partvis{model=ezekiel;p=tail2;v=true} @self
+        - partvis{model=ezekiel;p=tail3;v=true} @self
+        - partvis{model=ezekiel;p=tail4;v=true} @self
+        - partvis{model=ezekiel;p=tail5;v=true} @self
+
+ezekiel_tail_out:
+    Skills:
+        - partvis{model=ezekiel;p=tail1;v=false} @self
+        - partvis{model=ezekiel;p=tail2;v=false} @self
+        - partvis{model=ezekiel;p=tail3;v=false} @self
+        - partvis{model=ezekiel;p=tail4;v=false} @self
+        - partvis{model=ezekiel;p=tail5;v=false} @self
+
+ezekiel_endcombo:
+    Skills:
+        - partvis{model=ezekiel;p=sword;v=false} @self
+        - partvis{model=ezekiel;p=scythe;v=false} @self
+        - defaultstate{m=ezekiel;t=walk;s=walk} @self
+
+ezekiel_sword_in:
+    Skills:
+        - particles{p=reddust;color=#F02F9E;a=50;hs=1;vs=1} @ModelPart{mid=ezekiel;part=sword}
+        - partvis{model=ezekiel;p=sword;v=true} @self
+
+ezekiel_sword_out:
+    Skills:
+        - particles{p=reddust;color=#F02F9E;a=50;hs=1;vs=1} @ModelPart{mid=ezekiel;part=sword}
+        - partvis{model=ezekiel;p=sword;v=false} @self
+
+ezekiel_scythe_in:
+    Skills:
+        - particles{p=reddust;color=#F02F9E;a=50;hs=2;vs=2} @ModelPart{mid=ezekiel;part=scythe}
+        - partvis{model=ezekiel;p=scythe;v=true} @self
+
+ezekiel_scythe_out:
+    Skills:
+        - particles{p=reddust;color=#F02F9E;a=50;hs=2;vs=2} @ModelPart{mid=ezekiel;part=scythe}
+        - partvis{model=ezekiel;p=scythe;v=false} @self
+#END of weapon swaping section
+
+
+
+#The following skills are responsible for the parry system.
+#The player should not swing too early to parry, nor too later
+#The player cannot spam attacks to cheat it.
+#Add item holding type check in TargetConditions to resitrict weapon types that players can be used for parry.
+ezekiel_playerswing_check:
+    TargetConditions:
+        - itemrecharging false
+    Skills:
+        - delay 5
+        - skill{s=ezekiel_playerparry_check} @target
+
+ezekiel_playerparry_check:
+    TargetConditions:
+        - distance{d=0to5} true
+        - itemrecharging true
+    Skills:
+        - aura{auraName=parry;d=10} @self
+
+#Set the value lowerbound to the number of parries required to defence break Ezekiel
+#Defencebreak leads to execution (die with one more hit)
+#Remember Ezekiel can recover the poise, set the recover rate in mob file
+ezekiel_left_parried:
+    Conditions:
+        - score{o=ezekielPoise;value=20to100} castInstead ezekiel_defencebreak
+    Skills:
+        - state{s=parryleft;i=true} @self
+        - potion{type=SLOW;d=3;l=1;p=false;icon=false} @target
+        - effect:sound{s=block.anvil.place;p=2} @self
+        - effect:sound{s=block.anvil.land;p=2} @self
+        - particles{p=crit;a=10;s=0.7;hs=0.5;vs=0.5} @forward{f=1;y=1}
+        - particles{p=CRIMSON_SPORE;a=10;s=0.7;hs=0.5;vs=0.5} @forward{f=1;y=1}
+        - delay 1
+        - modifytargetscore{objective=ezekielPoise;action=add;value=1} @self
+
+ezekiel_right_parried:
+    Conditions:
+        - score{o=ezekielPoise;value=20to100} castInstead ezekiel_defencebreak
+    Skills:
+        - state{s=parryright;i=true} @self
+        - potion{type=SLOW;d=3;l=1;p=false;icon=false} @target
+        - effect:sound{s=block.anvil.place;p=2} @self
+        - effect:sound{s=block.anvil.land;p=2} @self
+        - particles{p=crit;a=10;s=0.7;hs=0.5;vs=0.5} @forward{f=1;y=1}
+        - particles{p=CRIMSON_SPORE;a=10;s=0.7;hs=0.5;vs=0.5} @forward{f=1;y=1}
+        - delay 1
+        - modifytargetscore{objective=ezekielPoise;action=add;value=1} @self
+
+#This provides a little feedback sound to player when they crouching dodged a scythe attack
+ezekiel_attack_dodged:
+    Skills:
+        - effect:sound{s=item.armor.equip_leather;p=2} @self
+
+#When ezekiel have a positive poise, recover it through time
+ezekiel_poise_recovery:
+    Conditions:
+        - score{o=ezekielPoise;value=1to100} true
+    Skills:
+        - modifytargetscore{objective=ezekielPoise;action=SUBTRACT;value=1} @self
+
+ezekiel_defencebreak:
+    Skills:
+        - delay 1
+        - addtag{t=defencebreak} @self
+        - state{s=defencebreak} @self
+        - skill{s=ezekiel_hideall} @self
+        - potion{type=SLOW;d=20;l=0;p=false;icon=false} @target
+        - effect:sound{s=block.anvil.place;p=1.5} @self
+        - effect:sound{s=item.shield.break;p=0.8} @self
+        - particles{p=crit;a=30;s=0.7;hs=0.5;vs=0.5} @forward{f=1;y=1}
+        - particles{p=CRIMSON_SPORE;a=40;s=0.7;hs=0.5;vs=0.5} @forward{f=1;y=1}
+        - potion{t=SLOW;d=100;l=99;p=false} @self
+        - spin{d=100;v=0} @self
+        - delay 100
+        - removetag{t=defencebreak} @self
+
+#===Starter skill of run1
+#===sword left slash  |This is a starter skill in a combo
+ezekiel_sword_left_slash:
+    Conditions:
+        - hastag{t=defencebreak} false
+        - hastag{t=run2} castInstead ezekiel_sword_right_slash
+        - offgcd
+        - incombat true
+    TargetConditions:
+        - distance{d=0to5}
+    Skills:
+        #Combo Starter, reset run and runtag
+        - setspeed{speed=0.5;type=walking} @self
+        - defaultstate{m=ezekiel;t=walk;s=walk} @self
+        - removetag{t=run1} @self
+        #
+        - gcd{ticks=32} @self
+        - state{s=sword_left_slash} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 6
+        - skill{s=ezekiel_sword_in} @self
+        - potion{t=SPEED;d=6;l=20;icon=false;p=false} @self
+        - delay 8
+        - partvis{model=ezekiel;p=sword_vfx;v=true} @self
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 6
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - skill{s=ezekiel_sword_left_slash_damage} @LivingInCone{a=120.0;r=5.0;rot=0.0}
+        - delay 10
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        #- randomskill{s=ezekiel_sword_uppercut,ezekiel_kick,ezekiel_sword_horizontal_slash,ezekiel_tail_small_swipe} @target
+        - skill{s=ezekiel_tail_small_swipe} @target
+
+ezekiel_sword_left_slash_damage:
+    Conditions:
+        - hasaura{n=parry} castInstead ezekiel_left_parried
+    Skills:
+        - damage{a=10}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=1;vs=0.2} @forward{f=2}
+
+#===sword uppercut | This is a connector skill
+ezekiel_sword_uppercut:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to6} orElseCast ezekiel_endcombo
+    Skills:
+        - gcd{ticks=24} @self
+        - state{s=parryleft;r=true} @self
+        - state{s=sword_uppercut} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 8
+        - potion{t=SPEED;d=6;l=20;icon=false;p=false} @self
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 6
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - skill{s=ezekiel_sword_uppercut_damage} @LivingInCone{a=90.0;r=5.0;rot=0.0}
+        - delay 9
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - randomskill{s=ezekiel_sword_smash,ezekiel_scythe_roundhouse} @target
+
+ezekiel_sword_uppercut_damage:
+    Conditions:
+        - hasaura{n=parry} castInstead ezekiel_right_parried
+    Skills:
+        - damage{a=10}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=0.1;vs=2} @forward{f=2}
+
+#===sword smash | This is a connector skill
+ezekiel_sword_smash:
+    Conditions:
+        - hastag{t=defencebreak} false
+    Skills:
+        - gcd{ticks=24} @self
+        - state{s=parryright;r=true} @self
+        - state{s=sword_smash} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 5
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 3
+        - potion{t=SPEED;d=2;l=15;icon=false;p=false} @self
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - delay 2
+        - skill{s=ezekiel_sword_smash_damage} @LivingInCone{a=90.0;r=5.0;rot=0.0}
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 4
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - skill{s=ezekiel_scythe_jumpsmash} @target
+
+ezekiel_sword_smash_damage:
+    Conditions:
+        - hasaura{n=parry} castInstead ezekiel_left_parried
+    Skills:
+        - damage{a=14}
+        - skill{s=ezekiel_sword_smash_knockback}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=0.1;vs=2} @forward{f=2}
+        - effect:sound{s=entity.generic.explode;p=2} @self
+        - particlering{p=reddust;color=#F02F9E;a=10;r=2;points=12;hs=0.2;vs=0.2} @forward{f=2}
+
+#===scythe jumpsmash |This is a combo finisher
+ezekiel_scythe_jumpsmash:
+    Conditions:
+        - hastag{t=defencebreak} false
+        - hasaura{n=parry} false
+    TargetConditions:
+        - distance{d=5to30} orElseCast ezekiel_tail_doubleswipe
+    Skills:
+        - gcd{ticks=60} @self
+        - state{s=parryleft;r=true} @self
+        - state{s=scythe_jump_smash} @self
+        - potion{t=SLOW;d=30;l=3;icon=false;p=false} @self
+        - delay 14
+        - partvis{model=ezekiel;part=sword;v=false} @self
+        - skill{s=ezekiel_scythe_in} @self
+        - delay 16
+        - spin{v=0;d=20} @self
+        - lunge{v=4} @forward
+        - delay 4
+        - particleline{p=reddust;color=#F02F9E;a=3;xs=1;ys=1;zs=1} @origin{y=3}
+        - partvis{model=ezekiel;part=scythe_blade;v=true} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=true} @self
+        - delay 2
+        - effect:sound{s=item.trident.throw;p=0} @self
+        - skill{s=ezekiel_scythe_jumpsmash_damage}
+        - potion{t=SLOW;d=24;l=99;icon=false;p=false} @self
+        - delay 8
+        - partvis{model=ezekiel;part=scythe_blade;v=false} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=false} @self
+        - delay 6
+        - skill{s=ezekiel_scythe_out} @self
+
+
+ezekiel_scythe_jumpsmash_damage:
+    Skills:
+        - damage{a=19} @LivingInCone{a=90.0;r=7.0;rot=0.0}
+        - damage{a=19} @EIR{r=5}
+        - particles{p=reddust;color=#F02F9E;a=100;hs=2;vs=0.2} @forward{f=4}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=0.3;vs=2} @forward{f=2}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=0.3;vs=3} @forward{f=3}
+        - effect:sound{s=entity.generic.explode;p=0.5} @self
+        - particlering{p=reddust;color=#F02F9E;a=10;r=2;points=12;hs=0.2;vs=0.2} @self
+
+#===ezekiel kick | This is a connector skill
+ezekiel_kick:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to6} orElseCast ezekiel_endcombo
+    Skills:
+        - gcd{ticks=40} @self
+        - state{s=parryleft;r=true} @self
+        - state{s=sword_side_kick} @self
+        - partvis{model=ezekiel;part=sword;v=false} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 18
+        - potion{t=SPEED;d=4;l=25;icon=false;p=false} @self
+        - effect:sound{s=item.armor.equip_leather;v=3;p=0} @self
+        - delay 2
+        - skill{s=ezekiel_kick_damage} @LivingInCone{a=90.0;r=4.0;rot=0.0}
+        - delay 4
+        - potion{t=SLOW;d=12;l=99;icon=false;p=false} @self
+        - delay 12
+        - skill{s=ezekiel_sword_stepslash_nogcd} @target
+
+ezekiel_kick_damage:
+    Skills:
+        - damage{a=10}
+        - skill{s=ezekiel_kick_knockback}
+        - particles{p=crit;a=20;hs=2;vs=2} @forward{f=2;y=1}
+        - effect:sound{s=item.armor.equip_leathere;v=3;p=1} @self
+
+#====Starter skill of "run2"
+#====ezekiel sword stepslash
+ezekiel_sword_stepslash:
+    Conditions:
+        - hastag{t=defencebreak} false
+        - hastag{t=run1} castInstead ezekiel_sword_left_slash
+        - offgcd
+        - incombat true
+    TargetConditions:
+        - distance{d=0to10}
+    Skills:
+        #Combo Starter, reset run and runtag
+        - setspeed{speed=0.5;type=walking} @self
+        - defaultstate{m=ezekiel;t=walk;s=walk} @self
+        - removetag{t=run2} @self
+        #
+        - gcd{ticks=34} @self
+        - state{s=sword_step_slash} @self
+        - potion{t=SPEED;d=20;l=15;icon=false;p=false} @self
+        - skill{s=ezekiel_sword_in} @self
+        - delay 19
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 5
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - skill{s=ezekiel_sword_stepslash_damage} @LivingInCone{a=120.0;r=5.0;rot=0.0}
+        - delay 2
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - delay 6
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - skill{s=ezekiel_sword_left_slash_nogcd} @target
+
+ezekiel_sword_stepslash_damage:
+    Conditions:
+        - hasaura{n=parry} castInstead ezekiel_right_parried
+    Skills:
+        - damage{a=10}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=1;vs=0.2} @forward{f=2}
+
+#===This is a No GCD condition version of step slash | This is a connector skill
+ezekiel_sword_stepslash_nogcd:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to10}
+    Skills:
+        - gcd{ticks=34} @self
+        - state{s=sword_step_slash} @self
+        - potion{t=SPEED;d=20;l=15;icon=false;p=false} @self
+        - partvis{model=ezekiel;part=sword;v=true} @self
+        - skill{s=ezekiel_sword_in} @self
+        - delay 19
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 5
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - skill{s=ezekiel_sword_stepslash_damage} @LivingInCone{a=120.0;r=5.0;rot=0.0}
+        - delay 2
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - delay 6
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - skill{s=ezekiel_sword_left_slash_nogcd} @target
+
+#===This is a No GCD condition version of left slash | This is a connector skill
+ezekiel_sword_left_slash_nogcd:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to6}
+    Skills:
+        - gcd{ticks=32} @self
+        - state{s=parryright;r=true} @self
+        - state{s=sword_step_to_left_slash} @self
+        - potion{t=SPEED;d=6;l=20;icon=false;p=false} @self
+        - partvis{model=ezekiel;part=sword;v=true} @self
+        - delay 8
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 6
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - skill{s=ezekiel_sword_left_slash_damage} @LivingInCone{a=120.0;r=5.0;rot=0.0}
+        - delay 10
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - randomskill{s=ezekiel_sword_uppercut,ezekiel_kick,ezekiel_sword_horizontal_slash,ezekiel_tail_small_swipe} @target
+
+#====horizontal_slash | This is a connector skill
+ezekiel_sword_horizontal_slash:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to6} orElseCast ezekiel_endcombo
+    Skills:
+        - gcd{ticks=40} @self
+        - state{s=parryleft;r=true} @self
+        - state{s=sword_horizontal_slash} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 15
+        - potion{t=SPEED;d=6;l=15;icon=false;p=false} @self
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 3
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - delay 2
+        - skill{s=ezekiel_horizontal_slash_damage} @LivingInCone{a=180.0;r=5.0;rot=0.0}
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 6
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - delay 4
+        - randomskill{s=ezekiel_thrust,ezekiel_scythe_left_slash} @target
+
+ezekiel_horizontal_slash_damage:
+    Conditions:
+        - hasaura{n=parry} castInstead ezekiel_right_parried
+    Skills:
+        - damage{a=12}
+        - particles{p=reddust;color=#F02F9E;a=100;hs=2;vs=0.2} @forward{f=2}
+
+#Thrust attack | This is a connector skill
+ezekiel_thrust:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to10} orElseCast ezekiel_endcombo
+    Skills:
+        - gcd{ticks=30} @self
+        - state{s=parryright;r=true} @self
+        - state{s=sword_thrust} @self
+        - potion{t=SLOW;d=10;l=99;icon=false;p=false} @self
+        - delay 10
+        - potion{t=SPEED;d=6;l=26;icon=false;p=false} @self
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 5
+        - effect:sound{s=item.trident.throw;v=3;p=0.5} @self
+        - skill{s=ezekiel_sword_thrust_damage} @LivingInCone{a=45.0;r=4.0;rot=0.0}
+        - delay 9
+        - randomskill{s=ezekiel_thrust_to_kick,ezekiel_lionclaw} @target
+
+ezekiel_sword_thrust_damage:
+    Conditions:
+        - hasaura{n=parry} castInstead ezekiel_left_parried
+    Skills:
+        - damage{a=12}
+
+#==== Another kick that follows after thrust
+ezekiel_thrust_to_kick:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to6} orElseCast ezekiel_endcombo
+    Skills:
+        - gcd{ticks=40} @self
+        - state{s=parryleft;r=true} @self
+        - state{s=sword_side_kick} @self
+        - partvis{model=ezekiel;part=sword;v=false} @self
+        - potion{t=SLOW;d=6;l=99;icon=false;p=false} @self
+        - delay 18
+        - potion{t=SPEED;d=4;l=25;icon=false;p=false} @self
+        - effect:sound{s=item.armor.equip_leather;v=3;p=0} @self
+        - delay 2
+        - skill{s=ezekiel_kick_damage} @LivingInCone{a=90.0;r=4.0;rot=0.0}
+        - skill{s=ezekiel_kick_knockback} @LivingInCone{a=90.0;r=4.0;rot=0.0}
+        - delay 4
+        - potion{t=SLOW;d=12;l=99;icon=false;p=false} @self
+        - delay 12
+        - state{s=sword_side_kick;r=true} @self
+        - skill{s=ezekiel_sword_stepslash_nogcd} @target
+
+#====lion claw, a heavy sword strike that cannot be parried/ finisher
+ezekiel_lionclaw:
+    Conditions:
+        - hastag{t=defencebreak} false
+    Skills:
+        - gcd{ticks=70} @self
+        - state{s=parryright;r=true} @self
+        - state{s=sword_lionclaw} @self
+        - potion{t=SLOW;d=20;l=99;icon=false;p=false} @self
+        - delay 22
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - spin{d=48;v=0} @self
+        - lunge{v=0.5;repeat=8;repeatInterval=2} @forward
+        - pull{v=6;repeat=16;repeatInterval=1} @EIR{r=4}
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - delay 8
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - delay 8
+        - skill{s=ezekiel_lionclaw_damage} @EIR{r=5}
+        - potion{t=SLOW;d=34;l=99;icon=false;p=false} @self
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - delay 25
+        - skill{s=ezekiel_sword_out} @self
+
+ezekiel_lionclaw_damage:
+    Skills:
+        - damage{a=15}
+        - skill{s=ezekiel_lionclaw_knockback}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=0.2;vs=2} @forward{f=2}
+        - effect:sound{s=entity.generic.explode;p=0.5} @self
+        - particlering{p=reddust;color=#F02F9E;a=10;r=2;points=12;hs=0.2;vs=0.2} @forward{f=2}
+        - particlering{p=reddust;color=#F02F9E;a=20;r=4;points=16;hs=0.2;vs=0.2} @forward{f=2}
+
+#====Starter skill of "run2"
+#====right slash | This is a starter skill
+ezekiel_sword_rightslash:
+    Conditions:
+        - hastag{t=defencebreak} false
+        - hastag{t=run1} castInstead ezekiel_sword_left_slash
+        - offgcd
+        - incombat true
+    TargetConditions:
+        - distance{d=0to6} orElseCast ezekiel_sword_step_slash
+    Skills:
+        #Combo Starter, reset run and runtag
+        - setspeed{speed=0.5;type=walking} @self
+        - defaultstate{m=ezekiel;t=walk;s=walk} @self
+        - removetag{t=run2} @self
+        #
+        - gcd{ticks=26} @self
+        - state{s=sword_right_slash} @self
+        - potion{t=SLOW;d=9;l=99;icon=false;p=false} @self
+        - skill{s=ezekiel_sword_in} @self
+        - delay 9
+        - skill{s=ezekiel_playerswing_check} @target
+        - delay 5
+        - potion{t=SPEED;d=3;l=20;icon=false;p=false} @self
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - skill{s=ezekiel_sword_rightslash_damage} @LivingInCone{a=120.0;r=5.0;rot=0.0}
+        - delay 2
+        - partvis{model=ezekiel;part=sword_vfx;v=true} @self
+        - delay 6
+        - partvis{model=ezekiel;part=sword_vfx;v=false} @self
+        - skill{s=ezekiel_sword_left_slash_nogcd} @target
+
+ezekiel_sword_rightslash_damage:
+    Conditions:
+        - hasaura{n=parry} castInstead ezekiel_right_parried
+    Skills:
+        - damage{a=10}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=1;vs=0.2} @forward{f=2}
+
+#===scythe left slash | this is a connector skill
+ezekiel_scythe_left_slash:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to10} orElseCast ezekiel_endcombo
+    Skills:
+        - gcd{ticks=34} @self
+        - state{s=parryright;r=true} @self
+        - state{s=scythe_left_slash} @self
+        - skill{s=ezekiel_sword_out} @self
+        - skill{s=ezekiel_scythe_in} @self
+        - potion{t=SLOW;d=10;l=99;icon=false;p=false} @self
+        - delay 10
+        - potion{t=SPEED;d=6;l=26;icon=false;p=false} @self
+        - delay 6
+        - effect:sound{s=item.trident.throw;p=0} @self
+        - skill{s=ezekiel_scythe_left_slash_damage} @LivingInCone{a=180.0;r=6.0;rot=0.0}
+        - partvis{model=ezekiel;part=scythe_blade;v=true} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=true} @self
+        - delay 4
+        - partvis{model=ezekiel;part=scythe_blade;v=false} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=false} @self
+        - skill{s=ezekiel_scythe_out} @self
+        - skill{s=ezekiel_sword_in} @self
+        - delay 8
+        - randomskill{s=ezekiel_sword_uppercut,ezekiel_sword_horizontal_slash} @target
+
+ezekiel_scythe_left_slash_damage:
+    TargetConditions:
+        - crouching castInstead ezekiel_attack_dodged
+    Skills:
+        - damage{a=12}
+        - particles{p=reddust;color=#F02F9E;a=150;hs=2;vs=0.2} @forward{f=3}
+
+#===scythe roundhouse | Finisher
+ezekiel_scythe_roundhouse:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to7}
+    Skills:
+        - gcd{ticks=40} @self
+        - spin{d=26;v=0} @self
+        - state{s=parryright;r=true} @self
+        - state{s=scythe_roundhouse;sp=1.2} @self
+        - skill{s=ezekiel_sword_out} @self
+        - skill{s=ezekiel_scythe_in} @self
+        - potion{t=SLOW;d=14;l=99;icon=false;p=false} @self
+        - delay 14
+        - lunge{v=1} @forward
+        - effect:sound{s=item.trident.throw;p=0} @self
+        - skill{s=ezekiel_scythe_roundhouse_damage} @EIR{r=6}
+        - delay 10
+        - lunge{v=2} @forward
+        - partvis{model=ezekiel;part=scythe_blade;v=true} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=true} @self
+        - effect:sound{s=item.trident.throw;p=0.5} @self
+        - skill{s=ezekiel_scythe_roundhouse_damage} @EIR{r=6}
+        - delay 4
+        - partvis{model=ezekiel;part=scythe_blade;v=false} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=false} @self
+        - delay 6
+        - skill{s=ezekiel_scythe_out} @self
+
+ezekiel_scythe_roundhouse_damage:
+    TargetConditions:
+        - onground true
+    Skills:
+        - damage{a=13}
+        - particles{p=reddust;color=#F02F9E;a=150;hs=3;vs=0.2} @self
+
+#===scythe right slash | This skill is a starter (run2)
+ezekiel_scythe_right_slash:
+    Conditions:
+        - hastag{t=defencebreak} false
+        - hastag{t=run1} castInstead ezekiel_sword_left_slash
+        - offgcd
+        - incombat true
+    TargetConditions:
+        - distance{d=0to7} orElseCast ezekiel_sword_step_slash
+    Skills:
+        #Combo Starter, reset run and runtag
+        - setspeed{speed=0.5;type=walking} @self
+        - defaultstate{m=ezekiel;t=walk;s=walk} @self
+        - removetag{t=run2} @self
+        #
+        - gcd{ticks=40} @self
+        - state{s=scythe_right_slash} @self
+        - skill{s=ezekiel_scythe_in} @self
+        - potion{t=SLOW;d=10;l=99;icon=false;p=false} @self
+        - delay 10
+        - potion{t=SPEED;d=4;l=26;icon=false;p=false} @self
+        - delay 4
+        - effect:sound{s=item.trident.throw;p=0} @self
+        - skill{s=ezekiel_scythe_right_slash_damage} @LivingInCone{a=180.0;r=6.0;rot=0.0}
+        - partvis{model=ezekiel;part=scythe_blade;v=true} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=true} @self
+        - delay 4
+        - partvis{model=ezekiel;part=scythe_blade;v=false} @self
+        - partvis{model=ezekiel;part=scythe_blade2;v=false} @self
+        - skill{s=ezekiel_scythe_out} @self
+        - skill{s=ezekiel_sword_in} @self
+        - delay 8
+        - skill{s=ezekiel_thrust} @target
+
+ezekiel_scythe_right_slash_damage:
+    TargetConditions:
+        - crouching castInstead ezekiel_attack_dodged
+    Skills:
+        - damage{a=12}
+        - particles{p=reddust;color=#F02F9E;a=150;hs=2;vs=0.2} @forward{f=3}
+
+#===ezekiel_tail small swipe | this is a connector skill
+ezekiel_tail_small_swipe:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - distance{d=0to6} orElseCast ezekiel_endcombo
+    Skills:
+        - gcd{ticks=40} @self
+        - state{s=parryleft;r=true} @self
+        - state{s=tail_small_swipe;sp=0.6} @self
+        - skill{s=ezekiel_sword_out} @self
+        - skill{s=ezekiel_tail_in} @self
+        - spin{d=36;v=0} @self
+        - potion{t=SLOW;d=10;l=99;icon=false;p=false} @self
+        - delay 12
+        - potion{t=SPEED;d=5;l=20;icon=false;p=false} @self
+        - delay 5
+        - potion{t=SLOW;d=10;l=99;icon=false;p=false} @self
+        - delay 5
+        - effect:sound{s=item.trident.throw;p=1} @self
+        - skill{s=ezekiel_tail_swipe_damage} @EIR{r=6}
+        - particles{p=reddust;color=#F02F9E;a=50;hs=3;vs=0.2} @forward{f=3}
+        - particlering{p=reddust;color=#F792CC;a=10;r=5;points=16;hs=1;vs=0.3;yOffset=0.3} @self
+        - particles{p=block_crack;m=pink_stained_glass;a=50;hs=3;vs=0.2} @forward{f=3}
+        - delay 14
+        - skill{s=ezekiel_tail_out} @self
+        - state{s=tail_small_swipe;r=true} @self
+        - randomskill{s=ezekiel_sword_left_slash_nogcd} @target
+
+ezekiel_tail_swipe_damage:
+    Conditions:
+        - hastag{t=defencebreak} false
+    TargetConditions:
+        - onground true
+    Skills:
+        - damage{a=12}
+        - skill{s=ezekiel_tail_knockback}
+
+#====tail swipe | this is a starter skill (dodge with jump)
+ezekiel_tail_swipe:
+    Conditions:
+        - hastag{t=defencebreak} false
+        - offgcd
+        - incombat
+    TargetConditions:
+        - distance{d=0to10} orElseCast ezekiel_endcombo
+    Skills:
+        #Combo Starter, reset run and runtag
+        - setspeed{speed=0.5;type=walking} @self
+        - defaultstate{m=ezekiel;t=walk;s=walk} @self
+        - removetag{t=run2} @self
+        #
+        - gcd{ticks=40} @self
+        - state{s=tail_swipe} @self
+        - skill{s=ezekiel_tail_in} @self
+        - potion{t=SPEED;d=10;l=3;icon=false;p=false} @self
+        - delay 10
+        - spin{d=18;v=0} @self
+        - lunge{v=0.7;repeat=7;repeatInterval=1} @forward
+        - delay 5
+        - skill{s=ezekiel_tail_swipe_skill;repeat=3;repeatInterval=1}
+        - effect:sound{s=item.armor.equip_leather;p=0.5} @self
+        - delay 4
+        - potion{t=SLOW;d=12;l=99;icon=false;p=false} @self
+        - delay 12
+        - skill{s=ezekiel_tail_out} @self
+        - state{s=tail_small_swipe;r=true} @self
+        - randomskill{s=ezekiel_sword_stepslash_nogcd} @target
+
+ezekiel_tail_swipe_skill:
+    Skills:
+        - skill{s=ezekiel_tail_swipe_damage} @EIR{r=6}
+        - effect:sound{s=item.armor.equip_leather;v=3;p=0.5} @self
+        - particles{p=reddust;color=#F02F9E;a=50;hs=3;vs=0.2} @forward{f=3}
+        - particlering{p=reddust;color=#F792CC;a=10;r=5;points=16;hs=1;vs=0.3;yOffset=0.3} @self
+        - particles{p=block_crack;m=pink_stained_glass;a=50;hs=3;vs=0.2} @forward{f=3}
+
+#===tail doubleswipe | finisher
+ezekiel_tail_doubleswipe:
+    Conditions:
+        - hastag{t=defencebreak} false
+        - hasaura{n=parry} false
+    Skills:
+        - gcd{ticks=60} @self
+        - state{s=tail_double_swipe} @self
+        - skill{s=ezekiel_tail_in} @self
+        - potion{t=SLOW;d=16;l=99;icon=false;p=false} @self
+        - delay 16
+        - spin{d=34;v=0} @self
+        - lunge{v=0.5;repeat=7;repeatInterval=1} @forward
+        - skill{s=ezekiel_tail_swipe_skill}
+        - effect:sound{s=item.armor.equip_leather;p=1} @self
+        - delay 14
+        - skill{s=ezekiel_tail_2ndswipe_skill}
+        - effect:sound{s=item.armor.equip_leather;p=1} @self
+        - potion{t=SLOW;d=30;l=99;icon=false;p=false} @self
+        - delay 20
+        - skill{s=ezekiel_tail_out} @self
+
+
+#2nd swipe is an overhead swipe, dodge with shift
+ezekiel_tail_2ndswipe_skill:
+    Skills:
+        - skill{s=ezekiel_tail_2ndswipe_damage} @EIR{r=6}
+        - effect:sound{s=item.armor.equip_leather;v=3;p=0.5} @self
+        - particles{p=reddust;color=#F02F9E;a=50;hs=3;vs=0.2} @forward{f=3}
+        - particlering{p=reddust;color=#F792CC;a=10;r=5;points=16;hs=1;vs=0.3;yOffset=1} @self
+        - particles{p=block_crack;m=pink_stained_glass;a=50;hs=3;vs=0.2} @forward{f=3}
+
+ezekiel_tail_2ndswipe_damage:
+    TargetConditions:
+        - crouching false
+    Skills:
+        - damage{a=12}
+        - skill{s=ezekiel_tail_knockback}
+# 4249XDMLH0VNFS8LZH

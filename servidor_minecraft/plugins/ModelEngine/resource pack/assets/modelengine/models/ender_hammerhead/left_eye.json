@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/ender_hammerhead"},"elements":[{"from":[8.0,7.3894997,4.299999],"to":[8.0,8.6105,11.700001],"faces":{"east":{"uv":[5.75,9.875,5.125,10.125],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[5.125,9.875,5.75,10.125],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

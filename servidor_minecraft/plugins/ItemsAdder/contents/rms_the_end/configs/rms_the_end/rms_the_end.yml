@@ -1,0 +1,67 @@
+info:
+  namespace: rms_the_end
+items:
+  icon_ender_clam:
+    display_name: "icon_ender_clam"
+    permission: icon_ender_clam
+    resource:
+      material: BRICK
+      model_id: 12028
+      generate: false
+      model_path: rms_the_end_model/icon_ender_clam
+  icon_ender_hammerhead:
+    display_name: "icon_ender_hammerhead"
+    permission: icon_ender_hammerhead
+    resource:
+      material: BRICK
+      model_id: 12029
+      generate: false
+      model_path: rms_the_end_model/icon_ender_hammerhead
+  icon_ender_ripper:
+    display_name: "icon_ender_ripper"
+    permission: icon_ender_ripper
+    resource:
+      material: BRICK
+      model_id: 12030
+      generate: false
+      model_path: rms_the_end_model/icon_ender_ripper
+  icon_ender_slime:
+    display_name: "icon_ender_slime"
+    permission: icon_ender_slime
+    resource:
+      material: BRICK
+      model_id: 12031
+      generate: false
+      model_path: rms_the_end_model/icon_ender_slime
+  icon_ender_witch:
+    display_name: "icon_ender_witch"
+    permission: icon_ender_witch
+    resource:
+      material: BRICK
+      model_id: 12032
+      generate: false
+      model_path: rms_the_end_model/icon_ender_witch
+  icon_end_scuttler:
+    display_name: "icon_end_scuttler"
+    permission: icon_end_scuttler
+    resource:
+      material: BRICK
+      model_id: 12026
+      generate: false
+      model_path: rms_the_end_model/icon_end_scuttler
+  icon_end_seeker:
+    display_name: "icon_end_seeker"
+    permission: icon_end_seeker
+    resource:
+      material: BRICK
+      model_id: 12027
+      generate: false
+      model_path: rms_the_end_model/icon_end_seeker
+  icon_void_beholder:
+    display_name: "icon_void_beholder"
+    permission: icon_void_beholder
+    resource:
+      material: BRICK
+      model_id: 12033
+      generate: false
+      model_path: rms_the_end_model/icon_void_beholder

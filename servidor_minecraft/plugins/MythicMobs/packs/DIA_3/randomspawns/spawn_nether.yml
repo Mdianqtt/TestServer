@@ -1,0 +1,48 @@
+blazes:
+  Action: REPLACE
+  Types: 
+  - 1bit_elite_blaze 20
+  - 1bit_elite_baby_blaze 80
+  Chance: 0.0
+  Priority: 5
+  UseWorldScaling: true
+  Worlds: world_nether
+  Conditions:
+   - entitytype{t=BLAZE} true
+  Reason: SPAWNER,NATURAL
+ghast:
+  Action: REPLACE
+  Types: 
+  - 1bit_elite_baby_ghast 30
+  - 1bit_elite_ghast 70
+  Chance: 0.0
+  Priority: 5
+  UseWorldScaling: true
+  Worlds: world_nether
+  Conditions:
+   - entitytype{t=GHAST} true
+  Reason: SPAWNER,NATURAL
+piglin_brute:
+  Action: REPLACE
+  Types: 
+  - 1bit_elite_piglin_brute 60
+  - 1bit_elite_baby_piglin_brute 40
+  Chance: 0.0
+  Priority: 5
+  UseWorldScaling: true
+  Worlds: world_nether
+  Conditions:
+   - entitytype{t=PIGLIN_BRUTE} true
+  Reason: SPAWNER,NATURAL
+piglin_zombified:
+  Action: REPLACE
+  Types: 
+  - 1bit_elite_zombified_piglin 40
+  - 1bit_elite_baby_zombified_piglin 60
+  Chance: 0.0
+  Priority: 5
+  UseWorldScaling: true
+  Worlds: world_nether
+  Conditions:
+   - entitytype{t=ZOMBIFIED_PIGLIN} true
+  Reason: SPAWNER,NATURAL

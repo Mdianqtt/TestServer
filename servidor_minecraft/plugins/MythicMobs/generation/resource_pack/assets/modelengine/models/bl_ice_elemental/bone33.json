@@ -1,0 +1,1 @@
+{"textures":{"3":"modelengine:entity/bl_ice_elemental"},"elements":[{"from":[8.0,6.8480005,8.384001],"to":[8.0,9.152,10.688],"faces":{"east":{"uv":[7.0,0.8333334,7.5,1.3333334],"tintindex":0,"rotation":0,"texture":"#3"},"west":{"uv":[7.5,0.8333334,8.0,1.3333334],"tintindex":0,"rotation":0,"texture":"#3"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

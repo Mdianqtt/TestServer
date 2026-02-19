@@ -1,0 +1,351 @@
+﻿#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+
+    
+jackpot_2_NORTH:
+  Type: PIG
+  Display: "JACKPOT 2"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=0;pitch=0} @Self ~onSpawn
+  - look{headOnly=false;force=true;immediately=true} @Parent ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onLoad
+  - setvar{var=caster.rolling;value="true";type=STRING} @self ~onSpawn
+  - setblock{m=light} @origin{yo=2} ~onSpawn
+  - skill{s=JACKPOT2_sit} @trigger ~onInteract
+  - skill{s=JACKPOT2_pull_lever} @trigger ~onInteract
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+  - sound{s=littleroom_jackpot2:jackpot2.song_loop;v=0.5;sc=HOSTILE;cd=8} @self ~onTimer:1
+  
+jackpot_2_SOUTH:
+  Type: PIG
+  Display: "JACKPOT 2"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=180;pitch=0} @Self ~onSpawn
+  - look{headOnly=false;force=true;immediately=true} @Parent ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onLoad
+  - setvar{var=caster.rolling;value="true";type=STRING} @self ~onSpawn
+  - setblock{m=light} @origin{yo=2} ~onSpawn
+  - skill{s=JACKPOT2_sit} @trigger ~onInteract
+  - skill{s=JACKPOT2_pull_lever} @trigger ~onInteract
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+  - sound{s=littleroom_jackpot2:jackpot2.song_loop;v=0.5;sc=HOSTILE;cd=8} @self ~onTimer:1
+  
+jackpot_2_EAST:
+  Type: PIG
+  Display: "JACKPOT 2"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=90;pitch=0} @Self ~onSpawn
+  - look{headOnly=false;force=true;immediately=true} @Parent ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onLoad
+  - setvar{var=caster.rolling;value="true";type=STRING} @self ~onSpawn
+  - setblock{m=light} @origin{yo=2} ~onSpawn
+  - skill{s=JACKPOT2_sit} @trigger ~onInteract
+  - skill{s=JACKPOT2_pull_lever} @trigger ~onInteract
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+  - sound{s=littleroom_jackpot2:jackpot2.song_loop;v=0.5;sc=HOSTILE;cd=8} @self ~onTimer:1
+  
+jackpot_2_WEST:
+  Type: PIG
+  Display: "JACKPOT 2"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=roller;em=false;b=15;s=15} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=-90;pitch=0} @Self ~onSpawn
+  - look{headOnly=false;force=true;immediately=true} @Parent ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onSpawn
+  - state{s=passive_layer;p=2} @self ~onLoad
+  - setvar{var=caster.rolling;value="true";type=STRING} @self ~onSpawn
+  - setblock{m=light} @origin{yo=2} ~onSpawn
+  - skill{s=JACKPOT2_sit} @trigger ~onInteract
+  - skill{s=JACKPOT2_pull_lever} @trigger ~onInteract
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+  - sound{s=littleroom_jackpot2:jackpot2.song_loop;v=0.5;sc=HOSTILE;cd=8} @self ~onTimer:1
+  
+  
+# CONVERTER #
+
+jackpot_2_converter_NORTH:
+  Type: PIG
+  Display: "JACKPOT 2 CONVERTER"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onLoad
+  - state{s=logo_spin;p=2} @self ~onSpawn
+  - state{s=logo_spin;p=2} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=180;pitch=0} @Self ~onSpawn
+  - setvar{var=caster.showmenu;value=false;type=STRING} @self ~onSpawn
+  - skill{s=JACKPOT2_convert_item_to_money} @trigger ~onInteract
+  - skill{s=JACKPOT2_converter_show_menu} @self ~onTimer:20
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+
+jackpot_2_converter_SOUTH:
+  Type: PIG
+  Display: "JACKPOT 2 CONVERTER"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onLoad
+  - state{s=logo_spin;p=2} @self ~onSpawn
+  - state{s=logo_spin;p=2} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=0;pitch=0} @Self ~onSpawn
+  - setvar{var=caster.showmenu;value=false;type=STRING} @self ~onSpawn
+  - skill{s=JACKPOT2_convert_item_to_money} @trigger ~onInteract
+  - skill{s=JACKPOT2_converter_show_menu} @self ~onTimer:20
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+
+jackpot_2_converter_EAST:
+  Type: PIG
+  Display: "JACKPOT 2 CONVERTER"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onLoad
+  - state{s=logo_spin;p=2} @self ~onSpawn
+  - state{s=logo_spin;p=2} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=-90;pitch=0} @Self ~onSpawn
+  - setvar{var=caster.showmenu;value=false;type=STRING} @self ~onSpawn
+  - skill{s=JACKPOT2_convert_item_to_money} @trigger ~onInteract
+  - skill{s=JACKPOT2_converter_show_menu} @self ~onTimer:20
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+
+jackpot_2_converter_WEST:
+  Type: PIG
+  Display: "JACKPOT 2 CONVERTER"
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Marker: true
+    #Invincible: true
+    Silent: true
+    PreventOtherDrops: true
+    Collidable: false
+    KnockbackResistance: 1
+    Despawn: PERSISTENT
+  Skills:
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onSpawn
+  - model{m=jackpot_2_converter;ride=true;usm=true;d=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad 
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onSpawn
+  - brightness{p=prices;em=false;b=15;s=15} @self ~onLoad
+  - state{s=logo_spin;p=2} @self ~onSpawn
+  - state{s=logo_spin;p=2} @self ~onLoad
+  - potion{type=DAMAGE_RESISTANCE;duration=200;level=4;p=false} @self ~onTimer:20
+  - throw{v=3;vy=-1} @pir{r=1} ~onTimer:1
+  - setrotation{relative=false;yaw=90;pitch=0} @Self ~onSpawn
+  - setvar{var=caster.showmenu;value=false;type=STRING} @self ~onSpawn
+  - skill{s=JACKPOT2_convert_item_to_money} @trigger ~onInteract
+  - skill{s=JACKPOT2_converter_show_menu} @self ~onTimer:20
+  - skill{s=JACKPOT2_remove_self} @self ~onDamaged
+  
+  
+  
+  
+# TEXT #
+
+jackpot_2_nomoney:
+  Type: text_display
+  DisplayOptions:    
+    Text: "&CYOU GOT NO MONEY!"
+    BackgroundColor: 255,0,0,0
+    RightRotation: 0,1,0,0
+    BlockLight: 12
+  Skills:
+  - skill{s=JACKPOT2_winner_text_blink} @self ~onSpawn
+  
+jackpot_2_winner_triple:
+  Type: text_display
+  DisplayOptions:    
+    Text: "TRIPLE JACKPOT!"
+    BackgroundColor: 255,0,0,0
+    RightRotation: 0,1,0,0
+    BlockLight: 12
+  Skills:
+  - skill{s=JACKPOT2_winner_text_blink} @self ~onSpawn
+
+jackpot_2_winner_double:
+  Type: text_display
+  DisplayOptions:    
+    Text: "DOUBLE JACKPOT!"
+    BackgroundColor: 255,0,0,0
+    RightRotation: 0,1,0,0
+    BlockLight: 12
+  Skills:
+  - skill{s=JACKPOT2_winner_text_blink} @self ~onSpawn
+
+jackpot_2_loser_triple:
+  Type: text_display
+  DisplayOptions:    
+    Text: "TRIPLE AW MAN!"
+    BackgroundColor: 255,0,0,0
+    RightRotation: 0,1,0,0
+    BlockLight: 12
+  Skills:
+  - skill{s=JACKPOT2_winner_text_blink} @self ~onSpawn
+
+jackpot_2_loser_double:
+  Type: text_display
+  DisplayOptions:    
+    Text: "DOUBLE AW MAN!"
+    BackgroundColor: 255,0,0,0
+    RightRotation: 0,1,0,0
+    BlockLight: 12
+  Skills:
+  - skill{s=JACKPOT2_winner_text_blink} @self ~onSpawn
+
+jackpot_2_winner_golden_apple:
+  Type: text_display
+  DisplayOptions:    
+    Text: "GOLDEN APPLE BONUS!"
+    BackgroundColor: 255,0,0,0
+    RightRotation: 0,1,0,0
+    BlockLight: 12
+  Skills:
+  - skill{s=JACKPOT2_winner_text_blink} @self ~onSpawn
+
+jackpot_2_winner_creeper_combo_lost:
+  Type: text_display
+  DisplayOptions:    
+    Text: "AW MAN!"
+    BackgroundColor: 255,0,0,0
+    RightRotation: 0,1,0,0
+    BlockLight: 12
+  Skills:
+  - skill{s=JACKPOT2_winner_text_blink} @self ~onSpawn

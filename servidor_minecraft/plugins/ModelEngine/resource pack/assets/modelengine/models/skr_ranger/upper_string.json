@@ -1,0 +1,1 @@
+{"textures":{"1":"modelengine:entity/skr_ranger"},"elements":[{"from":[8.005,7.5,8.0],"to":[8.005,8.5,19.0],"faces":{"east":{"uv":[7.0,2.5,9.75,2.75],"tintindex":0,"rotation":0,"texture":"#1"},"west":{"uv":[7.0,2.75,9.75,3.0],"tintindex":0,"rotation":0,"texture":"#1"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

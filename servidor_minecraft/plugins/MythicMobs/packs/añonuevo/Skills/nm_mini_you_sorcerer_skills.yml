@@ -1,0 +1,44 @@
+### Standard Bolt Attack
+
+mini_you_sorcerer_bolt_parse:
+  Skills:
+  - CancelEvent
+  - skill{s=mini_you_sorcerer_bolt_activate;cd=2}
+  
+mini_you_sorcerer_bolt_activate:
+  Conditions:
+  - offgcd
+  - chance{chance=0.9} orElseCast mini_you_sorcerer_blast_activate
+  Skills:
+  - gcd{ticks=40}
+  - freeze{ticks=24} @self 
+  - look{headOnly=false;immediately=true} @target  
+  - sound{s=entity.illusioner.prepare_blindness;p=1.4;v=0.2} @self
+  - state{state=bolt;li=2;lo=4;n=false;speed=1} @self
+  
+  - delay 14
+  - sound{s=entity.illusioner.mirror_move;p=1.4;v=0.6} @self
+  - missile{onTick=mini_you_sorcerer_bolt_tick;onHit=mini_you_sorcerer_bolt_hit;v=8;i=1} @target
+  
+mini_you_sorcerer_bolt_tick:
+  Skills:
+  - effect:particles{particle=soul_fire_flame;y=-0.5;spread=0.1;hSpread=0.1} @origin
+  
+mini_you_sorcerer_bolt_hit:
+  Skills:
+  - sound{s=entity.puffer_fish.blow_out;p=0.3;v=0.4} 
+  - damage{a=7}
+
+### AoE Blast Attack
+  
+mini_you_sorcerer_blast_activate:
+  Skills:
+  - freeze{ticks=40} @self 
+  - look{headOnly=false;immediately=true} @target  
+  - sound{s=entity.illusioner.prepare_mirror;p=1.1;v=0.2} @self
+  - state{state=blast;li=2;lo=4;n=false;speed=1} @self
+  
+  - delay 14
+  - sound{s=block.wood.step;p=0.7;v=1.2} @self
+  - effect:particles{particle=sonic_boom} @LivingEntitiesInRadius{r=14;target=monsters}
+  - damage{a=4} @LivingEntitiesInRadius{r=14;target=monsters}

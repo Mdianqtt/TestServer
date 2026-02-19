@@ -1,0 +1,19 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "item/blaze_rod"
+	},
+	"overrides": [
+		
+		{"predicate": {"custom_model_data":87600}, "model": "item/nocsy/kingdom_cats/nocsy_cat_signalstick"},
+		
+		{"predicate": {"custom_model_data":87601}, "model": "item/nocsy/kingdom_cats/nocsy_cat_icon1"},
+		{"predicate": {"custom_model_data":87602}, "model": "item/nocsy/kingdom_cats/nocsy_cat_icon2"},
+		{"predicate": {"custom_model_data":87603}, "model": "item/nocsy/kingdom_cats/nocsy_cat_icon3"},
+		{"predicate": {"custom_model_data":87604}, "model": "item/nocsy/kingdom_cats/nocsy_cat_icon4"},
+		{"predicate": {"custom_model_data":87605}, "model": "item/nocsy/kingdom_cats/nocsy_cat_icon5"},
+		{"predicate": {"custom_model_data":87606}, "model": "item/nocsy/kingdom_cats/nocsy_cat_icon6"},
+		{"predicate": {"custom_model_data":87607}, "model": "item/nocsy/kingdom_cats/nocsy_cat_icon7"}
+		
+	]
+}

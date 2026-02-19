@@ -1,0 +1,123 @@
+bl_flying_spider_death:
+  Skills:
+  - sound{s=minecraft:entity.spider.death;v=3;p=0.8;delay=5} @self
+
+bl_flying_spider_skills:
+  Skills:
+  - randomskill{s=bl_flying_spider_fang_attack,bl_flying_spider_wings_attack,bl_flying_spider_flying_attack} @target
+
+bl_flying_spider_step:
+  Conditions:
+  - moving true
+  - inblock{b=WATER,LAVA} false
+  - offgcd
+  Skills:
+  - sound{s=minecraft:entity.spider.step;v=3;p=0.9} @self
+
+bl_flying_spider_idle:
+  Conditions:
+  - moving false
+  - offgcd
+  Skills:
+  - sound{s=minecraft:entity.spider.ambient;v=3;p=0.7} @self
+
+bl_flying_spider_fang_attack:
+  Cooldown: 4
+  Conditions:
+  - targetwithin{d=5} true
+  - offgcd
+  Skills:
+  - gcd{ticks=35} @self
+  - state{mid=bl_flying_spider;s=attack;li=3;lo=3} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=0.8;delay=15} @self
+  - aura{auraName=bl_flying_spider_fang_attack_totem;onTick=bl_flying_spider_fang_attack_totem_tick;interval=1;duration=5;delay=15} @self
+  - delay 14
+  - setspeed{s=2.5} @self
+  - delay 8
+  - setspeed{s=0} @self
+  - delay 13
+  - setspeed{s=1.4} @self
+
+bl_flying_spider_fang_attack_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_flying_spider_fang_attack_damage;hr=1;vr=1;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=hurt_box;o=model;z=0;y=0}
+
+bl_flying_spider_fang_attack_damage:
+  Skills:
+  - damage{a=8}
+  - throw{v=2;vy=0}
+  - shieldbreak{duration=60}
+
+bl_flying_spider_wings_attack:
+  Cooldown: 8
+  TargetConditions:
+  - distance{d=>3} true
+  Conditions:
+  - targetwithin{d=10} true
+  - offgcd
+  Skills:
+  - gcd{ticks=75} @self
+  - state{mid=bl_flying_spider;s=attack_wings;li=3;lo=3} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=1;delay=17} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=1;delay=42} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=1;delay=67} @self
+  - setspeed{s=0} @self
+  - delay 17
+  - projectile{oT=bl_flying_spider_waves_tick;oH=bl_flying_spider_waves_damage;b=MOB;mm=bl_flying_spider_waves;byo=1;hR=1;vR=1;mr=30;v=20;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawhitbox=false} @forward{f=10;y=1}
+  - propel{v=1} @forward{f=-1;yo=0.1;lockpitch=true}
+  - delay 25
+  - projectile{oT=bl_flying_spider_waves_tick;oH=bl_flying_spider_waves_damage;b=MOB;mm=bl_flying_spider_waves;byo=1;hR=1;vR=1;mr=30;v=20;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawhitbox=false} @forward{f=10;y=1}
+  - propel{v=1} @forward{f=-1;yo=0.1;lockpitch=true}
+  - delay 25
+  - projectile{oT=bl_flying_spider_waves_tick;oH=bl_flying_spider_waves_damage;b=MOB;mm=bl_flying_spider_waves;byo=1;hR=1;vR=1;mr=30;v=20;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawhitbox=false} @forward{f=10;y=1}
+  - propel{v=1} @forward{f=-1;yo=0.1;lockpitch=true}
+  - delay 8
+  - setspeed{s=1.4} @self
+
+bl_flying_spider_waves_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#6e3045;color2=#e19e30;amount=5;hS=0.2;vS=0.2;speed=0;size=0.5;y=-1}
+
+bl_flying_spider_waves_damage:
+  Skills:
+  - damage{a=8}
+  - throw{v=0;vy=0}
+  - potion{type=SLOW;duration=40;level=5}
+  - potion{type=LEVITATION;duration=10;level=2}
+  - shieldbreak{duration=80}
+  - endprojectile
+
+bl_flying_spider_flying_attack:
+  Cooldown: 6
+  TargetConditions:
+  - distance{d=>2} true
+  Conditions:
+  - targetwithin{d=7} true
+  - offgcd
+  Skills:
+  - gcd{ticks=39} @self
+  - state{mid=bl_flying_spider;s=attack_fly;li=3;lo=3} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=0.8;delay=26} @self
+  - aura{auraName=bl_flying_spider_flying_attack_totem;onTick=bl_flying_spider_flying_attack_totem_tick;interval=1;duration=13;delay=22} @self
+  - delay 17
+  - propel{v=0.5} @forward{f=-0.5;yo=0.1;lockpitch=true}
+  - delay 3
+  - setspeed{s=3.5} @self
+  - delay 8
+  - setspeed{s=0} @self
+  - delay 11
+  - setspeed{s=1.4} @self
+
+bl_flying_spider_flying_attack_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_flying_spider_flying_attack_damage;hr=1;vr=1;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=hurt_box;o=model;z=0;y=0}
+
+bl_flying_spider_flying_attack_damage:
+  Skills:
+  - damage{a=8}
+  - throw{v=5;vy=1}
+  - potion{type=SLOW;duration=40;level=5}
+  - potion{type=LEVITATION;duration=30;level=2}
+  - shieldbreak{duration=60}
+
+# 713OV4MCX2P263VVMP8W4UW

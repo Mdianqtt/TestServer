@@ -1,0 +1,11 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LR_magma_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 7
+  Display: 'Magma Boomerang'  
+  Skills:
+  - skill{s=LRBOOMERANG_throw_magma;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_magma} @self ~onHold

@@ -1,0 +1,6 @@
+nm_orca_drops:
+  MinItems: 1
+  MaxItems: 1
+  Drops:
+  - EXP 10-14 100%
+  - nm_orca_fin 1-2 100%

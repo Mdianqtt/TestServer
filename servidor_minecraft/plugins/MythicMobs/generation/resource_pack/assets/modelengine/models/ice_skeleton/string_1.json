@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/ice_skeleton"},"elements":[{"from":[8.0,8.0,8.5],"to":[8.0,10.0,13.5],"faces":{"east":{"uv":[2.5,15.25,1.25,15.75],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[1.25,15.25,0.0,15.75],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

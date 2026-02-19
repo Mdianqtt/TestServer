@@ -1,0 +1,58 @@
+﻿#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LR_boomerang_marker:
+  Type: MARKER
+  Options:
+    Marker: true
+  Skills:
+  - teleport{repeat=9999999;repeati=1} @parent ~onSignal:BOOMERANGDUMMY
+  - teleport{repeat=9999999;repeati=1;delay=20} @parent ~onSpawn
+  
+
+LR_boomerang_splash_water:
+  Type: ARMOR_STAND
+  Display: "splash water"
+  Options:
+    Marker: true
+  Skills:
+  - model{m=boomerang_splash;usm=true} @self ~onSpawn
+  - model{m=boomerang_splash;usm=true} @self ~onLoad
+  - remove{delay=20} @self ~onSpawn
+  - skill{s=LR_boomerang_biome_tint} @self ~onSpawn
+
+LR_boomerang_splash_lava:
+  Type: ARMOR_STAND
+  Display: "splash lava"
+  Options:
+    Marker: true
+  Skills:
+  - model{m=boomerang_splash_lava;usm=true} @self ~onSpawn
+  - model{m=boomerang_splash_lava;usm=true} @self ~onLoad
+  - brightness{b=15;s=15} @self ~onSpawn
+  - remove{delay=20} @self ~onSpawn
+
+LR_boomerang_chakram_whirlwind:
+  Type: ARMOR_STAND
+  Display: "Chakram Whirlwind"
+  Options:
+    Marker: true
+  Skills:
+  - model{m=chakram_boomerang_whirlwind;usm=true} @self ~onSpawn
+  - model{m=chakram_boomerang_whirlwind;usm=true} @self ~onLoad
+  - brightness{b=15;s=15} @self ~onSpawn
+  - remove{delay=15} @self ~onSpawn
+  - teleport{repeat=10;repeati=1} @ENO{r=3;sort=nearest;limit=1;yo=1} ~onSpawn
+
+LR_boomerang_sledge_ground:
+  Type: ARMOR_STAND
+  Display: "SledgeHammer"
+  Options:
+    Invincible: true
+    KnockbackResistance: 1
+  Skills:
+  - model{m=sledge_boomerang_ground_fx;usm=true} @self ~onSpawn
+  - model{m=sledge_boomerang_ground_fx;usm=true} @self ~onLoad
+  - velocity{m=set;x=0;y=-100;z=0} @self ~onTimer:1
+  - remove{delay=20} @self ~onSpawn

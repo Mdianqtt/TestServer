@@ -1,0 +1,17 @@
+info:
+  namespace: me_guis
+font_images:
+  petshop_menu:
+    permission: "petshop.menu"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "petshop.png"
+    scale_ratio: 256
+    y_position: 40
+  petshoprare_menu:
+    permission: "petshoprare.menu"
+    show_in_gui: true
+    suggest_in_command: true
+    path: "petshoprare.png"
+    scale_ratio: 256
+    y_position: 40

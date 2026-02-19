@@ -1,0 +1,42 @@
+
+# ~Written by RopeFire~
+
+sculked_crustacean:
+  Type: WOLF
+  Display: 'Sculked Crustacean'
+  Faction: SCULK
+  Health: 50
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - movetowardstarget
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0.2
+    FollowRange: 8
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 8
+  Skills: 
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=sculked_crustacean;n=false;step=1;usm=true;scale=1.25} @self ~onSpawn
+  - model{mid=sculked_crustacean;n=false;step=1;usm=true;scale=1.25} @self ~onLoad
+  - skill{s=sculked_crustacean_pinch} @self ~onTimer:40
+  - skill{s=sculked_crustacean_death} @self ~onDeath
+  - skill{s=sculked_crustacean_ambient} @self ~onTimer:200

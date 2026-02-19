@@ -1,0 +1,740 @@
+lorebun_start:
+  Cooldown: 100
+  Skills:
+  - state{mid=lorebun_idle;s=start} @self
+  - delay 22
+  - model{m=lorebun_idle;r=true} @self
+  - effect:particles{p=reddust;c=#a600ff;a=50;hs=0.25;vs=0.4;y=0.5} @forward{f=-1}
+  - delay 120
+  - sound{s=minecraft:entity.enderman.teleport;v=3;p=0.1;sc=HOSTILE} @self
+  - summon{t=lorebun} @self
+  - effect:particles{p=reddust;c=#a600ff;a=100;hs=0.35;vs=0.5;y=0.5} @self
+  - delay 15
+  - remove @self
+  
+
+lorebun_idle_cancelEvent:
+  Skills:
+  - cancelEvent
+
+lorebun_hit_arrow:
+  Conditions:
+  - damagecause{cause=PROJECTILE}
+  Skills:
+  - sound{s=minecraft:entity.arrow.hit_player;p=1;v=3;sc=HOSTILE;audience=TARGET} @trigger
+
+lorebun_stunned:
+  TargetConditions:
+  - hasAura{name=lorebun_stunned}
+  Skills:
+  - mounttarget
+  
+  
+lorebun_dash:
+  Cooldown: 4
+  Conditions:
+  - targetnotwithin{d=3}
+  - offgcd{}
+  - inCombat{}
+  Skills:
+  - summon{t=ddash;a=1} @self
+  - gcd{t=30} @self
+  - delay 5
+  - sound{s=minecraft:entity.ender_dragon.flap;v=3;p=2;sc=HOSTILE} @self
+  - potion{t=SPEED;l=4;d=20;p=false} @self
+  - state{mid=lorebun;s=dash} @self
+  - skill{s=lorebun_combo_skill;repeat=20;repeatI=1} @target
+  - delay 20
+  - state{mid=lorebun;s=dash;r=true} @self
+
+lorebun_combo_skill:
+  Cooldown: 5
+  Conditions:
+  - targetwithin{d=4}
+  - inCombat{}
+  Skills:
+  - effect:particles{p=reddust;c=#a600ff;a=50;hs=0.25;vs=0.4;y=0.5} @self
+  - onDamaged{cE=true;d=60} @self
+  - gcd{t=80} @self
+  - setai{ai=false} @self
+  - model{mid=lorebun;n=false;tint=true;h=true;r=true} @self
+  - summon{t=lorebun_combo_a} @targetlocation{forwardoffset=-1;sideoffset=1;yoffset=1}
+  - delay 5
+  - damage{a=15} @target
+  - throw{v=2;vy=8} @target
+  - delay 10
+  - summon{t=lorebun_combo_b} @targetlocation{forwardoffset=-1;sideoffset=0;yoffset=0}
+  - delay 5
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - damage{a=15} @target
+  - throw{v=6;vy=6} @target
+  - delay 10
+  - summon{t=lorebun_combo_c} @targetlocation{forwardoffset=-1;sideoffset=-1;yoffset=0}
+  - delay 5
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - damage{a=15} @target
+  - throw{v=2;vy=4} @target
+  - delay 5
+  - teleport{hs=0;vs=0} @targetlocation{forwardoffset=-1;sideoffset=-1;yoffset=0}
+  - delay 5
+  - sound{s=minecraft:entity.enderman.teleport;v=3;p=1;sc=HOSTILE} @self
+  - effect:particles{p=reddust;c=#a600ff;a=50;hs=0.25;vs=0.4;y=0.5} @self
+  - model{mid=lorebun;n=false;tint=false;h=true} @self
+  - state{mid=lorebun;s=spawn;r=true} @self
+  - state{mid=lorebun;s=combo_f} @self
+  - delay 1
+  - summon{t=combo_f;a=1} @Forward{f=0.25;yOffset=1}
+  - delay 4
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - damage{a=14} @target
+  - throw{v=5;vy=-20} @target
+  - aura{auraName=lorebun_stunned;d=20} @target
+  - summon{t=stunned;a=1}
+  - potion{t=SLOW;d=60;l=5;p=false} @target
+  - delay 19
+  - setai{ai=true} @self
+  - state{mid=lorebun;s=combo_f;r=true} @self
+
+lorebun_combo_skill_a:
+  Skills:
+  - sound{s=minecraft:entity.enderman.teleport;v=3;p=1;sc=HOSTILE} @self
+  - state{mid=lorebun_copy_walk;s=combo_a} @self
+  - effect:particleline{p=portal;a=5;hs=0.25;vs=0.4;syo=0;tyo=0} @Parent
+  - effect:particles{p=reddust;c=#a600ff;a=50;hs=0.25;vs=0.4;y=0.5} @self
+  - delay 15
+  - forcepull{spread=0} @Parent
+  - remove @self
+
+lorebun_combo_skill_b:
+  Skills:
+  - sound{s=minecraft:entity.enderman.teleport;v=3;p=1;sc=HOSTILE} @self
+  - state{mid=lorebun_copy_walk;s=combo_b} @self
+  - effect:particleline{p=portal;a=5;hs=0.25;vs=0.4;syo=0;tyo=0} @Parent
+  - effect:particles{p=reddust;c=#a600ff;a=50;hs=0.25;vs=0.4;y=0.5} @self
+  - delay 15
+  - forcepull{spread=0} @Parent
+  - remove @self
+
+lorebun_combo_skill_c:
+  Skills:
+  - sound{s=minecraft:entity.enderman.teleport;v=3;p=1;sc=HOSTILE} @self
+  - state{mid=lorebun_copy_walk;s=combo_c} @self
+  - effect:particleline{p=portal;a=5;hs=0.25;vs=0.4;syo=0;tyo=0} @Parent
+  - effect:particles{p=reddust;c=#a600ff;a=50;hs=0.25;vs=0.4;y=0.5} @self
+  - delay 15
+  - forcepull{spread=0} @Parent
+  - remove @self
+  
+  
+
+lorebun_combo_start:
+  Conditions:
+  - inCombat{}
+  - targetwithin{d=5}
+  - offgcd{}
+  Skills:
+  - gcd{t=60} @self
+  - state{mid=lorebun;s=attack} @self
+  - delay 7
+  - potion{t=SPEED;l=2;d=8;p=false} @self
+  - delay 8
+  - damage{a=19} ?TargetWithin{d=2}
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - delay 5
+  - skill{s=lorebun_combo_continueB} @target
+  - state{mid=lorebun;s=attack;r=true} @self
+
+lorebun_combo_continueB:
+  Conditions:
+  - targetwithin{d=5}
+  - inCombat{}
+  Skills:
+  - gcd{t=60} @self
+  - state{mid=lorebun;s=attack_b} @self
+  - delay 5
+  - potion{t=SPEED;l=2;d=5;p=false} @self
+  - delay 5
+  - damage{a=18} ?TargetWithin{d=2}
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - delay 10
+  - skill{s=lorebun_combo_continueC} @target
+  - state{mid=lorebun;s=attack_b;r=true} @self
+
+lorebun_combo_continueC:
+  Conditions:
+  - targetwithin{d=5}
+  - inCombat{}
+  Skills:
+  - gcd{t=60} @self
+  - state{mid=lorebun;s=attack_c} @self
+  - delay 10
+  - potion{t=SPEED;l=2;d=10;p=false} @self
+  - delay 6
+  - summon{t=attack_c;a=1} @Forward{f=1;yOffset=1.25;sideoffset=-0.25}
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - delay 4
+  - damage{a=17} ?TargetWithin{d=2}
+  - throw{v=10;vy=10} ?TargetWithin{d=2}
+  - delay 15
+  - state{mid=lorebun;s=attack_c;r=true} @self
+  
+  
+
+lorebun_time_walk:
+  Cooldown: 25
+  Conditions:
+  - offgcd{}
+  - inCombat{}
+  Skills:
+  - gcd{t=200} @self
+  - look{headOnly=true;immediately=true;repeat=200;repeatI=1} @Forward{f=1;yoffset=1}
+  - sound{s=minecraft:block.respawn_anchor.ambient;v=3;p=0.1;sc=HOSTILE} @self
+  - onDamaged{cE=true;d=200} @self
+  - state{mid=lorebun;s=time_walk} @self
+  - totem{oS=lorebun_time_walkTOTEM;md=200} @self
+  - delay 20
+  - totem{oE=lorebun_time_walkCLONEFX;repeat=60;repeatI=2;yo=0;md=5} @self
+  - delay 40
+  - summon{t=lorebun_copy;repeat=2;repeatI=40} @self
+  - delay 100
+  - state{mid=lorebun;s=time_walk;r=true} @self
+  
+lorebun_time_walkFX:
+  Skills:
+  - effect:particles{p=reddust;c=#a600ff;a=15;hs=0.25;vs=0.35;y=0.5} @origin
+
+lorebun_time_walkCLONEFX:
+  Skills:
+  - summon{t=lorebun_walk} @origin
+
+
+lorebun_time_walkTOTEM:
+  Skills:
+  - orbital{oT=lorebun_time_walkTICK;md=200;r=5;i=1;p=128} @origin
+
+
+lorebun_time_walkTICK:
+  Skills:
+  - goto{speedModifier=1.4;sh=0;sv=0} @origin
+  
+  
+
+lorebun_copy_remove:
+  Skills:
+  - delay 200
+  - remove @self
+  
+  
+
+lorebun_walk_remove:
+  Skills:
+  - delay 15
+  - remove @self
+  
+
+
+lorebun_copy_combo_start:
+  Conditions:
+  - targetwithin{d=2}
+  - offgcd{}
+  - inCombat{}
+  Skills:
+  - gcd{t=20} @self
+  - state{mid=lorebun_copy_walk;s=attack} @self
+  - delay 7
+  - potion{t=SPEED;l=2;d=8;p=false} @self
+  - delay 8
+  - sound{s=minecraft:block.soul_sand.break;v=3;p=2;sc=HOSTILE} @self ?TargetWithin{d=2}
+  - damage{a=10} ?TargetWithin{d=2}
+  - delay 5
+  - skill{s=lorebun_copy_combo_continueB} @target
+  - state{mid=lorebun_copy_walk;s=attack;r=true} @self
+
+lorebun_copy_combo_continueB:
+  Conditions:
+  - targetwithin{d=5}
+  - inCombat{}
+  Skills:
+  - gcd{t=60} @self
+  - state{mid=lorebun_copy_walk;s=attack_b} @self
+  - delay 5
+  - potion{t=SPEED;l=2;d=5;p=false} @self
+  - delay 5
+  - sound{s=minecraft:block.soul_sand.break;v=3;p=2;sc=HOSTILE} @self ?TargetWithin{d=2}
+  - damage{a=8} ?TargetWithin{d=2}
+  - delay 10
+  - skill{s=lorebun_copy_combo_continueC} @target
+  - state{mid=lorebun_copy_walk;s=attack_b;r=true} @self
+
+lorebun_copy_combo_continueC:
+  Conditions:
+  - targetwithin{d=5}
+  - inCombat{}
+  Skills:
+  - gcd{t=60} @self
+  - state{mid=lorebun_copy_walk;s=attack_c} @self
+  - delay 10
+  - potion{t=SPEED;l=2;d=10;p=false} @self
+  - delay 10
+  - sound{s=minecraft:block.soul_sand.break;v=3;p=2;sc=HOSTILE} @self ?TargetWithin{d=2}
+  - damage{a=6} ?TargetWithin{d=2}
+  - throw{v=10;vy=10} ?TargetWithin{d=2}
+  - delay 15
+  - state{mid=lorebun_copy_walk;s=attack_c;r=true} @self
+  
+  
+  
+  
+lorebun_stun:
+  Skills:
+  - sound{s=minecraft:block.respawn_anchor.deplete;v=3;p=0.1;sc=HOSTILE} @self
+  - orbital{bulletType=MOB;mob=lorebun_hourglass;r=2;points=64;oy=3;md=100} @self
+  - delay 5
+  - orbital{oT=lorebun_stun_tick;r=1.95;points=64;oy=3;md=100} @self
+
+lorebun_stun_tick:
+  Skills:
+  - effect:particles{p=reddust;a=1;c=#ffea00;size=0.45} @origin{yoffset=-1.125}
+
+
+
+
+lorebun_throw_portal:
+  Cooldown: 20
+  Conditions:
+  - offgcd{}
+  - inCombat{}
+  - targetnotwithin{d=5}
+  Skills:
+  - gcd{t=80} @self
+  - state{mid=lorebun;s=throw} @self
+  - delay 10
+  - sound{s=minecraft:entity.ender_eye.launch;v=3;p=1.5;sc=HOSTILE} @self
+  - projectile{bulletType=MOB;mob=lorebun_hourglass;oH=lorebun_throw_portal_hit;v=12;md=80;syo=1.25;sfo=0.5;sso=0.35;tyo=1.25} @target
+  - delay 20
+  - state{mid=lorebun;s=throw;r=true} @self
+  
+lorebun_throw_portal_hit:
+  Skills:
+  - damage{a=20}
+  - sound{s=minecraft:block.glass.break;v=3;p=1.5;sc=HOSTILE} @origin
+  - potion{t=SLOW;d=80;l=4;p=false}
+  - potion{t=CONFUSION;d=160;l=4;p=false}
+  - sudoskill{s=lorebun_throw_portal_hit_swallow}
+  - skill{s=lorebun_mega_jump_portal} @self
+  - totem{oS=lorebun_throw_portal_summon} @SelfLocation{y=2}
+
+lorebun_throw_portal_hit_swallow:
+  Skills:
+  - totem{oS=lorebun_throw_portal_start;oT=lorebun_throw_portal_tick;yo=5;md=40} @self
+  - summon{t=pportal;a=1} @selflocation{y=6}
+  - delay 40
+  - aura{auraName=lorebun_tp;d=20}
+  
+lorebun_throw_portal_summon:
+  Skills:
+  - summon{t=pportal2;a=1} @selflocation{y=6}
+  - delay 40
+  - skill{s=lorebun_throw_portal_summon_teleport} @PIR{r=50}
+
+lorebun_throw_portal_summon_teleport:
+  TargetConditions:
+  - hasaura{name=lorebun_tp}
+  Skills:
+  - forcepull{spread=0;fo=true}
+
+lorebun_throw_portal_tick:
+  Skills:
+  - pull{v=3;tO=true} @self
+
+pportal_tick:
+  Skills:
+  - effect:particles{p=cloud;d=true;hs=1;vs=0.25;a=1;speed=0.4;fO=true} @Selflocation{y=2}
+
+
+
+lorebun_mega_jump_portal:
+  Skills:
+  - gcd{t=80}
+  - setai{ai=false} @self
+  - onDamaged{cE=true;d=70}
+  - state{mid=lorebun;s=mega_jump} @self
+  - delay 20
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - delay 20
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE} @self
+  - summon{t=jsmoke;a=1} @self
+  - lunge{v=0.1;vy=6} @Forward{f=0;yoffset=10}
+  - delay 17
+  - lunge{v=0;vy=-3} @Forward{f=0;yoffset=-10}
+  - damage{a=24} @PiR{r=4}
+  - throw{v=7;vy=7} @PiR{r=4}
+  - delay 20
+  - state{mid=lorebun;s=mega_jump;r=true} @self
+  - setai{ai=true} @self
+
+
+lorebun_shoot_clock:
+  Cooldown: 14
+  Conditions:
+  - offgcd{}
+  - inCombat{}
+  Skills:
+  - gcd{t=80} @self
+  - setai{ai=false} @self
+  - state{mid=lorebun;s=shoot} @self
+  - delay 20
+  - projectile{oE=lorebun_shoot_clock_end;oT=lorebun_shoot_clock_tick;repeat=5;repeatI=5;v=10;sfo=0.15;syo=1.25;sso=-0.35;md=40;sE=false} @Origin{xOffset=<random.-1to1>;yoffset=<random.4to5>;zoffset=<random.-1to1>}
+  - sound{s=minecraft:block.respawn_anchor.charge;v=3;p=2;sc=HOSTILE;repeat=5;repeatI=5} @self
+  - delay 60
+  - setai{ai=true} @self
+  - state{mid=lorebun;s=shoot;r=true} @self
+
+lorebun_shoot_clock_end:
+  Skills:
+  - projectile{oT=lorebun_shoot_clock_tick_proj;oH=lorebun_shoot_clock_hit;v=12;i=1;hR=1;vR=1;fO=true;sfo=0;syo=0;sE=false} @PiR{r=40;sort=RANDOM;limit=1}
+  - sound{s=minecraft:block.respawn_anchor.deplete;v=3;p=2;sc=HOSTILE} @origin
+
+lorebun_shoot_clock_tick:
+  Skills:
+  - modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.9}
+  - effect:particles{p=reddust;color=#a200ff;a=1;size=0.85} @origin
+
+lorebun_shoot_clock_tick_proj:
+  Skills:
+  - effect:particles{p=reddust;color=#a200ff;a=1;size=0.85} @origin
+
+lorebun_shoot_clock_hit:
+  Skills:
+  - damage{a=15}
+  - setNoDamageTicks{t=1}
+
+lorebun_timeback_check:
+  Skills:
+  - setvariable{var=caster.beforehp;value="<target.hp>";type=FLOAT}
+  - setvariable{var=caster.locationx;value="<target.l.x>";type=FLOAT}
+  - setvariable{var=caster.locationy;value="<target.l.y>";type=FLOAT}
+  - setvariable{var=caster.locationz;value="<target.l.z>";type=FLOAT}
+  - delay 200
+  - setvariable{var=caster.afterhp;value="<target.hp>";type=FLOAT}
+  - skill{s=lorebun_timeback;repeat=150;repeatI=2} 
+
+lorebun_timeback:
+  Cooldown: 13
+  Conditions:
+  - inCombat{}
+  - variableInRange{var=caster.beforehp;value=<<caster.var.afterhp>}
+  - offgcd{}
+  Skills:
+  - state{mid=lorebun;s=timeback} @self
+  - freeze{ticks=40}
+  - potion{t=SLOW;l=255;d=40;i=false;p=false}
+  - potion{t=NIGHT_VISION;l=255;d=20;i=false;p=false}
+  - delay 7
+  - aura{auraName=lorebun_timeback;d=20}
+  - sound{s=minecraft:block.beacon.power_select;v=3;p=2;sc=HOSTILE} @self
+  - summon{t=backtp;a=1} @Forward{f=0;yOffset=1.25;sideoffset=0.25}
+  - effect:particleline{origin=@ModelPart{m=lorebun;p=right_paw};fromOrigin=true;p=reddust;color=#a200ff;a=5;hs=0;vs=0;tyo=1;size=0.3}
+  - delay 2
+  - sound{s=minecraft:block.enderman.teleport;v=3;p=1;sc=HOSTILE}
+  - totem{oS=lorebun_timeback_totem;md=1;yo=1} @Location{c=<caster.var.locationx>,<caster.var.locationy>,<caster.var.locationz>}
+  - delay 1
+  - teleportto{location=<caster.var.locationx>,<caster.var.locationy>,<caster.var.locationz>}
+  - sound{s=minecraft:block.enderman.teleport;v=3;p=1;sc=HOSTILE}
+  - sethealth{a=<caster.var.beforehp>}
+  - delay 30
+  - state{mid=lorebun;s=timeback;r=true} @self
+
+lorebun_timeback_totem:
+  Skills:
+  - skill{s=lorebun_timeback_totemFX} @PlayersNearOrigin{r=50}
+  
+lorebun_timeback_totemFX:
+  TargetConditions:
+  - hasAura{name=lorebun_timeback}
+  Skills:
+  - effect:particleline{p=reddust;color=#a200ff;a=5;hs=0.25;vs=0.5;fO=true;tyo=1}
+  
+lorebun_cblade:
+  Cooldown: 10
+  Conditions:
+  - inCombat{}
+  - playernotwithin{d=3}
+  - offgcd{}
+  Skills:
+  - gcd{t=30} @self
+  - state{mid=lorebun;s=cblade_combo} @self
+  - delay 7
+  - projectile{oH=lorebun_cblade_hit;bullettype=MOB;mob=cblade;v=16;sfo=-1;syo=1;sE=false;tyo=0.5;sB=false;md=24;repeat=1;repeatI=8;hs=true;hfs=1.5} @Target
+  - delay 10
+  - summon{t=esplash;a=1} @self
+  - summon{t=lorebun_esplash_start} @self
+  
+lorebun_cblade_splash:
+  Skills:
+  - summon{t=esplash;a=1} @origin
+  - potion{t=SLOW;l=3;d=40;i=false;p=false;repeat=10;repeatI=1} @PlayersNearOrigin{r=2}
+  - delay 120
+  - remove @self
+  
+lorebun_cblade_splash_damage:
+  Skills:
+  - damage{a=26;pkb=true} @PlayersNearOrigin{r=1}
+
+lorebun_cblade_hit:
+  Skills:
+  - damage{a=20}
+  - effect:particles{p=reddust;c=#ff00d9;a=25;hs=0.25;vs=0.5;y=1}
+  - sound{s=minecraft:entity.ender_eye.death;v=3;p=2;sc=HOSTILE}
+  - potion{t=WITHER;d=60;i=false;p=false;l=1}
+  - setNoDamageTicks{t=1}
+
+  
+lorebun_ult:
+  Cooldown: 120
+  Conditions:
+  - inCombat{}
+  - offgcd{}
+  - inCombat{}
+  Skills:
+  - gcd{t=210} @self
+  - state{mid=lorebun;s=ult} @self
+  - potion{t=SLOW;d=40;l=255;p=false} @self
+  - potion{t=LEVITATION;d=40;l=1;p=false} @self
+  - delay 45
+  - sound{s=minecraft:block.respawn_anchor.set_spawn;v=3;p=1;sc=HOSTILE} @self
+  - setai{ai=false} @self
+  - projectile{bullettype=MOB;mob=lorebun_copy_ult;v=<random.1to20>;oT=lorebun_ult_tick;oE=lorebun_ult_end;sfo=-1;syo=2.5;sE=false;tyo=0;md=80} @RingAroundOrigin{r=3;p=10;yoffset=5}
+  - projectile{bullettype=MOB;mob=lorebun_copy_ult;v=1;oT=lorebun_ult_tick;oE=lorebun_ult_end;sfo=-1;syo=2.5;sE=false;tyo=0;md=80} @RingAroundOrigin{r=1;p=4;yoffset=5}
+  - delay 160
+  - setai{ai=true} @self
+  - state{mid=lorebun;s=ult;r=true} @self
+
+lorebun_ult_tick:
+  Skills:
+  - modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.95}
+
+lorebun_ult_end:
+  Skills:
+  - sound{s=minecraft:entity.phantom.flap;v=3;p=2;sc=HOSTILE;repeat=10;repeatI=1} @origin
+  - projectile{bullettype=MOB;mob=lorebun_copy_ult;v=15;fO=true;sfo=0;syo=1.5;sE=false;oE=lorebun_ult_hit;hR=0.5;vR=0.5} @Origin{yoffset=-10;xoffset=0;zoffset=0}
+
+lorebun_ult_hit:
+  Skills:
+  - summon{t=jsmoke_ult;a=1} @origin
+  - totem{oE=lorebun_ult_damage;md=4;yo=0} @origin
+  
+lorebun_ult_damage:
+  Skills:
+  - damage{a=30} @PlayersNearOrigin{r=3}
+  
+jsmoke:
+  Skills:
+  - delay 16
+  - sound{s=minecraft:entity.generic.explode;v=3;p=2;sc=HOSTILE} @self
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf1} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf2} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf3} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf4} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf5} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf6} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf7} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf8} @self
+  - delay 1
+  - remove @self
+  
+jsmoke_ult:
+  Skills:
+  - delay 4
+  - sound{s=minecraft:entity.generic.explode;v=3;p=2;sc=HOSTILE} @self
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf1} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf2} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf3} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf4} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf5} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf6} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf7} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=jf8} @self
+  - delay 1
+  - remove @self
+
+esplash:
+  Skills:
+  - delay 4
+  - sound{s=minecraft:block.respawn_anchor.set_spawn;v=3;p=2;sc=HOSTILE} @self
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef1} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef2} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef3} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef4} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef5} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef6} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef7} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef8} @self
+  - totem{oT=lorebun_cblade_splash_damage;md=10;yo=0} @forward{f=3;yoffset=0}
+  - totem{oT=lorebun_cblade_splash_damage;md=10;yo=0} @forward{f=2;yoffset=0}
+  - totem{oT=lorebun_cblade_splash_damage;md=10;yo=0} @forward{f=1;yoffset=0}
+  - totem{oT=lorebun_cblade_splash_damage;md=10;yo=0} @forward{f=0;yoffset=0}
+  - sound{s=minecraft:entity.generic.explode;v=3;p=2;sc=HOSTILE} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef9} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef10} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef11} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef12} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=ef13} @self
+  - delay 3
+  - remove @self
+
+pportal:
+  Skills:
+  - sound{s=minecraft:block.respawn_anchor.ambient;v=3;p=1.5;sc=HOSTILE} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf1} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf2} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf3} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf4} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf5} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf6} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf7} @self
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf4} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf5} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf6} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf7} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf8} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=pf9} @self
+  - delay 2
+  - remove @self
+
+cblade:
+  Skills:
+  - delay 4
+  - sound{s=minecraft:entity.ghast.shoot;v=3;p=2;sc=HOSTILE} @self
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf1} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf2} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf3} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf4} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf5} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf6} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf7} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf6} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf7} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf8} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cf9} @self
+  - delay 3
+  - remove @self
+
+backtp:
+  Skills:
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=bf1} @self
+  - delay 1
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=bf2} @self
+  - delay 1
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=bf3} @self
+  - delay 1
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=bf4} @self
+  - delay 1
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=bf5} @self
+  - delay 1
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=bf6} @self
+  - delay 1
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=bf7} @self
+  - delay 2
+  - remove @self
+
+combo_f:
+  Skills:
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cff1} @self
+  - delay 1.5
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cff2} @self
+  - delay 1.5
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=cff3} @self
+  - delay 1.5
+  - remove @self
+
+attack_c:
+  Skills:
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=af1} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=af2} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=af3} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=af4} @self
+  - delay 2
+  - remove @self
+
+ddash:
+  Skills:
+  - delay 4
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=df1} @self
+  - delay 3
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=df2} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=df3} @self
+  - delay 2
+  - changepart{m=lbblank;pid=lbblank;nm=lbvfx;npid=df4} @self
+  - delay 2
+  - remove @self
+
+lorebun_title:
+    Skills:
+        - effect:sound{s=entity.wither.spawn;p=1} @self
+        - delay 38
+        - particles{p=SMOKE;a=20;hs=0.3;vs=0.5;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - particles{p=CRIMSON_SPORE;a=20;s=0.2;hs=0.5;vs=0.2;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - delay 92
+        - particles{p=SMOKE;a=50;s=1;hs=0.3;vs=0.5} @origin
+        - particles{p=end_rod;a=40;hs=1;s=0.3;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=50;s=0.3;hs=0.5;vs=0.2} @origin
+        - particles{p=end_rod;a=80;hs=1;s=0.6;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=100;s=0.6;hs=0.5;vs=0.2} @origin
+        - sendtitle{title="&6&lBOSS DERROTADO";subtitle="TIER 3";d=60;fi=60;fo=60} @PlayersInRadius{r=50}

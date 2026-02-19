@@ -1,0 +1,153 @@
+info:
+  namespace: "victoralonso"
+font_images:
+  jobs_menu:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/jobs_menu.png"
+    symbol: "가"
+    y_position: 39
+  menu_info:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/menu_info.png"
+    symbol: "각"
+    y_position: 39
+  menu_shop:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/menu_shop.png"
+    symbol: "갂"
+    y_position: 39
+  menu_quest:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/menu_quest.png"
+    symbol: "갃"
+    y_position: 39
+  leaving_job:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/leaving_job.png"
+    symbol: "간"
+    y_position: 39
+  _menu_progress:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/_menu_progress.png"
+    symbol: "갅"
+    y_position: 39
+  brewer:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/brewer.png"
+    symbol: "갆"
+    y_position: 39
+  builder:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/builder.png"
+    symbol: "갇"
+    y_position: 39
+  cooker:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/cooker.png"
+    symbol: "갈"
+    y_position: 39
+  crafter:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/crafter.png"
+    symbol: "갉"
+    y_position: 39
+  digger:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/digger.png"
+    symbol: "갊"
+    y_position: 39
+  enchanter:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/enchanter.png"
+    symbol: "갋"
+    y_position: 39
+  engineer:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/engineer.png"
+    symbol: "갌"
+    y_position: 39
+  explorer:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/explorer.png"
+    symbol: "갍"
+    y_position: 39
+  farmer:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/farmer.png"
+    symbol: "갎"
+    y_position: 39
+  fisherman:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/fisherman.png"
+    symbol: "갏"
+    y_position: 39
+  florist:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/florist.png"
+    symbol: "감"
+    y_position: 39
+  hunter:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/hunter.png"
+    symbol: "갑"
+    y_position: 39
+  miner:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/miner.png"
+    symbol: "값"
+    y_position: 39
+  smelter:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/smelter.png"
+    symbol: "갓"
+    y_position: 39
+  tamer:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/tamer.png"
+    symbol: "갔"
+    y_position: 39
+  taster:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/taster.png"
+    symbol: "강"
+    y_position: 39
+  trader:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/trader.png"
+    symbol: "갖"
+    y_position: 39
+  weaponsmith:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/weaponsmith.png"
+    symbol: "갗"
+    y_position: 39
+  woodcutter:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "gui/jobs/progress/woodcutter.png"
+    symbol: "갘"
+    y_position: 39

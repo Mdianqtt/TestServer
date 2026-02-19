@@ -1,0 +1,10 @@
+info:
+  namespace: nogs_menagerie
+items:
+  nm_orca_fin:
+    display_name: '&fOrca Fin'
+    resource:
+      material: PAPER
+      generate: false
+      model_id: 2536
+      model_path: loots/nm_orca_fin

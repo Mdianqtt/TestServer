@@ -1,0 +1,814 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+## ADMIN STUFF ##
+
+JACKPOT2_remove_self:
+  TriggerConditions:
+  - holding{m=jackpot_2_*} true
+  Skills:
+  - setblock{m=air} @origin{yo=2}
+  - giveitem{i=<caster.mythic_type>} @trigger
+  - remove @self
+
+## RECOIL ##
+
+JACKPOT2_recoil:
+  Skills:
+  - delay 1
+  - recoil{r=15;pitch=-.3}
+  - delay 1
+  - recoil{r=13;pitch=.2}
+  - delay 1
+  - recoil{r=10;pitch=-.1}
+  - delay 1
+  - recoil{r=8;pitch=.1}
+
+## WINNER TEXT ##
+
+JACKPOT2_winner_text_blink:
+  Skills:
+  - displaytransformation{action=set;transformation=SCALE;value=0,0,0;delay=3} @self
+  - displaytransformation{action=set;transformation=SCALE;value=1,1,1;delay=6} @self
+  - displaytransformation{action=set;transformation=SCALE;value=0,0,0;delay=9} @self
+  - displaytransformation{action=set;transformation=SCALE;value=1,1,1;delay=12} @self
+  - remove{delay=40} @self
+
+
+## CONVERTER ##
+
+JACKPOT2_converter_show_menu:
+  Conditions:
+  - playerwithin{d=3} orElseCast JACKPOT2_converter_hide_menu
+  - varequals{var=caster.showmenu;value=true} false
+  Skills:
+  #- message{m="JACKPOT2_converter_show_menu"} @everyone
+  - setvar{var=caster.showmenu;value=true;type=STRING} @self
+  - state{s=show_prices;p=3} @self
+
+JACKPOT2_converter_hide_menu:
+  Conditions:
+  - varequals{var=caster.showmenu;value=false} false
+  Skills:
+  #- message{m="JACKPOT2_converter_hide_menu"} @everyone
+  - setvar{var=caster.showmenu;value=false;type=STRING} @self
+  - state{s=hide_prices;p=3} @self
+
+## EXCHANGE ##
+
+JACKPOT2_convert_item_to_money:
+  Skills:
+  - skill{s=JACKPOT2_convert_emerald}
+  - skill{s=JACKPOT2_convert_diamond}
+  - skill{s=JACKPOT2_convert_gold_ingot}
+  - skill{s=JACKPOT2_convert_gold_nugget}
+
+
+
+JACKPOT2_convert_emerald:
+  TriggerConditions:
+  - holding{t=emerald} true
+  Conditions:
+  - offgcd true
+  Skills:
+  - gcd{ticks=2}
+  - state{s=interact} @self
+  - consumeslot{}
+  - currencygive{amount=250}
+  - projectile{bulletType=TEXT;text="&2+$250";fo=true;origin=@forward{f=0.5;yo=0.5;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;syo=0;sfo=0;md=20;sE=false;sB=false} @trigger{yo=4}
+
+JACKPOT2_convert_diamond:
+  TriggerConditions:
+  - holding{t=diamond} true
+  Conditions:
+  - offgcd true
+  Skills:
+  - gcd{ticks=2}
+  - state{s=interact} @self
+  - consumeslot{}
+  - currencygive{amount=500}
+  - projectile{bulletType=TEXT;text="&2+$500";fo=true;origin=@forward{f=0.5;yo=0.5;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;syo=0;sfo=0;md=20;sE=false;sB=false} @trigger{yo=4}
+
+JACKPOT2_convert_gold_ingot:
+  TriggerConditions:
+  - holding{t=gold_ingot} true
+  Conditions:
+  - offgcd true
+  Skills:
+  - gcd{ticks=2}
+  - state{s=interact} @self
+  - consumeslot{}
+  - currencygive{amount=150}
+  - projectile{bulletType=TEXT;text="&2+$150";fo=true;origin=@forward{f=0.5;yo=0.5;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;syo=0;sfo=0;md=20;sE=false;sB=false} @trigger{yo=4}
+
+JACKPOT2_convert_gold_nugget:
+  TriggerConditions:
+  - holding{t=gold_nugget} true
+  Conditions:
+  - offgcd true
+  Skills:
+  - gcd{ticks=2}
+  - state{s=interact} @self
+  - consumeslot{}
+  - currencygive{amount=50}
+  - projectile{bulletType=TEXT;text="&2+$50";fo=true;origin=@forward{f=0.5;yo=0.5;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;syo=0;sfo=0;md=20;sE=false;sB=false} @trigger{yo=4}
+
+
+
+
+
+
+
+
+
+## JACKPOT ##
+
+JACKPOT2_sit:
+  Cooldown: 1
+  TriggerConditions:
+  - ridingmodel false
+  Conditions:
+  - offgcd true
+  Skills:
+  #- message{m="JACKPOT2_sit"} @everyone
+  - gcd{ticks=5}
+  - mountmodel{mid=jackpot_2;d=false;p=seat}
+
+JACKPOT2_pull_lever:
+  Cooldown: 3
+  TriggerConditions:
+  - ridingmodel true
+  - hascurrency{a=250} orElseCast JACKPOT2_no_money
+  Conditions:
+  - offgcd true
+  Skills:
+  - projectile{bulletType=TEXT;text="&4<&da>$20";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - currencytake{amount=250}
+  - gcd{ticks=60}
+  - state{s=pull_handle;p=4} @self
+  - setvar{var=caster.rolling;value="true";type=STRING} @self
+  - sound{s=littleroom_jackpot2:jackpot2.spin;v=0.25;sc=HOSTILE} @self
+  - skill{s=JACKPOT2_initiate_roller_1} @self
+  - skill{s=JACKPOT2_initiate_roller_2;delay=3} @self
+  - skill{s=JACKPOT2_initiate_roller_3;delay=6} @self
+  - skill{s=JACKPOT2_reward;delay=50}
+  
+JACKPOT2_money_modifier:
+  Skills:
+  - modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.75}
+  
+  
+JACKPOT2_no_money:
+  TriggerConditions:
+  - ridingmodel true
+  Conditions:
+  - offgcd true
+  Skills:
+  - sound{s=entity.villager.no} @self
+  - summon{t=jackpot_2_nomoney} @forward{f=-0.5;yo=1.5;lockpitch=true;delay=5}
+  - dismountall{m=jackpot_2} @self
+  - throw{v=2;vy=2;delay=1}
+  
+  
+## ROLLER 1 SPIN ##
+  
+JACKPOT2_initiate_roller_1:
+  Skills:
+  - sound{s=littleroom_jackpot2:jackpot2.roller_stop;v=0.5;sc=HOSTILE;delay=40} @self
+  - randomskill{skills=JACKPOT2_roller_1_emerald,
+                       JACKPOT2_roller_1_apple,
+                       JACKPOT2_roller_1_nautilus,
+                       JACKPOT2_roller_1_ink_sac,
+                       JACKPOT2_roller_1_gold_ingot,
+                       JACKPOT2_roller_1_axolotl,
+                       JACKPOT2_roller_1_chicken,
+                       JACKPOT2_roller_1_creeper} @self
+                  
+JACKPOT2_roller_1_emerald:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_emerald"} @everyone
+  - state{s=roller_1_emerald} @self
+  - setvar{var=caster.roller_1;value="emerald";type=STRING} @self
+                  
+JACKPOT2_roller_1_apple:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_apple"} @everyone
+  - state{s=roller_1_apple} @self
+  - setvar{var=caster.roller_1;value="apple";type=STRING} @self
+                  
+JACKPOT2_roller_1_nautilus:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_nautilus"} @everyone
+  - state{s=roller_1_nautilus} @self
+  - setvar{var=caster.roller_1;value="nautilus";type=STRING} @self
+                  
+JACKPOT2_roller_1_ink_sac:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_ink_sac"} @everyone
+  - state{s=roller_1_ink_sac} @self
+  - setvar{var=caster.roller_1;value="ink_sac";type=STRING} @self
+                  
+JACKPOT2_roller_1_gold_ingot:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_gold_ingot"} @everyone
+  - state{s=roller_1_gold_ingot} @self
+  - setvar{var=caster.roller_1;value="gold_ingot";type=STRING} @self
+                  
+JACKPOT2_roller_1_axolotl:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_axolotl"} @everyone
+  - state{s=roller_1_axolotl} @self
+  - setvar{var=caster.roller_1;value="axolotl";type=STRING} @self
+                  
+JACKPOT2_roller_1_chicken:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_chicken"} @everyone
+  - state{s=roller_1_chicken} @self
+  - setvar{var=caster.roller_1;value="chicken";type=STRING} @self
+                  
+JACKPOT2_roller_1_creeper:
+  Skills:
+  #- message{m="JACKPOT2_roller_1_creeper"} @everyone
+  - state{s=roller_1_creeper} @self
+  - setvar{var=caster.roller_1;value="creeper";type=STRING} @self
+  
+  
+  
+  
+  
+## ROLLER 2 SPIN ##
+
+JACKPOT2_initiate_roller_2:
+  Skills:
+  #- sound{s=littleroom_jackpot2:jackpot2.roller_stop;v=0.5;sc=HOSTILE;delay=40} @self
+  - randomskill{skills=JACKPOT2_roller_2_emerald,
+                       JACKPOT2_roller_2_apple,
+                       JACKPOT2_roller_2_nautilus,
+                       JACKPOT2_roller_2_ink_sac,
+                       JACKPOT2_roller_2_gold_ingot,
+                       JACKPOT2_roller_2_axolotl,
+                       JACKPOT2_roller_2_chicken,
+                       JACKPOT2_roller_2_creeper} @self
+                  
+JACKPOT2_roller_2_emerald:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_emerald"} @everyone
+  - state{s=roller_2_emerald;p=5} @self
+  - setvar{var=caster.roller_2;value="emerald";type=STRING} @self
+                  
+JACKPOT2_roller_2_apple:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_apple"} @everyone
+  - state{s=roller_2_apple;p=5} @self
+  - setvar{var=caster.roller_2;value="apple";type=STRING} @self
+                  
+JACKPOT2_roller_2_nautilus:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_nautilus"} @everyone
+  - state{s=roller_2_nautilus;p=5} @self
+  - setvar{var=caster.roller_2;value="nautilus";type=STRING} @self
+                  
+JACKPOT2_roller_2_ink_sac:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_ink_sac"} @everyone
+  - state{s=roller_2_ink_sac;p=5} @self
+  - setvar{var=caster.roller_2;value="ink_sac";type=STRING} @self
+                  
+JACKPOT2_roller_2_gold_ingot:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_gold_ingot"} @everyone
+  - state{s=roller_2_gold_ingot;p=5} @self
+  - setvar{var=caster.roller_2;value="gold_ingot";type=STRING} @self
+                  
+JACKPOT2_roller_2_axolotl:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_axolotl"} @everyone
+  - state{s=roller_2_axolotl;p=5} @self
+  - setvar{var=caster.roller_2;value="axolotl";type=STRING} @self
+                  
+JACKPOT2_roller_2_chicken:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_chicken"} @everyone
+  - state{s=roller_2_chicken;p=5} @self
+  - setvar{var=caster.roller_2;value="chicken";type=STRING} @self
+                  
+JACKPOT2_roller_2_creeper:
+  Skills:
+  #- message{m="JACKPOT2_roller_2_creeper"} @everyone
+  - state{s=roller_2_creeper;p=5} @self
+  - setvar{var=caster.roller_2;value="creeper";type=STRING} @self
+  
+  
+  
+  
+  
+## ROLLER 3 SPIN ##
+
+JACKPOT2_initiate_roller_3:
+  Skills:
+  - sound{s=littleroom_jackpot2:jackpot2.roller_stop;v=0.5;sc=HOSTILE;delay=40} @self
+  - randomskill{skills=JACKPOT2_roller_3_emerald,
+                       JACKPOT2_roller_3_apple,
+                       JACKPOT2_roller_3_nautilus,
+                       JACKPOT2_roller_3_ink_sac,
+                       JACKPOT2_roller_3_gold_ingot,
+                       JACKPOT2_roller_3_axolotl,
+                       JACKPOT2_roller_3_chicken,
+                       JACKPOT2_roller_3_creeper} @self
+                  
+JACKPOT2_roller_3_emerald:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_emerald"} @everyone
+  - state{s=roller_3_emerald;p=6} @self
+  - setvar{var=caster.roller_3;value="emerald";type=STRING} @self
+                  
+JACKPOT2_roller_3_apple:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_apple"} @everyone
+  - state{s=roller_3_apple;p=6} @self
+  - setvar{var=caster.roller_3;value="apple";type=STRING} @self
+                  
+JACKPOT2_roller_3_nautilus:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_nautilus"} @everyone
+  - state{s=roller_3_nautilus;p=6} @self
+  - setvar{var=caster.roller_3;value="nautilus";type=STRING} @self
+                  
+JACKPOT2_roller_3_ink_sac:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_ink_sac"} @everyone
+  - state{s=roller_3_ink_sac;p=6} @self
+  - setvar{var=caster.roller_3;value="ink_sac";type=STRING} @self
+                  
+JACKPOT2_roller_3_gold_ingot:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_gold_ingot"} @everyone
+  - state{s=roller_3_gold_ingot;p=6} @self
+  - setvar{var=caster.roller_3;value="gold_ingot";type=STRING} @self
+                  
+JACKPOT2_roller_3_axolotl:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_axolotl"} @everyone
+  - state{s=roller_3_axolotl;p=6} @self
+  - setvar{var=caster.roller_3;value="axolotl";type=STRING} @self
+                  
+JACKPOT2_roller_3_chicken:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_chicken"} @everyone
+  - state{s=roller_3_chicken;p=6} @self
+  - setvar{var=caster.roller_3;value="chicken";type=STRING} @self
+                  
+JACKPOT2_roller_3_creeper:
+  Skills:
+  #- message{m="JACKPOT2_roller_3_creeper"} @everyone
+  - state{s=roller_3_creeper;p=6} @self
+  - setvar{var=caster.roller_3;value="creeper";type=STRING} @self
+  
+  
+  
+## REWARD ##
+
+JACKPOT2_reward:
+  Skills:
+  #- message{m="JACKPOT2_reward"}
+  #- message{m="ROLLER VARS <caster.var.roller_1> <caster.var.roller_2> <caster.var.roller_3>"}
+  - skill{s=JACKPOT2_reward_emerald}
+  - skill{s=JACKPOT2_reward_apple}
+  - skill{s=JACKPOT2_reward_nautilus}
+  - skill{s=JACKPOT2_reward_ink_sac}
+  - skill{s=JACKPOT2_reward_gold_ingot}
+  - skill{s=JACKPOT2_reward_axolotl}
+  - skill{s=JACKPOT2_reward_chicken}
+  - skill{s=JACKPOT2_reward_creeper}
+  - skill{s=JACKPOT2_reward_golden_apple}
+  
+  
+## EMERALD REWARD ##
+  
+JACKPOT2_reward_emerald:
+  Conditions:
+  - varequals{var=caster.roller_1;value="emerald"} orElseCast JACKPOT2_reward_2_emerald_2
+  - varequals{var=caster.roller_2;value="emerald"} orElseCast JACKPOT2_reward_2_emerald_3
+  - varequals{var=caster.roller_3;value="emerald"} orElseCast JACKPOT2_reward_2_emerald_4
+  Skills:
+  - currencygive{amount=250}
+  - projectile{bulletType=TEXT;text="&2+$250";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=emerald;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_winner_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.jackpot;delay=5} @self
+  
+JACKPOT2_reward_2_emerald_2:
+  Conditions:
+  - varequals{var=caster.roller_2;value="emerald"}
+  - varequals{var=caster.roller_3;value="emerald"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_emerald}
+  
+JACKPOT2_reward_2_emerald_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="emerald"}
+  - varequals{var=caster.roller_3;value="emerald"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_emerald}
+  
+JACKPOT2_reward_2_emerald_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="emerald"}
+  - varequals{var=caster.roller_2;value="emerald"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_emerald}
+  
+JACKPOT2_givereward_emerald:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_2;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_3;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  Skills:
+  - currencygive{amount=250}  
+  - projectile{bulletType=TEXT;text="&2+$250";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_winner_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.double_win;delay=5} @self
+  
+  
+## APPLE REWARD ##
+  
+JACKPOT2_reward_apple:
+  Conditions:
+  - varequals{var=caster.roller_1;value="apple"} orElseCast JACKPOT2_reward_2_apple_2
+  - varequals{var=caster.roller_2;value="apple"} orElseCast JACKPOT2_reward_2_apple_3
+  - varequals{var=caster.roller_3;value="apple"} orElseCast JACKPOT2_reward_2_apple_4
+  Skills:
+  - projectile{bulletType=TEXT;text="&2+$30";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=apple;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_winner_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.jackpot;delay=5} @self
+  
+JACKPOT2_reward_2_apple_2:
+  Conditions:
+  - varequals{var=caster.roller_2;value="apple"}
+  - varequals{var=caster.roller_3;value="apple"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_apple}
+  
+JACKPOT2_reward_2_apple_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="apple"}
+  - varequals{var=caster.roller_3;value="apple"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_apple}
+  
+JACKPOT2_reward_2_apple_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="apple"}
+  - varequals{var=caster.roller_2;value="apple"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_apple}
+  
+JACKPOT2_givereward_apple:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_2;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_3;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  Skills:
+  - currencygive{amount=30}  
+  - projectile{bulletType=TEXT;text="&2+$30";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_winner_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.double_win;delay=5} @self
+  
+  
+## nautilus REWARD ##
+  
+JACKPOT2_reward_nautilus:
+  Conditions:
+  - varequals{var=caster.roller_1;value="nautilus"} orElseCast JACKPOT2_reward_2_nautilus_2
+  - varequals{var=caster.roller_2;value="nautilus"} orElseCast JACKPOT2_reward_2_nautilus_3
+  - varequals{var=caster.roller_3;value="nautilus"} orElseCast JACKPOT2_reward_2_nautilus_4
+  Skills:
+  - currencygive{amount=300}
+  - projectile{bulletType=TEXT;text="&2+$300";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=NAUTILUS_SHELL;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_winner_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.jackpot;delay=5} @self
+  
+JACKPOT2_reward_2_nautilus_2:
+  Conditions:
+  - varequals{var=caster.roller_2;value="nautilus"}
+  - varequals{var=caster.roller_3;value="nautilus"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_nautilus}
+  
+JACKPOT2_reward_2_nautilus_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="nautilus"}
+  - varequals{var=caster.roller_3;value="nautilus"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_nautilus}
+  
+JACKPOT2_reward_2_nautilus_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="nautilus"}
+  - varequals{var=caster.roller_2;value="nautilus"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_nautilus}
+  
+JACKPOT2_givereward_nautilus:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_2;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_3;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  Skills:
+  - currencygive{amount=300}  
+  - projectile{bulletType=TEXT;text="&2+$300";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_winner_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.double_win;delay=5} @self
+  
+  
+## INK_SAC REWARD ##
+  
+JACKPOT2_reward_ink_sac:
+  Conditions:
+  - varequals{var=caster.roller_1;value="ink_sac"} orElseCast JACKPOT2_reward_2_ink_sac_2
+  - varequals{var=caster.roller_2;value="ink_sac"} orElseCast JACKPOT2_reward_2_ink_sac_3
+  - varequals{var=caster.roller_3;value="ink_sac"} orElseCast JACKPOT2_reward_2_ink_sac_4
+  Skills:
+  - currencygive{amount=100}
+  - projectile{bulletType=TEXT;text="&2+$100";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=ink_sac;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_winner_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.jackpot;delay=5} @self
+  
+JACKPOT2_reward_2_ink_sac_2:
+  Conditions:
+  - varequals{var=caster.roller_2;value="ink_sac"}
+  - varequals{var=caster.roller_3;value="ink_sac"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_ink_sac}
+  
+JACKPOT2_reward_2_ink_sac_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="ink_sac"}
+  - varequals{var=caster.roller_3;value="ink_sac"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_ink_sac}
+  
+JACKPOT2_reward_2_ink_sac_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="ink_sac"}
+  - varequals{var=caster.roller_2;value="ink_sac"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_ink_sac}
+  
+JACKPOT2_givereward_ink_sac:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_2;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_3;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  Skills:
+  - currencygive{amount=100}  
+  - projectile{bulletType=TEXT;text="&2+$100";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_winner_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.double_win;delay=5} @self
+  
+  
+## GOLD_INGOT REWARD ##
+  
+JACKPOT2_reward_gold_ingot:
+  Conditions:
+  - varequals{var=caster.roller_1;value="gold_ingot"} orElseCast JACKPOT2_reward_2_gold_ingot_2
+  - varequals{var=caster.roller_2;value="gold_ingot"} orElseCast JACKPOT2_reward_2_gold_ingot_3
+  - varequals{var=caster.roller_3;value="gold_ingot"} orElseCast JACKPOT2_reward_2_gold_ingot_4
+  Skills:
+  - currencygive{amount=150}
+  - projectile{bulletType=TEXT;text="&2+$150";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=gold_ingot;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_winner_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.jackpot;delay=5} @self
+  
+JACKPOT2_reward_2_gold_ingot_2:
+  Conditions:
+  - varequals{var=caster.roller_2;value="gold_ingot"}
+  - varequals{var=caster.roller_3;value="gold_ingot"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_gold_ingot}
+  
+JACKPOT2_reward_2_gold_ingot_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="gold_ingot"}
+  - varequals{var=caster.roller_2;value="apple"} false
+  - varequals{var=caster.roller_3;value="gold_ingot"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_gold_ingot}
+  
+JACKPOT2_reward_2_gold_ingot_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="gold_ingot"}
+  - varequals{var=caster.roller_2;value="gold_ingot"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_gold_ingot}
+  
+JACKPOT2_givereward_gold_ingot:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_2;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_3;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  Skills:
+  - currencygive{amount=150}  
+  - projectile{bulletType=TEXT;text="&2+$150";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_winner_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.double_win;delay=5} @self
+  
+  
+## AXOLOTL REWARD ##
+  
+JACKPOT2_reward_axolotl:
+  Conditions:
+  - varequals{var=caster.roller_1;value="axolotl"} orElseCast JACKPOT2_reward_2_axolotl_2
+  - varequals{var=caster.roller_2;value="axolotl"} orElseCast JACKPOT2_reward_2_axolotl_3
+  - varequals{var=caster.roller_3;value="axolotl"} orElseCast JACKPOT2_reward_2_axolotl_4
+  Skills:
+  - currencygive{amount=200}
+  - projectile{bulletType=TEXT;text="&2+$200";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=axolotl_bucket;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_winner_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.jackpot;delay=5} @self
+  
+JACKPOT2_reward_2_axolotl_2:
+  Conditions:
+  - varequals{var=caster.roller_2;value="axolotl"}
+  - varequals{var=caster.roller_3;value="axolotl"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_axolotl}
+  
+JACKPOT2_reward_2_axolotl_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="axolotl"}
+  - varequals{var=caster.roller_3;value="axolotl"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_axolotl}
+  
+JACKPOT2_reward_2_axolotl_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="axolotl"}
+  - varequals{var=caster.roller_2;value="axolotl"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_axolotl}
+  
+JACKPOT2_givereward_axolotl:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_2;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_3;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  Skills:
+  - currencygive{amount=200}  
+  - projectile{bulletType=TEXT;text="&2+$200";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_winner_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.double_win;delay=5} @self
+  
+  
+## CHICKEN REWARD ##
+  
+JACKPOT2_reward_chicken:
+  Conditions:
+  - varequals{var=caster.roller_1;value="chicken"} orElseCast JACKPOT2_reward_2_chicken_2
+  - varequals{var=caster.roller_2;value="chicken"} orElseCast JACKPOT2_reward_2_chicken_3
+  - varequals{var=caster.roller_3;value="chicken"} orElseCast JACKPOT2_reward_2_chicken_4
+  Skills:
+  - currencygive{amount=75}
+  - projectile{bulletType=TEXT;text="&2+$75";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - SudoSkill{s=JACKPOT2_chicken_winner}
+  - summon{t=jackpot_2_winner_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.jackpot;delay=5} @self
+  
+JACKPOT2_chicken_winner:
+  Skills:
+  - disguise{d=CHICKEN} @self
+  - effect:particles{p=poof;a=25;hs=.25;vs=.25;y=1} @self
+  - undisguise{delay=60} @self
+  - effect:particles{p=poof;a=25;hs=.25;vs=.25;y=1;delay=60} @self
+  
+JACKPOT2_reward_2_chicken_2:
+  Conditions:
+  - varequals{var=caster.roller_2;value="chicken"}
+  - varequals{var=caster.roller_3;value="chicken"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_chicken}
+  
+JACKPOT2_reward_2_chicken_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="chicken"}
+  - varequals{var=caster.roller_3;value="chicken"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_chicken}
+  
+JACKPOT2_reward_2_chicken_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="chicken"}
+  - varequals{var=caster.roller_2;value="chicken"}
+  Skills:
+  - skill{s=JACKPOT2_givereward_chicken}
+  
+JACKPOT2_givereward_chicken:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_2;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  - varequals{var=caster.roller_3;value="creeper"} castinstead JACKPOT_creeper_combo_lost
+  Skills:
+  - currencygive{amount=75}  
+  - projectile{bulletType=TEXT;text="&2+$75";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_winner_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.double_win;delay=5} @self
+  
+  
+## creeper REWARD ##
+  
+JACKPOT2_reward_creeper:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} orElseCast JACKPOT2_reward_2_creeper_2
+  - varequals{var=caster.roller_2;value="creeper"} orElseCast JACKPOT2_reward_2_creeper_3
+  - varequals{var=caster.roller_3;value="creeper"} orElseCast JACKPOT2_reward_2_creeper_4
+  Skills:
+  - fakeexplosion @self
+  - dismountall{m=jackpot_2} @self
+  - throw{v=4;vy=2;delay=1}
+  - currencytake{amount=500}
+  - projectile{bulletType=TEXT;text="&4<&da>$500";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=CREEPER_HEAD;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_loser_triple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.creeper;delay=5} @self
+  
+JACKPOT2_reward_2_creeper_2:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"} false
+  - varequals{var=caster.roller_2;value="creeper"}
+  - varequals{var=caster.roller_3;value="creeper"}
+  Skills:
+  - currencytake{amount=500}
+  - projectile{bulletType=TEXT;text="&4<&da>$500";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_loser_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.creeper;delay=5} @self
+  
+JACKPOT2_reward_2_creeper_3:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"}
+  - varequals{var=caster.roller_2;value="creeper"} false
+  - varequals{var=caster.roller_3;value="creeper"}
+  Skills:
+  - currencytake{amount=500}
+  - projectile{bulletType=TEXT;text="&4<&da>$500";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_loser_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.creeper;delay=5} @self
+  
+JACKPOT2_reward_2_creeper_4:
+  Conditions:
+  - varequals{var=caster.roller_1;value="creeper"}
+  - varequals{var=caster.roller_2;value="creeper"}
+  - varequals{var=caster.roller_3;value="creeper"} false
+  Skills:
+  - currencytake{amount=500}  
+  - projectile{bulletType=TEXT;text="&4<&da>$500";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - summon{t=jackpot_2_loser_double} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.creeper;delay=5} @self
+  
+  
+  
+## creeper COMBO LOST ##
+
+JACKPOT_creeper_combo_lost:
+  Skills:
+  - summon{t=jackpot_2_winner_creeper_combo_lost} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - sound{s=littleroom_jackpot2:jackpot2.creeper;delay=5} @self
+  
+
+## GOLDEN APPLE REWARD ##
+  
+JACKPOT2_reward_golden_apple:
+  Conditions:
+  - varequals{var=caster.roller_1;value="gold_ingot"}
+  - varequals{var=caster.roller_2;value="apple"}
+  - varequals{var=caster.roller_3;value="gold_ingot"}
+  Skills:
+  - currencygive{amount=1000}
+  - projectile{bulletType=TEXT;text="&2+1000$";fo=true;origin=@forward{f=-2.5;yo=1.15;lockpitch=true};v=2;oT=JACKPOT2_money_modifier;md=20;sE=false;sB=false} @forward{f=-1.5;yo=4;lockpitch=true}
+  - state{s=triple_winner;p=7;lo=4} @self
+  - itemspray{item=golden_apple;amount=20;v=0.5;yv=2;r=0.5;y=0;d=40;delay=5} @modelpart{pid=jackpot}
+  - summon{t=jackpot_2_winner_golden_apple} @forward{f=-0.5;yo=2;lockpitch=true;delay=5}
+  - skill{s=JACKPOT2_recoil;delay=5} @pir{r=12}
+  - sound{s=littleroom_jackpot2:jackpot2.bonus;delay=5} @self

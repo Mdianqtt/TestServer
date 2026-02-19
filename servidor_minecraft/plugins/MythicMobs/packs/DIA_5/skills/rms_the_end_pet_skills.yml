@@ -1,0 +1,450 @@
+######## created by samus2002 #########
+
+EXP_Gain:
+  Conditions:
+  - incombat true
+  Skills:
+  - petExperience{exp=1} @self
+  
+Pet_Look:
+  Conditions:
+  - incombat castinstead Pet_Look_TARGET
+  - hasaura{n=NO_LOOK} false
+  Skills:
+  - look{headOnly=false;immediately=true} @PetOwner
+  
+# Ender Ripper #
+
+Ender_Ripper_SKILL_PET:
+  Cooldown: 4
+  Conditions:
+  - offgcd
+  Skills:
+  - randomskill{skills=Ender_Ripper_CLAW_SLASH_PET,Ender_Ripper_SPIN_SLASH_PET}
+
+# Claw Slash #
+
+Ender_Ripper_CLAW_SLASH_PET:
+  Conditions:
+  - offgcd
+  - targetwithin{d=5} true
+  Skills:
+  - gcd{ticks=40}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=slash;speed=1;li=3;lo=3} @self
+  
+  - delay 3
+  - delay 7
+  
+  - lunge{velocity=0.8;velocityY=-1;repeat=3;repeatInterval=1} @TargetLocation ?!targetwithin{d=3}
+  - effect:sound{s=entity.enderman.hurt;volume=0.8;pitch=1.4} @self 0.5
+  - effect:sound{s=entity.wither.shoot;volume=0.8;pitch=1.3} @self
+  - effect:sound{s=entity.player.attack.sweep;volume=0.8;pitch=1.3} @self
+  - delay 2
+  - slash{y=1.8;w=4;h=2;mpd=true;a=-180;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=145;d=10} @forward{f=0.4;lockpitch=true}
+  - slash{y=0.8;w=4;h=2;mpd=true;a=-180;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=145;d=10} @forward{f=0.4;lockpitch=true}
+  - skill{s=Ender_Ripper_CLAW_SLASH_DAMAGE} @target
+
+  - delay 25
+  
+  - setspeed{speed=1.6;type=walking} @self
+
+# Spin Slash #
+
+Ender_Ripper_SPIN_SLASH_PET:
+  Conditions:
+  - offgcd
+  - targetwithin{d=5} true
+  Skills:
+  - gcd{ticks=55}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=spin_slash;speed=1;li=3;lo=3} @self
+  
+  - delay 3
+  - delay 7
+  
+  - lunge{velocity=0.8;velocityY=-1;repeat=3;repeatInterval=1} @TargetLocation ?!targetwithin{d=3}
+  - effect:sound{s=entity.enderman.hurt;volume=0.8;pitch=1.4} @self 0.5
+  - effect:sound{s=entity.wither.shoot;volume=0.8;pitch=1.3} @self
+  - effect:sound{s=entity.player.attack.sweep;volume=0.8;pitch=1.3} @self
+  - delay 2
+  - slash{y=1.8;w=4;h=2;mpd=true;a=-180;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=145;d=10} @forward{f=0.4;lockpitch=true}
+  - slash{y=0.8;w=4;h=2;mpd=true;a=-180;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=145;d=10} @forward{f=0.4;lockpitch=true}
+  - skill{s=Ender_Ripper_SPIN_SLASH_DAMAGE} @target
+  
+  - delay 14
+  
+  - lunge{velocity=0.8;velocityY=-1;repeat=3;repeatInterval=1} @TargetLocation ?!targetwithin{d=3}
+  - effect:sound{s=entity.enderman.hurt;volume=0.8;pitch=1.4} @self 0.5
+  - effect:sound{s=entity.wither.shoot;volume=0.8;pitch=1.3} @self
+  - effect:sound{s=entity.player.attack.sweep;volume=0.8;pitch=1.3} @self
+  - effect:sound{s=entity.wither.shoot;volume=0.8;pitch=1.3;delay=3} @self
+  - effect:sound{s=entity.player.attack.sweep;volume=0.8;pitch=1.3;delay=3} @self
+  - delay 2
+  - slash{y=1.8;w=4;h=2;mpd=true;a=150;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=180;d=10} @forward{f=0.4;lockpitch=true}
+  - slash{y=0.8;w=4;h=2;mpd=true;a=150;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=180;d=10} @forward{f=0.4;lockpitch=true}
+  - slash{y=1.8;w=4;h=2;mpd=true;a=150;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=180;d=10;delay=3} @forward{f=0.4;lockpitch=true}
+  - slash{y=0.8;w=4;h=2;mpd=true;a=150;oP=[ e:p{p=dust_color_transition;color1=#d903ff;color2=#3c0396;size=0.5} ];roll=180;d=10;delay=3} @forward{f=0.4;lockpitch=true}
+  - skill{s=Ender_Ripper_SPIN_SLASH_DAMAGE2} @target
+
+  - delay 25
+  
+  - setspeed{speed=1.6;type=walking} @self
+  
+###### End Seeker ######
+
+# Charge Explosion #
+
+End_Seeker_CHARGE_EXPLODE_PET:
+  Cooldown: 6
+  Conditions:
+  - offgcd
+  - targetwithin{d=5} true
+  Skills:
+  - gcd{ticks=50}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=charge_and_explode;speed=1;li=3;lo=3} @self
+  
+  - delay 3
+  - state{s=charge_and_explode;speed=1;remove=true} @self ?targetnotwithin{d=5}
+  - setspeed{speed=1.2;type=walking} @self ?targetnotwithin{d=5}
+  - cancelskill ?targetnotwithin{d=5}
+  - delay 16
+  
+  - state{s=charge_and_explode;speed=1;remove=true} @self ?targetnotwithin{d=5}
+  - setspeed{speed=1.2;type=walking} @self ?targetnotwithin{d=5}
+  - cancelskill ?targetnotwithin{d=5}
+  #fuse sound
+  - effect:sound{s=entity.creeper.primed;volume=0.8;pitch=1} @self
+  - effect:sound{s=entity.enderman.ambient;volume=0.8;pitch=1.4} @self
+  
+  - delay 15
+  
+  - state{s=charge_and_explode;speed=1;remove=true} @self ?targetnotwithin{d=5}
+  - setspeed{speed=1.2;type=walking} @self ?targetnotwithin{d=5}
+  - cancelskill ?targetnotwithin{d=5}
+  #fuse sound
+  - effect:sound{s=entity.creeper.primed;volume=0.8;pitch=1} @self
+  - effect:sound{s=entity.enderman.ambient;volume=0.8;pitch=1.4} @self
+  
+  - delay 16
+  
+  - skill{s=End_Seeker_DECIDE_PET}
+
+End_Seeker_STOP_CHARGE_PET:
+  Skills:
+  - state{s=charge_and_explode;speed=1;remove=true;lo=5} @self
+  - delay 5
+  - setspeed{speed=1.2;type=walking} @self
+
+End_Seeker_DECIDE_PET:
+  Conditions:
+  - targetwithin{d=5} castinstead End_Seeker_EXPLODE_PET
+  Skills:
+  - skill{s=End_Seeker_STOP_CHARGE_PET}
+
+End_Seeker_EXPLODE_PET:
+  Skills:
+  #AOE damage
+  - skill{s=End_Seeker_CHARGE_EXPLODE_DAMAGE_PET} @EIR{r=6;ignore=owner}
+  #FX
+  - particles{p=portal;amount=40;hS=2;vS=1.5;y=1.2;size=1;speed=0} @self
+  - particles{p=explosion_huge;amount=1;hS=0;vS=0;y=1.2;size=1;speed=0} @self
+  - effect:sound{s=entity.generic.explode;volume=0.8;pitch=1} @self
+  - effect:sound{s=entity.enderman.teleport;volume=0.8;pitch=1} @self
+
+End_Seeker_CHARGE_EXPLODE_DAMAGE_PET:
+  TargetConditions:
+  - isblocking false
+  Skills:
+  - basedamage{m=1;pkb=true}
+  - effect:sound{s=entity.player.hurt;volume=0.55;pitch=0.8}
+
+###### End Scuttler ######
+  
+End_Scuttler_DASH_PET:
+  Skills:
+  - skill{s=End_Scuttler_Walk_PET}
+  - skill{s=End_Scuttler_Run_PET}
+End_Scuttler_Walk_PET:
+  Cooldown: 99999
+  Conditions:
+  - modelhasdriver false
+  Skills:
+  - setSkillCooldown{skill=End_Scuttler_Run_PET;seconds=0} @self
+  - setspeed{speed=1.6;type=walking} @self
+  - setstance{stance=Walking} @self
+End_Scuttler_Run_PET:
+  Cooldown: 99999
+  Conditions:
+  - modelhasdriver true
+  Skills:
+  - setSkillCooldown{skill=End_Scuttler_Walk_PET;seconds=0} @self
+  - setspeed{speed=1.4;type=walking} @self
+  - setstance{stance=Running} @self
+
+End_Scuttler_SKILL_PET:
+  Cooldown: 0.5
+  Conditions:
+  - offgcd
+  - modelhasdriver false
+  Skills:
+  - randomskill{skills=End_Scuttler_BITE_PET,End_Scuttler_WEB_PET}
+
+# Bite #
+
+End_Scuttler_BITE_PET:
+  Cooldown: 3
+  Conditions:
+  - offgcd
+  - targetwithin{d=8} true
+  Skills:
+  - gcd{ticks=38}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=bite;speed=1;li=3;lo=5} @self
+  
+  - delay 3
+  - delay 9
+  
+  - lunge{velocity=1.1;velocityY=-1;repeat=2;repeatInterval=1} @TargetLocation ?!targetwithin{d=4}
+  - delay 2
+  - skill{s=End_Scuttler_BITE_DAMAGE} @target
+  - sound{sound=entity.fox.bite;volume=0.8;pitch=0.7} @self
+  - sound{sound=entity.endermite.hurt;volume=0.8;pitch=0.8} @self 0.5
+
+  - delay 21
+  
+  - setspeed{speed=1.6;type=walking} @self
+
+# Ender Web #
+
+End_Scuttler_WEB_PET:
+  Cooldown: 6
+  Conditions:
+  - offgcd
+  - targetwithin{d=8} true
+  - hasaura{n=TARGETISWEBBED} castinstead End_Scuttler_BITE_PET
+  Skills:
+  - gcd{ticks=40}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=shoot_web;speed=1;li=3;lo=5} @self
+  - segment{m=end_scuttler;p=lace;em=false;roll=true;extend=1} @self
+  
+  - delay 3
+  - delay 15
+  
+  #shoot web
+  - projectile{ohb=End_Scuttler_WEB_CREATE_PET;oT=End_Scuttler_WEB_TRAIL;v=23;i=1;hR=1;vR=1;mr=20;hnp=true;hO=0;sE=false;sB=true;hs=false;hfs=0;sfo=1;syo=1.8;tyo=0;sso=0;hitConditions=[- entitytype{t=ARMOR_STAND} false]} @targetlocation
+  - sound{sound=entity.shulker.shoot;volume=0.8;pitch=1.1} @self
+  - sound{sound=entity.enderman.teleport;volume=0.7;pitch=1.6} @self
+  - sound{sound=entity.endermite.hurt;volume=0.8;pitch=0.8} @self 0.5
+
+  - delay 24
+  
+  - segment{m=end_scuttler;p=lace;em=false;roll=true;extend=0.1} @self
+  - setspeed{speed=1.6;type=walking} @self
+End_Scuttler_WEB_CREATE_PET:
+  Skills:
+  - summon{type=VFX_Ender_Web;amount=1;radius=0;yRadius=0;onSurface=true} @origin{y=0.2}
+  - totem{md=60;oT=End_Scuttler_WEB_DAMAGE_D_PET;hnp=true;hp=true;hR=1;vR=1;i=5} @origin
+End_Scuttler_WEB_DAMAGE_D_PET:
+  Skills:
+  - skill{s=End_Scuttler_WEB_DAMAGE} @EntitiesNearOrigin{r=3;ignore=owner}
+
+End_Scuttler_WEB_CHECK:
+  TargetConditions:
+  - haspotioneffect{t=SLOW} true
+  Skills:
+  - aura{auraName=TARGETISWEBBED;duration=10} @self
+
+###### Ender Hammerhead ######
+  
+Ender_Hammerhead_DASH_PET:
+  Skills:
+  - skill{s=Ender_Hammerhead_Walk_PET}
+  - skill{s=Ender_Hammerhead_Run_PET}
+Ender_Hammerhead_Walk_PET:
+  Cooldown: 99999
+  Conditions:
+  - modelhasdriver false
+  Skills:
+  - setSkillCooldown{skill=Ender_Hammerhead_Run_PET;seconds=0} @self
+  - defaultstate{t=walk;s=walk;li=5;lo=5} @self
+  - setspeed{speed=1.1;type=walking} @self
+  - setstance{stance=Walking} @self
+Ender_Hammerhead_Run_PET:
+  Cooldown: 99999
+  Conditions:
+  - modelhasdriver true
+  Skills:
+  - setSkillCooldown{skill=Ender_Hammerhead_Walk_PET;seconds=0} @self
+  - defaultstate{t=walk;s=run;li=5;lo=5} @self
+  - setspeed{speed=2.2;type=walking} @self
+  - setstance{stance=Running} @self
+
+Ender_Hammerhead_SKILL_PET:
+  Conditions:
+  - modelhasdriver false
+  Skills:
+  - randomskill{skills=Ender_Hammerhead_BUMP_PET,Ender_Hammerhead_TELEPORT_RUSH_PET}
+
+# Bump #
+
+Ender_Hammerhead_BUMP_PET:
+  Cooldown: 3
+  Conditions:
+  - offgcd
+  - targetwithin{d=5} true
+  Skills:
+  - gcd{ticks=34}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=bump;speed=1;li=3;lo=3} @self
+  
+  - delay 3
+  - delay 7
+  
+  - sound{sound=entity.hoglin.attack;volume=0.7;pitch=0.8} @self 0.5
+  - lunge{velocity=0.6;velocityY=-1;repeat=2;repeatInterval=1} @TargetLocation ?!targetwithin{d=3}
+  - delay 2
+  - skill{s=Ender_Hammerhead_BUMP_DAMAGE} @target
+
+  - delay 22
+  
+  - skill{s=Ender_Hammerhead_Dash}
+
+# Run - Bump #
+
+Ender_Hammerhead_TELEPORT_RUSH_PET:
+  Cooldown: 7
+  Conditions:
+  - offgcd
+  - targetwithin{d=10} true
+  Skills:
+  - gcd{ticks=60}
+  - aura{auraName=TPRUN;duration=60;delay=10} @self
+  #teleport to start location
+  - particles{p=portal;amount=20;hS=1.2;vS=0.6;y=0;size=1;speed=0} @modelpart{mid=ender_hammerhead;pid=root;location=0,0,0;em=true}
+  - particles{p=portal;amount=20;hS=1.2;vS=0.6;y=0;size=1;speed=0;delay=4} @modelpart{mid=ender_hammerhead;pid=root;location=0,0,0;em=true}
+  - sound{sound=entity.enderman.teleport;volume=0.7;pitch=0.8} @self
+  - teleport{spreadh=0;spreadv=0;delay=1} @forward{f=-10;y=0.5;oftarget=true;lockpitch=true}
+  - setspeed{speed=2.2;type=walking;delay=10} @self
+  - state{s=run;speed=1;li=3;lo=3;delay=10} @self
+  
+  - delay 13
+  
+  #go to target
+  - goto{speedModifier=3;spreadH=0;spreadV=0} @targetlocation
+
+  - delay 60
+  
+  - cancelSkill ?!hasaura{n=TPRUN}
+  - skill{s=Ender_Hammerhead_Dash}
+  - state{s=run;speed=1;remove=true} @self
+
+Ender_Hammerhead_RUSHHIT_PET:
+  Conditions:
+  - targetwithin{d=4} true
+  - hasaura{n=TPRUN} true
+  Skills:
+  - skill{s=Ender_Hammerhead_RUSHHIT_DAMAGE} @target
+  - delay 1
+  - auraremove{n=TPRUN} @self
+  - skill{s=Ender_Hammerhead_Dash}
+  - state{s=run;speed=1;remove=true} @self
+
+###### Ender Witch ######
+  
+Ender_Witch_SKILL_PET:
+  Skills:
+  - randomskill{skills=Ender_Witch_LASER_BARRAGE_PET,Ender_Witch_RELEASE_GAS_PET}
+
+# Laser Barrage #
+
+Ender_Witch_LASER_BARRAGE_PET:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  - targetwithin{d=20} true
+  Skills:
+  - gcd{ticks=58}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=shoot;speed=1;li=3;lo=3} @self
+  
+  - delay 3
+  - delay 8
+  
+  #shoot 1st
+  - effect:sound{s=entity.elder_guardian.curse;volume=0.8;pitch=1.4} @self
+  - projectile{bulletType=MOB;mob=VFX_Ender_Laser;bulletyoffset=0.7;onHit=Ender_Witch_LASER_BARRAGE_DAMAGE_D_PET;v=22;i=1;hR=1;vR=0.25;mr=25;hnp=true;hO=-4;sE=false;sB=false;hs=false;hfs=0;sfo=1.5;syo=1.8;tyo=1.8;bmd=true;sso=-0.6} @Forward{f=15;y=0}
+
+  - delay 2
+
+  #shoot 2nd
+  - effect:sound{s=entity.elder_guardian.curse;volume=0.8;pitch=1.4} @self
+  - projectile{bulletType=MOB;mob=VFX_Ender_Laser;bulletyoffset=0.7;onHit=Ender_Witch_LASER_BARRAGE_DAMAGE_D_PET;v=22;i=1;hR=1;vR=0.25;mr=25;hnp=true;hO=4;sE=false;sB=false;hs=false;hfs=0;sfo=1.5;syo=1.8;tyo=1.8;bmd=true;sso=0.6} @Forward{f=15;y=0}
+
+  - delay 39
+  
+  - setspeed{speed=1.1;type=walking} @self
+
+Ender_Witch_LASER_BARRAGE_DAMAGE_D_PET:
+  Skills:
+  - skill{s=Ender_Witch_LASER_BARRAGE_DAMAGE} @EntitiesNearOrigin{r=3;ignore=owner}
+
+# Release Gas #
+
+Ender_Witch_RELEASE_GAS_PET:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  - targetwithin{d=7} true
+  Skills:
+  - gcd{ticks=66}
+  - setspeed{speed=0;type=walking} @self
+  - state{s=release_gas;speed=1;li=3;lo=3} @self
+  
+  - delay 3
+  - delay 22
+  
+  #release gas
+  - effect:sound{s=entity.elder_guardian.hurt;volume=0.8;pitch=0.5} @self
+  - effect:sound{s=entity.tnt.primed;volume=0.8;pitch=1.3} @self
+  - skill{s=Ender_Witch_RELEASE_GAS_TOTEM_PET}
+
+  - delay 35
+  
+  - setspeed{speed=1.1;type=walking} @self
+
+Ender_Witch_RELEASE_GAS_TOTEM_PET:
+  Skills:
+  - totem{md=100;oT=Ender_Witch_RELEASE_GAS_DAMAGE_D_PET;hnp=true;hp=true;hR=1;vR=1;i=10} @origin
+Ender_Witch_RELEASE_GAS_DAMAGE_D_PET:
+  Skills:
+  - particles{p=entity_effect;color=#5600f5;amount=100;hS=3;vS=1.1;y=-0.5;size=0.8;speed=0} @origin
+  - particles{p=entity_effect;color=#b000f5;amount=100;hS=3;vS=1.1;y=-0.5;size=1;speed=0} @origin
+  - skill{s=Ender_Witch_RELEASE_GAS_DAMAGE;cooldown=1} @EntitiesNearOrigin{r=6;ignore=owner}
+
+
+###### Void Beholder ######
+  
+# Pull in and beam #
+
+Void_Beholder_BEAMDECIDE_PET:
+  Skills:
+  - skill{s=Void_Beholder_BEAMSTART}
+  - skill{s=Void_Beholder_BEAMEND_PET}
+
+Void_Beholder_BEAMEND_PET:
+  Conditions:
+  - offgcd
+  - targetwithin{d=11} false
+  - stance{s=BEAMING} true
+  - hasaura{n=BEAMREADY} false
+  Skills:
+  - state{s=pull_in_beam_loop;speed=1;remove=true;lo=10} @self
+  - setspeed{speed=1.1;type=walking} @self
+  - setstance{stance=NOTBEAMING} @self
+  - stopsound{s=entity.enderman.stare} @EIR{r=11;ignore=owner}
+
+
+

@@ -1,0 +1,22 @@
+info:
+  namespace: medieval_rpg
+items:
+  announcement_board:
+    display_name: "Announcement Board"
+    resource:
+      material: PAPER
+      generate: false
+      model_path: announcement_board
+    behaviours:
+      furniture:
+        small: false
+        entity: item_frame
+        solid: true
+        hitbox:
+          length: 1
+          width: 1
+          height: 1
+        placeable_on:
+          floor: true
+          ceiling: false
+          walls: false

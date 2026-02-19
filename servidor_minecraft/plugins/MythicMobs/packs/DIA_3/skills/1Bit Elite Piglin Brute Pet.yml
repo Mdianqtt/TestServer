@@ -1,0 +1,145 @@
+1bit_elite_piglin_brute_random_attack_pet:
+  Cooldown: 1.1
+  Conditions:
+  - offgcd
+  Skills:
+  - gcd{t=20} @self
+  - randomskill{skills=1bit_elite_piglin_brute_random_attack_pet_1,1bit_elite_piglin_brute_random_attack_pet_2,1bit_elite_piglin_brute_random_attack_pet_3} @self
+  
+1bit_elite_piglin_brute_random_attack_pet_1:
+  Skills:
+  - state{s=attack_1} @self
+  - skill{s=1bit_elite_piglin_brute_attack;sync=true;delay=6} @self
+  - potion{t=SLOW;d=20;l=5;force=true;p=false;i=false} @self
+  - Aura{auraName=attack_1_c_damage;time=12;delay=5} @self
+  - delay 7
+  - skill{s=1bit_elite_piglin_brute_random_attack_pet_1_damage;sync=true} @LivingEntitiesInRadius{r=2.2;Conditions=[ - isPlayer{} false]}
+
+1bit_elite_piglin_brute_random_attack_pet_1_damage:
+  TargetConditions:
+  - fieldofview{angle=135} true
+  Skills:
+  - damage{a=<caster.damage>}
+  - delay 1
+  - throw{v=3;vy=0.8}
+1bit_elite_piglin_brute_random_attack_pet_1_c_damage:
+  TriggerConditions:
+  - fieldofview{angle=135} true
+  Conditions:
+  - hasaura{n=attack_1_c_damage} orElseCast 1bit_elite_piglin_brute_damaged
+  Skills:
+  - CancelEvent{sync=true} @self
+  - sound{s=item.shield.block;p=1;v=1} @self
+
+1bit_elite_piglin_brute_random_attack_pet_2:
+  Skills:
+  - state{s=attack_2} @self
+  - skill{s=1bit_elite_piglin_brute_attack;sync=true;delay=5} @self
+  - potion{t=SLOW;d=20;l=5;force=true;p=false;i=false} @self
+  - delay 7
+  - totem{md=2;yo=-0.4;oS=1bit_elite_piglin_brute_random_attack_pet_2_damage} @ModelPart{p=Mace}
+  - totem{md=2;yo=-0.4;oS=1bit_elite_piglin_brute_random_attack_pet_2_damage1} @ModelPart{p=Mace2}
+1bit_elite_piglin_brute_random_attack_pet_2_damage:
+  Skills:
+  - skill{s=[ 
+      - Aura{auraName=hit;time=2}
+      - damage{a=<caster.damage>}
+      - delay 1
+      - throw{v=8;vy=0.3}
+    ];sync=true} @EntitiesNearOrigin{r=2.1;Conditions=[ - hasaura{n=hit} false]}
+1bit_elite_piglin_brute_random_attack_pet_2_damage1:
+  Skills:
+  - effect:particles{particle=Campfire_Cosy_Smoke;speed=0.04;Size=1;a=5;hS=0.4;vS=0} @Origin{xoffset=0;yoffset=0;zoffset=0}
+  - skill{s=[ 
+      - Aura{auraName=hit;time=2}
+      - damage{a=<caster.damage>}
+      - delay 1
+      - throw{v=8;vy=0.3}
+    ];sync=true} @EntitiesNearOrigin{r=2.1;Conditions=[ - hasaura{n=hit} false - isPlayer{} false]}
+1bit_elite_piglin_brute_random_attack_pet_3:
+  Skills:
+  - state{s=attack_3} @self
+  - skill{s=1bit_elite_piglin_brute_attack;sync=true;delay=5} @self
+  - potion{t=SLOW;d=20;l=5;force=true;p=false;i=false} @self
+  - delay 5
+  - skill{s=1bit_elite_piglin_brute_random_attack_pet_3_damage;sync=true} @LivingEntitiesInRadius{r=3.7;Conditions=[ - isPlayer{} false]}
+1bit_elite_piglin_brute_random_attack_pet_3_damage:
+  TargetConditions:
+  - fieldofview{angle=170} true
+  Skills:
+  - damage{a=<caster.damage>}
+  - delay 1
+  - throw{v=9;vy=0.8}
+1bit_elite_baby_piglin_brute_random_attack_pet:
+  Cooldown: 0.8
+  Conditions:
+  - offgcd
+  Skills:
+  - gcd{t=16} @self
+  - randomskill{skills=1bit_elite_baby_piglin_brute_random_attack_pet_1,1bit_elite_baby_piglin_brute_random_attack_pet_2,1bit_elite_baby_piglin_brute_random_attack_pet_3} @self
+  
+1bit_elite_baby_piglin_brute_random_attack_pet_1:
+  Skills:
+  - state{s=attack_1} @self
+  - skill{s=1bit_elite_piglin_brute_attack;sync=true;delay=3} @self
+  - potion{t=SLOW;d=16;l=5;force=true;p=false;i=false} @self
+  - Aura{auraName=attack_1_c_damage;time=10;delay=2} @self
+  - delay 4
+  - skill{s=1bit_elite_baby_piglin_brute_random_attack_pet_1_damage;sync=true} @LivingEntitiesInRadius{r=1.8;Conditions=[ - isPlayer{} false]}
+
+1bit_elite_baby_piglin_brute_random_attack_pet_1_damage:
+  TargetConditions:
+  - fieldofview{angle=135} true
+  Skills:
+  - damage{a=<caster.damage>}
+  - delay 1
+  - throw{v=2;vy=0.8}
+1bit_elite_baby_piglin_brute_random_attack_pet_1_c_damage:
+  TriggerConditions:
+  - fieldofview{angle=135} true
+  Conditions:
+  - hasaura{n=attack_1_c_damage} orElseCast 1bit_elite_piglin_brute_damaged
+  Skills:
+  - CancelEvent{sync=true} @self
+  - sound{s=item.shield.block;p=1;v=1} @self
+
+1bit_elite_baby_piglin_brute_random_attack_pet_2:
+  Skills:
+  - state{s=attack_2} @self
+  - skill{s=1bit_elite_piglin_brute_attack;sync=true;delay=3} @self
+  - potion{t=SLOW;d=16;l=5;force=true;p=false;i=false} @self
+  - delay 5
+  - totem{md=2;yo=-0.4;oS=1bit_elite_baby_piglin_brute_random_attack_pet_2_damage} @ModelPart{p=Mace}
+  - totem{md=2;yo=-0.4;oS=1bit_elite_baby_piglin_brute_random_attack_pet_2_damage1} @ModelPart{p=bone3}
+1bit_elite_baby_piglin_brute_random_attack_pet_2_damage:
+  Skills:
+  - skill{s=[ 
+      - Aura{auraName=hit;time=2}
+      - damage{a=<caster.damage>}
+      - delay 1
+      - throw{v=5;vy=0.3}
+    ];sync=true} @EntitiesNearOrigin{r=1.85;Conditions=[ - hasaura{n=hit} false]}
+1bit_elite_baby_piglin_brute_random_attack_pet_2_damage1:
+  Skills:
+  - effect:particles{particle=Campfire_Cosy_Smoke;speed=0.04;Size=1;a=2;hS=0.2;vS=0} @Origin{xoffset=0;yoffset=0;zoffset=0}
+  - skill{s=[ 
+      - Aura{auraName=hit;time=2}
+      - damage{a=<caster.damage>}
+      - delay 1
+      - throw{v=5;vy=0.3}
+    ];sync=true} @EntitiesNearOrigin{r=1.85;Conditions=[ - hasaura{n=hit} false - isPlayer{} false]}
+1bit_elite_baby_piglin_brute_random_attack_pet_3:
+  Skills:
+  - state{s=attack_3} @self
+  - skill{s=1bit_elite_piglin_brute_attack;sync=true;delay=4} @self
+  - potion{t=SLOW;d=16;l=5;force=true;p=false;i=false} @self
+  - delay 5
+  - skill{s=1bit_elite_baby_piglin_brute_random_attack_pet_3_damage;sync=true} @LivingEntitiesInRadius{r=2.2;Conditions=[ - isPlayer{} false]}
+1bit_elite_baby_piglin_brute_random_attack_pet_3_damage:
+  TargetConditions:
+  - fieldofview{angle=170} true
+  Skills:
+  - damage{a=<caster.damage>}
+  - delay 1
+  - throw{v=5;vy=0.8}
+

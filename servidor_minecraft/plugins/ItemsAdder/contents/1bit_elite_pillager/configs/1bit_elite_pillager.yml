@@ -1,0 +1,50 @@
+info:
+  namespace: 1bit_elite_pillager
+items:
+  elite_pillager_doll:
+    display_name: Doll
+    permission: 1bit_elite_pillager.doll
+    resource:
+      material: PAPER
+      generate: false
+      model_path: doll
+      model_id: 15888317
+    behaviours:
+      furniture:
+        entity: item_frame
+        fixed_rotation: false
+        hitbox:
+          height: 1
+          height_offset: 0
+          length: 1
+          length_offset: 0
+          width: 1
+          width_offset: 0
+        placeable_on:
+          ceiling: false
+          floor: true
+          walls: false
+        solid: false
+  elite_pillager_head:
+    display_name: Head
+    permission: 1bit_elite_pillager.head
+    resource:
+      material: PAPER
+      generate: false
+      model_path: head
+      model_id: 15888318
+    attribute_modifiers:
+      head:
+        armor: 2
+    behaviours:
+      hat: true
+    durability:
+      max_custom_durability: 165
+  elite_pillager_treasure_bag:
+    display_name: Treasure Bag
+    permission: 1bit_elite_pillager.treasure_bag
+    resource:
+      material: PAPER
+      generate: false
+      model_path: treasure_bag
+      model_id: 15888319

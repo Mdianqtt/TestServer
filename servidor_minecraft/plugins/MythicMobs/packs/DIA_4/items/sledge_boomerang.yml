@@ -1,0 +1,15 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+  
+LR_sledge_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 18
+  Display: 'Quake'    
+  Skills:
+  - skill{s=LRBOOMERANG_swing_sledge} @target ~onAttack
+  - skill{s=LRBOOMERANG_throw_sledge;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_sledge} @self ~onHold
+  - skill{s=LRBOOMERANG_swing_ground_slam} @targetblock ~onSwing
+  - skill{s=LRBOOMERANG_swing_ground_slam_telegraph} @self ~onTimer:1
+  - skill{s=LRBOOMERANG_sledge_superjump} @self ~onJump

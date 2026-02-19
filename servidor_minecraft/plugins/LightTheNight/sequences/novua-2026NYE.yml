@@ -1,0 +1,9 @@
+id: novua-2026NYE
+file: "models/novua-2026NYE.bbmodel"
+defaultBone: "group2"
+animation: "testanimation"
+speed: 1.0
+triggers:
+  - command
+
+# 3944CYHOMJNLI

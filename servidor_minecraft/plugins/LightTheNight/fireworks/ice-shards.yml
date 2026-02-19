@@ -1,0 +1,28 @@
+ice-shards:
+  fireworks:
+    frost:
+      type: BALL
+      colors:
+        - "#c9f5ff"
+        - "#9ad9ff"
+      fade:
+        - "#6fb8ff"
+      power: 1
+      trail: true
+      flicker: false
+      count: 6
+      spread: 0.9
+      ho: 0.4
+    shards:
+      type: STAR
+      colors:
+        - "#85caff"
+      fade:
+        - "#5f9cff"
+      power: 2
+      trail: true
+      flicker: true
+      count: 3
+      spread: 0.5
+      delay: 6
+      fo: 0.3

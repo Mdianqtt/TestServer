@@ -1,0 +1,109 @@
+bl_shadow_spider_death:
+  Skills:
+  - sound{s=minecraft:entity.spider.death;v=3;p=0.8;delay=5} @self
+  - effect:particles{p=dust_color_transition;color1=#0d0f1e;color2=#2a2656;amount=200;hS=0.5;vS=0.5;speed=0;size=1.2;delay=15} @modelpart{pid=root;o=model;y=-0.5}
+
+bl_shadow_spider_skills:
+  Skills:
+  - randomskill{s=bl_shadow_spider_fang_attack,bl_shadow_spider_shadow_attack,bl_shadow_spider_illusions} @target
+
+bl_shadow_spider_skills_illusion:
+  Skills:
+  - skill{s=bl_shadow_spider_fang_attack} @target
+
+bl_shadow_spider_step:
+  Conditions:
+  - moving true
+  - inblock{b=WATER,LAVA} false
+  - offgcd
+  Skills:
+  - sound{s=minecraft:entity.spider.step;v=3;p=0.9} @self
+
+bl_shadow_spider_idle:
+  Conditions:
+  - moving false
+  - offgcd
+  Skills:
+  - sound{s=minecraft:entity.spider.ambient;v=3;p=0.7} @self
+
+bl_shadow_spider_fang_attack:
+  Cooldown: 3
+  Conditions:
+  - targetwithin{d=3} true
+  - offgcd
+  Skills:
+  - gcd{ticks=26} @self
+  - state{mid=bl_shadow_spider;s=attack;li=3;lo=3} @self
+  - sound{s=minecraft:entity.llama.spit;v=3;p=0.8;delay=15} @self
+  - aura{auraName=bl_shadow_spider_fang_attack_totem;onTick=bl_shadow_spider_fang_attack_totem_tick;interval=1;duration=5;delay=15} @self
+  - delay 13
+  - setspeed{s=2.5} @self
+  - delay 7
+  - setspeed{s=0} @self
+  - delay 6
+  - setspeed{s=1.2} @self
+
+bl_shadow_spider_fang_attack_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_shadow_spider_fang_attack_damage;hr=1;vr=1;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=hurt_box;o=model;z=0;y=0}
+
+bl_shadow_spider_fang_attack_damage:
+  Skills:
+  - damage{a=10}
+  - throw{v=2;vy=0}
+  - shieldbreak{duration=60}
+
+bl_shadow_spider_shadow_attack:
+  Cooldown: 4
+  Conditions:
+  - targetwithin{d=3} true
+  - offgcd
+  Skills:
+  - gcd{ticks=40} @self
+  - state{mid=bl_shadow_spider;s=attack2;li=3;lo=3} @self
+  - sound{s=minecraft:entity.breeze.jump;v=3;p=0.8;delay=22} @self
+  - aura{auraName=bl_shadow_spider_shadow_attack_totem;onTick=bl_shadow_spider_shadow_attack_totem_tick;interval=1;duration=5;delay=19} @self
+  - setspeed{s=0} @self
+  - delay 20
+  - lockmodel{l=true} @self
+  - propel{v=2} @TargetLocation
+  - delay 20
+  - lockmodel{l=false} @self
+  - setspeed{s=1.2} @self
+
+bl_shadow_spider_shadow_attack_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_shadow_spider_shadow_attack_damage;hr=1;vr=1;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=hurt_box;o=model;z=0;y=0}
+  - effect:particles{p=dust_color_transition;color1=#0d0f1e;color2=#2a2656;amount=50;hS=0.5;vS=0.5;speed=0.2;size=1.2} @modelpart{pid=hurt_box;o=model}
+
+bl_shadow_spider_shadow_attack_damage:
+  Skills:
+  - damage{a=10}
+  - throw{v=2;vy=0}
+  - shieldbreak{duration=60}
+
+bl_shadow_spider_illusions:
+  Cooldown: 15
+  Conditions:
+  - targetwithin{d=5} true
+  - offgcd
+  Skills:
+  - gcd{ticks=24} @self
+  - state{mid=bl_shadow_spider;s=illusion;li=3;lo=3} @self
+  - sound{s=minecraft:entity.breeze.deflect;v=3;p=0.8;delay=6} @self
+  - sound{s=minecraft:entity.breeze.deflect;v=3;p=0.8;delay=15} @self
+  - sound{s=minecraft:entity.breeze.deflect;v=3;p=0.8;delay=24} @self
+  - setspeed{s=0} @self
+  - lockmodel{l=true} @self
+  - effect:particles{p=dust_color_transition;color1=#0d0f1e;color2=#2a2656;amount=100;hS=0.5;vS=0.5;speed=0.2;size=1;delay=5} @modelpart{pid=root;o=model;y=-0.5}
+  - effect:particles{p=dust_color_transition;color1=#0d0f1e;color2=#2a2656;amount=100;hS=0.5;vS=0.5;speed=0.2;size=1;delay=14} @modelpart{pid=root;o=model;y=-0.5}
+  - effect:particles{p=dust_color_transition;color1=#0d0f1e;color2=#2a2656;amount=100;hS=0.5;vS=0.5;speed=0.2;size=1;delay=20} @modelpart{pid=root;o=model;y=-0.5}
+  - effect:particles{p=dust_color_transition;color1=#0d0f1e;color2=#2a2656;amount=100;hS=0.5;vS=0.5;speed=0.2;size=1;delay=6} @modelpart{pid=illusion_box_right;o=model;y=-0.5}
+  - effect:particles{p=dust_color_transition;color1=#0d0f1e;color2=#2a2656;amount=100;hS=0.5;vS=0.5;speed=0.2;size=1;delay=15} @modelpart{pid=illusion_box_left;o=model;y=-0.5}
+  - delay 6
+  - summon{m=bl_shadow_spider_illusion;a=1;r=0;yr=0;os=true} @modelpart{pid=illusion_box_right;o=model;z=0;y=0}
+  - delay 9
+  - summon{m=bl_shadow_spider_illusion;a=1;r=0;yr=0;os=true} @modelpart{pid=illusion_box_left;o=model;z=0;y=0}
+  - delay 9
+  - lockmodel{l=false} @self
+  - setspeed{s=1.2} @self

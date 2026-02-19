@@ -1,0 +1,975 @@
+Comerciante:
+  fullname: Trader
+  shortname: Tr
+  displayName: '{#50C878}Comerciante'
+  FullDescription:
+  - "{#D6E3CC}En este trabajo, comercia con los"
+  - "{#D6E3CC}aldeanos para ganar dinero."
+  ChatColour: "{#50C878}"
+  BossBarColour: PURPLE
+  chat-display: none
+  max-level: 100
+  vip-max-level: 150
+  leveling-progression-equation: 98*(joblevel)+(joblevel*joblevel*2)
+  income-progression-equation: baseincome+(baseincome*(joblevel-2)*0.01)-((baseincome+(baseincome*(joblevel-2)*0.01))
+    * ((numjobs-1)*0.01))
+  points-progression-equation: basepoints+(basepoints*(joblevel-2)*0.01)-((basepoints+(basepoints*(joblevel-2)*0.01))
+    * ((numjobs-1)*0.01))
+  experience-progression-equation: baseexperience-(baseexperience*((numjobs-1) *0.01))
+  rejoinCooldown: 172800
+  maxDailyQuests: 1
+  Quests: []
+  Gui:
+    Item: EMERALD
+  VTrade:
+    materials:
+      - EMERALD;0.05;0.001;0.05
+    #Armorer
+      - IRON_CHESTPLATE;0.1;0.05;0.1
+      - IRON_HELMET;0.1;0.05;0.1
+      - IRON_LEGGINGS;0.1;0.05;0.1
+      - IRON_BOOTS;0.1;0.05;0.1
+      - BELL;0.1;0.1;0.1
+      - CHAINMAIL_HELMET;0.1;0.1;0.2
+      - CHAINMAIL_CHESTPLATE;0.1;0.1;0.2
+      - CHAINMAIL_LEGGINGS;0.1;0.1;0.2
+      - CHAINMAIL_BOOTS;0.1;0.1;0.2
+      - SHIELD;0.2;0.1;0.2
+      - DIAMOND_HELMET;0.3;0.2;0.4
+      - DIAMOND_CHESTPLATE;0.3;0.2;0.4
+      - DIAMOND_LEGGINGS;0.3;0.2;0.4
+      - DIAMOND_BOOTS;0.3;0.2;0.4
+    #Farmer
+      - BREAD;0.05;0.005;0.05
+      - APPLE;0.05;0.005;0.05
+      - PUMPKIN_PIE;0.05;0.005;0.05
+      - COOKIE;0.05;0.005;0.05
+      - SUSPICIOUS_STEW;0.2;0.05;0.1
+      - CAKE;0.2;0.05;0.1
+      - GOLDEN_CARROT;0.3;0.1;0.3
+      - GLISTERING_MELON_SLICE;0.3;0.1;0.3
+    #Butcher
+      - RABBIT_STEW;0.1;0.05;0.1
+      - COOKED_CHICKEN;0.1;0.05;0.1
+      - COOKED_PORKCHOP;0.1;0.05;0.1
+    #Cartographer
+      - MAP;0.1;0.05;0.1
+      - BLACK_BANNER;0.05;0.01;0.1
+      - BLUE_BANNER;0.05;0.01;0.1
+      - BROWN_BANNER;0.05;0.01;0.1
+      - CYAN_BANNER;0.05;0.01;0.1
+      - GRAY_BANNER;0.05;0.01;0.1
+      - GREEN_BANNER;0.05;0.01;0.1
+      - LIGHT_BLUE_BANNER;0.05;0.01;0.1
+      - LIGHT_GRAY_BANNER;0.05;0.01;0.1
+      - LIME_BANNER;0.05;0.01;0.1
+      - MAGENTA_BANNER;0.05;0.01;0.1
+      - ORANGE_BANNER;0.05;0.01;0.1
+      - PINK_BANNER;0.05;0.01;0.1
+      - PURPLE_BANNER;0.05;0.01;0.1
+      - RED_BANNER;0.05;0.01;0.1
+      - WHITE_BANNER;0.05;0.01;0.1
+      - YELLOW_BANNER;0.05;0.01;0.1
+      - ITEM_FRAME;0.2;0.05;0.3
+      - GLOBE_BANNER_PATTERN;0.2;0.05;0.3
+    #Cleric
+      - REDSTONE;0.05;0.01;0.05
+      - LAPIS_LAZULI;0.05;0.01;0.05
+      - GLOWSTONE;0.1;0.05;0.1
+      - ENDER_PEARL;0.1;0.1;0.2
+      - EXPERIENCE_BOTTLE;0.2;0.1;0.3
+    #Fisherman
+      - COOKED_COD;0.1;0.05;0.1
+      - COD_BUCKET;0.1;0.05;0.1
+      - COOKED_SALMON;0.1;0.05;0.1
+      - CAMPFIRE;0.2;0.1;0.2
+      - FISHING_ROD;0.2;0.1;0.2
+    #Fletcher
+      - ARROW;0.01;0.01;0.05
+      - FLINT;0.01;0.01;0.05
+      - BOW;0.1;0.1;0.2
+      - CROSSBOW;0.1;0.1;0.2
+      - TIPPED_ARROW;0.2;0.1;0.3
+    #Leatherworker
+      - LEATHER_BOOTS;0.01;0.01;0.05
+      - LEATHER_CHESTPLATE;0.01;0.01;0.05
+      - LEATHER_HELMET;0.01;0.01;0.05
+      - LEATHER_LEGGINGS;0.01;0.01;0.05
+      - LEATHER_HORSE_ARMOR;0.1;0.05;0.1
+      - SADDLE;0.1;0.05;0.2
+    #Librarian
+      - BOOKSHELF;0.03;0.01;0.5
+      - ENCHANTED_BOOK;0.1;0.1;0.8
+      - LANTERN;0.05;0.01;0.1
+      - GLASS;0.05;0.05;0.1
+      - COMPASS;0.05;0.01;0.1
+      - CLOCK;0.1;0.05;0.1
+      - NAME_TAG;0.05;0.02;0.2
+    #Shepherd
+      - SHEARS;0.01;0.01;0.05
+      - BLACK_WOOL;0.1;0.05;0.05
+      - BLACK_CARPET;0.1;0.05;0.05
+      - BLACK_BED;0.1;0.05;0.05
+      - BLUE_WOOL;0.1;0.05;0.05
+      - BLUE_BED;0.1;0.05;0.05
+      - BLUE_CARPET;0.1;0.05;0.05
+      - BROWN_BED;0.1;0.05;0.05
+      - BROWN_CARPET;0.1;0.05;0.05
+      - BROWN_WOOL;0.1;0.05;0.05
+      - CYAN_BED;0.1;0.05;0.05
+      - CYAN_CARPET;0.1;0.05;0.05
+      - CYAN_WOOL;0.1;0.05;0.05
+      - GRAY_BED;0.1;0.05;0.05
+      - GRAY_CARPET;0.1;0.05;0.05
+      - GRAY_WOOL;0.1;0.05;0.05
+      - GREEN_BED;0.1;0.05;0.05
+      - GREEN_CARPET;0.1;0.05;0.05
+      - GREEN_WOOL;0.1;0.05;0.05
+      - LIGHT_BLUE_BED;0.1;0.05;0.05
+      - LIGHT_BLUE_CARPET;0.1;0.05;0.05
+      - LIGHT_BLUE_WOOL;0.1;0.05;0.05
+      - LIGHT_GRAY_BED;0.1;0.05;0.05
+      - LIGHT_GRAY_CARPET;0.1;0.05;0.05
+      - LIGHT_GRAY_WOOL;0.1;0.05;0.05
+      - LIME_BED;0.1;0.05;0.05
+      - LIME_CARPET;0.1;0.05;0.05
+      - LIME_WOOL;0.1;0.05;0.05
+      - MAGENTA_BED;0.1;0.05;0.05
+      - MAGENTA_CARPET;0.1;0.05;0.05
+      - MAGENTA_WOOL;0.1;0.05;0.05
+      - ORANGE_BED;0.1;0.05;0.05
+      - ORANGE_CARPET;0.1;0.05;0.05
+      - ORANGE_WOOL;0.1;0.05;0.05
+      - PINK_CARPET;0.1;0.05;0.05
+      - PINK_BED;0.1;0.05;0.05
+      - PINK_WOOL;0.1;0.05;0.05
+      - PURPLE_BED;0.1;0.05;0.05
+      - PURPLE_CARPET;0.1;0.05;0.05
+      - PURPLE_WOOL;0.1;0.05;0.05
+      - RED_BED;0.1;0.05;0.05
+      - RED_CARPET;0.1;0.05;0.05
+      - RED_WOOL;0.1;0.05;0.05
+      - WHITE_BED;0.1;0.05;0.05
+      - WHITE_CARPET;0.1;0.05;0.05
+      - WHITE_WOOL;0.1;0.05;0.05
+      - YELLOW_BED;0.1;0.05;0.05
+      - YELLOW_CARPET;0.1;0.05;0.05
+      - YELLOW_WOOL;0.1;0.05;0.05
+      - PAINTING;0.1;0.2;0.3
+    #Stone Mason
+      - BRICK;0.02;0.02;0.05
+      - CHISELED_STONE_BRICKS;0.2;0.03;0.2
+      - POLISHED_ANDESITE;0.1;0.1;0.2
+      - POLISHED_DIORITE;0.1;0.1;0.2
+      - POLISHED_GRANITE;0.1;0.1;0.2
+      - DRIPSTONE_BLOCK;0.1;0.1;0.2
+      - TERRACOTTA;0.1;0.01;0.2
+      - BLACK_TERRACOTTA;0.1;0.01;0.2
+      - BLUE_TERRACOTTA;0.1;0.01;0.2
+      - BROWN_TERRACOTTA;0.1;0.01;0.2
+      - CYAN_TERRACOTTA;0.1;0.01;0.2
+      - GRAY_TERRACOTTA;0.1;0.01;0.2
+      - GREEN_TERRACOTTA;0.1;0.01;0.2
+      - LIGHT_BLUE_TERRACOTTA;0.1;0.01;0.2
+      - LIGHT_GRAY_TERRACOTTA;0.1;0.01;0.2
+      - LIME_TERRACOTTA;0.1;0.01;0.2
+      - MAGENTA_TERRACOTTA;0.1;0.01;0.2
+      - ORANGE_TERRACOTTA;0.1;0.01;0.2
+      - PINK_TERRACOTTA;0.1;0.01;0.2
+      - PURPLE_TERRACOTTA;0.1;0.01;0.2
+      - RED_TERRACOTTA;0.1;0.01;0.2
+      - WHITE_TERRACOTTA;0.1;0.01;0.2
+      - YELLOW_TERRACOTTA;0.1;0.01;0.2
+      - QUARTZ_PILLAR;0.2;0.01;0.3
+      - QUARTZ_BLOCK;0.2;0.01;0.3
+    #Tool Smith
+      - STONE_AXE;0.05;0.01;0.05
+      - STONE_HOE;0.05;0.01;0.05
+      - STONE_PICKAXE;0.05;0.01;0.05
+      - STONE_SHOVEL;0.05;0.01;0.05
+      - IRON_AXE;0.1;0.05;0.1
+      - IRON_HOE;0.1;0.05;0.1
+      - IRON_PICKAXE;0.1;0.05;0.1
+      - IRON_SHOVEL;0.1;0.05;0.1
+      - DIAMOND_AXE;0.2;0.05;0.3
+      - DIAMOND_SHOVEL;0.2;0.05;0.3
+      - DIAMOND_PICKAXE;0.2;0.05;0.3
+    #Weapon Smith
+      - IRON_SWORD;0.1;0.05;0.1
+      - DIAMOND_SWORD;0.3;0.05;0.4
+    #Wardering
+      - CYAN_DYE;0.05;0.01;0.2
+      - GRAY_DYE;0.05;0.01;0.2
+      - LIGHT_BLUE_DYE;0.05;0.01;0.2
+      - LIGHT_GRAY_DYE;0.05;0.01;0.2
+      - LIME_DYE;0.05;0.01;0.2
+      - MAGENTA_DYE;0.05;0.01;0.2
+      - ORANGE_DYE;0.05;0.01;0.2
+      - PINK_DYE;0.05;0.01;0.2
+      - PURPLE_DYE;0.05;0.01;0.2
+      - BLACK_DYE;0.05;0.01;0.2
+      - BLUE_DYE;0.05;0.01;0.2
+      - BROWN_DYE;0.05;0.01;0.2
+      - GREEN_DYE;0.05;0.01;0.2
+      - RED_DYE;0.05;0.01;0.2
+      - WHITE_DYE;0.05;0.01;0.2
+      - YELLOW_DYE;0.05;0.01;0.2
+      - BRAIN_CORAL_BLOCK;0.1;0.01;0.3
+      - BUBBLE_CORAL_BLOCK;0.1;0.01;0.3
+      - FIRE_CORAL_BLOCK;0.1;0.01;0.3
+      - HORN_CORAL_BLOCK;0.1;0.01;0.3
+      - TUBE_CORAL_BLOCK;0.1;0.01;0.3
+      - ACACIA_SAPLING;0.01;0.01;0.05
+      - BIRCH_SAPLING;0.01;0.01;0.05
+      - DARK_OAK_SAPLING;0.01;0.01;0.05
+      - JUNGLE_SAPLING;0.01;0.01;0.05
+      - OAK_SAPLING;0.01;0.01;0.05
+      - SPRUCE_SAPLING;0.05;0.01;0.1
+      - BAMBOO_SAPLING;0.05;0.01;0.1
+      - MANGROVE_PROPAGULE;0.05;0.01;0.1
+      - ALLIUM;0.05;0.01;0.05
+      - AZURE_BLUET;0.05;0.01;0.05
+      - BLUE_ORCHID;0.05;0.01;0.05
+      - BROWN_MUSHROOM;0.05;0.01;0.05
+      - CACTUS;0.05;0.01;0.05
+      - COCOA_BEANS;0.05;0.01;0.05
+      - CORNFLOWER;0.05;0.01;0.05
+      - DANDELION;0.05;0.01;0.05
+      - FERN;0.05;0.01;0.05
+      - GUNPOWDER;0.1;0.01;0.1
+      - INK_SAC;0.05;0.01;0.05
+      - KELP;0.05;0.01;0.05
+      - LILY_OF_THE_VALLEY;0.05;0.01;0.05
+      - LILY_PAD;0.05;0.01;0.05
+      - MELON_SEEDS;0.1;0.01;0.1
+      - MOSS_BLOCK;0.1;0.01;0.2
+      - MOSS_CARPET;0.1;0.01;0.2
+      - NAUTILUS_SHELL;0.2;0.05;0.2
+      - ORANGE_TULIP;0.05;0.01;0.05
+      - OXEYE_DAISY;0.05;0.01;0.05
+      - PINK_TULIP;0.05;0.01;0.05
+      - PODZOL;0.05;0.01;0.05
+      - POINTED_DRIPSTONE;0.1;0.01;0.2
+      - POPPY;0.05;0.01;0.05
+      - PUFFERFISH_BUCKET;0.2;0.01;0.3
+      - PUMPKIN;0.05;0.01;0.05
+      - PUMPKIN_SEEDS;0.05;0.01;0.05
+      - RED_MUSHROOM;0.05;0.01;0.05
+      - RED_SAND;0.05;0.01;0.05
+      - RED_TULIP;0.05;0.01;0.05
+      - ROOTED_DIRT;0.1;0.01;0.05
+      - SAND;0.05;0.01;0.05
+      - SEA_LANTERN;0.05;0.01;0.1
+      - SLIME_BALL;0.05;0.01;0.1
+      - SMALL_DRIPLEAF;0.05;0.01;0.05
+      - SUGAR_CANE;0.05;0.01;0.05
+      - TROPICAL_FISH_BUCKET;0.2;0.01;0.3
+      - VINE;0.05;0.01;0.05
+      - WHEAT_SEEDS;0.05;0.01;0.05
+      - WHITE_TULIP;0.05;0.01;0.05
+      - BLUE_ICE;0.2;0.02;0.2
+      - ICE;0.2;0.02;0.2
+      - PACKED_ICE;0.2;0.01;0.1
+  commands:
+    LEVELUP:
+      command:
+      - minecraft:execute at [player] run particle minecraft:happy_villager ~ ~2 ~ 0.5 0.6 0.5 0.4 45 force
+      - minecraft:playsound minecraft:job_level_up player [player] ~ ~ ~ 100
+      - minecraft:tellraw [player] ["",{"text":"관","clickEvent":{"action":"run_command","value":"/jobstrader"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#50C878"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#50C878"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괁","clickEvent":{"action":"run_command","value":"/jobstrader"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#50C878"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#50C878"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괂","clickEvent":{"action":"run_command","value":"/jobstrader"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#50C878"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#50C878"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}},"\n",{"text":"괃","clickEvent":{"action":"run_command","value":"/jobstrader"},"hoverEvent":{"action":"show_text","contents":[{"text":"[jobname] ","color":"#50C878"},{"text":"[oldlevel] ➜ ","color":"dark_gray"},{"text":"[newlevel]","bold":true,"color":"#50C878"},"\n",{"text":"Click para ver las recompensas","color":"#2D8CE5"}]}}]
+      - minecraft:effect give [player] minecraft:resistance 1 10 true
+      - minecraft:execute at [player] run summon firework_rocket ~ ~1 ~ {LifeTime:11,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:0,Flicker:1,Colors:[I;12047179],FadeColors:[I;5666128]}],Flight:1}}}}
+      levelFrom: 2
+      levelUntil: 150
+    '2':
+      command:
+      - dm execute [player] [givemoney] 25
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 2
+      levelUntil: 2
+    '3':
+      command:
+      - dm execute [player] [givemoney] 50
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 3
+      levelUntil: 3
+    '4':
+      command:
+      - dm execute [player] [givemoney] 100
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 4
+      levelUntil: 4
+    '5':
+      command:
+      - dm execute [player] [givemoney] 150
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 5
+      levelUntil: 5
+    '6':
+      command:
+      - dm execute [player] [givemoney] 200
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 6
+      levelUntil: 6
+    '7':
+      command:
+      - dm execute [player] [givemoney] 250
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 7
+      levelUntil: 7
+    '8':
+      command:
+      - dm execute [player] [givemoney] 300
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 8
+      levelUntil: 8
+    '9':
+      command:
+      - dm execute [player] [givemoney] 350
+      - minecraft:xp add [player] 35 points
+      - sk modifier add [player] health job 0.1 true true
+      levelFrom: 9
+      levelUntil: 9
+    '10':
+      command:
+      - dm execute [player] [givemoney] 400
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 10
+      levelUntil: 10
+    '11':
+      command:
+      - dm execute [player] [givemoney] 450
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 11
+      levelUntil: 11
+    '12':
+      command:
+      - dm execute [player] [givemoney] 500
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 12
+      levelUntil: 12
+    '13':
+      command:
+      - dm execute [player] [givemoney] 550
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 13
+      levelUntil: 13
+    '14':
+      command:
+      - dm execute [player] [givemoney] 600
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 14
+      levelUntil: 14
+    '15':
+      command:
+      - dm execute [player] [givemoney] 650
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 15
+      levelUntil: 15
+    '16':
+      command:
+      - dm execute [player] [givemoney] 700
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 16
+      levelUntil: 16
+    '17':
+      command:
+      - dm execute [player] [givemoney] 750
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 17
+      levelUntil: 17
+    '18':
+      command:
+      - dm execute [player] [givemoney] 800
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 18
+      levelUntil: 18
+    '19':
+      command:
+      - dm execute [player] [givemoney] 900
+      - minecraft:xp add [player] 40 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 19
+      levelUntil: 19
+    '20':
+      command:
+      - dm execute [player] [givemoney] 1000
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.2 true true
+      levelFrom: 20
+      levelUntil: 20
+    '21':
+      command:
+      - dm execute [player] [givemoney] 1100
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 21
+      levelUntil: 21
+    '22':
+      command:
+      - dm execute [player] [givemoney] 1200
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 22
+      levelUntil: 22
+    '23':
+      command:
+      - dm execute [player] [givemoney] 1300
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 23
+      levelUntil: 23
+    '24':
+      command:
+      - dm execute [player] [givemoney] 1400
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 24
+      levelUntil: 24
+    '25':
+      command:
+      - dm execute [player] [givemoney] 1500
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 25
+      levelUntil: 25
+    '26':
+      command:
+      - dm execute [player] [givemoney] 1600
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 26
+      levelUntil: 26
+    '27':
+      command:
+      - dm execute [player] [givemoney] 1700
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 27
+      levelUntil: 27
+    '28':
+      command:
+      - dm execute [player] [givemoney] 1800
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 28
+      levelUntil: 28
+    '29':
+      command:
+      - dm execute [player] [givemoney] 1900
+      - minecraft:xp add [player] 45 points
+      - sk modifier add [player] health job 0.3 true true
+      levelFrom: 29
+      levelUntil: 29
+    '30':
+      command:
+      - dm execute [player] [givemoney] 2000
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 30
+      levelUntil: 30
+    '31':
+      command:
+      - dm execute [player] [givemoney] 2100
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 31
+      levelUntil: 31
+    '32':
+      command:
+      - dm execute [player] [givemoney] 2200
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 32
+      levelUntil: 32
+    '33':
+      command:
+      - dm execute [player] [givemoney] 2300
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 33
+      levelUntil: 33
+    '34':
+      command:
+      - dm execute [player] [givemoney] 2400
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 34
+      levelUntil: 34
+    '35':
+      command:
+      - dm execute [player] [givemoney] 2500
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 35
+      levelUntil: 35
+    '36':
+      command:
+      - dm execute [player] [givemoney] 2600
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 36
+      levelUntil: 36
+    '37':
+      command:
+      - dm execute [player] [givemoney] 2700
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 37
+      levelUntil: 37
+    '38':
+      command:
+      - dm execute [player] [givemoney] 2800
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 38
+      levelUntil: 38
+    '39':
+      command:
+      - dm execute [player] [givemoney] 2900
+      - minecraft:xp add [player] 50 points
+      - sk modifier add [player] health job 0.4 true true
+      levelFrom: 39
+      levelUntil: 39
+    '40':
+      command:
+      - dm execute [player] [givemoney] 3000
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 40
+      levelUntil: 40
+    '41':
+      command:
+      - dm execute [player] [givemoney] 3100
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 41
+      levelUntil: 41
+    '42':
+      command:
+      - dm execute [player] [givemoney] 3200
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 42
+      levelUntil: 42
+    '43':
+      command:
+      - dm execute [player] [givemoney] 3300
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 43
+      levelUntil: 43
+    '44':
+      command:
+      - dm execute [player] [givemoney] 3400
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 44
+      levelUntil: 44
+    '45':
+      command:
+      - dm execute [player] [givemoney] 3500
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 45
+      levelUntil: 45
+    '46':
+      command:
+      - dm execute [player] [givemoney] 3600
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 46
+      levelUntil: 46
+    '47':
+      command:
+      - dm execute [player] [givemoney] 3700
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 47
+      levelUntil: 47
+    '48':
+      command:
+      - dm execute [player] [givemoney] 3800
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 48
+      levelUntil: 48
+    '49':
+      command:
+      - dm execute [player] [givemoney] 3900
+      - minecraft:xp add [player] 100 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 49
+      levelUntil: 49
+    '50':
+      command:
+      - dm execute [player] [givemoney] 4000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 50
+      levelUntil: 50
+    '51':
+      command:
+      - dm execute [player] [givemoney] 4500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 51
+      levelUntil: 51
+    '52':
+      command:
+      - dm execute [player] [givemoney] 5000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 52
+      levelUntil: 52
+    '53':
+      command:
+      - dm execute [player] [givemoney] 5500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 53
+      levelUntil: 53
+    '54':
+      command:
+      - dm execute [player] [givemoney] 6000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 54
+      levelUntil: 54
+    '55':
+      command:
+      - dm execute [player] [givemoney] 6500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 55
+      levelUntil: 55
+    '56':
+      command:
+      - dm execute [player] [givemoney] 7000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 56
+      levelUntil: 56
+    '57':
+      command:
+      - dm execute [player] [givemoney] 7500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 57
+      levelUntil: 57
+    '58':
+      command:
+      - dm execute [player] [givemoney] 8000
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 58
+      levelUntil: 58
+    '59':
+      command:
+      - dm execute [player] [givemoney] 8500
+      - minecraft:xp add [player] 200 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 59
+      levelUntil: 59
+    '60':
+      command:
+      - dm execute [player] [givemoney] 9000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 60
+      levelUntil: 60
+    '61':
+      command:
+      - dm execute [player] [givemoney] 9500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 61
+      levelUntil: 61
+    '62':
+      command:
+      - dm execute [player] [givemoney] 10000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 62
+      levelUntil: 62
+    '63':
+      command:
+      - dm execute [player] [givemoney] 10500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 63
+      levelUntil: 63
+    '64':
+      command:
+      - dm execute [player] [givemoney] 11000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 64
+      levelUntil: 64
+    '65':
+      command:
+      - dm execute [player] [givemoney] 11500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 65
+      levelUntil: 65
+    '66':
+      command:
+      - dm execute [player] [givemoney] 12000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 66
+      levelUntil: 66
+    '67':
+      command:
+      - dm execute [player] [givemoney] 12500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 67
+      levelUntil: 67
+    '68':
+      command:
+      - dm execute [player] [givemoney] 13000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 68
+      levelUntil: 68
+    '69':
+      command:
+      - dm execute [player] [givemoney] 13500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 69
+      levelUntil: 69
+    '70':
+      command:
+      - dm execute [player] [givemoney] 14000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 70
+      levelUntil: 70
+    '71':
+      command:
+      - dm execute [player] [givemoney] 14500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 71
+      levelUntil: 71
+    '72':
+      command:
+      - dm execute [player] [givemoney] 15000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 72
+      levelUntil: 72
+    '73':
+      command:
+      - dm execute [player] [givemoney] 15500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 73
+      levelUntil: 73
+    '74':
+      command:
+      - dm execute [player] [givemoney] 16000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 74
+      levelUntil: 74
+    '75':
+      command:
+      - dm execute [player] [givemoney] 16500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 75
+      levelUntil: 75
+    '76':
+      command:
+      - dm execute [player] [givemoney] 17000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 76
+      levelUntil: 76
+    '77':
+      command:
+      - dm execute [player] [givemoney] 17500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 77
+      levelUntil: 77
+    '78':
+      command:
+      - dm execute [player] [givemoney] 18000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 78
+      levelUntil: 78
+    '79':
+      command:
+      - dm execute [player] [givemoney] 18500
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 79
+      levelUntil: 79
+    '80':
+      command:
+      - dm execute [player] [givemoney] 19000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 80
+      levelUntil: 80
+    '81':
+      command:
+      - dm execute [player] [givemoney] 20000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 81
+      levelUntil: 81
+    '82':
+      command:
+      - dm execute [player] [givemoney] 21000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 82
+      levelUntil: 82
+    '83':
+      command:
+      - dm execute [player] [givemoney] 22000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 83
+      levelUntil: 83
+    '84':
+      command:
+      - dm execute [player] [givemoney] 23000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 84
+      levelUntil: 84
+    '85':
+      command:
+      - dm execute [player] [givemoney] 24000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 85
+      levelUntil: 85
+    '86':
+      command:
+      - dm execute [player] [givemoney] 25000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 86
+      levelUntil: 86
+    '87':
+      command:
+      - dm execute [player] [givemoney] 26000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 87
+      levelUntil: 87
+    '88':
+      command:
+      - dm execute [player] [givemoney] 27000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 88
+      levelUntil: 88
+    '89':
+      command:
+      - dm execute [player] [givemoney] 28000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 89
+      levelUntil: 89
+    '90':
+      command:
+      - dm execute [player] [givemoney] 29000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 90
+      levelUntil: 90
+    '91':
+      command:
+      - dm execute [player] [givemoney] 30000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 91
+      levelUntil: 91
+    '92':
+      command:
+      - dm execute [player] [givemoney] 31000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 92
+      levelUntil: 92
+    '93':
+      command:
+      - dm execute [player] [givemoney] 32000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 93
+      levelUntil: 93
+    '94':
+      command:
+      - dm execute [player] [givemoney] 33000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 94
+      levelUntil: 94
+    '95':
+      command:
+      - dm execute [player] [givemoney] 34000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 95
+      levelUntil: 95
+    '96':
+      command:
+      - dm execute [player] [givemoney] 35000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 96
+      levelUntil: 96
+    '97':
+      command:
+      - dm execute [player] [givemoney] 36000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 97
+      levelUntil: 97
+    '98':
+      command:
+      - dm execute [player] [givemoney] 37000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 98
+      levelUntil: 98
+    '99':
+      command:
+      - dm execute [player] [givemoney] 38000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 99
+      levelUntil: 99
+    '100':
+      command:
+      - dm execute [player] [givemoney] 40000
+      - minecraft:xp add [player] 300 points
+      - sk modifier add [player] health job 0.5 true true
+      levelFrom: 100
+      levelUntil: 100

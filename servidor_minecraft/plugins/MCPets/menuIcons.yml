@@ -1,0 +1,138 @@
+petmenu:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Back to menu","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"red","bold":false}]}'
+    custom-model-data: 128
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_item_back",
+          "oraxen:original_name": ""
+      }
+skins:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Skins","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FF3377","bold":false}]}'
+    custom-model-data: 129
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_item_skin",
+          "oraxen:original_name": ""
+      }
+equipment:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: LEATHER_HORSE_ARMOR
+  meta:
+    ==: ItemMeta
+    meta-type: LEATHER_ARMOR
+    display-name: '{"text":"","extra":[{"text":"Equipment","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"gold","bold":false}]}'
+page_selector:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: PAPER
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    custom-model-data: 9660
+common:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    custom-model-data: 121
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_category_common",
+          "oraxen:original_name": ""
+      }
+rare:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    custom-model-data: 122
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_category_rare",
+          "oraxen:original_name": ""
+      }
+epic:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    custom-model-data: 123
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_category_epic",
+          "oraxen:original_name": ""
+      }
+legendary:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    custom-model-data: 124
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_category_legendary",
+          "oraxen:original_name": ""
+      }
+mount:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Mount","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFBF00","bold":false}]}'
+    custom-model-data: 126
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_item_mount",
+          "oraxen:original_name": ""
+      }
+rename:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Rename","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFBF00","bold":false}]}'
+    custom-model-data: 125
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_item_name",
+          "oraxen:original_name": ""
+      }
+inventory:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3955
+  type: YELLOW_DYE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"text":"","extra":[{"text":"Inventory","obfuscated":false,"italic":false,"underlined":false,"strikethrough":false,"color":"#FFBF00","bold":false}]}'
+    custom-model-data: 127
+    PublicBukkitValues: |-
+      {
+          "oraxen:id": "pet_item_inventory",
+          "oraxen:original_name": ""
+      }

@@ -1,0 +1,11 @@
+type: shaped
+shape:
+- ' a'
+- ba
+- ' c'
+source:
+  a: mythic_mobs:blue_crystal
+  b: minecraft:gold_ingot
+  c: minecraft:diamond
+unlock: true
+result: items_adder:weapons_me:frozengear_shovel 1

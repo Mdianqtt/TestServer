@@ -1,0 +1,10 @@
+bl_spider_shadow:
+  Action: REPLACE
+  Type: bl_shadow_spider
+  Chance: 0.8
+  Priority: 3
+  UseWorldScaling: true
+  Worlds: world
+  Conditions:
+   - entitytype{t=SPIDER} true
+  Reason: NATURAL

@@ -1,0 +1,17 @@
+Events:
+  pacto_random:
+    type: repetitive_server
+    repetitive_time: 36000 # 30 minutos
+    conditions:
+    - '%random_1_100% <= 30'
+    actions:
+      default:
+      - 'to_all: player_command_as_op: pvpglobal off'
+      - 'to_all: message: &8[&b&lZONA CERO&8] &a¡El Pacto de Caballeros ha comenzado!'
+      - 'to_all: playsound: ENTITY_ELDER_GUARDIAN_CURSE;10;0'
+      - 'wait_ticks: 18000'
+      - 'to_all: player_command_as_op: pvpglobal on'
+      - 'to_all: message: &8[&b&lZONA CERO&8] &c¡El Pacto de Caballeros ha acabado!'
+      - 'to_all: playsound: ENTITY_ELDER_GUARDIAN_CURSE;10;0'
+      - 'wait_ticks: 72000'
+    enabled: true

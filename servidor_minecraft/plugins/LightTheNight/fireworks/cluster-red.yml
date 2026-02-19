@@ -1,0 +1,24 @@
+group1:
+  fireworks:
+    scatter:
+      type: BALL
+      colors: ["#ff2d2d", "#b00000"]
+      fade: ["#ff9f9f"]
+      count: 10
+      spread: 1.2
+      power: 1
+      trail: true
+      flicker: true
+      fo: 0.15
+      ho: 0.25
+    bursts:
+      type: BURST
+      colors: ["#ff6b6b"]
+      count: 4
+      spread: 0.6
+      power: 1
+      trail: true
+      flicker: true
+      delay: 8
+      fo: 0.2
+      ho: 0.4
