@@ -1,1 +1,0 @@
-{"textures":{"0":"modelengine:entity/snake_year_beast_phase2"},"elements":[{"from":[8.0,-10.125,4.5],"to":[8.0,10.125,11.5],"faces":{"east":{"uv":[1.75,8.9375,1.96875,9.5625],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[1.96875,8.9375,2.1875,9.5625],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

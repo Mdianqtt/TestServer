@@ -1,8 +1,0 @@
-SkR_Skeleton_Base:
-  Type: SKELETON
-  Modules:
-    ThreatTable: true
-  Equipment:
-  - AIR HAND
-  Options:
-    PreventOtherDrops: true

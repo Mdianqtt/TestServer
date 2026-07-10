@@ -1,4 +1,0 @@
-# LightTheNight configuration
-# Debugging controls extra console output
-settings:
-  debug: false

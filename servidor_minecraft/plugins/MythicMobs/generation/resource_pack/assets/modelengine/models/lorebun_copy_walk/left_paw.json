@@ -1,1 +1,0 @@
-{"textures":{"0":"modelengine:entity/lorebun_copy_nometa"},"elements":[{"from":[7.7083335,7.016667,7.025],"to":[8.558333,8.016666,8.975],"faces":{"east":{"uv":[0.0,0.5,0.25,0.75],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[0.25,0.5,0.5,0.75],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

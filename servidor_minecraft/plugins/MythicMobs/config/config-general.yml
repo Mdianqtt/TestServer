@@ -1,5 +1,0 @@
-Configuration:
-  General:
-    ThreadPoolSize: -1
-    Language: en-us
-    UseVirtualThreads: false
