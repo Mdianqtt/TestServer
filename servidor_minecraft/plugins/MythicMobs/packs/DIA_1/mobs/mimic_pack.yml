@@ -1,0 +1,284 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+# Leaked By Baff for Nullforums.net
+#  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
+# ( o.o )( o.o )( o.o )( o.o )( o.o )
+#  > ^ <  > ^ <  > ^ <  > ^ <  > ^ < 
+#  /\_/\  ____         __  __  /\_/\ 
+# ( o.o )| __ )  __ _ / _|/ _|( o.o )
+#  > ^ < |  _ \ / _` | |_| |_  > ^ < 
+#  /\_/\ | |_) | (_| |  _|  _| /\_/\ 
+# ( o.o )|____/ \__,_|_| |_|  ( o.o )
+#  > ^ <                       > ^ < 
+#  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
+# ( o.o )( o.o )( o.o )( o.o )( o.o )
+#  > ^ <  > ^ <  > ^ <  > ^ <  > ^ < 
+### BED ###
+
+mimic_bed:
+  Type: ARMOR_STAND 
+  Display: 'mimic_bed'
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Despawn: false
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Collidable: false
+    Silent: true
+    Persistent: true
+  DamageModifiers:
+    - SUFFOCATION -1
+  Drops:
+  - mimic_bed 1 1
+  Skills:
+  - skill{s=mimic_hideparts} @self ~onSpawn
+  - skill{s=mimic_awaken_bed} @self ~onInteract
+  - skill{s=mimic_2block_rotate} @selflocation{so=1;yo=.5} ~onInteract
+  - skill{s=mimic_rotatecheck} @self ~onTimer:1
+  - skill{s=mimic_2block_SPAWN} @selflocation{fo=1;y=.5;centered=true} ~onSpawn
+  - skill{s=mimic_2block_errorprevention} @selflocation ~onTimer:1
+  - setblock{m=AIR;md=0} @selflocation{fo=1;y=.5;centered=true} ~onDeath
+  - setblock{m=AIR;md=0} @selflocation{y=.5} ~onDeath
+  - submodel{model=mimic_bed;subpart=mimic;em=false;remove=true} @self ~onSpawn
+  - model{mid=mimic_bed;n=false;d=false;usm=true;h=false} @self ~onSpawn
+  - model{mid=mimic_bed;n=false;d=false;usm=true;h=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+  
+
+mimic_bed_awaken:
+  Type: RAVAGER
+  Display: 'Mimic Bed'
+  Health: 15
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - players
+  Options:
+    MovementSpeed: .25
+    PreventOtherDrops: true
+    Despawn: true
+    Persistent: false
+    KnockbackResistance: 1
+    Collidable: true
+    Silent: false
+    FollowRange: 64
+    PreventSunburn: true  
+  Drops:
+  - red_bed 1 1
+  Skills:
+  - skill{s=mimic_attack_sync;sync=true} @self ~onAttack
+  - effect:particles{p=cloud;hs=.65;vs=.65;a=25} @selflocation{y=.5} ~onDeath
+  - skill{s=mimic_awaken_spawn} @self ~onSpawn
+  - model{mid=mimic_bed;n=false;d=false;usm=true} @self ~onSpawn
+  - model{mid=mimic_bed;n=false;d=false;usm=true} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+
+
+
+
+
+### CRAFTING TABLE ###
+
+mimic_craftingtable:
+  Type: ARMOR_STAND 
+  Display: 'mimic_craftingtable'
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Despawn: false
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Collidable: false
+    Silent: true
+    Persistent: true
+  DamageModifiers:
+    - SUFFOCATION -1
+  Drops:
+  - mimic_craftingtable 1 1
+  Skills:
+  - skill{s=mimic_hideparts} @self ~onSpawn
+  - skill{s=mimic_awaken_craftingtable} @self ~onInteract
+  - skill{s=mimic_1block_rotate} @self ~onInteract
+  - skill{s=mimic_rotatecheck} @self ~onTimer:1
+  - skill{s=mimic_1block_SPAWN} @selflocation{y=.5;centered=true} ~onSpawn
+  - skill{s=mimic_1block_errorprevention} @selflocation ~onTimer:1
+  - setblock{m=AIR;md=0} @selflocation{y=.5} ~onDeath
+  - submodel{model=mimic_bed;subpart=mimic;em=false;remove=true} @self ~onSpawn
+  - model{mid=mimic_craftingtable;n=false;d=false;usm=true;h=false} @self ~onSpawn
+  - model{mid=mimic_craftingtable;n=false;d=false;usm=true;h=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+  
+
+mimic_craftingtable_awaken:
+  Type: RAVAGER
+  Display: 'mimic_craftingtable'
+  Health: 15
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - players
+  Options:
+    MovementSpeed: .25
+    PreventOtherDrops: true
+    Despawn: true
+    Persistent: false
+    KnockbackResistance: 1
+    Collidable: true
+    Silent: false
+    FollowRange: 64
+    PreventSunburn: true  
+  Drops:
+  - CRAFTING_TABLE 1 1
+  Skills:
+  - skill{s=mimic_attack_sync;sync=true} @self ~onAttack
+  - effect:particles{p=cloud;hs=.65;vs=.65;a=25} @selflocation{y=.5} ~onDeath
+  - skill{s=mimic_awaken_spawn} @self ~onSpawn
+  - model{mid=mimic_craftingtable;n=false;d=false;usm=true} @self ~onSpawn
+  - model{mid=mimic_craftingtable;n=false;d=false;usm=true} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+
+
+
+### FURNACE ###
+
+mimic_furnace:
+  Type: ARMOR_STAND 
+  Display: 'mimic_furnace'
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Despawn: false
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Collidable: false
+    Silent: true
+    Persistent: true
+  DamageModifiers:
+    - SUFFOCATION -1
+  Drops:
+  - mimic_furnace 1 1
+  Skills:
+  - skill{s=mimic_hideparts} @self ~onSpawn
+  - skill{s=mimic_awaken_furnace} @self ~onInteract
+  - skill{s=mimic_1block_rotate} @self ~onInteract
+  - skill{s=mimic_rotatecheck} @self ~onTimer:1
+  - skill{s=mimic_1block_SPAWN} @selflocation{y=.5;centered=true} ~onSpawn
+  - skill{s=mimic_1block_errorprevention} @selflocation ~onTimer:1
+  - setblock{m=AIR;md=0} @selflocation{y=.5} ~onDeath
+  - submodel{model=mimic_bed;subpart=mimic;em=false;remove=true} @self ~onSpawn
+  - model{mid=mimic_furnace;n=false;d=false;usm=true;h=false} @self ~onSpawn
+  - model{mid=mimic_furnace;n=false;d=false;usm=true;h=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+  
+
+mimic_furnace_awaken:
+  Type: RAVAGER
+  Display: 'Mimic furnace'
+  Health: 15
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - players
+  Options:
+    MovementSpeed: .25
+    PreventOtherDrops: true
+    Despawn: true
+    Persistent: false
+    KnockbackResistance: 1
+    Collidable: true
+    Silent: false
+    FollowRange: 64
+    PreventSunburn: true  
+  Drops:
+  - furnace 1 1
+  Skills:
+  - skill{s=mimic_attack_sync;sync=true} @self ~onAttack
+  - effect:particles{p=cloud;hs=.65;vs=.65;a=25} @selflocation{y=.5} ~onDeath
+  - skill{s=mimic_awaken_spawn} @self ~onSpawn
+  - model{mid=mimic_furnace;n=false;d=false;usm=true} @self ~onSpawn
+  - model{mid=mimic_furnace;n=false;d=false;usm=true} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+
+
+
+### PISTON ###
+
+mimic_piston:
+  Type: ARMOR_STAND 
+  Display: 'mimic_piston'
+  AITargetSelectors:
+  - clear
+  AIGoalSelectors:
+  - clear
+  Options:
+    Despawn: false
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Collidable: false
+    Silent: true
+    Persistent: true
+  DamageModifiers:
+    - SUFFOCATION -1
+  Drops:
+  - mimic_piston 1 1
+  Skills:
+  - skill{s=mimic_hideparts} @self ~onSpawn
+  - skill{s=mimic_awaken_piston} @self ~onInteract
+  - skill{s=mimic_1block_rotate} @self ~onInteract
+  - skill{s=mimic_rotatecheck} @self ~onTimer:1
+  - skill{s=mimic_1block_SPAWN} @selflocation{y=.5;centered=true} ~onSpawn
+  - skill{s=mimic_1block_errorprevention} @selflocation ~onTimer:1
+  - setblock{m=AIR;md=0} @selflocation{y=.5} ~onDeath
+  - submodel{model=mimic_bed;subpart=mimic;em=false;remove=true} @self ~onSpawn
+  - model{mid=mimic_piston;n=false;d=false;usm=true;h=false} @self ~onSpawn
+  - model{mid=mimic_piston;n=false;d=false;usm=true;h=false} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+  
+
+mimic_piston_awaken:
+  Type: RAVAGER
+  Display: 'Mimic piston'
+  Health: 15
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - players
+  Options:
+    MovementSpeed: .25
+    PreventOtherDrops: true
+    Despawn: true
+    Persistent: false
+    KnockbackResistance: 1
+    Collidable: true
+    Silent: false
+    FollowRange: 64
+    PreventSunburn: true  
+  Drops:
+  - piston 1 1
+  Skills:
+  - skill{s=mimic_attack_sync;sync=true} @self ~onAttack
+  - effect:particles{p=cloud;hs=.65;vs=.65;a=25} @selflocation{y=.5} ~onDeath
+  - skill{s=mimic_awaken_spawn} @self ~onSpawn
+  - model{mid=mimic_piston;n=false;d=false;usm=true} @self ~onSpawn
+  - model{mid=mimic_piston;n=false;d=false;usm=true} @self ~onLoad
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onSpawn
+  - BodyClamp{mh=0;mb=0;rde=0;rdu=0} @self ~onLoad
+
+
+# 8143EVWMQB

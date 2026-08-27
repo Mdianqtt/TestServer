@@ -1,0 +1,25 @@
+nm_mini_elf_you:
+  Type: PIG
+  Display: ''
+  Health: 12
+  Damage: 0
+  AIGoalSelectors:
+  - clear  
+  - randomstroll
+  - panicWhenOnFire
+  - float
+  Options:
+    Collidable: true
+    MovementSpeed: 0.3
+    Invincible: true
+    PreventOtherDrops: true
+    Silent: true
+    PreventRenaming: false
+    PreventLeashing: false
+    AlwaysShowName: false
+  Skills:
+  - model{mid=nm_mini_elf_you;n=name} @self ~onSpawn
+  - model{mid=nm_mini_elf_you;n=name} @self ~onLoad
+  - sound{s=entity.axolotl.hurt;p=1.4;v=1} @self ~onDamaged
+  - sound{s=entity.axolotl.death;p=1.4;v=1} @self ~onDeath
+  - randomskill{s=nm_mini_you_wave_parse;sync=true;cd=3} ~onInteract

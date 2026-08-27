@@ -1,0 +1,7 @@
+nucicoin:
+
+ Id: PAPER
+ Model: 10010
+ Display: "&6NuciCoin"
+
+ #REEMPLAZAR EN TODOS LOS DROPTABLES, CON "tutorial:nucicoin" (para usarse en la petshop)

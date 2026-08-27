@@ -1,0 +1,44 @@
+
+# ~Written by RopeFire~
+
+sculk_screamer:
+  Type: WOLF
+  Display: 'Sculk Screamer'
+  Faction: SCULK
+  Health: 60
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - movetowardstarget
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Modules:
+    ThreatTable: true
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0.4
+    FollowRange: 24
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 24
+  Skills: 
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=sculk_screamer;n=false;step=1;usm=true} @self ~onSpawn
+  - model{mid=sculk_screamer;n=false;step=1;usm=true} @self ~onLoad
+  - skill{s=sculk_screamer_scream} @self ~onEnterCombat
+  - randomskill{skills=sculk_screamer_right_slash,sculk_screamer_left_slash} @self ~onTimer:30
+  - skill{s=sculk_screamer_ambient} @self ~onTimer:200

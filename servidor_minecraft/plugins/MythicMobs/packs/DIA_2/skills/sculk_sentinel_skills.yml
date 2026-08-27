@@ -1,0 +1,193 @@
+
+# ~Written by RopeFire~
+
+sculk_sentinel_setAItrue:
+  Conditions:
+  - incombat true
+  Skills:
+  - setAI{ai=true} @self
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Grab
+sculk_sentinel_grab:
+  Cooldown: 20
+  Conditions:
+  - incombat true
+  - targetwithin{d=4} true
+  - hasaura{n=SsentinelGrabbing} false
+  - hasaura{n=SsentinelCaught} false
+  - hasaura{n=SsentinelSmash} false
+  - hasaura{n=SsentinelStomp} false
+  - hasaura{n=SsentinelTongueAttack} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=SsentinelGrabbing;duration=80} @self
+  - state{model=sculk_sentinel;state=grab} @self
+  - delay 20
+  - lockmodel @self
+  - delay 3
+  - lunge{v=1} @forward{f=1;lockpitch=true}
+  - delay 4
+  - sound{s=tugkandeman.grab_woosh1;v=3;p=1} @self
+  - delay 3
+  - totem{md=10;c=1;oH=sculk_sentinel_caught;hnp=true;hp=true;hR=1.5;vR=1.5;i=1;drawhitbox=false} @ModelPart{mid=sculk_sentinel;pid=hurtbox}
+  - delay 50
+  - lockmodel{l=false} @self ?!hasaura{n=SsentinelCaught}
+  - setspeed{speed=1;type=WALKING} @self ?!hasaura{n=SsentinelCaught}
+
+sculk_sentinel_caught:
+  TargetConditions:
+  - isblocking false
+  Skills:
+  - skill{s=sculk_sentinel_caught_skill}
+
+sculk_sentinel_caught_skill:
+  Conditions:
+  - ModelHasPassenger{p=grab} false
+  Skills:
+  - mountmodel{mid=sculk_sentinel;driver=false;mode=force_walking;pbone=grab;dmg=false} @target
+  - skill{s=sculk_sentinel_eat} @self
+
+sculk_sentinel_eat:
+  Conditions:
+  - ModelHasPassenger orElseCast sculk_sentinel_setAItrue
+  - hasaura{n=SsentinelCaught} false
+  Skills:
+  - CancelEvent @self
+  - aura{auraName=SsentinelCaught;duration=120} @self
+  - delay 10
+  - state{model=sculk_sentinel;state=eat} @self 
+  - settarget @ModelPassengers{mid=sculk_sentinel;pid=grab}
+  - delay 50
+  - damage{a=12;is=true;pk=true} @target
+  - sound{s=entity.fox.bite;v=5;p=0.7} @self
+  - delay 11
+  - damage{a=12;is=true;pk=true} @target
+  - sound{s=entity.fox.bite;v=5;p=0.7} @self
+  - delay 13
+  - damage{a=12;is=true;pk=true} @target
+  - sound{s=entity.fox.bite;v=5;p=0.7} @self
+  - delay 14
+  - dismountAllModel{mid=sculk_sentinel;p=grab} @self
+  - delay 2
+  - throw{vy=-1} @target
+  - damage{a=12;is=true;pk=true} @target
+  - delay 20
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self   
+
+#Smash
+sculk_sentinel_smash:
+  Cooldown: 7
+  Conditions:
+  - incombat true
+  - targetwithin{d=5} true
+  - hasaura{n=SsentinelGrabbing} false
+  - hasaura{n=SsentinelCaught} false
+  - hasaura{n=SsentinelSmash} false
+  - hasaura{n=SsentinelStomp} false
+  - hasaura{n=SsentinelTongueAttack} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=SsentinelSmash;d=60} @self
+  - state{model=sculk_sentinel;state=smash} @self
+  - delay 15
+  - lockmodel @self
+  - delay 2
+  - sound{s=tugkandeman.metal_impact3;v=3;p=1} @self
+  - delay 1
+  - aura{auraName=SsentinelSmashD;duration=5;oT=sculk_sentinel_smash_damage} @self
+  - delay 1
+  - sound{s=tugkandeman.sculk_smash1;v=3;p=1} @self
+  - delay 2
+  - summon{type=heavy_dust_cloud;amount=1} @ModelPart{mid=sculk_sentinel;pid=grab}
+  - delay 39
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+sculk_sentinel_smash_damage:
+  Skills:
+  - totem{md=2;oH=[ - damage{a=30} ];hnp=true;hp=true;hR=1.5;vR=1.5;i=1;drawhitbox=false} @ModelPart{mid=sculk_sentinel;pid=hurtbox}
+
+#Stomp
+sculk_sentinel_stomp:
+  Cooldown: 7
+  Conditions:
+  - incombat true
+  - targetwithin{d=3} true
+  - hasaura{n=SsentinelGrabbing} false
+  - hasaura{n=SsentinelCaught} false
+  - hasaura{n=SsentinelSmash} false
+  - hasaura{n=SsentinelStomp} false
+  - hasaura{n=SsentinelTongueAttack} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=SsentinelStomp;d=50} @self
+  - state{model=sculk_sentinel;state=stomp} @self
+  - lockmodel @self
+  - delay 9
+  - summon{type=heavy_dust_cloud;amount=1} @ModelPart{mid=sculk_sentinel;pid=right_knee}
+  - sound{s=tugkandeman.rock_impact;v=3;p=1} @self
+  - sound{s=tugkandeman.sculk_smash2;v=3;p=1} @self
+  - delay 1
+  - damage{a=30;is=true} @LivingInRadius{r=5;ignore=samefaction}
+  - delay 40
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+#Tongue Attack
+sculk_sentinel_tongue_attack:
+  Cooldown: 16
+  Conditions:
+  - incombat true
+  - targetwithin{d=4} true
+  - hasaura{n=SsentinelGrabbing} false
+  - hasaura{n=SsentinelCaught} false
+  - hasaura{n=SsentinelSmash} false
+  - hasaura{n=SsentinelStomp} false
+  - hasaura{n=SsentinelTongueAttack} false
+  Skills:
+  - delay 2
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - aura{auraName=SsentinelTongueAttack;d=80} @self
+  - state{model=sculk_sentinel;state=tongue_attack} @self
+  - delay 15
+  - lockmodel @self
+  - delay 5
+  - sound{s=block.sculk_shrieker.break;v=3;p=1.5} @self
+  - delay 1
+  - aura{auraName=SsentinelTongueAttackD;duration=5;oT=sculk_sentinel_tongue_attack_damage} @self
+  - delay 59
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self
+
+sculk_sentinel_tongue_attack_damage:
+  Skills:
+  - totem{md=2;oH=[ - damage{a=30} ];hnp=true;hp=true;hR=1.5;vR=1.5;i=1;drawhitbox=false} @ModelPart{mid=sculk_sentinel;pid=hurtbox}
+
+#Death
+sculk_sentinel_death:
+  Skills:
+  - delay 18
+  - sound{s=tugkandeman.rock_impact;v=3;p=1} @self
+  - delay 50
+  - sound{s=tugkandeman.rock_impact;v=3;p=1} @self
+
+#Ambient
+sculk_sentinel_ambient:
+  Conditions:
+  - incombat false
+  Skills:
+  - sound{s=tugkandeman.sculk_sentinel_idle;v=1.5;p=1} @self

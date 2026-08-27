@@ -1,0 +1,71 @@
+info:
+  namespace: xmas_costume
+armors_rendering:
+  santa_costume:
+    color: '#d83347'
+    layer_1: armor/santa_costume/layer_1
+    layer_2: armor/santa_costume/layer_2
+    use_color: false
+items:
+  santa_head:
+    display_name: Santa Head
+    permission: santa_costume
+    resource:
+      material: PAPER
+      generate: false
+      model_path: items/santa_head
+    durability:
+      max_durability: 1562
+    behaviours:
+      hat: true
+  santa_chestplate:
+    display_name: Santa Chestplate
+    permission: santa_costume
+    resource:
+      generate: true
+      textures:
+      - item/santa_costume/santa_chestplate
+    durability:
+      max_custom_durability: 240
+    specific_properties:
+      armor:
+        slot: chest
+        custom_armor: santa_costume
+    attribute_modifiers:
+      chest:
+        armor: 5
+        armorToughness: 1
+  santa_leggings:
+    display_name: Santa Leggings
+    permission: santa_costume
+    resource:
+      generate: true
+      textures:
+      - item/santa_costume/santa_leggings
+    durability:
+      max_custom_durability: 225
+    specific_properties:
+      armor:
+        slot: legs
+        custom_armor: santa_costume
+    attribute_modifiers:
+      legs:
+        armor: 4
+        armorToughness: 1
+  santa_boots:
+    display_name: Santa Boots
+    permission: santa_costume
+    resource:
+      generate: true
+      textures:
+      - item/santa_costume/santa_boots
+    durability:
+      max_custom_durability: 195
+    specific_properties:
+      armor:
+        slot: FEET
+        custom_armor: santa_costume
+    attribute_modifiers:
+      feet:
+        armor: 1
+        armorToughness: 1

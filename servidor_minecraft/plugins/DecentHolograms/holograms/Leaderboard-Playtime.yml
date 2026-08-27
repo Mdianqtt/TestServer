@@ -1,0 +1,178 @@
+# Instuctions by Ph4ntom:
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+#
+# 1. To use this you should have PlaceholderAPI Plugin & ajLeaderboards Plugin
+# 2. Run the commands:
+#     - '/papi ecloud download statistic'   &   '/papi reload'
+#     - '/ajlb add %statistic_time_played%'
+#     - '/luckperms group default permission set ajleaderboards.dontupdate.* false' <--- (If your leadboards aren't updating)
+# 3. Update the loction in the file or in game using '/dh mvhr Leaderboard-Playtime'
+# 4. Enjoy the leaderboards, AlexTheGod!
+
+
+# Change the location below 
+# (name is the world name)
+# (x,y,z are the co-ordinates where you want your leaderboard to be)
+# \/ \/ \/ name:x:y:z
+location: world:131.936:129.000:33.525
+
+enabled: true
+display-range: 48
+update-range: 48
+update-interval: 20
+facing: 0.0
+down-origin: true
+pages:
+- lines:
+  - content: '#ICON: AMETHYST_CLUSTER'
+    height: 0.6
+    facing: 180.0
+  - content: '&f⌚ &#AD59FF&lTOP PLAYTIME&f ⌚'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#BC77FF#1 &7➡ &f%ajlb_lb_statistic_time_played_1_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_1_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#2 &7➡ &f%ajlb_lb_statistic_time_played_2_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_2_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#3 &7➡ &f%ajlb_lb_statistic_time_played_3_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_3_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#4 &7➡ &f%ajlb_lb_statistic_time_played_4_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_4_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#5 &7➡ &f%ajlb_lb_statistic_time_played_5_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_5_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#6 &7➡ &f%ajlb_lb_statistic_time_played_6_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_6_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#7 &7➡ &f%ajlb_lb_statistic_time_played_7_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_7_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#8 &7➡ &f%ajlb_lb_statistic_time_played_8_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_8_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#9 &7➡ &f%ajlb_lb_statistic_time_played_9_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_9_alltime_value%'
+    height: 0.3
+  - content: '&#BC77FF#10 &7➡ &f%ajlb_lb_statistic_time_played_10_alltime_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_10_alltime_value%'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#BC77FF#%ajlb_position_statistic_time_played_alltime% &7➡ &f%player_name%
+      &7⬅ &#BC77FF%ajlb_value_statistic_time_played_alltime%'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#AD59FF&nᴀʟʟᴛɪᴍᴇ&r &8» &#7C6494ᴍᴏɴᴛʜʟʏ &8» &#7C6494ᴡᴇᴇᴋʟʏ'
+    height: 0.3
+  actions:
+    LEFT:
+    - PREV_PAGE
+    - SOUND:BLOCK_PISTON_EXTEND
+    RIGHT:
+    - NEXT_PAGE
+    - SOUND:BLOCK_PISTON_CONTRACT
+- lines:
+  - content: '#ICON: AMETHYST_CLUSTER'
+    height: 0.6
+    facing: 180.0
+  - content: '&f⌚ &#AD59FF&lTOP PLAYTIME&f ⌚'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#BC77FF#1 &7➡ &f%ajlb_lb_statistic_time_played_1_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_1_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#2 &7➡ &f%ajlb_lb_statistic_time_played_2_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_2_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#3 &7➡ &f%ajlb_lb_statistic_time_played_3_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_3_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#4 &7➡ &f%ajlb_lb_statistic_time_played_4_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_4_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#5 &7➡ &f%ajlb_lb_statistic_time_played_5_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_5_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#6 &7➡ &f%ajlb_lb_statistic_time_played_6_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_6_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#7 &7➡ &f%ajlb_lb_statistic_time_played_7_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_7_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#8 &7➡ &f%ajlb_lb_statistic_time_played_8_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_8_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#9 &7➡ &f%ajlb_lb_statistic_time_played_9_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_9_monthly_value%'
+    height: 0.3
+  - content: '&#BC77FF#10 &7➡ &f%ajlb_lb_statistic_time_played_10_monthly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_10_monthly_value%'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#BC77FF#%ajlb_position_statistic_time_played_monthly% &7➡ &f%player_name%
+      &7⬅ &#BC77FF%ajlb_value_statistic_time_played_monthly%'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#7C6494ᴀʟʟᴛɪᴍᴇ &8« &#AD59FF&nᴍᴏɴᴛʜʟʏ&r &8» &#7C6494ᴡᴇᴇᴋʟʏ'
+    height: 0.3
+  actions:
+    LEFT:
+    - PREV_PAGE
+    - SOUND:BLOCK_PISTON_EXTEND
+    RIGHT:
+    - NEXT_PAGE
+    - SOUND:BLOCK_PISTON_CONTRACT
+- lines:
+  - content: '#ICON: AMETHYST_CLUSTER'
+    height: 0.6
+    facing: 180.0
+  - content: '&f⌚ &#AD59FF&lTOP PLAYTIME&f ⌚'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#BC77FF#1 &7➡ &f%ajlb_lb_statistic_time_played_1_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_1_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#2 &7➡ &f%ajlb_lb_statistic_time_played_2_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_2_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#3 &7➡ &f%ajlb_lb_statistic_time_played_3_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_3_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#4 &7➡ &f%ajlb_lb_statistic_time_played_4_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_4_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#5 &7➡ &f%ajlb_lb_statistic_time_played_5_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_5_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#6 &7➡ &f%ajlb_lb_statistic_time_played_6_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_6_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#7 &7➡ &f%ajlb_lb_statistic_time_played_7_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_7_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#8 &7➡ &f%ajlb_lb_statistic_time_played_8_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_8_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#9 &7➡ &f%ajlb_lb_statistic_time_played_9_weekly_name% &7⬅ &#BC77FF%ajlb_lb_statistic_time_played_9_weekly_value%'
+    height: 0.3
+  - content: '&#BC77FF#10 &7➡ &f%ajlb_lb_statistic_time_played_10_weekly_name% &7⬅
+      &#BC77FF%ajlb_lb_statistic_time_played_10_weekly_value%'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#BC77FF#%ajlb_position_statistic_time_played_weekly% &7➡ &f%player_name%
+      &7⬅ &#BC77FF%ajlb_value_statistic_time_played_weekly%'
+    height: 0.3
+  - content: '&r'
+    height: 0.3
+  - content: '&#7C6494ᴀʟʟᴛɪᴍᴇ &8« &#7C6494ᴍᴏɴᴛʜʟʏ &8« &#AD59FF&nᴡᴇᴇᴋʟʏ&r'
+    height: 0.3
+  actions:
+    LEFT:
+    - PREV_PAGE
+    - SOUND:BLOCK_PISTON_EXTEND
+    RIGHT:
+    - NEXT_PAGE
+    - SOUND:BLOCK_PISTON_CONTRACT

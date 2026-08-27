@@ -1,0 +1,10 @@
+info:
+  namespace: tutorial
+items:
+  nucicoin:
+    permission: tutorial.nucicoin
+    display_name: '<gold>NuciCoin'
+    resource: 
+     material: PAPER
+     generate: false
+     model_path: nucicoin

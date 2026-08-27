@@ -1,0 +1,89 @@
+1bit_elite_zombified_piglin_pet:
+  Type: pig
+  Display: '&cElite Zombified Piglin'
+  Health: 80
+  Damage: 11
+  Faction: pet
+  Options:
+    Silent: true
+    Invisible: false
+    Collidable: true
+    FollowRange: 23
+    MovementSpeed: 0.27
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - 1 clear
+  - 2 meleeattack
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 attacker
+  Skills:
+  - model{mid=1bit_elite_zombified_piglin;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_zombified_piglin;n=false;usestatemachine=true} @self ~onLoad
+  - addtag{t=pet} @self ~onSpawn
+  - effect:particles{particle=Sneeze;speed=0.013;Size=1;a=8;hS=0.75;vS=1;y=0.8} @ModelPart{m=1bit_elite_zombified_piglin;p=bone} ~onTimer:6
+  - effect:particles{particle=Falling_Spore_Blossom;speed=0.013;Size=1;a=4;hS=0.75;vS=1;y=0.8} @ModelPart{m=1bit_elite_zombified_piglin;p=bone} ~onTimer:6
+  - onDamaged{auraName=spawn;cE=true;time=80;oS=[
+      - stun{d=80;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=80;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - equip{item=AIR:HAND;delay=1} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_zombified_piglin_random_attack;sync=true} ~onAttack
+  - skill{s=1bit_elite_zombified_piglin_sound_damaged;sync=true} @self ~onDamaged ?!hasaura{n=spawn}
+  - skill{s=[
+      - sound{s=entity.zombified_piglin.ambient;p=0.90;v=1.0}
+      - sound{s=entity.piglin_brute.ambient;p=0.60;v=0.5}
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}
+  - skill{s=1bit_elite_zombified_piglin_sound_death;sync=true} @self ~onDeath
+1bit_elite_baby_zombified_piglin_pet:
+  Type: pig
+  Display: '&cElite Baby Zombified Piglin'
+  Health: 50
+  Damage: 8
+  Faction: pet
+  Options:
+    Silent: true
+    Invisible: true
+    Collidable: true
+    FollowRange: 23
+    MovementSpeed: 0.245
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - ownertarget
+  - attacker
+  Skills:
+  - model{mid=1bit_elite_baby_zombified_piglin;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_baby_zombified_piglin;n=false;usestatemachine=true} @self ~onLoad
+  - addtag{t=Baby} @self ~onSpawn
+  - addtag{t=pet} @self ~onSpawn
+  - skill{s=1bit_elite_baby_zombified_piglin_sound_death;sync=true} @self ~onDeath
+  - effect:particles{particle=Sneeze;speed=0.013;Size=1;a=4;hS=0.4;vS=0.45;y=0.3} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=body} ~onTimer:6
+  - effect:particles{particle=Falling_Spore_Blossom;speed=0.013;Size=1;a=2;hS=0.4;vS=0.45;y=0.3} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=body} ~onTimer:6
+  - onDamaged{auraName=spawn;cE=true;time=80;oS=[
+      - stun{d=80;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=80;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - equip{item=AIR:HAND;delay=1} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_baby_zombified_piglin_random_attack;sync=true} ~onAttack
+  - skill{s=1bit_elite_zombified_piglin_sound_damaged;sync=true} @self ~onDamaged ?!hasaura{n=spawn}
+  - skill{s=[
+      - sound{s=entity.zombified_piglin.ambient;p=1.1;v=1.0}
+      - sound{s=entity.piglin_brute.ambient;p=0.8;v=0.5}
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}

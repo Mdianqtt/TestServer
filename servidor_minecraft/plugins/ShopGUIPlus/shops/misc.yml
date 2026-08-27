@@ -1,0 +1,338 @@
+  misc:
+    name: "&8Miscellaneous ✚ (page %page% ┃ 2)"
+    buttons:
+      goBack:
+        slot: 4     
+      previousPage:
+        slot: 2
+      nextPage:
+        slot: 6   
+    fillItem:
+        material: ORANGE_STAINED_GLASS_PANE
+        name: ""  
+    items:
+       1:
+        type: item
+        item:
+          material: water_bucket
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 9
+       2:
+        type: item
+        item:
+          material: lava_bucket
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 10  
+       3:
+        type: item
+        item:
+          material: diamond_horse_armor
+          quantity: 1
+        buyPrice: 5000
+        sellPrice: -1
+        slot: 11 
+       4:
+        type: item
+        item:
+          material: golden_horse_armor
+          quantity: 1
+        buyPrice: 4500
+        sellPrice: -1
+        slot: 12 
+       5:
+        type: item
+        item:
+          material: iron_horse_armor
+          quantity: 1
+        buyPrice: 4000
+        sellPrice: -1
+        slot: 13   
+       6:
+        type: item
+        item:
+          material: SADDLE
+          quantity: 1
+        buyPrice: 5000
+        sellPrice: -1
+        slot: 14
+       7:
+        type: item
+        item:
+          material: LEAD
+          quantity: 1
+        buyPrice: 250
+        sellPrice: -1
+        slot: 15  
+       9:
+        type: item
+        item:
+          material: name_tag
+          quantity: 1
+        buyPrice: 3000
+        sellPrice: -1
+        slot: 16  
+       10:
+        type: item
+        item:
+          material: CLOCK
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 17 
+       11:
+        type: item
+        item:
+          material: COMPASS
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 18 
+       12:
+        type: item
+        item:
+          material: BOOK
+          quantity: 1
+        buyPrice: 20
+        sellPrice: -1
+        slot: 19
+       13:
+        type: item
+        item:
+          material: flint_and_steel
+          quantity: 1
+        buyPrice: 150
+        sellPrice: -1
+        slot: 20
+       14:
+        type: item
+        item:
+          material: oak_boat
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 21
+       15:
+        type: item
+        item:
+          material: spruce_boat
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 22
+       16:
+        type: item
+        item:
+          material: birch_boat
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 23
+       17:
+        type: item
+        item:
+          material: jungle_boat
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 24
+       18:
+        type: item
+        item:
+          material: acacia_boat
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 25
+       19:
+        type: item
+        item:
+          material: dark_oak_boat
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 26
+       20:
+        type: item
+        item:
+          material: pufferfish_bucket
+          quantity: 1
+        buyPrice: 500
+        sellPrice: -1
+        slot: 27
+       21:
+        type: item
+        item:
+          material: salmon_bucket
+          quantity: 1
+        buyPrice: 500
+        sellPrice: -1
+        slot: 28
+       22:
+        type: item
+        item:
+          material: cod_bucket
+          quantity: 1
+        buyPrice: 500
+        sellPrice: -1
+        slot: 29
+       23:
+        type: item
+        item:
+          material: tropical_fish_bucket
+          quantity: 1
+        buyPrice: 500
+        sellPrice: -1
+        slot: 30
+       24:
+        type: item
+        item:
+          material: chain
+          quantity: 1
+        buyPrice: 30
+        sellPrice: -1
+        slot: 31
+       25:
+        type: item      
+        item:
+          material: scaffolding    
+          quantity: 1
+        buyPrice: 125
+        sellPrice: -1
+        slot: 32
+       26:
+        type: item      
+        item:
+          material: barrel   
+          quantity: 1
+        buyPrice: 200
+        sellPrice: -1
+        slot: 33
+       27:
+        type: item      
+        item:
+          material: loom    
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 34
+       28:
+        type: item      
+        item:
+          material: smoker   
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 35
+       29:
+        type: item      
+        item:
+          material: blast_furnace     
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 36
+       30:
+        type: item      
+        item:
+          material: cartography_table      
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 37
+       31:
+        type: item      
+        item:
+          material: fletching_table      
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 38
+       32:
+        type: item      
+        item:
+          material: grindstone     
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 39
+       33:
+        type: item      
+        item:
+          material: smithing_table     
+          quantity: 1
+        buyPrice: 300
+        sellPrice: -1
+        slot: 40
+       34:
+        type: item      
+        item:
+          material: LODESTONE
+          quantity: 1
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 41
+       35:
+        type: item      
+        item:
+          material: RESPAWN_ANCHOR
+          quantity: 1
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 42
+       36:
+        type: item      
+        item:
+          material: mangrove_boat   
+          quantity: 1
+        buyPrice: 250
+        sellPrice: -1
+        slot: 43
+       37:
+        type: item      
+        item:
+          material: recovery_compass  
+          quantity: 1
+        buyPrice: 10000
+        sellPrice: -1
+        slot: 44
+        page: 1
+       38:
+        type: item      
+        item:
+          material: mangrove_boat   
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 9
+        page: 2
+       39:
+        type: item      
+        item:
+          material: bamboo_raft   
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 10
+        page: 2
+       40:
+        type: item      
+        item:
+          material: cherry_boat 
+          quantity: 1
+        buyPrice: 100
+        sellPrice: -1
+        slot: 11
+        page: 2
+       100:
+        type: special
+        special: balance
+        slot: 8
+       101:
+        type: special
+        special: balance
+        slot: 8
+        page: 2       

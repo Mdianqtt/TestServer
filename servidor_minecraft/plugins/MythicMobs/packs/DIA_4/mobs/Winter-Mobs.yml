@@ -1,0 +1,285 @@
+Ice_Zombie:
+  Type: zombie
+  Display: '&7Ice Zombie'
+  Health: 10
+  Damage: 0
+  ShowHealth: true
+  Despawn: true
+  Options:
+    LockPitch: true
+    KnockbackResistance: 0.5
+    PreventOtherDrops: true
+    Silent: true
+    FollowRange: 32
+    MaxCombatDistance: 64
+    MovementSpeed: 0.135
+    PreventMobKillDrops: true
+    PreventItemPickup: true
+    PreventSunburn: true
+  Drops:
+  - exp 100to130 1
+  Modules:
+    ImmunityTable: true
+    ThreatTable: true
+  DamageModifiers:
+  - MAGIC 0.1
+  - SUFFOCATION 0
+  Faction: Bosses
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  - Float 
+  AITargetSelectors:
+  - clear
+  - players
+  Skills:  
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onSpawn
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onLoad
+  - model{mid=ice_zombie;damagetint=true;i=true;usm=true} @self ~onSpawn 
+  - model{mid=ice_zombie;damagetint=true;i=true;usm=true} @self ~onLoad
+  - bodyrotation{mid=ice_zombie;rde=5;rdu=false;maxbody=0} @self ~onSpawn
+
+  - skill{s=[
+    - cancelevent{sync=true}
+    - lockmodel{l=true} @self
+    - setai{ai=false} @self
+    - delay 1
+    - defaultstate{mid=ice_zombie;t=idle;s=attack;li=3;lo=3} @self
+    - defaultstate{mid=ice_zombie;t=walk;s=attack;li=3;lo=3} @self
+    - delay 11
+    - damage{a=5;ia=false} @target
+    - freeze{ticks=100} @target
+    - sound{s=entity.zombie.attack_iron_door;v=0.5} @PIR{r=30}
+    - delay 9
+    - defaultstate{mid=ice_zombie;t=walk;s=walk;li=3;lo=3} @self
+    - defaultstate{mid=ice_zombie;t=idle;s=idle;li=3;lo=3} @self
+    - lockmodel{l=false} @self
+    - setai{ai=true} @self
+    ]} ~onAttack
+
+  - skill{s=[
+    - cancelevent{sync=true}
+    ]} @SelfLocation ~onDeath
+  - potion{type=DAMAGE_RESISTANCE;duration=999999;lvl=1;hasParticles=false} @self ~onSpawn
+
+Ice_Spider:
+  Type: zombie
+  Display: '&7Ice Spider'
+  Health: 20
+  Damage: 0
+  ShowHealth: true
+  Despawn: true
+  Options:
+    LockPitch: true
+    KnockbackResistance: 0
+    PreventOtherDrops: true
+    Silent: true
+    FollowRange: 32
+    MaxCombatDistance: 64
+    MovementSpeed: 0.26
+    PreventMobKillDrops: true
+    PreventItemPickup: true
+    PreventSunburn: true
+  Drops:
+  - exp 100to130 1
+#  - mmoitems{type=SWORD;id=CUTLASS} 1 1
+  Modules:
+    ImmunityTable: true
+    ThreatTable: true
+  DamageModifiers:
+  - MAGIC 0.1
+  - SUFFOCATION 0
+  Faction: Bosses
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  - Float 
+  AITargetSelectors:
+  - clear
+  - players
+  Skills:  
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onSpawn
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onLoad
+  - model{mid=ice_spider;damagetint=true;i=true;usm=true} @self ~onSpawn 
+  - model{mid=ice_spider;damagetint=true;i=true;usm=true} @self ~onLoad
+  - bodyrotation{mid=ice_spider;rde=5;rdu=false;maxbody=0} @self ~onSpawn
+
+  - skill{s=[
+    - cancelevent{sync=true}
+    - lockmodel{l=true} @self
+    - setai{ai=false} @self
+    - delay 1
+    - defaultstate{mid=ice_spider;t=idle;s=attack;li=3;lo=3} @self
+    - defaultstate{mid=ice_spider;t=walk;s=attack;li=3;lo=3} @self
+    - delay 10
+    - sound{s=entity.zombie.attack_iron_door;v=0.5} @PIR{r=30}
+    - damage{a=6;ia=false} @target
+    - freeze{ticks=100} @target
+    - delay 15
+    - defaultstate{mid=ice_spider;t=walk;s=walk;li=3;lo=3} @self
+    - defaultstate{mid=ice_spider;t=idle;s=idle;li=3;lo=3} @self
+    - lockmodel{l=false} @self
+    - setai{ai=true} @self
+    ]} ~onAttack
+
+  - skill{s=[
+    - cancelevent{sync=true}
+    - delay 20
+    ]} @SelfLocation ~onDeath
+  - potion{type=DAMAGE_RESISTANCE;duration=999999;lvl=1;hasParticles=false} @self ~onSpawn
+
+Ice_Skeleton:
+  Type: skeleton
+  Display: '&7Ice Skeleton'
+  Health: 20
+  Damage: 0
+  ShowHealth: true
+  Despawn: true
+  Options:
+    LockPitch: true
+    KnockbackResistance: 0
+    PreventOtherDrops: true
+    Silent: true
+    FollowRange: 32
+    MaxCombatDistance: 64
+    MovementSpeed: 0.175
+    PreventMobKillDrops: true
+    PreventItemPickup: true
+    PreventSunburn: true
+  Drops:
+  - exp 100to130 1
+#  - mmoitems{type=SWORD;id=CUTLASS} 1 1
+  Modules:
+    ImmunityTable: true
+    ThreatTable: true
+  DamageModifiers:
+  - MAGIC 0.1
+  - SUFFOCATION 0
+  Faction: Bosses
+  AITargetSelectors:
+  - clear
+  - players
+  Skills:  
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onSpawn
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onLoad
+  - model{mid=ice_skeleton;damagetint=true;i=true;usm=true} @self ~onSpawn 
+  - model{mid=ice_skeleton;damagetint=true;i=true;usm=true} @self ~onLoad
+  - bodyrotation{mid=ice_skeleton;rde=5;rdu=false;maxbody=0} @self ~onSpawn
+
+  - cancelevent{sync=true} ~onShoot
+
+
+  - skill{s=[
+    - lockmodel{l=true} @self
+    - setai{ai=false} @self
+    - delay 1
+    - defaultstate{mid=ice_skeleton;t=idle;s=attack;li=3;lo=3} @self
+    - defaultstate{mid=ice_skeleton;t=walk;s=attack;li=3;lo=3} @self
+    - delay 25
+    - skill{s=[ - projectile{v=12;g=0.005;bulletType=ARROW;arrowtype=NORMAL;sb=true;se=true;ham=true;oT=[ - e:p{p=snowballpoof} @origin ];oH=[ - damage{a=5;ia=false} - freeze{ticks=100} ];origin=@modelpart{mid=whatevermob;p=bow;y=3}} ]} @target
+    - sound{s=entity.zombie.attack_iron_door;v=0.5} @PIR{r=30}
+    - delay 16
+    - defaultstate{mid=ice_skeleton;t=walk;s=walk;li=3;lo=3} @self
+    - defaultstate{mid=ice_skeleton;t=idle;s=idle;li=3;lo=3} @self
+    - lockmodel{l=false} @self
+    - setai{ai=true} @self
+    ]} ~onShoot
+
+  - skill{s=[
+    - cancelevent{sync=true}
+    ]} @SelfLocation ~onDeath
+
+Ice_Creeper:
+  Type: Creeper
+  Display: '&7Ice Creeper'
+  Health: 25
+  Damage: 0
+  ShowHealth: true
+  Despawn: true
+  Options:
+    LockPitch: true
+    KnockbackResistance: 0
+    PreventOtherDrops: true
+    FollowRange: 
+    MaxCombatDistance: 64
+    MovementSpeed: 0.2
+    PreventMobKillDrops: true
+    PreventItemPickup: true
+    PreventSunburn: true
+  Drops:
+  - exp 100to130 1
+#  - mmoitems{type=SWORD;id=CUTLASS} 1 1
+  Modules:
+    ImmunityTable: true
+    ThreatTable: true
+  DamageModifiers:
+  - MAGIC 0.1
+  - SUFFOCATION 0
+  Faction: Bosses
+  AITargetSelectors:
+  - clear
+  - players
+  Skills:  
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onSpawn
+  - cullconfig{vc=false;bkc=false;blc=false} @self ~onLoad
+  - model{mid=ice_creeper;damagetint=true;i=true;usm=true} @self ~onSpawn 
+  - model{mid=ice_creeper;damagetint=true;i=true;usm=true} @self ~onLoad
+  - bodyrotation{mid=ice_creeper;rde=5;rdu=false;maxbody=0} @self ~onSpawn
+
+  - skill{s=[
+    - cancelevent{sync=true}
+    ]} @SelfLocation ~onDeath
+  - skill{s=[
+    - setstance{s=armed}
+    - setAI{ai=false}
+    - defaultstate{mid=ice_creeper;t=idle;s=attack;li=3;lo=3}
+    - defaultstate{mid=ice_creeper;t=walk;s=attack;li=3;lo=3}
+    - delay 20
+    - summon{t=winter-wave}
+    - effect:explode
+    - delay 10
+    - remove
+    ]} @self ~onTimer:10 ?playerwithin{d=3} ?!stance{s=armed}
+
+  - skill{s=[
+    - cancelevent{sync=true}
+    ]} @SelfLocation ~onDeath
+
+winter-wave:
+  Type: armorstand
+  Health: 100
+  Damage: 0
+  Options:
+    Invincible: true
+    Invisible: true
+  Skills:
+  - skill{s=[ 
+    - damage{a=20}
+    - freeze{ticks=100}
+    - throw{v=3;vy=5}
+    ]} @PlayersNearOrigin{r=5} ~onSpawn
+  - skill{s=[
+    - blockwave{m=ICE;radius=3;radiusY=3;velocity=2;vh=3;shape=sphere;duration=60;hs=false} @origin
+    - effect:blockmask{m=ICE;duration=60} @blocksinradius{r=3;ry=3}
+    - effect:blockmask{m=BARRIER;duration=60} @blocksnearorigin{r=2;ry=2}
+    ]} ~onSpawn
+  - skill{
+    s=[
+      - setvar{var=skill.waveradius;type=INTEGER;val="0"} @self
+      - setvar{var=skill.wavepoints;type=INTEGER;val="0"} @self
+      - delay 5
+      - skill{
+          s=[
+            - variableadd{var=skill.waveradius;a=1} @self
+            - setvar{var=skill.wavepoints;type=INTEGER;val="<skill.var.waveradius>*4"} @self
+            - effect:particlering{particle=snowballpoof;radius=<skill.var.waveradius>;points=<skill.var.wavepoints>;amount=10;hS=1;vS=0.1} @self
+          ];repeat=4;repeatinterval=5}
+      - setvar{var=skill.waveradius;type=INTEGER;val="0"}
+      - delay 40
+      - remove @self
+    ]} ~onSpawn
+    
+
+# 75663F5QO9C

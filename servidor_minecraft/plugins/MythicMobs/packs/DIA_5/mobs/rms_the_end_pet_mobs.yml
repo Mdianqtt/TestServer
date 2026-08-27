@@ -1,0 +1,304 @@
+######## created by samus2002 #########
+
+# Ender Slime #
+
+Ender_Slime_PET:
+  Type: WOLF
+  Display: '&fEnder Slime'
+  Health: 25
+  Damage: <pet.damagemodifier>
+  Options:
+    MovementSpeed: 0.22
+    PreventRandomEquipment: true
+    Persistent: false
+    Despawn: false
+    PreventOtherDrops: true
+    FollowRange: 40
+    Invincible: false
+    Silent: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 ownerattacker
+  - 3 attacker
+  Skills:
+  - model{mid=ender_slime;step=1;tint=false;usm=true;save=true} @self ~onSpawn
+  - particles{p=portal;amount=10;hS=0.5;vS=0.5;y=0;size=1;speed=0} @modelpart{mid=ender_slime;pid=upper_body;location=0,0,0;em=true} ~onTimer:40
+  - setstance{stance=Walking} @self
+  - skill{s=Changetarget} ~onTimer:160 <99%
+  - skill{s=Cancelattack;sync=true} ~onAttack
+  - skill{s=Ender_Slime_LEAP_ATTACK} ~onTimer:20
+  - setspeed{speed=1.4;type=walking} @self ~onSpawn
+  - skill{s=EXP_Gain} ~onTimer:100
+  - skill{s=Pet_Look} ~onTimer:1
+  
+
+# Ender Ripper #
+
+Ender_Ripper_PET:
+  Type: WOLF
+  Display: '&fEnder Ripper'
+  Health: 65
+  Damage: <pet.damagemodifier>
+  Options:
+    MovementSpeed: 0.22
+    PreventRandomEquipment: true
+    Persistent: false
+    Despawn: false
+    PreventOtherDrops: true
+    FollowRange: 40
+    Invincible: false
+    Silent: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 ownerattacker
+  - 3 attacker
+  Skills:
+  - model{mid=ender_ripper;step=1;tint=false;usm=true;save=true} @self ~onSpawn
+  - particles{p=portal;amount=15;hS=0.3;vS=1.7;y=0;size=1;speed=0} @modelpart{mid=ender_ripper;pid=upper_body;location=0,0,0;em=true} ~onTimer:40
+  - setstance{stance=Walking} @self
+  - effect:sound{s=entity.enderman.ambient;volume=0.75;pitch=0.8} @self ~onTimer:140 0.45
+  - skill{s=Cancelattack;sync=true} ~onAttack
+  - skill{s=Ender_Ripper_SKILL_PET} ~onTimer:20
+  - setspeed{speed=1.6;type=walking} @self ~onSpawn
+  - skill{s=EXP_Gain} ~onTimer:100
+  - skill{s=Pet_Look} ~onTimer:1
+
+# End Seeker #
+
+End_Seeker_PET:
+  Type: WOLF
+  Display: '&fEnd Seeker'
+  Health: 40
+  Damage: <pet.damagemodifier>
+  Options:
+    MovementSpeed: 0.22
+    PreventRandomEquipment: true
+    Persistent: false
+    Despawn: false
+    PreventOtherDrops: true
+    FollowRange: 40
+    Invincible: false
+    Silent: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 ownerattacker
+  - 3 attacker
+  Skills:
+  - model{mid=end_seeker;step=1;tint=false;usm=true;save=true} @self ~onSpawn
+  - particles{p=portal;amount=15;hS=0.4;vS=0.8;y=0;size=1;speed=0} @modelpart{mid=end_seeker;pid=root;location=0,0,0;em=true} ~onTimer:40
+  - setstance{stance=Walking} @self
+  - effect:sound{s=entity.phantom.ambient;volume=0.75;pitch=1.2} @self ~onTimer:140 0.45
+  - skill{s=Cancelattack;sync=true} ~onAttack
+  - skill{s=End_Seeker_CHARGE_EXPLODE_PET} ~onTimer:20
+  - setspeed{speed=1.2;type=walking} @self ~onSpawn
+  - skill{s=EXP_Gain} ~onTimer:100
+  - skill{s=Pet_Look} ~onTimer:1
+
+# End Scuttler #
+
+End_Scuttler_PET:
+  Type: WOLF
+  Display: '&fEnd Scuttler'
+  Health: 50
+  Damage: <pet.damagemodifier>
+  Options:
+    MovementSpeed: 0.22
+    PreventRandomEquipment: true
+    Persistent: false
+    Despawn: false
+    PreventOtherDrops: true
+    FollowRange: 40
+    Invincible: false
+    Silent: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 ownerattacker
+  - 3 attacker
+  Skills:
+  - model{mid=end_scuttler;step=1;tint=false;usm=true;save=true;drive=true} @self ~onSpawn
+  - segment{m=end_scuttler;p=lace;em=false;roll=true;extend=0.1} @self ~onSpawn
+  - particles{p=portal;amount=15;hS=0.4;vS=0.7;y=0;size=1;speed=0} @modelpart{mid=end_scuttler;pid=root;location=0,0,0;em=true} ~onTimer:40
+  - skill{s=End_Scuttler_IDLE_SFX} ~onTimer:140 0.45
+  - skill{s=End_Scuttler_WEB_CHECK} @target ~onTimer:10
+  - skill{s=Cancelattack;sync=true} ~onAttack
+  - skill{s=End_Scuttler_DASH_PET} ~onTimer:10
+  - skill{s=End_Scuttler_SKILL_PET} ~onTimer:12
+  - setspeed{speed=1.6;type=walking} @self ~onSpawn
+  - skill{s=EXP_Gain} ~onTimer:100
+  - skill{s=Pet_Look} ~onTimer:1
+
+VFX_Ender_Web:
+  Type: ARMOR_STAND
+  Options:
+    Marker: true
+    Small: false
+    HasArms: true
+    Invisible: true
+    Invincible: false
+  Skills:
+  - model{usestatemachine=true;mid=vfx_ender_web} @self ~onSpawn
+  - brightness{mid=vfx_ender_web;b=15;s=15} @self ~onSpawn
+
+  - BodyRotation{playermode=true;stable=0;rdelay=0;rduration=0} @self ~onSpawn
+  - state{s=spawn} @self ~onSpawn
+  - state{s=loop;delay=4} @self ~onSpawn
+  - state{s=despawn;delay=64} @self ~onSpawn
+  - remove{delay=68} @self ~onSpawn
+
+# Ender Hammerhead #
+
+Ender_Hammerhead_PET:
+  Type: WOLF
+  Display: '&fEnder Hammerhead'
+  Health: 70
+  Damage: <pet.damagemodifier>
+  Options:
+    MovementSpeed: 0.24
+    PreventRandomEquipment: true
+    Persistent: false
+    Despawn: false
+    PreventOtherDrops: true
+    FollowRange: 40
+    Invincible: false
+    Silent: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 ownerattacker
+  - 3 attacker
+  Skills:
+  - model{mid=ender_hammerhead;step=1;tint=false;usm=true;save=true;drive=true} @self ~onSpawn
+  - particles{p=portal;amount=20;hS=1.2;vS=0.6;y=0;size=1;speed=0} @modelpart{mid=ender_hammerhead;pid=root;location=0,0,0;em=true} ~onTimer:40
+  - skill{s=Ender_Hammerhead_IDLE_SFX} @self ~onTimer:140 0.45
+  - skill{s=Cancelattack;sync=true} ~onAttack
+  - skill{s=Ender_Hammerhead_SKILL_PET} ~onTimer:20
+  - skill{s=Ender_Hammerhead_RUSHHIT_PET} ~onTimer:5
+  - skill{s=Ender_Hammerhead_Dash} ~onTimer:40 0.7 ?!modelhasdriver
+  - skill{s=Ender_Hammerhead_DASH_PET} ~onTimer:10
+  - setspeed{speed=1.1;type=walking} @self ~onSpawn
+  - skill{s=EXP_Gain} ~onTimer:100
+  - skill{s=Pet_Look} ~onTimer:1
+
+# Ender Witch #
+
+Ender_Witch_PET:
+  Type: WOLF
+  Display: '&fEnder Witch'
+  Health: 40
+  Damage: <pet.damagemodifier>
+  Options:
+    MovementSpeed: 0.22
+    PreventRandomEquipment: true
+    Persistent: false
+    Despawn: false
+    PreventOtherDrops: true
+    FollowRange: 40
+    Invincible: false
+    Silent: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 ownerattacker
+  - 3 monsters
+  Skills:
+  - model{mid=ender_witch;step=1;tint=false;usm=true;save=true} @self ~onSpawn
+  - particles{p=portal;amount=15;hS=0.5;vS=1;y=0;size=1;speed=0} @modelpart{mid=ender_witch;pid=upper_body;location=0,0,0;em=true} ~onTimer:40
+  - skill{s=Ender_Witch_IDLE_SFX} @self ~onTimer:140 0.45
+  - skill{s=Cancelattack;sync=true} ~onAttack
+  - skill{s=Ender_Witch_SKILL_PET} ~onTimer:20
+  - setspeed{speed=1.1;type=walking} @self ~onSpawn
+  - skill{s=EXP_Gain} ~onTimer:100
+  - skill{s=Pet_Look} ~onTimer:1
+VFX_Ender_Laser:
+  Type: ARMOR_STAND
+  Options:
+    Marker: true
+    Small: false
+    HasArms: true
+    Invisible: true
+    Invincible: false
+  Skills:
+  - model{usestatemachine=true;mid=vfx_ender_laser} @self ~onSpawn
+  - brightness{mid=vfx_ender_laser;b=15;s=15} @self ~onSpawn
+  - BodyRotation{playermode=true;stable=0;rdelay=0;rduration=0} @self ~onSpawn
+  - state{s=shoot;p=1} @self ~onSpawn
+  - state{s=shoot_end;delay=20;p=2} @self ~onSpawn
+
+# Void Beholder #
+
+Void_Beholder_PET:
+  Type: WOLF
+  Display: '&fVoid Beholder'
+  Health: 120
+  Damage: <pet.damagemodifier>
+  Options:
+    MovementSpeed: 0.20
+    PreventRandomEquipment: true
+    Persistent: false
+    Despawn: false
+    PreventOtherDrops: true
+    FollowRange: 40
+    Invincible: false
+    Silent: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 clear
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 ownerattacker
+  - 3 attacker
+  Skills:
+  - model{mid=void_beholder;step=1;tint=false;usm=true;save=true;drive=true} @self ~onSpawn
+  - particles{p=portal;amount=30;hS=0.8;vS=1.4;y=0;size=1;speed=0} @modelpart{mid=void_beholder;pid=chest;location=0,0,0;em=true} ~onTimer:40
+  - setstance{stance=NOTBEAMING} @self ~onSpawn
+  - effect:sound{s=entity.enderman.scream;volume=0.6;pitch=0.3} @self ~onTimer:140 0.45
+  - skill{s=Cancelattack;sync=true} ~onAttack
+  - skill{s=Void_Beholder_BEAMDECIDE_PET} ~onTimer:20 ?!modelhasdriver
+  - skill{s=Void_Beholder_BEAM_SHOOT;delay=10} ~onTimer:2 ?!modelhasdriver
+  - setspeed{speed=1;type=walking} @self ~onSpawn
+  - skill{s=EXP_Gain} ~onTimer:100
+  - skill{s=Pet_Look} ~onTimer:1

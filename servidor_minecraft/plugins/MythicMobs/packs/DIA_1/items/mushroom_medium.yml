@@ -1,0 +1,251 @@
+Mushroom_BLUE_MEDIUM:
+  Id: BRICK
+  Model: 15
+  Display: '&fBlue Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 15
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_BLUE} @self ~onTimer:20
+
+Mushroom_BROWN_MEDIUM:
+  Id: BRICK
+  Model: 16
+  Display: '&fBrown Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 16
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_BROWN} @self ~onTimer:20
+
+Mushroom_CHAMPIGNON_MEDIUM:
+  Id: BRICK
+  Model: 17
+  Display: '&fChampignon Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 17
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_CHAMPIGNON} @self ~onTimer:20
+
+Mushroom_CHANTERELLE_MEDIUM:
+  Id: BRICK
+  Model: 18
+  Display: '&fChanterelle Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 18
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_CHANTERELLE} @self ~onTimer:20
+
+Mushroom_ENOKITAKE_MEDIUM:
+  Id: BRICK
+  Model: 19
+  Display: '&fEnokitake Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 19
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_ENOKITATE} @self ~onTimer:20
+
+Mushroom_GREEN_AMANITA_MEDIUM:
+  Id: BRICK
+  Model: 20
+  Display: '&fGreen Amanita Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 20
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_GREEN_AMANITA} @self ~onTimer:20
+
+Mushroom_MOREL_MEDIUM:
+  Id: BRICK
+  Model: 21
+  Display: '&fMorel Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 21
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_MOREL} @self ~onTimer:20
+
+Mushroom_PINK_MEDIUM:
+  Id: BRICK
+  Model: 22
+  Display: '&fPink Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 22
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_PINK} @self ~onTimer:20
+
+Mushroom_PURPLE_MEDIUM:
+  Id: BRICK
+  Model: 23
+  Display: '&fPurple Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 23
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_PURPLE} @self ~onTimer:20
+
+Mushroom_RED_AMANITA_MEDIUM:
+  Id: BRICK
+  Model: 24
+  Display: '&fRed Amanita Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 24
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_RED_AMANITA} @self ~onTimer:20
+
+Mushroom_RUSSULA_MEDIUM:
+  Id: BRICK
+  Model: 25
+  Display: '&fRussula Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 25
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_RUSSULA} @self ~onTimer:20
+
+Mushroom_TOADSTOOL_MEDIUM:
+  Id: BRICK
+  Model: 26
+  Display: '&fToadstool Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 26
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_TOADSTOOL} @self ~onTimer:20
+
+Mushroom_WHITE_MEDIUM:
+  Id: BRICK
+  Model: 27
+  Display: '&fWhite Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 27
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_WHITE} @self ~onTimer:20
+
+Mushroom_YELLOW_AMANITA_MEDIUM:
+  Id: BRICK
+  Model: 28
+  Display: '&fYellow Amanita Medium Mushroom'
+  Type: FURNITURE
+  Furniture:
+    Type: DISPLAY
+    Material: BRICK
+    Model: 28
+    Health: 1
+    Placement: FLOOR
+    Brightness: 15,15 
+    InterpolationDurationt: 0
+    Lights:
+     - 1,1,1 15
+  FurnitureSkills:
+  - skill{s=SecuenciaVeneno_YELLOW_AMANITA} @self ~onTimer:20

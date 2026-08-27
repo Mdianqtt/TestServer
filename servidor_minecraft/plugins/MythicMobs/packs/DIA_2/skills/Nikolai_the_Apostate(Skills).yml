@@ -1,0 +1,534 @@
+####################################################################### Start of Visual Effects and Nikolai's passive
+
+NikolaiSpearEffects:
+  Skills:
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff1}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff2}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff3}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff4}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff5}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff6}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff7}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff8}
+  
+NikolaiSwirl1Eff:
+  Skills:
+  - effect:particles{p=reddust;color=#58a6af;a=4;hs=0.06;vs=0.06} @ModelPart{m=nikolai_the_apostate;p=sw_1}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=sw_3}
+  - effect:particles{p=reddust;color=#58a6af;a=4;hs=0.06;vs=0.06} @ModelPart{m=nikolai_the_apostate;p=sw_2}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=sw_4}
+  
+NikolaiSwirl2Eff:
+  Skills:
+  - effect:particles{p=reddust;color=#58a6af;a=3;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff13}
+  - effect:particles{p=reddust;color=#58a6af;a=3;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff14}
+  
+NikolaiCrystalEff:
+  Skills:
+  - effect:particles{p=reddust;color=#58a6af;a=1;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff9}
+  - effect:particles{p=reddust;color=#58a6af;a=1;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff10}
+  - effect:particles{p=reddust;color=#58a6af;a=1;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff11}
+  - effect:particles{p=reddust;color=#58a6af;a=1;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff12}
+  
+NikolaiSnowEffect:
+  Skills:
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide1}
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide2}
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide3}
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide4}
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide5}
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide6}
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide7}
+  - effect:particles{p=snowballpoof;a=2;hs=0.04;vs=0.04} @ModelPart{m=nikolai_the_apostate;p=eff_slide8}
+  
+NikolaiPierceEffect:
+  Skills:
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide1}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide2}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide3}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide4}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide5}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide6}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide7}
+  - effect:particles{p=reddust;color=#58a6af;a=2;hs=0.03;vs=0.03} @ModelPart{m=nikolai_the_apostate;p=eff_slide8}
+  
+NikolaiFear:
+  Skills:
+  - potion{t=SLOW;l=1;d=100;p=false}
+  - potion{t=WEAKNESS;l=0;d=100;p=false}
+  - skill{s=NFIcedHit}
+  - onDamaged{multiplier=1.15;auraName=NikolaiFear;d=100;rd=true}
+  
+####################################################################### Start of Attack skills
+
+NikolaiAttack:
+  Skills:
+  - cancelEvent
+  - skill{s=NikolaiAttack1}
+NikolaiAttack1:
+  Cooldown: 0.7
+  TargetConditions:
+  - distance{d=<2}
+  Conditions:
+  - hasaura CantAttack false
+  Skills:
+  - skill{s=NikolaiRunHit}
+  - skill{s=NikolaiFirstAttack}
+  - skill{s=NikolaiSecondAttack}
+  - skill{s=NikolaiThirdAttack}
+NikolaiFirstAttack:
+  Conditions:
+  - hasaura Running false
+  - hasaura SecondAttack false
+  - hasaura ThirdAttack false
+  Skills:
+  - state{m=nikolai_the_apostate;s=attack1;li=4;lo=5} @self
+  - skill{s=NikolaiSpearEffects;delay=5;repeat=14;repeatInterval=1}
+  - sound{s=nikolai:nikolai.attack1;v=3;delay=4} @self
+  - delay 11
+  - skill{s=NikolaiAttackDamage} @EIR{r=2.8;target=players}
+  - aura{auraName=SecondAttack;d=25} @self
+NikolaiSecondAttack:
+  Conditions:
+  - hasaura Running false
+  - hasaura SecondAttack true
+  Skills:
+  - state{m=nikolai_the_apostate;s=attack2;li=4;lo=5} @self
+  - skill{s=NikolaiSpearEffects;delay=5;repeat=14;repeatInterval=1}
+  - sound{s=nikolai:nikolai.attack2;v=3;delay=4} @self
+  - delay 11
+  - skill{s=NikolaiAttackDamage} @EIR{r=2.8;target=players}
+  - aura{auraName=ThirdAttack;d=25} @self
+  - auraremove{aura=SecondAttack} @self
+NikolaiThirdAttack:
+  Conditions:
+  - hasaura Running false
+  - hasaura ThirdAttack true
+  Skills:
+  - aura{auraName=CantAttack;d=44} @self
+  - state{m=nikolai_the_apostate;s=attack3;li=4;lo=5} @self
+  - skill{s=NikolaiSpearEffects;delay=5;repeat=22;repeatInterval=1}
+  - sound{s=nikolai:nikolai.attack3;v=3;delay=4} @self
+  - delay 12
+  - effect:particlering{p=reddust;color=#58a6af;a=4;hs=0.1;vs=0.1;r=3.8;points=40;y=0.7} @self
+  - damage{a=38} @EIR{r=3.8;target=players}
+  - skill{s=HitSound3} @EIR{r=3.8;target=players}
+  - auraremove{aura=ThirdAttack} @self
+NikolaiAttackDamage:
+  TargetConditions:
+  - fieldofview{a=170} true
+  Skills:
+  - skill{s=HitSound1}
+  - skill{s=HitSound2}
+  - skill{s=PHitSound1}
+  - skill{s=PHitSound2}
+  - damage{a=28}
+  - effect:particles{p=reddust;color=#4c2833;a=15;y=0.6;hs=0.3;vs=0.3}
+  - skill{s=NikolaiFear} 
+  
+HitSound1:
+  Conditions:
+  - hasaura SecondAttack false
+  - hasaura ThirdAttack false
+  Skills:
+  - randomskill{skills=HitSound1_1,HitSound1_2,HitSound1_3,HitSound1_4}
+HitSound1_1:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=1.2;v=0.3}
+HitSound1_2:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=1;v=0.3}
+HitSound1_3:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=0.9;v=0.3}
+HitSound1_4:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=0.7;v=0.3}
+HitSound2:
+  Conditions:
+  - hasaura SecondAttack true
+  Skills:
+  - randomskill{skills=HitSound2_1,HitSound2_2,HitSound2_3,HitSound2_4}
+HitSound2_1:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=1.2;v=0.3}
+HitSound2_2:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=1;v=0.3}
+HitSound2_3:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=0.9;v=0.3}
+HitSound2_4:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=0.7;v=0.3}
+HitSound3:
+  Conditions:
+  - hasaura ThirdAttack true
+  Skills:
+  - randomskill{skills=HitSound3_1,HitSound3_2,HitSound3_3,HitSound3_4}
+HitSound3_1:
+  Skills:
+  - sound{s=nikolai:nikolai.hit3;p=1.2;v=0.3}
+HitSound3_2:
+  Skills:
+  - sound{s=nikolai:nikolai.hit3;p=1;v=0.3}
+HitSound3_3:
+  Skills:
+  - sound{s=nikolai:nikolai.hit3;p=0.9;v=0.3}
+HitSound3_4:
+  Skills:
+  - sound{s=nikolai:nikolai.hit3;p=0.7;v=0.3}
+  
+PHitSound1:
+  Conditions:
+  - hasaura PierceOne true
+  Skills:
+  - randomskill{skills=pHitSound1_1,pHitSound1_2,pHitSound1_3,pHitSound1_4}
+pHitSound1_1:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=0.8;v=0.3}
+pHitSound1_2:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=0.75;v=0.3}
+pHitSound1_3:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=0.7;v=0.3}
+pHitSound1_4:
+  Skills:
+  - sound{s=nikolai:nikolai.hit1;p=0.65;v=0.3}
+PHitSound2:
+  Conditions:
+  - hasaura PierceTwo true
+  Skills:
+  - randomskill{skills=pHitSound2_1,pHitSound2_2,pHitSound2_3,pHitSound2_4}
+pHitSound2_1:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=0.8;v=0.3}
+pHitSound2_2:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=0.75;v=0.3}
+pHitSound2_3:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=0.7;v=0.3}
+pHitSound2_4:
+  Skills:
+  - sound{s=nikolai:nikolai.hit2;p=0.65;v=0.3}
+  
+####################################################################### Start of Blizzard skill
+
+NikolaiBlizzard:
+  Cooldown: 25
+  Conditions:
+  - hasaura CantAttack false
+  - hasaura Running false
+  - incombat true
+  Skills:
+  - stun{d=34} @self
+  - aura{auraName=CantAttack;d=34} @self
+  - sound{s=nikolai:nikolai.cyclone;delay=2;v=2} @self
+  - state{m=nikolai_the_apostate;s=cyclone;li=2;lo=5} @self
+  - skill{s=NikolaiCrystalEff;repeatInterval=1;repeat=33}
+  - skill{s=NikolaiSwirl1Eff;repeatInterval=1;repeat=33}
+  - skill{s=NikolaiSwirl2Eff;repeatInterval=1;repeat=33}
+  - delay 26
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=1;points=12} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=1.2;points=15} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=1.4;points=17} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=1.6;points=19;delay=1} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=1.8;points=21;delay=1} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=2;points=22;delay=1} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=2.4;points=25;delay=2} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=2.8;points=29;delay=2} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=3.2;points=34;delay=2} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=3.8;points=40;delay=3} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=4.4;points=41;delay=3} @self
+  - effect:particlering{p=reddust;color=#58a6af;y=0.05;r=5;points=41;delay=3} @self
+  - aura{auraName=Colden;d=100;i=1;onTick=NBeffect}
+  - skill{s=NikolaiPullColden;repeat=33;repeatInterval=3} @PIR{r=35}
+NikolaiPullColden:
+  TargetConditions:
+  - hasaura Colden true
+  Skills:
+  - pull{v=2}
+  - effect:particles{p=reddust;color=#96d2d8;a=20;y=1;hs=2;vs=1}
+
+NBeffect:
+  Skills:
+  - effect:particles{p=reddust;color=#58a6af;a=2;y=0.3;hs=0.3;vs=0.25}
+    
+####################################################################### Start of Blizzard skill
+
+NikolaiRun:
+  Cooldown: 20
+  Conditions:
+  - hasaura CantAttack false
+  TargetConditions:
+  - distance{d=>10}
+  Skills:
+  - stun{f=true;d=32} @self
+  - aura{auraName=CantAttack;d=32} @self
+  - state{m=nikolai_the_apostate;s=run_start;li=2;lo=4} @self
+  - defaultstate{m=nikolai_the_apostate;t=WALK;s=run} @self
+  - aura{auraName=Running;d=120;i=1;onTick=NRunEff;onEnd=NRunEnd;delay=32} @self
+  
+NikolaiRunHit:
+  Conditions:
+  - hasaura Running true
+  Skills:
+  - aura{auraName=CantAttack;d=50} @self
+  - potion{t=SLOW;l=3;d=50;p=false} @self
+  - skill{s=NikolaiSpearEffects;delay=12;repeat=38;repeatInterval=1}
+  - state{m=nikolai_the_apostate;s=run_hit;li=2;lo=4} @self
+  - sound{s=nikolai:nikolai.attack2;p=0.5;delay=9} @self
+  - delay 23
+  - skill{s=NikolaiRunHit_Damage} @EIR{r=5;target=players}
+  - auraremove{aura=Running} @self
+  - defaultstate{m=nikolai_the_apostate;t=WALK;s=walk} @self
+  
+NikolaiRunHit_Damage:
+  TargetConditions:
+  - fieldofview{a=180} true
+  Skills:
+  - damage{a=42}
+  - sound{s=nikolai:nikolai.hit3;p=0.6}
+  - skill{s=NikolaiFear}
+  - effect:particles{p=reddust;color=#4c2833;a=15;y=0.6;hs=0.3;vs=0.3}
+  - throw{vy=2;v=6}
+
+NRunEff:
+  Skills:
+  - effect:particles{p=snowballpoof;a=2;y=0.1;hs=0.4;vs=0.1} @self
+  - potion{t=SPEED;l=1;d=3;force=true;p=false} @self
+  - skill{s=NRunEnd}
+  - randomskill{skills=NRunEffS1,NRunEffS2,NRunEffS3,NRunEffS4,NRunEffS5;cooldown=0.8} @self
+NRunEffS1:
+  Skills:
+  - sound{s=nikolai:nikolai.run_step;v=0.6;p=0.9} 
+NRunEffS2:
+  Skills:
+  - sound{s=nikolai:nikolai.run_step;v=0.6;p=1} 
+NRunEffS3:
+  Skills:
+  - sound{s=nikolai:nikolai.run_step;v=0.6;p=0.8} 
+NRunEffS4:
+  Skills:
+  - sound{s=nikolai:nikolai.run_step;v=0.6;p=0.7} 
+NRunEffS5:
+  Skills:
+  - sound{s=nikolai:nikolai.run_step;v=0.6;p=1.1} 
+NRunEnd:
+  Skills:
+  - defaultstate{m=nikolai_the_apostate;t=WALK;s=walk} @self
+    
+####################################################################### Start of Blizzard skill
+
+NikolaiPierceAttack:
+  Cooldown: 10
+  Conditions:
+  - incombat true
+  - hasaura CantAttack false
+  - hasaura Running false
+  - targetwithin{d=4} true
+  Skills:
+  - potion{t=SLOW;l=20;d=49;p=false} @self
+  - aura{auraName=CantAttack;d=49} @self
+  - sound{s=nikolai:nikolai.pierce;v=2} @self
+  - state{m=nikolai_the_apostate;s=pierce_attack;li=1;lo=4} @self
+  - sudoskill{s=NikolaiSudoPull;setcasterastrigger=true;delay=2} @target
+  - skill{s=NikolaiPierceEffect;delay=9;repeat=5;repeatInterval=1}
+  - skill{s=NikolaiPierceEffect;delay=34;repeat=3;repeatInterval=1}
+  - skill{s=NikolaiSpearEffects;repeat=17;repeatInterval=1}
+  - aura{auraName=PierceOne;d=10} @self
+  - delay 9
+  - skill{s=NikolaiAttackDamage} @EIR{r=4;target=players}
+  - delay 25
+  - skill{s=NikolaiSpearEffects;repeat=13;repeatInterval=1}
+  - sudoskill{s=NikolaiSudoPull;setcasterastrigger=true} @target
+  - aura{auraName=PierceTwo;d=8} @self
+  - delay 6
+  - skill{s=NikolaiAttackDamage} @EIR{r=3.6;target=players}
+NikolaiSudoPull:
+  Skills:
+  - pull{v=7;vy=1} @trigger
+    
+####################################################################### Start of Bag throw skill
+
+NikolaiBagThrow:
+  Conditions:
+  - incombat true
+  - hasaura CantAttack false
+  - hasaura Running false
+  - targetnotwithin{d=2} true
+  Cooldown: 20
+  Skills:
+  - state{m=nikolai_the_apostate;s=bag_throw;li=1;lo=4} @self
+  - aura{auraName=CantAttack;d=45} @self
+  - potion{t=SLOW;l=1;d=46;p=false} @self
+  - delay 9
+  - sound{s=entity.skeleton.shoot;p=0.1} @self
+  - projectile{i=2;onTick=NBTtick;v=18;vO=0.1;g=0.3;onEnd=NBTend;bullettype=MOB;mob=NikolaiBag}
+  - partvisibility{m=nikolai_the_apostate;p=bag1_1;v=false} @self
+  - delay 26
+  - effect:particles{p=reddust;color=#58a6af;a=20;hs=0.15;vs=0.15} @ModelPart{m=nikolai_the_apostate;p=bag1_1}
+  - skill{s=NikolaiCrystalEff;repeat=3;repeatInterval=2}
+  - partvisibility{m=nikolai_the_apostate;p=bag1_1;v=true} @self
+NBTtick:
+  Skills:
+  - effect:particles{p=smoke;a=4;hs=0.2;vs=0.2}
+  - effect:particles{p=largeSmoke;a=1;hs=0.3;hs=0.3} 0.6
+  - effect:particles{p=flame;a=2;hs=0.3;hs=0.3}
+  - effect:particles{p=flame;a=2;hs=0.3;hs=0.3} 0.6
+NBTend:
+  Skills:
+  - sound{s=entity.generic.explode;p=0.7}
+  - effect:particlesphere{p=smoke;a=300;r=3}
+  - effect:particlesphere{p=largeSmoke;a=100;r=1}
+  - effect:particlesphere{p=flame;a=100;r=1}
+  - effect:particles{p=flame;a=300;hs=1.2;vs=1.2}
+  - summon{t=NBTend;a=1;os=true}
+NBThit:
+  Skills:
+  - effect:particlering{p=smoke;r=3;points=30;a=3;hs=0.2;vs=0.2;repeat=9;repeatInterval=1}
+  - effect:particles{p=flame;a=50;hs=1.2;vs=0.1;y=0.1}
+  - effect:particles{p=reddust;color=#000000;hs=1.2;a=100;vs=0.1;y=0.1}
+  - damage{a=35} @PIR{r=3}
+  - ignite{d=60} @PIR{r=3}
+NBThiGround:
+  Conditions:
+  - onblock{m=AIR} true
+  Skills:
+  - teleportto{l=0,-1,0;r=true}
+    
+####################################################################### Start of Deers skill
+
+NikolaiDeers:
+  Conditions:
+  - incombat true
+  - hasaura CantAttack false
+  - hasaura Running false
+  - targetnotwithin{d=3} true
+  Cooldown: 15
+  Skills:
+  - state{m=nikolai_the_apostate;s=deers;li=1;lo=5} @self
+  - sound{s=nikolai:nikolai.deer_summon;v=2} @self
+  - aura{auraName=CantAttack;d=53} @self
+  - potion{t=SLOW;l=10;d=53;p=false} @self
+  - skill{s=NikolaiSwirl2Eff;delay=8;repeat=31;repeatInterval=1}
+  - delay 35
+  - projectile{i=2;onTick=NDtick;sE=false;sB=false;hs=true;v=15;mr=40;onEnd=NDend;onHit=NDhit;sso=2;bullettype=MOB;mob=NikolaiDeer} @Forward{f=1000;y=1}
+  - projectile{i=2;onTick=NDtick;sE=false;sB=false;hs=true;v=15;mr=40;onEnd=NDend;onHit=NDhit;sso=0.8;bullettype=MOB;mob=NikolaiDeer} @Forward{f=1000;y=1}
+  - projectile{i=2;onTick=NDtick;sE=false;sB=false;hs=true;v=15;mr=40;onEnd=NDend;onHit=NDhit;sso=-0.8;bullettype=MOB;mob=NikolaiDeer} @Forward{f=1000;y=1}
+  - projectile{i=2;onTick=NDtick;sE=false;sB=false;hs=true;v=15;mr=40;onEnd=NDend;onHit=NDhit;sso=-2;bullettype=MOB;mob=NikolaiDeer} @Forward{f=1000;y=1}
+NDtick:
+  Skills:
+  - effect:particles{p=reddust;color=#58a6af;a=3;y=0.1;vs=0.1;hs=0.4}
+NDhit:
+  Skills:
+  - damage{a=45}
+  - skill{s=NikolaiFear}
+  - effect:particles{p=reddust;color=#58a6af;a=10;y=0.4;vs=0.3;hs=0.4}
+  - throw{vy=5;v=4}
+NikolaiDeerAnimation1:
+  Skills:
+  - state{m=snow_deer;s=1}
+NikolaiDeerAnimation2:
+  Skills:
+  - state{m=snow_deer;s=2}
+NikolaiDeerAnimation3:
+  Skills:
+  - state{m=snow_deer;s=3}
+  
+####################################################################### Start of Slide skill
+  
+NikolaiSlide:
+  Conditions:
+  - incombat true
+  - hasaura CantAttack false
+  - hasaura Running false
+  - targetnotwithin{d=7} true
+  Cooldown: 20
+  Skills:
+  - aura{auraName=CantAttack;d=48} @self
+  - state{m=nikolai_the_apostate;s=ice_slide;li=1;lo=2} @self
+  - potion{t=SLOW;l=1;d=12;p=false} @self
+  - delay 12
+  - sound{s=nikolai:nikolai.sliding;v=2} @self
+  - effect:particles{reddust;color=#58a6af;a=20;hs=1.6;vs=0.2;y=0.3;repeat=23;repeatInterval=1} @self
+  - skill{s=NikolaiSnowEffect;repeat=23;repeatInterval=1}
+  - effect:blockmask{m=packed_ice;r=3;d=300;repeat=23;repeatInterval=1} @self
+  - potion{t=SLOW;l=4;d=23;p=false;force=true} @self
+  - summon{t=NikolaiSlideLeap;a=1} @Forward{f=21}
+NikolaiSlidePull:
+  Skills:
+  - pull{v=4;vy=1}
+  - sudoskill{s=NSPlook;setcasterastrigger=true}
+NSPlook:
+  Skills:
+  - look{headOnly=false} @trigger
+  - skill{s=NSlideDamage} @EIR{r=2.3}
+NSlideDamage:
+  TargetConditions:
+  - hasaura SlideDamaged false
+  Skills:
+  - aura{auraName=SlideDamaged;d=10}
+  - damage{a=35}
+  - skill{s=NikolaiFear} 
+  - throw{v=5;vy=4;delay=1}
+  
+NikolaiFreeze:
+  Conditions:
+  - incombat true
+  - hasaura CantAttack false
+  - hasaura Running false
+  - targetnotwithin{d=7} true
+  Cooldown: 30
+  Skills:
+  - aura{auraName=CantAttack;d=48} @self
+  - potion{t=SLOW;l=1;d=;p=false;force=true} @self
+  - state{m=nikolai_the_apostate;li=1;lo=2;s=laser_shot} @self
+  - sound{s=nikolai:nikolai.laser_shoot;delay=1} @self
+  - skill{s=NikolaiCrystalEff;repeat=22;repeat=1} @self
+  - delay 20
+  - projectile{i=1;v=32;gravity=0.01;onTick=NFtick;onHit=NFhit;mr=40}
+NFtick:
+  Skills:
+  - effect:particlesphere{p=reddust;color=#42b4c1;a=5;r=0.3}
+  - delay 1
+  - effect:particles{p=reddust;color=#378089;a=3;hs=0.2;vs=0.2}
+NFhit:
+  Skills:
+  - onDamaged{auraName=Iced;d=100;onTick=NFIcedtick;i=1}
+  - summon{t=NFReAnger;a=1} @self
+  - sound{s=nikolai:nikolai.laser_hit}
+  - damage{a=28}
+  - summon{t=NikolaiIce;a=1}
+  
+NFIcedtick:
+  Skills:
+  - effect:particles{p=reddust;color=#42b4c1;a=5;y=0.5;hs=0.3;vs=0.6}
+  - stun{d=3}
+NFIcedHit:
+  TargetConditions:
+  - hasaura Iced true
+  Skills:
+  - auraremove{aura=Iced}
+  - remove @EIR{r=5;t=silverfish}
+  - effect:particles{p=reddust;color=#42b4c1;a=15;y=0.5;hs=0.3;vs=0.6}
+  - effect:particles{p=reddust;color=#378089;a=15;y=0.5;hs=0.2;vs=0.5}
+  - damage{a=35}
+  - sound{s=block.glass.break;p=0.1}
+  - potion{t=SLOW;l=1;d=100;p=false}
+
+NikolaiTitle:
+  Skills:
+  - effect:sound{s=entity.wither.spawn;p=1} @self
+  - delay 38
+  - particles{p=SMOKE;a=20;hs=0.3;vs=0.5;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+  - particles{p=CRIMSON_SPORE;a=20;s=0.2;hs=0.5;vs=0.2;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+  - delay 92
+  - particles{p=SMOKE;a=50;s=1;hs=0.3;vs=0.5} @origin
+  - particles{p=end_rod;a=40;hs=1;s=0.3;vs=0.3} @self
+  - particles{p=CRIMSON_SPORE;a=50;s=0.3;hs=0.5;vs=0.2} @origin
+  - particles{p=end_rod;a=80;hs=1;s=0.6;vs=0.3} @self
+  - particles{p=CRIMSON_SPORE;a=100;s=0.6;hs=0.5;vs=0.2} @origin
+  - sendtitle{title="&6&lBOSS DERROTADO";subtitle="TIER 3";d=60;fi=60;fo=60} @PlayersInRadius{r=50}

@@ -1,0 +1,424 @@
+# | =================================================== |
+# | Thank you for downloading and trying out my plugin: |
+# |                       Quests                        |
+# |      https://www.spigotmc.org/resources/23696/      |
+# |         https://github.com/LMBishop/Quests/         |
+# |                                                     |
+# |                         =x=                         |
+# |                                                     |
+# |              File comments should help              |
+# |               you with the new config               |
+# |              and guide you with making              |
+# |                        quests                       |
+# |                                                     |
+# |                         =x=                         |
+# |                                                     |
+# |              Have Discord & need help?              |
+# |           https://www.discord.gg/8amrJnX            |
+# |                                                     |
+# | Translation credits goes to                         |
+# | https://www.mc-market.org/members/244385/           |
+# | =================================================== |
+
+custom-elements:
+  categories: # apply to the categories menu (the main menu by default)
+    0:   # <--- start from slot 0
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+      repeat: 3 # repeats for 8 more slots
+    4:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+      repeat: 5 # repeats for 8 more slots
+    15:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+    17:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"        
+    18:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+    24:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+    25:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+    16:
+      display:
+        name: "&4&lInformación general"
+        lore:
+          - ""
+          - "&7Una búsqueda es una tarea que un jugador"
+          - '&7puede completar para obtener una recompensa.'
+          - "&7Las recompensas pueden incluir objetos o moneda del juego."
+          - ""
+          - "&7Las misiones suelen ser de varios tipos"
+          - '&7como misiones de matar, misiones de reunir, misiones de romper/colocar...'
+          - ""
+          - "&cStats:"
+          - "&c&l* &7Actualmente hay &4%quests_categories% &7categorías de misiones"       
+          - "&c&l* &7Actualmente hay &c%quests_all% &7total de misiones"
+        type: "BOOK"
+    26:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"               
+    27:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"                                                    
+    33:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+      repeat: 1
+    43:
+      display:
+        name: "&2&lProgresión"
+        lore:
+          - "&7Aquí puede ver su"
+          - "&7progresión y la finalización"
+          - "&7de todas las misiones disponibles."
+          - ""
+          - "&aStats:"
+          - "&a&l* &7Usted tiene &a%quests_started% &7misiones iniciadas"       
+          - "&a&l* &7Ha completado &2%quests_completed% &7misiones"
+        type: "COMPASS" 
+    35:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+    36:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+      repeat: 1 
+    41:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+      repeat: 1
+    44:
+      display:
+        name: ""
+        lore: []
+        type: "GRAY_STAINED_GLASS_PANE"
+      repeat: 9
+      
+# The items listed below are placeholder items for quests which the player cannot start.
+# You should change these for 1.8
+gui:
+  back-button:
+    name: "&c&lRetornar"
+    lore:
+    - "&7Click aquí para retornar"
+    - "&7al menú principal"
+    type: "BARRIER"
+  page-prev:
+    name: "&e&l<- Página Anterior"
+    lore:
+    - "&7Click para ir a" 
+    - "&7la página anterior &e{prevpage}."
+    type: "ARROW"
+  page-next:
+    name: "&e&lSiguiente Página ->"
+    lore:
+    - "&7Click para ir a"
+    - "&7la siguiente página &e{nextpage}."
+    type: "ARROW"
+  page-desc:
+    name: "&8(Página: &7#{page}&8)"
+    lore:
+    - "&7Actualmente estás viendo la página &7{page}."
+    type: "BOOK"
+  quest-locked-display:
+    name: "&c&lMisión Bloqueada"
+    lore:
+    - "&fNo has cumplido los requisitos"
+    - "&fpara esta meta:"
+    - "&f[&a{quest}&f]."
+    - "&r"
+    - "&cRequieres:"
+    - "&c&n{requirements}"
+    - "&c para completar y desbloquear."
+    type: "RED_TERRACOTTA"
+  quest-permission-display:
+    name: "&4&lSin Permisos"
+    lore:
+    - "&7No tienes permisos."
+    - "&r"
+    type: "RED_TERRACOTTA"
+  quest-cooldown-display:
+    name: "&e&lCooldown"
+    lore:
+    - "&7Recientemente has coompletado esta misión"
+    - "&r"
+    - "&cDebes esperar &c&n{time}&c para que se desbloque de nuevo."
+    type: "ORANGE_TERRACOTTA"
+  quest-completed-display:
+    name: "&a&lMsión Completada"
+    lore:
+    - "&7Has completado esta misión."
+    - "&r"
+    - "&cNo se puede repetir."
+    type: "LIME_TERRACOTTA"
+  no-started-quests:
+    name: "&c&lMisiones no iniciadas "
+    lore:
+    - "&7Ve a empezar algo!"
+    type: "FEATHER"    
+  quest-cancel-yes:
+    name: "&a&lConfirmar"
+    lore:
+    - "&7Confirma que deseas cancelar esta misión"
+    - "&cAdvertencia: Perderas todo tu progreso."
+    - "&r"
+    - "&cClick Izquierdo para confirmar."
+    type: "LIME_TERRACOTTA"
+  quest-cancel-no:
+    name: "&c&lCancelar"
+    lore:
+    - "&7Retornar al menú."
+    - "&r"
+    - "&cClick izquierdo para cancelar."
+    type: "RED_TERRACOTTA"
+  quest-cancel-background:
+    type: "GRAY_STAINED_GLASS_PANE"
+
+# Here you can add custom items to the quest menu
+# Categories & quests will fill empty slots
+#custom-elements:
+#  "categories": # apply to the categories menu (the main menu by default)
+#    0:   # <--- slot 1, note the slots start from 0! so 0 = slot 1 in this case
+#      display:
+#        name: "&cExample Custom Item (slot 1)"
+#        lore:
+#          - "&7This is a custom item which can be added"
+#          - "&7to your menus. This is purely cosmetic."
+#        type: "DIAMOND_BLOCK"
+#    1:
+#      display:
+#        name: "&cExample Custom Item (slots 2 - 5)"
+#        lore:
+#          - "&7This is a custom item which can be added"
+#          - "&7to your menus, but in slot 2 and repeated"
+#          - "&73 times."
+#          - "&7This is purely cosmetic."
+#        type: "NETHERRACK"
+#      repeat: 3 # repeats for 3 more slots
+#  "c:examples": # apply to the category "examples"
+#    0:
+#      display:
+#        name: "&cExample Custom Item (slot 1)"
+#        lore:
+#          - "&7This is a custom item which can be added"
+#          - "&7to your menus. This is purely cosmetic."
+#        type: "EMERALD_BLOCK"
+
+options:
+  # If categories are disabled, quests will be put into one big gui.
+  categories-enabled: true
+  storage:
+    provider: "yaml"
+# Optional. Whether or not the quest should automatically be started. This is similar to enabling quest autostart for the entire plugin, 
+# but specific only to this quest, meaning it cannot be cancelled and counts towards the players quest started limit.    
+  autostart: false  
+  # If true, the gui size will automatically change based on the amount of quests inside it.
+  trim-gui-size: true
+  # Enable/disable titles
+  titles-enabled: true
+  # Allow players to have multiple active quests.
+  # You can set the default number of quests using the 'default' rank below.
+  # To grant different quest limits to different people, you can define a 'quest-rank'
+  # Create the 'quest-rank' below, and give the matching permission: quests.limit.<quest-rank>
+  quest-limit:
+    default: 2
+    #vip: 5
+    #staff: 10
+  # Hide locked quests, quests on cooldown and completed (but not repeatable) quests
+  gui-hide-locked: false
+  # Allow players to cancel a quest
+  allow-quest-cancel: true
+  # Allow players to track a quest (you may want to remove the tracking instructions in the global item lore)
+  allow-quest-track: true  
+  # Titles for the GUIs
+  guinames:
+    quests-category: "&8❖ Categorías de Misiones"
+    quests-menu: "&8Misiones (Selecciona una misión)"
+    quests-started-menu: "&8Misiones iniciadas"    
+    daily-quests: "&8Misiones Diarías"
+    quest-cancel: "&8Cancelar"
+  # See https://github.com/LMBishop/Quests/wiki/Basic-Options#sounds - VERSION 3.2 UPDATE
+  sounds:
+    quest-start: "ENTITY_PLAYER_LEVELUP:2:3"
+    quest-cancel: "UI_TOAST_OUT:2:3"
+    quest-complete: "UI_TOAST_CHALLENGE_COMPLETE:1.25:3"
+    gui:
+      open: "ITEM_BOOK_PAGE_TURN:1:3"
+      interact: "ITEM_BOOK_PAGE_TURN1:3"
+  gui-actions:
+    start-quest: "LEFT"
+    track-quest: "SHIFT_LEFT"
+    cancel-quest: "RIGHT"
+  # Confirm quest cancellation with a separate menu
+  gui-confirm-cancel: true
+  # Truncate quest requirements when there are multiple requirements to prevent enormous display items
+  gui-truncate-requirements: true  
+  # Hide quests which a player cannot start due to permissions.
+  gui-hide-quests-nopermission: false
+  # Hide categories which a player cannot open due to permissions.
+  gui-hide-categories-nopermission: false
+  # Replace placeholders from PlaceholderAPI in Quests GUI items
+  gui-use-placeholderapi: true 
+  # Make it so players do not tendrás que start quest themselves
+  quest-autostart: false
+  # How much quests should log, 0 = errors only, 1 = warnings, 2 = info, 3 = debug
+  verbose-logging-level: 2
+  performance-tweaking: # The following are measured in server ticks, multiply SECONDS by 20 to get the number of ticks.
+    quest-queue-executor-interval: 1      # how frequently Quests should execute the next check in the completion queue (def=1 - 0.05s) - increase this value if you are struggling with performance
+    quest-autosave-interval: 12000        # how frequently online players data will be autosaved (def=12000 - 10 minutes)
+    quests-autosave-async: false          # experimental - save asynchronously on autosave
+    quests-join-async: false              # experimental - load asynchronously on join
+    quests-leave-async: false             # experimental - save asynchronously on leave
+  tab-completion:
+    enabled: true
+  error-checking:
+    # Allow quests to be loaded if they contain errors
+    # This may lead to errors in the console!
+    override-errors: false
+  # How much time (in seconds) that plugin will cache placeholders
+  placeholder-cache-time: 10
+  # Whether or not the global task configuration will override per-task configuration settings
+  global-task-configuration-override: false
+  # Whether or not the global display configuration will override per-quest display settins
+  global-quest-display-configuration-override: false
+
+# This switches up the entire quest system.
+# By enabling daily-quests, players will no longer be presented with the standard Quest GUI.
+# Instead, they will be presented with 5 random quests.
+# The 'requirements' section in each quest does not apply here.
+# The 'cooldown' section in each quest does not apply here - if it's done, it's done (and will be repeatable next time they get the quest).
+# The 'repeatable' section in each quest does not apply here. It will NOT be repeatable until the next day.
+# Enabling this MAY cause previous quest progress to be modified, wiped or changed irreversibly! If you're testing this on a live server, it is wise to backup
+# the Quests/playerdata/ folder! You've been warned!
+#
+# Quests BETA: this feature is a work in progress, it does not work yet!
+daily-quests:
+  enabled: false # <----- NOT YET IMPLEMENTED (THIS WILL NOT DO ANYTHING)
+
+# The global task configuration will apply to the config of each task of a specified type in each quest.
+# In the example below, every task with a type of "inventory" will have the config option "update-progress"
+# set to true. This is useful if you do not want to go through each quest if you want to update the configuration
+# for every task of a specific type.
+#
+# You must uncomment all below lines for the example to have any effect
+# vvvvvvvvvvvvvvvvvvvvvvvvv
+#global-task-configuration:
+#  types:
+#    inventory:
+#      update-progress: true
+
+global-quest-display:
+  lore:
+#    append-normal:
+#      - "..."
+    append-not-started:
+      - ""
+      - "&e▲ Click Izquierdo &7para comenzar esta misión."
+    append-started:
+      - ""
+      - "&7Estás &asiguiendo &7esta misión."
+      - "&eClick Medio &8para dejar de seguir esta misión."
+      - "&eClick Derecho &8para cancelar esta misión."
+    append-tracked:
+      - ""
+      - "&7Estás &esiguiendo &7esta misión."
+      - "&eClick Medio &8para dejar de seguir esta misión."
+      - "&eClick Derecho &8para cancelar esta misión."
+
+# Configure titles
+titles:
+  quest-start:
+    title: "&a&lMisión Comenzada"
+    subtitle: "&a❖ &f{quest} &a❖"
+  quest-complete:
+    title: "&2&lMisióm Completada"
+    subtitle: "&2❖ &f{quest} &2❖"
+
+# Configure messages
+messages:
+  time-format: "{hours}h {minutes}m"
+  quest-start: "&aMisiones&8 ➡&7 Misión &a({quest}) &7ha comenzado."
+  quest-complete: "&aMisiones&8 ➡&7 Has completado la misión: &a({quest})&7."
+  quest-cancel: "&cMisiones&8 ➡&7 Has cancelado la misión: &c({quest})&7."
+  quest-track: "&eMisiones&8 ➡&7 Búsqueda de seguimiento &a({quest})&7."
+  quest-track-stop: "&cMisiones&8 ➡&7 Ya no rastrea la misión &c({quest})&7."
+  quest-random-none: "&aMisiones&8 ➡&c No tienes misiones que puedas comenzar."  
+  quest-start-limit: "&cMisiones&8 ➡&7 Estás limitado a &e({limit}) &7misiones activas a la vez."
+  quest-start-disabled: "&cMisiones&8 ➡&7 No puedes repetir esta misión."
+  quest-start-locked: "&cMisiones&8 ➡&7 Aún no has has desbloqueado esta misión."
+  quest-start-cooldown: "&cMisiones&8 ➡&7 Recientemente has completado esta misión. Tedras que esperar &e({time}) &7hasta que puedas iniiarla."
+  quest-start-started: "&eQuests&8 ➡&7 Ya has comenzado esta misión."
+  quest-start-permission: "&cMisiones&8 ➡&7 No tienes permiso para iniciar esta misión."
+  quest-category-permission: "&cMisiones&8 ➡&7 No tienes permiso para ver esta categoría."
+  quest-category-quest-permission: "&cMisiones&8 ➡&7No tienes permiso para iniciar esta misión porque está en una categoría para la que no tienes permiso para ver."
+  quest-cancel-notstarted: "&cMisiones&8 ➡&7 No has comenzado esta misión."
+  quest-updater: "&eQuests&8 ➡&7 Una nueva version &e({newver}) &7fue encontrado en Spigot. Actualice el complemento aquí: &e{link}"
+  command-sub-doesntexist: "&cMisiones&8 ➡ &7El subcomando especificado &c({sub}) &7no existe."
+  command-quest-start-doesntexist: "&cMisiones&8 ➡&7 La búsqueda &c({quest})&7 no existe."
+  command-category-open-disabled: "&cMisiones&8 ➡&7 Las categorías están actualmente deshabilitadas."
+  command-category-open-doesntexist: "&cMisiones&8 ➡&7 La categoría especificada: &c({category})&7, no existe."
+  command-quest-admin-playernotfound: "&cMisiones&8 ➡&7 &c({player})&7 no pudo ser encontrado."
+  command-quest-openquests-admin-success: "&eQuests&8 ➡&7 El inventario de misiones se ha abierto para &e({player})&7."
+  command-quest-opencategory-admin-success: "&eQuests&8 ➡&7 La &a({category}) &7ha sido abierto para &e({player})&7."
+  command-taskview-admin-fail: "&cMisiones&8 ➡&7 El tipo de tarea &c({task})&7 no existe."
+  beta-reminder: "&eQuests&8 ➡&7 Estás utilizando una versión beta del complemento de búsqueda. Informe cualquier error que encuentre."
+  command-quest-admin-loaddata: "&eQuests&8 ➡&7 Datos de búsqueda para &e({player})&7 se está cargando."
+  command-quest-admin-nodata: "&cMisiones&8 ➡&7 No se pudieron encontrar datos para &c({player})&7."
+  command-quest-admin-fullreset: "&aMisiones&8 ➡&7 Datos para &a({player})&7 se ha reiniciado."
+  command-quest-admin-start-faillocked: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7. They have not yet unlocked it."
+  command-quest-admin-start-failcooldown: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7. It is still on cooldown for them."
+  command-quest-admin-start-failcomplete: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7. They have already completed it."
+  command-quest-admin-start-faillimit: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7. They have reached their quest start limit."
+  command-quest-admin-start-failstarted: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7. It is already started."
+  command-quest-admin-start-failpermission: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7. They do not have permission."
+  command-quest-admin-start-failcategorypermission: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7. They do not have permission for the category which the quest is in."
+  command-quest-admin-start-failother: "&cMisiones&8 ➡&7 Quest &c({quest})&7 could not be started for &c({player})&7."
+  command-quest-admin-start-success: "&aMisiones&8 ➡&7 Quest &a({quest}) &7has been started for &a({player})&7."
+  command-quest-admin-category-permission: "&cMisiones&8 ➡&7 Category &c({category}) &7could not be opened for &c({player})&7. They do not have permission to view it."
+  command-quest-admin-complete-success: "&aMisiones&8 ➡&7 Búsqueda &2({quest}) &fcompletado para &a({player})&7."
+  command-quest-admin-reset-success: "&aMisiones&8 ➡&7 Restablecer la misión con éxito &a({quest})&7 foro &a({player})&7."
+  command-quest-admin-random-none: "&aMisiones&8 ➡ &7Jugador &c{player}&7 no tiene misiones que puedan comenzar."
+  command-quest-admin-random-success: "&aMisiones&8 ➡ &7Misión aleatoria iniciada con éxito '&c{quest}&7' para el jugador &c{player}&7."
+  command-quest-admin-random-category-none: "&aMisiones&8 ➡ &7Jugador &c{player}&7 no tiene misiones en la categoría '&c{category}&7' que pueden empezar."
+  command-quest-admin-random-category-success: "&aMisiones&8 ➡ &7Misión aleatoria iniciada con éxito '&c{quest}&7' de la categoría '&c{category}&7' para el jugador &c{player}&7."
+  ui-placeholder-completed-true: "true"
+  ui-placeholder-completed-false: "false"
+  ui-placeholder-truncated: " +{amount} more"
+  placeholderapi-true: "true"
+  placeholderapi-false: "false"
+  placeholderapi-no-tracked-quest: "No tracked quest"
+  placeholderapi-data-not-loaded: "Data not loaded"
+

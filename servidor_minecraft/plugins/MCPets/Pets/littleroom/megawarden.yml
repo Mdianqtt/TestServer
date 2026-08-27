@@ -1,0 +1,17 @@
+Id: MegaWarden
+MythicMob: megawarden_PET
+Permission: mcpets.megawarden
+Mountable: false
+Distance: 5
+SpawnRange: 3
+ComingBackRange: 5
+Icon:
+  Name: §bMegaWarden
+  Material: INK_SAC
+  CustomModelData: 22
+  Description:
+  - §7Callate!
+
+
+
+# 75053QPRYX8R25X7FDLCU

@@ -1,0 +1,14 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+heavy_dust_cloud_summoned:
+  Skills:
+  - state{model=heavy_dust_cloud;state=spawn} @self
+  - delay 60
+  - remove @self

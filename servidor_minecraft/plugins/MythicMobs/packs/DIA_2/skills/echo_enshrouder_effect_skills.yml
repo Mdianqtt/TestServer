@@ -1,0 +1,20 @@
+
+# ~Written by RopeFire~
+
+echo_enshrouder_effect_summoned:
+  Skills:
+  - delay 60
+  - remove @self
+
+echo_enshrouder_effect_play:
+  Conditions:
+  - hasaura{n=EenshrouderEffectPlay} false
+  Skills:
+  - aura{auraName=EenshrouderEffectPlay;duration=100} @self
+  - aura{auraName=EenshrouderSoulExplosionE;duration=10;oT=echo_enshrouder_soul_explosion_effect} @self
+  - sound{s=tugkandeman.soul_shot1;v=3;p=1} @self
+
+echo_enshrouder_soul_explosion_effect:
+  Skills:
+  - missile{bulletscale=1,1,1;bulletType=display;bulletcolor=#ffffff;material=leather_horse_armor;model=87;inertia=5;i=1;
+      oT=[ - particles{p=sculk_soul;a=1;hs=0.5} ];d=200;v=15;mr=30;hp=true;sE=false;sB=true;hnp=true;syo=1;sfo=0;vO=10} @RandomLocationsNearCaster{a=2;r=20}

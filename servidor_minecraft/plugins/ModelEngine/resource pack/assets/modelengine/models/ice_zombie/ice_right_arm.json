@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/ice_zombie"},"elements":[{"from":[3.0,2.5,9.0],"to":[11.0,11.5,9.0],"faces":{"south":{"uv":[11.0,10.0,13.0,12.25],"tintindex":0,"rotation":0,"texture":"#0"},"north":{"uv":[9.0,10.0,11.0,12.25],"tintindex":0,"rotation":0,"texture":"#0"}},"rotation":{"origin":[7.0,7.0,9.0],"angle":45.0,"axis":"z"}}],"display":{"gui":{"rotation":[30,225,0]}}}

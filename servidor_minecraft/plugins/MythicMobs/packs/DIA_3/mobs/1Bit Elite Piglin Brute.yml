@@ -1,0 +1,84 @@
+1bit_elite_piglin_brute:
+  Type: piglin
+  Display: '&cElite Piglin Brute'
+  Health: 100
+  Damage: 15
+  Armor: 20
+  Faction: Elite
+  Options:
+    Invisible: true
+    Collidable: true
+    FollowRange: 16
+    MovementSpeed: 0.30
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - 1 clear
+  - 2 meleeattack
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 player
+  Drops:
+  - elite_piglin_brute_warbrand_core 1to2 1
+  Skills:
+  - model{mid=1bit_elite_piglin_brute;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_piglin_brute;n=false;usestatemachine=true} @self ~onLoad
+  - effect:particles{particle=Smoke;speed=0.013;Size=1;a=8;hS=0.75;vS=1;y=0.8} @ModelPart{m=1bit_elite_piglin_brute;p=root} ~onTimer:6
+  - effect:particles{particle=Large_Smoke;speed=0.013;Size=1;a=4;hS=0.75;vS=1;y=0.8} @ModelPart{m=1bit_elite_piglin_brute;p=root} ~onTimer:6
+  - onDamaged{auraName=spawn;cE=true;time=20;oS=[
+      - stun{d=20;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=20;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - equip{item=AIR:HAND;delay=1} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - skill{s=1bit_elite_piglin_brute_random_attack_1_c_damage;sync=true} @self ~onDamaged
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_piglin_brute_random_attack;sync=true} @self ~onAttack
+  - skill{s=1bit_elite_piglin_brute_death;sync=true} @self ~onDeath
+
+1bit_elite_baby_piglin_brute:
+  Type: piglin
+  Display: '&cElite Baby Piglin Brute'
+  Health: 50
+  Damage: 10
+  Armor: 10
+  Faction: Elite
+  Modules:
+    ThreatTable: true
+  Options:
+    Invisible: true
+    Collidable: true
+    FollowRange: 16
+    MovementSpeed: 0.26
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - 1 clear
+  - 2 meleeattack
+  - 3 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 player
+  Drops:
+  - elite_piglin_brute_warbrand_core 1 0.75
+  Skills:
+  - model{mid=1bit_elite_baby_piglin_brute;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_baby_piglin_brute;n=false;usestatemachine=true} @self ~onLoad
+  - effect:particles{particle=Smoke;speed=0.013;Size=1;a=8;hS=0.45;vS=0.7;y=0.5} @ModelPart{m=1bit_elite_baby_piglin_brute;p=root} ~onTimer:6
+  - effect:particles{particle=Large_Smoke;speed=0.013;Size=1;a=4;hS=0.45;vS=0.7;y=0.5} @ModelPart{m=1bit_elite_baby_piglin_brute;p=root} ~onTimer:6
+  - onDamaged{auraName=spawn;cE=true;time=15;oS=[
+      - stun{d=15;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=15;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - equip{item=AIR:HAND;delay=1} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - skill{s=1bit_elite_baby_piglin_brute_random_attack_1_c_damage;sync=true} @self ~onDamaged
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_baby_piglin_brute_random_attack;sync=true} @self ~onAttack
+  - skill{s=1bit_elite_piglin_brute_baby_death;sync=true} @self ~onDeath
+

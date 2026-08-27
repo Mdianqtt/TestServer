@@ -1,0 +1,9 @@
+type: cooking
+result: items_adder:nogs_menagerie:nm_orca_fin_cooked 1
+multiple: true
+unlock: false
+source:
+- item: mythic_mobs:nm_orca_fin
+  block: furnace
+  time: 250
+  exp: 0.0

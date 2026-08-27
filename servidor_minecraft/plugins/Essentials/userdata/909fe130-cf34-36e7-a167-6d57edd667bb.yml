@@ -1,0 +1,47 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 187.147.135.57
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 1734201198338
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1734202754041
+  login: 1734202744321
+money: '5400.0'
+last-account-name: Nuchico
+lastlocation:
+  world: ce00a286-9b88-490f-8749-ddf3f35c16f3
+  world-name: world
+  x: 168.30000001192093
+  y: 74.49520087700593
+  z: 67.69999998807907
+  yaw: 31.115938186645508
+  pitch: 28.631450653076172
+logoutlocation:
+  world: bbf52a55-7f80-4b96-a7a5-57a8dd99f1b2
+  world-name: Athenia
+  x: 32.037655670701554
+  y: 19.86802761670871
+  z: 500.49495089928445
+  yaw: 61.519554138183594
+  pitch: 47.491355895996094
+homes:
+  home:
+    world: ce00a286-9b88-490f-8749-ddf3f35c16f3
+    world-name: world
+    x: 173.98419718659005
+    y: 80.0
+    z: 53.636485057453996
+    yaw: 31.115938186645508
+    pitch: 28.631450653076172

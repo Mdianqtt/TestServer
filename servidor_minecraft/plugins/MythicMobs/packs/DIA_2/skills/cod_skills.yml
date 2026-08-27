@@ -1,0 +1,597 @@
+######## created by samus2002 #########
+
+Changetarget:  
+  Cooldown: 0
+  Skills:
+  - runaitargetselector{target=clear}
+  - runaitargetselector{target=players}
+  
+Cancelattack:
+  Skills:
+  - CancelEvent
+  
+# Cauldron of Death #
+
+Cauldron_of_Death-1:
+  Cooldown: 0
+  Skills:
+  - randomskill{skills=Slam,Goo_Eruption,Poison_Wisp}
+
+Cauldron_of_Death-2:
+  Cooldown: 0
+  Skills:
+  - randomskill{skills=Double_Slam,Wither_Goo_Eruption,Wither_Wisp}
+
+# Slam #
+
+Slam:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  - targetwithin{d=20} true
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - gcd{ticks=80}
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=20} @self
+  - potion{type=SLOW;duration=20;level=99;hasParticles=false} @self
+  - state{s=jump_twice} @self
+  - effect:sound{s=cod_sounds:samus.cod_attack;volume=1;pitch=1} @self
+  - effect:sound{s=cod_sounds:samus.cod_jump;volume=1.5;pitch=1;delay=7} @self
+  - effect:sound{s=cod_sounds:samus.cod_jump;volume=1.5;pitch=1;delay=14} @self
+  - delay 20
+  - Aura{auraName=Run_aura;interval=1;duration=40} @self
+  - state{s=run;remove=true;delay=45} @self
+
+Slam_RUN:
+  Conditions:
+  - targetwithin{d=6} castinstead Slam_RUN_STOP
+  - hasaurastacks{auraName=Run_aura}
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - look{headOnly=false;immediately=true} @target
+  - delay 1
+  - state{s=run} @self
+  - lunge{velocity=0.4;velocityY=-0.5;repeatinterval=1;repeat=13} @forward{f=1;y=0}
+  
+  
+Slam_RUN_STOP:
+  Cooldown: 5
+  Conditions:
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - auraremove{aura=Run_aura} @self
+  - state{s=run;remove=true} @self
+  - skill{s=Cauldron_Stun;delay=48} 0.25
+  - gcd{ticks=46}
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=46} @self
+  - potion{type=SLOW;duration=46;level=99;hasParticles=false} @self
+  - state{s=jump_slam} @self
+  - effect:sound{s=cod_sounds:samus.cod_slam;volume=1;pitch=1} @self
+  - delay 13
+  - damage{a=14;pkb=false;hnp=false;hp=true} @PIR{r=7}
+  - summon{type=Slam_FX;amount=1;radius=0;yRadius=0;onSurface=true} @self
+  - effect:particles{particle=campfire_cosy_smoke;amount=10;hS=1.5;vS=0.15;y=0.2;speed=0;forwardOffset=0;sideOffset=0} @self
+
+# Poison Aura #
+
+Poison_Aura_FX:
+  Conditions:
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - effect:particles{particle=sneeze;amount=15;hS=1.6;vS=0.1;y=-1;speed=0;forwardOffset=0;sideOffset=0}
+  
+Poison_Aura_FX_POISON:
+  Conditions:
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - effect:particles{particle=sneeze;amount=15;hS=0.35;vS=0.15;y=0.1;speed=0;forwardOffset=0;sideOffset=0;repeat=6;repeatinterval=5}
+  - potion{type=POISON;duration=60;level=1;hasParticles=false}
+  
+  
+# Goo Eruption #
+
+Goo_Eruption:
+  Cooldown: 7
+  Conditions:
+  - offgcd
+  - targetwithin{d=15} true
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - gcd{ticks=82}
+  - skill{s=Cauldron_Stun;delay=82} 0.25
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=82} @self
+  - potion{type=SLOW;duration=82;level=99;hasParticles=false} @self
+  - state{s=erupt} @self
+  - effect:sound{s=cod_sounds:samus.cod_poison;volume=1;pitch=1} @self
+  - delay 30
+  - effect:sound{s=cod_sounds:samus.cod_erupt;volume=1.5;pitch=1} @self
+  - summon{type=Goo_Eruption_Bomb;amount=5;radius=3;yRadius=0;onSurface=false} @forward{f=0;y=5}
+  - delay 25
+  - effect:sound{s=cod_sounds:samus.cod_erupt;volume=1.5;pitch=1} @self
+  - summon{type=Goo_Eruption_Bomb;amount=5;radius=3;yRadius=0;onSurface=false} @forward{f=0;y=5}
+  
+Goo_Eruption_LEAP:
+  Skills:
+  - randomskill{skills=Goo_Eruption_LEAP1,Goo_Eruption_LEAP2,Goo_Eruption_LEAP3,Goo_Eruption_LEAP4,Goo_Eruption_LEAP5,Goo_Eruption_LEAP6,Goo_Eruption_LEAP7,Goo_Eruption_LEAP8}
+
+Goo_Eruption_LEAP1:
+  Skills:
+  - leap{velocity=210} @forward{f=-4;y=3;sideOffset=2}
+
+Goo_Eruption_LEAP2:
+  Skills:
+  - leap{velocity=250} @forward{f=2;y=3;sideOffset=-2}
+  
+Goo_Eruption_LEAP3:
+  Skills:
+  - leap{velocity=240} @forward{f=3;y=3;sideOffset=0}
+  
+Goo_Eruption_LEAP4:
+  Skills:
+  - leap{velocity=180} @forward{f=-5;y=3;sideOffset=1}
+  
+Goo_Eruption_LEAP5:
+  Skills:
+  - leap{velocity=200} @forward{f=3;y=3;sideOffset=3}
+  
+Goo_Eruption_LEAP6:
+  Skills:
+  - leap{velocity=150} @forward{f=-4;y=3;sideOffset=-2}
+  
+Goo_Eruption_LEAP7:
+  Skills:
+  - leap{velocity=220} @forward{f=2;y=3;sideOffset=2}
+  
+Goo_Eruption_LEAP8:
+  Skills:
+  - leap{velocity=250} @forward{f=-2;y=3;sideOffset=-1}
+  
+Goo_Eruption_LAND_RANDOM:
+  Skills:
+  - randomskill{skills=Goo_Eruption_LAND_AURA1,Goo_Eruption_LAND_AURA2,Goo_Eruption_LAND_AURA3}
+
+Goo_Eruption_LAND_AURA1:
+  Skills:
+  - Aura{auraName=Goo_Eruption_LAND_AURA1;interval=1;duration=1000} @self
+
+Goo_Eruption_LAND_AURA2:
+  Skills:
+  - Aura{auraName=Goo_Eruption_LAND_AURA2;interval=1;duration=1000} @self
+  
+Goo_Eruption_LAND_AURA3:
+  Skills:
+  - Aura{auraName=Goo_Eruption_LAND_AURA3;interval=1;duration=1000} @self
+  
+Goo_Eruption_LANDEND:
+  Skills:
+  - skill{s=Goo_Eruption_LAND}
+  - skill{s=Goo_Eruption_LAND2}
+  - skill{s=Goo_Eruption_LAND3}
+  
+Goo_Eruption_LAND:
+  Conditions:
+  - onground{} true
+  - hasaurastacks{auraName=Goo_Eruption_LAND_AURA1} true
+  Skills:
+  - state{s=spin;remove=true}
+  - state{s=stay;delay=1} @self
+  
+Goo_Eruption_LAND2:
+  Conditions:
+  - onground{} true
+  - hasaurastacks{auraName=Goo_Eruption_LAND_AURA2} true
+  Skills:
+  - state{s=spin;remove=true}
+  - state{s=stay2;delay=1} @self
+  
+Goo_Eruption_LAND3:
+  Conditions:
+  - onground{} true
+  - hasaurastacks{auraName=Goo_Eruption_LAND_AURA3} true
+  Skills:
+  - state{s=spin;remove=true}
+  - state{s=stay3;delay=1} @self
+  
+  
+Goo_Eruption_FX:
+  Skills:
+  #- effect:particlesphere{particle=redstone;color=#009917;radius=0.8;amount=30;y=0.3;repeat=30;repeatinterval=2} @self
+  - delay 60
+  - tint{m=poison_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.1} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.2} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.3} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.4} @self
+  - delay 2
+  - tint{m=poison_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=poison_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - effect:particles{particle=explosion_huge;amount=1;hS=0;vS=0;y=0.3;speed=0;forwardOffset=0;sideOffset=0}
+  - damage{a=18} @PIR{r=6}
+  - potion{type=POISON;duration=60;level=1;hasParticles=false} @PIR{r=6}
+  - effect:sound{s=entity.generic.explode;volume=1;pitch=1} @self
+  - effect:particles{particle=redstone;color=#007306;amount=15;hS=0.7;vS=0.7;y=0.6;speed=0;forwardOffset=0;sideOffset=0} @self
+  - remove{delay=1} @self
+  
+  
+Cauldron_Hit:
+  Cooldown: 0.5
+  Skills:
+  - state{s=hit} @self
+  - effect:sound{s=block.anvil.land;volume=0.6;pitch=0.2 @self
+  
+# Cauldron Stun #
+
+Cauldron_Stun:
+  Cooldown: 7
+  Conditions:
+  - offgcd
+  - targetwithin{d=20} true
+  Skills:
+  - Aura{auraName=Cauldron_Stun_aura;interval=1;duration=80} @self
+  - gcd{ticks=80}
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=80} @self
+  - potion{type=SLOW;duration=80;level=99;hasParticles=false} @self
+  - state{s=stun;li=7;lo=8} @self
+  - effect:particleorbital{r=3.5;points=50;t=80;i=1;particle=crit;oy=5.5} @self
+  - delay 80
+  - state{s=stun;remove=true;li=7;lo=8} @self
+  
+# Wither Aura #
+
+Wither_Aura_FX:
+  Conditions:
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - effect:particles{particle=redstone;color=#000000;amount=25;hS=1.6;vS=0.1;y=-1;speed=0;forwardOffset=0;sideOffset=0}
+  
+Wither_Aura_FX_WITHER:
+  Conditions:
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - effect:particles{particle=redstone;color=#000000;amount=15;hS=0.35;vS=0.15;y=0.1;speed=0;forwardOffset=0;sideOffset=0;repeat=6;repeatinterval=5}
+  - potion{type=WITHER;duration=60;level=1;hasParticles=false}
+  
+# Wither Goo Eruption #
+
+Wither_Goo_Eruption:
+  Cooldown: 6
+  Conditions:
+  - offgcd
+  - targetwithin{d=13} true
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - gcd{ticks=82}
+  - skill{s=Cauldron_Stun;delay=82} 0.25
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=82} @self
+  - potion{type=SLOW;duration=82;level=99;hasParticles=false} @self
+  - state{s=erupt} @self
+  - effect:sound{s=cod_sounds:samus.cod_poison;volume=1;pitch=1} @self
+  - delay 30
+  - effect:sound{s=cod_sounds:samus.cod_erupt;volume=1.5;pitch=1} @self
+  - summon{type=Wither_Goo_Eruption_Bomb;amount=7;radius=3;yRadius=0;onSurface=false} @forward{f=0;y=5}
+  - delay 25
+  - effect:sound{s=cod_sounds:samus.cod_erupt;volume=1.5;pitch=1} @self
+  - summon{type=Wither_Goo_Eruption_Bomb;amount=7;radius=3;yRadius=0;onSurface=false} @forward{f=0;y=5}
+  
+Goo_Eruption_LEAP:
+  Skills:
+  - randomskill{skills=Goo_Eruption_LEAP1,Goo_Eruption_LEAP2,Goo_Eruption_LEAP3,Goo_Eruption_LEAP4,Goo_Eruption_LEAP5,Goo_Eruption_LEAP6,Goo_Eruption_LEAP7,Goo_Eruption_LEAP8}
+
+Goo_Eruption_LEAP1:
+  Skills:
+  - leap{velocity=210} @forward{f=-4;y=3;sideOffset=2}
+
+Goo_Eruption_LEAP2:
+  Skills:
+  - leap{velocity=250} @forward{f=2;y=3;sideOffset=-2}
+  
+Goo_Eruption_LEAP3:
+  Skills:
+  - leap{velocity=240} @forward{f=3;y=3;sideOffset=0}
+  
+Goo_Eruption_LEAP4:
+  Skills:
+  - leap{velocity=180} @forward{f=-5;y=3;sideOffset=1}
+  
+Goo_Eruption_LEAP5:
+  Skills:
+  - leap{velocity=200} @forward{f=3;y=3;sideOffset=3}
+  
+Goo_Eruption_LEAP6:
+  Skills:
+  - leap{velocity=150} @forward{f=-4;y=3;sideOffset=-2}
+  
+Goo_Eruption_LEAP7:
+  Skills:
+  - leap{velocity=220} @forward{f=2;y=3;sideOffset=2}
+  
+Goo_Eruption_LEAP8:
+  Skills:
+  - leap{velocity=250} @forward{f=-2;y=3;sideOffset=-1}
+  
+Goo_Eruption_LAND_RANDOM:
+  Skills:
+  - randomskill{skills=Goo_Eruption_LAND_AURA1,Goo_Eruption_LAND_AURA2,Goo_Eruption_LAND_AURA3}
+
+Goo_Eruption_LAND_AURA1:
+  Skills:
+  - Aura{auraName=Goo_Eruption_LAND_AURA1;interval=1;duration=1000} @self
+
+Goo_Eruption_LAND_AURA2:
+  Skills:
+  - Aura{auraName=Goo_Eruption_LAND_AURA2;interval=1;duration=1000} @self
+  
+Goo_Eruption_LAND_AURA3:
+  Skills:
+  - Aura{auraName=Goo_Eruption_LAND_AURA3;interval=1;duration=1000} @self
+  
+Goo_Eruption_LANDEND:
+  Skills:
+  - skill{s=Goo_Eruption_LAND}
+  - skill{s=Goo_Eruption_LAND2}
+  - skill{s=Goo_Eruption_LAND3}
+  
+Goo_Eruption_LAND:
+  Conditions:
+  - onground{} true
+  - hasaurastacks{auraName=Goo_Eruption_LAND_AURA1} true
+  Skills:
+  - state{s=spin;remove=true}
+  - state{s=stay;delay=1} @self
+  
+Goo_Eruption_LAND2:
+  Conditions:
+  - onground{} true
+  - hasaurastacks{auraName=Goo_Eruption_LAND_AURA2} true
+  Skills:
+  - state{s=spin;remove=true}
+  - state{s=stay2;delay=1} @self
+  
+Goo_Eruption_LAND3:
+  Conditions:
+  - onground{} true
+  - hasaurastacks{auraName=Goo_Eruption_LAND_AURA3} true
+  Skills:
+  - state{s=spin;remove=true}
+  - state{s=stay3;delay=1} @self
+  
+  
+Wither_Goo_Eruption_FX:
+  Skills:
+  #- effect:particlesphere{particle=redstone;color=#009917;radius=0.8;amount=30;y=0.3;repeat=30;repeatinterval=2} @self
+  - delay 60
+  - tint{m=wither_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.1} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.2} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.3} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=ff2200} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=ff2200} @self
+  #- effect:particlesphere{particle=redstone;color=#ff2200;radius=0.8;amount=30;y=0.3} @self
+  - effect:sound{s=entity.blaze.hurt;volume=1;pitch=1.4} @self
+  - delay 2
+  - tint{m=wither_wisp;pid=head;em=false;c=FFFFFF} @self
+  - tint{m=wither_wisp;pid=jaw;em=false;c=FFFFFF} @self
+  #- effect:particlesphere{particle=redstone;color=#ffff9c;radius=0.8;amount=30;y=0.3} @self
+  - delay 2
+  - effect:particles{particle=explosion_huge;amount=1;hS=0;vS=0;y=0.3;speed=0;forwardOffset=0;sideOffset=0}
+  - damage{a=24} @PIR{r=6}
+  - potion{type=WITHER;duration=60;level=1;hasParticles=false} @PIR{r=6}
+  - effect:sound{s=entity.generic.explode;volume=1;pitch=1} @self
+  - effect:particles{particle=redstone;color=#000000;amount=15;hS=0.7;vS=0.7;y=0.6;speed=0;forwardOffset=0;sideOffset=0} @self
+  - remove{delay=1} @self
+  
+# Double Slam #
+
+Double_Slam:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  - targetwithin{d=20} true
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - gcd{ticks=80}
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=20} @self
+  - potion{type=SLOW;duration=20;level=99;hasParticles=false} @self
+  - state{s=jump_twice} @self
+  - effect:sound{s=cod_sounds:samus.cod_attack;volume=1;pitch=1} @self
+  - effect:sound{s=cod_sounds:samus.cod_jump;volume=1.5;pitch=1;delay=7} @self
+  - effect:sound{s=cod_sounds:samus.cod_jump;volume=1.5;pitch=1;delay=14} @self
+  - delay 20
+  - Aura{auraName=Double_Slam_Run_aura;interval=1;duration=40} @self
+  - state{s=run;remove=true;delay=45} @self
+
+Double_Slam_RUN:
+  Conditions:
+  - targetwithin{d=6} castinstead Double_Slam_RUN_STOP
+  - hasaurastacks{auraName=Double_Slam_Run_aura}
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - look{headOnly=false;immediately=true} @target
+  - delay 1
+  - state{s=run} @self
+  - lunge{velocity=0.4;velocityY=-0.5;repeatinterval=1;repeat=13} @forward{f=1;y=0}
+  
+  
+Double_Slam_RUN_STOP:
+  Cooldown: 5
+  Conditions:
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - auraremove{aura=Double_Slam_Run_aura} @self
+  - state{s=run;remove=true} @self
+  - skill{s=Cauldron_Stun;delay=73} 0.25
+  - gcd{ticks=73}
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=23} @self
+  - potion{type=SLOW;duration=23;level=99;hasParticles=false} @self
+  - state{s=jump_slam} @self
+  - effect:sound{s=cod_sounds:samus.cod_slam;volume=1;pitch=1} @self
+  - delay 13
+  - damage{a=17;pkb=false;hnp=false;hp=true} @PIR{r=7}
+  - summon{type=Slam_FX;amount=1;radius=0;yRadius=0;onSurface=true} @self
+  - effect:particles{particle=campfire_cosy_smoke;amount=10;hS=1.5;vS=0.15;y=0.2;speed=0;forwardOffset=0;sideOffset=0} @self
+  - delay 12
+  - setAI{ai=false;delay=13} @self
+  - setAI{ai=true;delay=46} @self
+  - potion{type=SLOW;duration=46;level=99;hasParticles=false;delay=13} @self
+  - state{s=jump_slam} @self
+  - effect:sound{s=cod_sounds:samus.cod_slam;volume=1;pitch=1} @self
+  - lunge{velocity=1.5;velocityY=0.2} @target
+  - delay 13
+  - damage{a=14;pkb=false;hnp=false;hp=true} @PIR{r=7}
+  - summon{type=Slam_FX;amount=1;radius=0;yRadius=0;onSurface=true} @self
+  - effect:particles{particle=campfire_cosy_smoke;amount=10;hS=1.5;vS=0.15;y=0.2;speed=0;forwardOffset=0;sideOffset=0} @self
+
+# Poison Wisp #
+
+Poison_Wisp:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  - targetwithin{d=30} true
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - effect:sound{s=cod_sounds:samus.cod_attack;volume=1;pitch=1} @self
+  - effect:sound{s=cod_sounds:samus.cod_magic;volume=1;pitch=1;delay=15} @self
+  - delay 20
+  - projectile{bulletType=MOB;mob=Poison_Wisp;onHit=Poison_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=0;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  - projectile{bulletType=MOB;mob=Poison_Wisp;onHit=Poison_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=20;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  - projectile{bulletType=MOB;mob=Poison_Wisp;onHit=Poison_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=-20;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  
+Poison_Wisp_HIT:
+  Skills:
+  - damage{a=12;pkb=false;hnp=true;hp=true}
+  - potion{type=POISON;duration=60;level=1;hasParticles=false}
+  - effect:particles{particle=explosion_large;amount=1;hS=0;vS=0;y=0.7;speed=0;forwardOffset=0;sideOffset=0} @origin
+  
+# Wither Wisp #
+
+Wither_Wisp:
+  Cooldown: 5
+  Conditions:
+  - offgcd
+  - targetwithin{d=30} true
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - effect:sound{s=cod_sounds:samus.cod_attack;volume=1;pitch=1} @self
+  - effect:sound{s=cod_sounds:samus.cod_magic;volume=1;pitch=1;delay=15} @self
+  - delay 20
+  - projectile{bulletType=MOB;mob=Wither_Wisp;onHit=Wither_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=0;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  - projectile{bulletType=MOB;mob=Wither_Wisp;onHit=Wither_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=20;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  - projectile{bulletType=MOB;mob=Wither_Wisp;onHit=Wither_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=-20;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  - projectile{bulletType=MOB;mob=Wither_Wisp;onHit=Wither_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=40;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  - projectile{bulletType=MOB;mob=Wither_Wisp;onHit=Wither_Wisp_HIT;v=12;i=1;hR=1;vR=1;mr=40;hnp=false;hO=-40;sE=true;sB=true;hs=false;hfs=0;syo=3;tyo=2} @target
+  
+Wither_Wisp_HIT:
+  Skills:
+  - damage{a=12;pkb=false;hnp=true;hp=true}
+  - potion{type=WITHER;duration=60;level=1;hasParticles=false}
+  - effect:particles{particle=explosion_large;amount=1;hS=0;vS=0;y=0.7;speed=0;forwardOffset=0;sideOffset=0} @origin
+  
+# Pet Slam #
+
+Pet_Slam:
+  Conditions:
+  - offgcd
+  - targetwithin{d=3} true
+  - hasaurastacks{auraName=Cauldron_Stun_aura} false
+  Skills:
+  - gcd{ticks=40}
+  - setAI{ai=false} @self
+  - setAI{ai=true;delay=40} @self
+  - potion{type=SLOW;duration=40;level=99;hasParticles=false} @self
+  - state{s=jump_slam} @self
+  - effect:sound{s=cod_sounds:samus.cod_slam;volume=0.8;pitch=1.4} @self
+  - delay 13
+  - damage{a=6;pkb=false;hnp=true;hp=true} @EIR{r=4;ignore=owner}
+  - summon{type=Pet_Slam_FX;amount=1;radius=0;yRadius=0;onSurface=true} @forward{f=0;y=0.1}
+  - effect:particles{particle=campfire_cosy_smoke;amount=5;hS=0.3;vS=0.05;y=0.15;speed=0;forwardOffset=0;sideOffset=0} @self
+
+CauldronOfDeath_Title:
+    Skills:
+        - effect:sound{s=entity.wither.spawn;p=1} @self
+        - delay 38
+        - particles{p=SMOKE;a=20;hs=0.3;vs=0.5;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - particles{p=CRIMSON_SPORE;a=20;s=0.2;hs=0.5;vs=0.2;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+        - delay 92
+        - particles{p=SMOKE;a=50;s=1;hs=0.3;vs=0.5} @origin
+        - particles{p=end_rod;a=40;hs=1;s=0.3;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=50;s=0.3;hs=0.5;vs=0.2} @origin
+        - particles{p=end_rod;a=80;hs=1;s=0.6;vs=0.3} @self
+        - particles{p=CRIMSON_SPORE;a=100;s=0.6;hs=0.5;vs=0.2} @origin
+        - sendtitle{title="&6&lBOSS DERROTADO";subtitle="TIER 1";d=60;fi=60;fo=60} @PlayersInRadius{r=50}

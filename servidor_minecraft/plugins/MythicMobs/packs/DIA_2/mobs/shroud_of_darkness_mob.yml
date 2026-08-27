@@ -1,0 +1,36 @@
+
+# ~Written by RopeFire~
+
+shroud_of_darkness:
+  Type: WOLF
+  Display: 'Echo Enshrouder'
+  Faction: SCULK
+  Health: 50
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  AITargetSelectors:
+  - clear
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0
+    FollowRange: 24
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: false
+    Invincible: true
+    Collidable: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 24
+  Skills: 
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=shroud_of_darkness;n=false;step=1;usm=true} @self ~onSpawn
+  - model{mid=shroud_of_darkness;n=false;step=1;usm=true} @self ~onLoad
+  - skill{s=shroud_of_darkness_summoned} @self ~onSpawn

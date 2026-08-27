@@ -1,0 +1,11 @@
+type: shaped
+shape:
+- ' a '
+- aba
+- ' c '
+source:
+  a: minecraft:gold_ingot
+  b: mythic_mobs:RosaCurativa
+  c: minecraft:golden_apple
+unlock: true
+result: mythic_mobs:RosaDorada 1

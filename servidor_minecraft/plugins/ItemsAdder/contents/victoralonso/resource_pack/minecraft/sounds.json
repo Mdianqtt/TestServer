@@ -1,0 +1,17 @@
+{
+    "job_cooker":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/cooker"}]},
+    "job_crafter":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/crafter","volume": 0.6}]},
+    "job_digger":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/digger"}]},
+    "job_enchanter":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/enchanter"}]},
+    "job_farmer":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/farmer"}]},
+    "job_florist":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/florist"}]},
+    "job_miner":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/miner"}]},
+    "job_smelter":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/smelter"}]},
+    "job_taster":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/taster"}]},
+    "job_trader":{"category":"player","sounds":[{"name":"victoralonso/jobs/join/trader"}]},
+    "job_gui_shop":{"category":"player","sounds":[{"name":"victoralonso/jobs/gui_shop"}]},
+    "job_level_up":{"category":"master","sounds":[{"name":"victoralonso/jobs/level_up"}]},
+    "cancel":{"category":"player","sounds":[{"name":"victoralonso/cancel"}]},
+    "confirm":{"category":"player","sounds":[{"name":"victoralonso/confirm"}]},
+    "error":{"category":"player","sounds":[{"name":"victoralonso/error"}]}
+}

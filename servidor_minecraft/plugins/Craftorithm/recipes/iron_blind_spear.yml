@@ -1,0 +1,11 @@
+type: shaped
+shape:
+- ' ab'
+- ' ca'
+- 'a  '
+source:
+  a: minecraft:gold_ingot
+  b: minecraft:iron_ingot
+  c: items_adder:weapons_me:iron_spear
+unlock: true
+result: items_adder:weapons_me:iron_blind_spear 1

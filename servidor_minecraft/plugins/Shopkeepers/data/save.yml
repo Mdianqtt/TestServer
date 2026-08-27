@@ -1,0 +1,317 @@
+# This file is not intended to be manually modified! If you want to manually edit this file anyway, ensure that the server is not running currently and that you have prepared a backup of this file.
+
+data-version: 4|2|3955
+'1':
+  uniqueId: 9a471758-014f-4c75-9ba4-482590112472
+  world: Athenia
+  x: 193
+  y: 13
+  z: 409
+  yaw: 333.4202
+  type: admin
+  name: Pablito
+  object:
+    type: chicken
+    baby: true
+    variant: minecraft:temperate
+  recipes:
+    '1':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_model_data: '1536'
+          minecraft:custom_data: '{IAOrigName:''{"text":"Peluche De Orca","italic":false,"color":"white"}'',itemsadder:{id:"nm_plushie_orca",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Peluche
+            De Orca"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+  snapshots: []
+'3':
+  uniqueId: 4b860573-d5c6-4614-b73a-b4cb0e6cf079
+  world: Athenia
+  x: 194
+  y: 12
+  z: 394
+  yaw: 134.00143
+  type: admin
+  name: Roberto
+  object:
+    type: enderman
+  recipes:
+    '1':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Muñeco
+            de Zetkut"}'''
+          minecraft:custom_model_data: '10095'
+          minecraft:custom_data: '{itemsadder:{id:"nm_plushie_santa_hat_zetkut",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Muñeco de
+            Zetkut"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+    '2':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Muñeco
+            de ZTDany"}'''
+          minecraft:custom_model_data: '10089'
+          minecraft:custom_data: '{itemsadder:{id:"nm_plushie_santa_hat_dani",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Muñeco de
+            ZTDany"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+    '3':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Muñeco
+            de Driudd"}'''
+          minecraft:custom_model_data: '10092'
+          minecraft:custom_data: '{itemsadder:{id:"nm_plushie_santa_hat_driudd",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Muñeco de
+            Driudd"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+    '4':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Muñeco
+            de FranPresen"}'''
+          minecraft:custom_model_data: '10094'
+          minecraft:custom_data: '{itemsadder:{id:"nm_plushie_santa_hat_franpresen",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Muñeco de
+            FranPresen"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+    '5':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Muñeco
+            de Mati2"}'''
+          minecraft:custom_model_data: '10093'
+          minecraft:custom_data: '{itemsadder:{id:"nm_plushie_santa_hat_mati2",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Muñeco de
+            Mati2"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+    '6':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Muñeco
+            de Canonet"}'''
+          minecraft:custom_model_data: '10090'
+          minecraft:custom_data: '{itemsadder:{id:"nm_plushie_santa_hat_canonet",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Muñeco de
+            Canonet"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+    '7':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Muñeco
+            de Mati1"}'''
+          minecraft:custom_model_data: '10091'
+          minecraft:custom_data: '{itemsadder:{id:"nm_plushie_santa_hat_mati1",namespace:"nogs_menagerie"}}'
+          minecraft:item_name: '''{"color":"white","italic":false,"text":"Muñeco de
+            Mati1"}'''
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"aqua","italic":false,"text":"ZC COIN"}'''
+          minecraft:custom_model_data: '10007'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"cointoss"}}'
+  snapshots: []
+'4':
+  uniqueId: 401720ba-52f4-4544-9ba3-319fc9fa106a
+  world: Athenia
+  x: 191
+  y: 12
+  z: 473
+  yaw: 55.057945
+  type: admin
+  name: Huevonsito
+  object:
+    type: zombified-piglin
+    baby: false
+  recipes:
+    '1':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:cooked_beef
+        count: 1
+        components:
+          minecraft:lore: '[''{"color":"gold","italic":false,"text":"Kebab to the
+            Bone"}'']'
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Beef Kebab"}'''
+          minecraft:custom_model_data: '3'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"beef_kebab"}}'
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"gold","italic":false,"text":"NuciCoin"}'''
+          minecraft:custom_model_data: '10010'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"nucicoin"}}'
+    '2':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:cooked_beef
+        count: 1
+        components:
+          minecraft:lore: '[''{"color":"gold","italic":false,"text":"Caramelized!"}'']'
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Candy
+            Apple"}'''
+          minecraft:custom_model_data: '10'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"candy_apple"}}'
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"gold","italic":false,"text":"NuciCoin"}'''
+          minecraft:custom_model_data: '10010'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"nucicoin"}}'
+    '3':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:milk_bucket
+        count: 1
+        components:
+          minecraft:lore: '[''{"color":"gold","italic":false,"text":"From chocolate
+            cows!"}'']'
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Chocolate
+            Milk"}'''
+          minecraft:custom_model_data: '1'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"chocolate_milk"}}'
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"gold","italic":false,"text":"NuciCoin"}'''
+          minecraft:custom_model_data: '10010'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"nucicoin"}}'
+    '4':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:cooked_beef
+        count: 1
+        components:
+          minecraft:lore: '[''{"color":"gold","italic":false,"text":"Extra Special!"}'']'
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Brownie"}'''
+          minecraft:custom_model_data: '11'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"brownie"}}'
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"gold","italic":false,"text":"NuciCoin"}'''
+          minecraft:custom_model_data: '10010'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"nucicoin"}}'
+    '5':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:cooked_beef
+        count: 1
+        components:
+          minecraft:lore: '[''{"color":"gold","italic":false,"text":"Salmons at the
+            door!"}'']'
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Salmon
+            Sandwich"}'''
+          minecraft:custom_model_data: '13'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"salmon_sandwich"}}'
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"gold","italic":false,"text":"NuciCoin"}'''
+          minecraft:custom_model_data: '10010'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"nucicoin"}}'
+    '6':
+      resultItem:
+        DataVersion: 3955
+        id: minecraft:cooked_beef
+        count: 1
+        components:
+          minecraft:lore: '[''{"color":"gold","italic":false,"text":"Stack em High!"}'']'
+          minecraft:custom_name: '''{"color":"white","italic":false,"text":"Pancakes"}'''
+          minecraft:custom_model_data: '19'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"pancakes"}}'
+      item1:
+        DataVersion: 3955
+        id: minecraft:paper
+        count: 1
+        components:
+          minecraft:custom_name: '''{"color":"gold","italic":false,"text":"NuciCoin"}'''
+          minecraft:custom_model_data: '10010'
+          minecraft:custom_data: '{PublicBukkitValues:{"mythicmobs:prevent_crafting_with":1b,"mythicmobs:prevent_repairing_with":1b,"mythicmobs:prevent_smithing_with":1b,"mythicmobs:type":"nucicoin"}}'
+  snapshots: []

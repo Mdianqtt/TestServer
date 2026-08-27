@@ -1,0 +1,67 @@
+{
+    "boomerang.spin": {
+        "sounds": [
+            "littleroom/boomerang/spin"
+        ]
+    },
+    "boomerang.bounce": {
+        "sounds": [
+            "littleroom/boomerang/bounce"
+        ]
+    },
+    "boomerang.hit": {
+        "sounds": [
+            "littleroom/boomerang/hit"
+        ]
+    },
+    "boomerang.splash": {
+        "sounds": [
+            "littleroom/boomerang/splash"
+        ]
+    },
+    "boomerang.catch": {
+        "sounds": [
+            "littleroom/boomerang/catch"
+        ]
+    },
+    "boomerang.splash_out": {
+        "sounds": [
+            "littleroom/boomerang/splash_out"
+        ]
+    },
+    "boomerang.es_pickup": {
+        "sounds": [
+            "littleroom/boomerang/es_pickup"
+        ]
+    },
+    "boomerang.es_swing": {
+        "sounds": [
+            "littleroom/boomerang/es_swing"
+        ]
+    },
+    "boomerang.es_hit": {
+        "sounds": [
+            "littleroom/boomerang/es_hit"
+        ]
+    },
+    "boomerang.sledge_slam": {
+        "sounds": [
+            "littleroom/boomerang/sledge_slam"
+        ]
+    },
+    "boomerang.sledge_hit": {
+        "sounds": [
+            "littleroom/boomerang/sledge_hit"
+        ]
+    },
+    "boomerang.sledge_leap_ready": {
+        "sounds": [
+            "littleroom/boomerang/sledge_leap_ready"
+        ]
+    },
+    "boomerang.sledge_leap": {
+        "sounds": [
+            "littleroom/boomerang/sledge_leap"
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+nm_plushie_elf_hat_you:
+
+  Id: PAPER
+  Model: 2533500
+  Display: '&fElf Hat You Plushie'
+  
+  Type: FURNITURE
+  Furniture:
+    Type: ITEM_FRAME
+    Material: PAPER
+    Model: 2533500
+    Health: 2
+    #Barriers:
+    #- 0,0,0 
+    
+  FurnitureSkills:
+  - sound{s=block.wool.place;p=1.8;v=0.8} @selflocation ~onBlockPlace
+  - sound{s=block.wool.hit;p=1.8;v=0.8} @selflocation ~onDamaged
+  - sound{s=block.wool.step;p=1.8;v=0.8} @selflocation ~onBlockRotate
+  - sound{s=block.wool.break;p=1.8;v=0.8} @selflocation ~onBlockBreak
+  - sound{s=entity.axolotl.hurt;p=1.8;v=0.8} @selflocation ~onInteract

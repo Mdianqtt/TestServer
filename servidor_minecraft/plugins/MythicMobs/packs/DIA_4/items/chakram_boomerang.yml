@@ -1,0 +1,14 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LR_chakram_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 6
+  Display: 'Chakram'   
+  CustomDurability:
+    Durability: 50
+  Skills:
+  - skill{s=LRBOOMERANG_throw_chakram;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_chakram} @self ~onHold
+  

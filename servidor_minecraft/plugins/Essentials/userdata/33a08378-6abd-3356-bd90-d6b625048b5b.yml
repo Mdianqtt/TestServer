@@ -1,0 +1,38 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 127.10.110.163
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1771357715204
+  login: 1771356757821
+money: '0.0'
+last-account-name: infernaldeath6
+lastlocation:
+  world: 11fe3125-1a72-4e95-b5da-eaf9942a1eef
+  world-name: world
+  x: 151.5514586871997
+  y: 45.0
+  z: -57.8162205733728
+  yaw: 161.9474334716797
+  pitch: 15.273710250854492
+logoutlocation:
+  world: 11fe3125-1a72-4e95-b5da-eaf9942a1eef
+  world-name: world
+  x: 126.1928830984929
+  y: 116.09972222570299
+  z: -108.79014678979084
+  yaw: 88.00275421142578
+  pitch: -70.08920288085938

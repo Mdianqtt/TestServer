@@ -1,0 +1,81 @@
+Id: End_Scuttler_PET
+MythicMob: End_Scuttler_PET
+Permission: mcpet.End_Scuttler_PET
+Mountable: true
+Distance: 6
+DismountOnDamaged: false
+SpawnRange: 3
+ComingBackRange: 5
+Icon:
+  Name: §bEnd Scuttler
+  Material: BRICK
+  CustomModelData: 12026
+  Description:
+  - §fEl End Scuttler!
+  - ''
+  - §f[§cBug Bite§f]
+  - §fSalta hacia los objetivos y los muerde.
+  - ''
+  - §f[§cEnder Cobweb§f]
+  - §fLanza una telaraña de Ender a su objetivo
+  - §fralentizandolos en la telaraña.
+  - ''
+  - '§7Sube de nivel: §a+Daño'
+Levels:
+  Lvl_Common:
+    Name: §fComun
+    ExperienceThreshold: 0
+    MaxHealth: 65
+    Regeneration: 0.1
+    ResistanceModifier: 1
+    DamageModifier: 2
+    Power: 1
+    Cooldowns:
+      Respawn: 15
+      Revoke: 0
+    InventoryExtension: 0
+  Lvl_Rare:
+    Name: §aRaro
+    ExperienceThreshold: 500
+    MaxHealth: 80
+    Regeneration: 0.12
+    ResistanceModifier: 1
+    DamageModifier: 4
+    Power: 1
+    Cooldowns:
+      Respawn: 14
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &aRaro &6!'
+      Type: CHAT
+  Lvl_Epic:
+    Name: §dEpico
+    ExperienceThreshold: 2000
+    MaxHealth: 95
+    Regeneration: 0.14
+    ResistanceModifier: 1
+    DamageModifier: 6
+    Power: 1
+    Cooldowns:
+      Respawn: 13
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &dEpico &6!'
+      Type: CHAT
+  Lvl_Legendary:
+    Name: §eLegendario
+    ExperienceThreshold: 5000
+    MaxHealth: 110
+    Regeneration: 0.2
+    ResistanceModifier: 1
+    DamageModifier: 9
+    Power: 1
+    Cooldowns:
+      Respawn: 12
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &eLegendario &6!'
+      Type: CHAT

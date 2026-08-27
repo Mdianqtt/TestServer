@@ -1,0 +1,50 @@
+tasks:
+  smelting:
+    type: "smeltingcertain"
+    amount: 256
+    item: GOLD_INGOT
+display:
+  name: "&cMisiones de fundición &8▪ &7Raw Gold #2"
+  lore-normal:
+  - "&8Necesitas oler una cierta cantidad"
+  - "&8de artículos antes de recibir la recompensa."
+  - ""
+  - "&cOpciones:"
+  - "&8■ &7Objetivo: &cFundición 256 Raw Gold."
+  - "&8■ &7Progreso: &c{smelting:progress}/256 raw gold"
+  - ""
+  - "&cRecompensas:"
+  - "&8■ &7Usted recibirá &a&l$&a3000&7."
+  - ""
+  lore-started:
+  - "&e▲ Se han iniciado las misione."
+  type: "RAW_GOLD"
+# Here you can list messages which will be sent to the player (if they are online) upon the quest starting.
+startstring:
+- "&7Una vez completada esta misión, serás recompensado con"
+- " &8■ &a&l$&a3000"
+rewards:
+- "eco give {player} 3000"
+# Here you can list messages which will be sent to the player (if they are online) upon completion.
+rewardstring:
+- " &8■ &a&l$&a3000 &7se añadió a tu saldo en el juego."
+
+# These placeholders are accessible using PlaceholderAPI, for example %quests_tracked_p:description%
+# They are useful for putting information about the players tracked quest on a scoreboard
+# You may want to keep the names of them the same for ALL quests for this use-case
+#### TOOSIE NOTE: I removed this section to get rid of all errors when doing /quests a reload.
+ #### I will add it only to people who need it, so contact me on discord if you do.
+
+options:
+  category: "smelting"
+  requires:
+  - "smelting5gold"
+  repeatable: true
+  cooldown:
+    enabled: true
+    time: 2880
+  sort-order: 6
+placeholders:
+  description: ''
+  progress: '{smelting:progress}'
+  max: '256'

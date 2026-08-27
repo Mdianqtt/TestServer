@@ -1,0 +1,79 @@
+Id: End_Seeker_PET
+MythicMob: End_Seeker_PET
+Permission: mcpet.End_Seeker_PET
+Mountable: false
+Distance: 6
+DismountOnDamaged: false
+SpawnRange: 3
+ComingBackRange: 5
+Icon:
+  Name: §bEnd Seeker
+  Material: BRICK
+  CustomModelData: 12027
+  Description:
+  - §fEl End Seeker!
+  - ''
+  - §f[§cTeleport Explosion§f]
+  - §fCarga una explosión si el objetivo está cerca.
+  - §fDetiene la carga cuando el objetivo no está cerca.
+  - §fExplota en caso contrario.
+  - ''
+  - '§7Sube de nivel: §a+Daño'
+Levels:
+  Lvl_Common:
+    Name: §fComun
+    ExperienceThreshold: 0
+    MaxHealth: 50
+    Regeneration: 0.1
+    ResistanceModifier: 1
+    DamageModifier: 2
+    Power: 1
+    Cooldowns:
+      Respawn: 15
+      Revoke: 0
+    InventoryExtension: 0
+  Lvl_Rare:
+    Name: §aRaro
+    ExperienceThreshold: 500
+    MaxHealth: 60
+    Regeneration: 0.12
+    ResistanceModifier: 1
+    DamageModifier: 4
+    Power: 1
+    Cooldowns:
+      Respawn: 14
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &aRaro &6!'
+      Type: CHAT
+  Lvl_Epic:
+    Name: §dEpico
+    ExperienceThreshold: 2000
+    MaxHealth: 70
+    Regeneration: 0.14
+    ResistanceModifier: 1
+    DamageModifier: 6
+    Power: 1
+    Cooldowns:
+      Respawn: 13
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &dEpico &6!'
+      Type: CHAT
+  Lvl_Legendary:
+    Name: §eLegendario
+    ExperienceThreshold: 5000
+    MaxHealth: 80
+    Regeneration: 0.2
+    ResistanceModifier: 1
+    DamageModifier: 9
+    Power: 1
+    Cooldowns:
+      Respawn: 12
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &eLegendario &6!'
+      Type: CHAT

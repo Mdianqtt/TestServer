@@ -1,0 +1,12 @@
+info:
+    namespace: elite_piglin_brute
+categories:
+    elite_piglin_brute:
+        name: Elite Piglin Brute Mob
+        enabled: true
+        icon: elite_piglin_brute:elite_piglin_brute_head
+        permission: ia.menu.elite_piglin_brute
+        items:
+        - elite_piglin_brute:elite_piglin_brute_doll
+        - elite_piglin_brute:elite_piglin_brute_head
+        - elite_piglin_brute:elite_piglin_brute_warbrand_core

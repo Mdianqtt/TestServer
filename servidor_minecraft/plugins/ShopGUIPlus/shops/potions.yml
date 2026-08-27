@@ -1,0 +1,553 @@
+potions:
+    name: "&8Potions ✚ (page %page% ┃ 3)"
+    buttons:
+      goBack:
+        slot: 4     
+      previousPage:
+        slot: 2
+      nextPage:
+        slot: 6   
+    fillItem:
+        material: ORANGE_STAINED_GLASS_PANE
+        name: "" 
+    items:
+       1:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: INVISIBILITY
+            level: 1
+            extended: true
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 10
+       2:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: JUMP
+            level: 2
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 19
+       3:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: FIRE_RESISTANCE
+            level: 1
+            extended: true
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 28
+       4:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: SPEED
+            level: 2
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 37
+       5:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: WATER_BREATHING
+            level: 1
+            extended: true
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 10
+        page: 2
+       6:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: INSTANT_HEAL
+            level: 2
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 19
+        page: 2
+       7:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: REGEN
+            level: 2
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 28
+        page: 2
+       8:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: INVISIBILITY
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 11
+       9:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: JUMP
+            level: 1
+            extended: true
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 20
+       10:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: FIRE_RESISTANCE
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 29
+       11:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: SPEED
+            level: 1
+            extended: true
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 38
+       12:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: WATER_BREATHING
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 11
+        page: 2
+       13:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: INSTANT_HEAL
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 20
+        page: 2
+       14:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: REGEN
+            level: 1
+            extended: true
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 29
+        page: 2
+       15:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: JUMP
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 21
+       16:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: SPEED
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 39
+       17:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: REGEN
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 30
+        page: 2
+       18:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: STRENGTH
+            level: 2
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 37
+        page: 2
+       19:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: LUCK
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 10
+        page: 3
+       20:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: STRENGTH
+            level: 1
+            extended: true
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 38
+        page: 2
+       21:
+        type: item
+        item:
+          material: POTION
+          quantity: 1
+          potion:
+            type: STRENGTH
+            level: 1
+            extended: false
+        buyPrice: 2500
+        sellPrice: -1
+        slot: 39
+        page: 2
+       22:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: INVISIBILITY
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 15
+       23:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: INVISIBILITY
+            level: 1
+            extended: true
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 16
+       24:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: JUMP
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 23
+       25:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: JUMP
+            level: 1
+            extended: true
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 24
+       26:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: JUMP
+            level: 2
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 25
+       27:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: FIRE_RESISTANCE
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 33
+       28:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: FIRE_RESISTANCE
+            level: 1
+            extended: true
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 34
+       29:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: SPEED
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 41
+       30:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: SPEED
+            level: 1
+            extended: true
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 42
+       31:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: SPEED
+            level: 2
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 43
+       32:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: WATER_BREATHING
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 15
+        page: 2
+       33:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: WATER_BREATHING
+            level: 1
+            extended: true
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 16
+        page: 2
+       34:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: INSTANT_HEAL
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 24
+        page: 2
+       35:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: INSTANT_HEAL
+            level: 2
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 25
+        page: 2
+       36:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: REGEN
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 32
+        page: 2
+       37:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: REGEN
+            level: 1
+            extended: true
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 33
+        page: 2
+       38:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: REGEN
+            level: 2
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 34
+        page: 2
+       39:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: STRENGTH
+            level: 1
+            extended: false
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 41
+        page: 2
+       40:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: STRENGTH
+            level: 1
+            extended: true
+        buyPrice: 2700
+        sellPrice: -1
+        slot: 42
+        page: 2
+       41:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: STRENGTH
+            level: 2
+            extended: false
+        buyPrice: 2800
+        sellPrice: -1
+        slot: 43
+        page: 2
+       42:
+        type: item
+        item:
+          material: SPLASH_POTION
+          quantity: 1
+          potion:
+            type: LUCK
+            level: 1
+            extended: false
+        buyPrice: 3000
+        sellPrice: -1
+        slot: 16
+        page: 3
+       43:
+        type: special
+        special: balance
+        slot: 8
+       44:
+        type: special
+        special: balance
+        slot: 8
+        page: 2
+       45:
+        type: special
+        special: balance
+        slot: 8
+        page: 3       

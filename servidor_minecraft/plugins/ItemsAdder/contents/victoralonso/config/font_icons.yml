@@ -1,0 +1,38 @@
+info:
+  namespace: "victoralonso"
+font_images:
+  error_green:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/error_green.png"
+    symbol: "괅"
+    y_position: 7 #ascent
+    scale_ratio: 7 #height
+  error_message:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/error_message.png"
+    symbol: "괆"
+    y_position: 7 #ascent
+    scale_ratio: 7 #height
+  error_red:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/error_red.png"
+    symbol: "괇"
+    y_position: 7 #ascent
+    scale_ratio: 7 #height
+  click_l:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/click_l.png"
+    symbol: "괈"
+    y_position: 9 #ascent
+    scale_ratio: 10 #height
+  click_r:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "font/click_r.png"
+    symbol: "괉"
+    y_position: 9 #ascent
+    scale_ratio: 10 #height

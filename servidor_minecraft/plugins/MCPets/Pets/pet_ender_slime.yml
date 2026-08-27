@@ -1,0 +1,77 @@
+Id: Ender_Slime_PET
+MythicMob: Ender_Slime_PET
+Permission: mcpet.Ender_Slime_PET
+Mountable: false
+Distance: 6
+DismountOnDamaged: false
+SpawnRange: 3
+ComingBackRange: 5
+Icon:
+  Name: §bEnder Slime
+  Material: BRICK
+  CustomModelData: 12031
+  Description:
+  - §fEl Ender Slime!
+  - ''
+  - §f[§cLeap Attack§f]
+  - §fSalta hacia el objetivo y lo daña.
+  - ''
+  - '§7Sube de nivel: §a+Daño'
+Levels:
+  Lvl_Common:
+    Name: §fComun
+    ExperienceThreshold: 0
+    MaxHealth: 25
+    Regeneration: 0.1
+    ResistanceModifier: 1
+    DamageModifier: 2
+    Power: 1
+    Cooldowns:
+      Respawn: 15
+      Revoke: 0
+    InventoryExtension: 0
+  Lvl_Rare:
+    Name: §aRaro
+    ExperienceThreshold: 500
+    MaxHealth: 35
+    Regeneration: 0.12
+    ResistanceModifier: 1
+    DamageModifier: 4
+    Power: 1
+    Cooldowns:
+      Respawn: 14
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &aRaro &6!'
+      Type: CHAT
+  Lvl_Epic:
+    Name: §dEpico
+    ExperienceThreshold: 2000
+    MaxHealth: 45
+    Regeneration: 0.14
+    ResistanceModifier: 1
+    DamageModifier: 6
+    Power: 1
+    Cooldowns:
+      Respawn: 13
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &dEpico &6!'
+      Type: CHAT
+  Lvl_Legendary:
+    Name: §eLegendary
+    ExperienceThreshold: 5000
+    MaxHealth: 55
+    Regeneration: 0.2
+    ResistanceModifier: 1
+    DamageModifier: 9
+    Power: 1
+    Cooldowns:
+      Respawn: 12
+      Revoke: 0
+    InventoryExtension: 0
+    Announcement:
+      Text: '&6Tu pet subio de nivel! = &eLegendario &6!'
+      Type: CHAT

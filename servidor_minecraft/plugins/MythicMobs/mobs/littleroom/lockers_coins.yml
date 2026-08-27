@@ -1,0 +1,135 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+  
+lr_lockers_north:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_north} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+  
+lr_lockers_south:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_south} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+  
+lr_lockers_east:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_east} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+  
+lr_lockers_west:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_west} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+  
+lr_lockersign_north:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_north} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+  
+lr_lockersign_south:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_south} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+  
+lr_lockersign_east:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_east} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+  
+lr_lockersign_west:
+  Type: ARMOR_STAND
+  Display: 'LR LOCKER'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: true
+  Skills:
+  - skill{s=lockers_face_west} @self ~onSpawn
+  - skill{s=locker_open} @trigger ~onInteract
+  - skill{s=locker_close} @owner ~onTimer:10
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=lr_lockers;n=false;d=false;i=true} @self ~onLoad
+
+
+
+
+cointoss:
+  Type: ARMOR_STAND
+  Display: 'BIG COIN'
+  Options:
+    Marker: true
+    Persistent: false
+    Despawn: false
+  Skills:
+  - skill{s=lr_coinspawn} @self ~onSpawn
+  - skill{s=lr_coinpickup} @self ~onTimer:1
+  - model{mid=cointoss;n=false;d=false;i=true} @self ~onSpawn
+  - model{mid=cointoss;n=false;d=false;i=true} @self ~onLoad
+  
+
+# 1693GN1ZOFW

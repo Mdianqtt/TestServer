@@ -1,0 +1,45 @@
+
+# ~Written by RopeFire~
+
+sculk_sentinel:
+  Type: WOLF
+  Display: 'Sculk Sentinel'
+  Faction: SCULK
+  Health: 220
+  Armor: 10
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - movetowardstarget
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Modules:
+    ThreatTable: true
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0.2
+    FollowRange: 10
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 10
+  Skills: 
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=sculk_sentinel;n=false;step=1;usm=true;drive=true;ride=true} @self ~onSpawn
+  - model{mid=sculk_sentinel;n=false;step=1;usm=true;drive=true;ride=true} @self ~onLoad
+  - randomskill{skills=sculk_sentinel_grab,sculk_sentinel_smash,sculk_sentinel_stomp,sculk_sentinel_tongue_attack} @self ~onTimer:55
+  - skill{s=sculk_sentinel_death} @self ~onDeath
+  - skill{s=sculk_sentinel_ambient} @self ~onTimer:200

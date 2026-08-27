@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/ender_slime"},"elements":[{"from":[7.145,7.4300003,8.0],"to":[8.855,8.57,8.0],"faces":{"south":{"uv":[10.75,4.5,10.0,5.25],"tintindex":0,"rotation":0,"texture":"#0"},"north":{"uv":[10.75,3.5,10.0,4.25],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

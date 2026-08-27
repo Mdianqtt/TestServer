@@ -1,0 +1,22 @@
+Id: Nocsy_Cat-European
+MythicMob: Nocsy_Cat-European
+Permission: mcpets.nocsy_european
+Mountable: false
+Distance: 6
+SpawnRange: 1
+ComingBackRange: 3
+Icon:
+  Name: §9European
+  Material: BLAZE_ROD
+  CustomModelData: 87606
+  Description:
+  - §7Meow :3
+Signals:
+  Values:
+  - PLAY
+  Item:
+    Name: §cThread ball
+    Material: BLAZE_ROD
+    CustomModelData: 87600
+    Description:
+    - §7Right click to throw a thread ball

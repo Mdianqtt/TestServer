@@ -1,0 +1,36 @@
+{
+	"credit": "Made By Geastre",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "armors_me:orange/orange_hoe"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -90, 45],
+			"translation": [0, 7, 2],
+			"scale": [1.25, 1.25, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 90, -45],
+			"translation": [0, 7, 2],
+			"scale": [1.25, 1.25, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [-26.5, -90, 0],
+			"translation": [1.13, 5.5, 1.13]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-26.5, 90, 0],
+			"translation": [1.13, 5.5, 1.13]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [1, 1, 0.5]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0],
+			"scale": [2, 2, 1]
+		}
+	}
+}

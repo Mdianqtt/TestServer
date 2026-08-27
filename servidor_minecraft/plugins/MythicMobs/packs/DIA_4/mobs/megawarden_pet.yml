@@ -1,0 +1,34 @@
+megawarden_PET:
+  Type: PIG
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 ownertarget
+  - 2 attacker
+  Drops: []
+  Equipment: []
+  Skills:
+  - skill{s=MEGAWARDEN_pet_feed} @trigger ~onInteract
+  - skill{s=MEGAWARDEN_pet_attack;sync=true} @target ~onAttack
+  - model{mid=mega_warden_pet;n=false;s=1} @self ~onSpawn
+  - model{mid=mega_warden_pet;n=false;s=1} @self ~onLoad
+  - skill{s=MEGAWARDEN_pet_spawn} @self ~onSpawn
+  Display: "§bMegaWarden"
+  Health: 250
+  Damage: 16
+  Options:
+    Invisible: true
+    Collidable: false
+    Invincible: false
+    Despawn: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    Silent: true
+    KnockbackResistance: 1
+    FollowRange: 20
+    PreventItemPickup: true
+    PreventRandomEquipment: true
+

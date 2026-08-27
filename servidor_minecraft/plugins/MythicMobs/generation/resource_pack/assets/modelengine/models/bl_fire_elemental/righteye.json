@@ -1,0 +1,1 @@
+{"textures":{"3":"modelengine:entity/bl_fire_elemental"},"elements":[{"from":[8.0,5.0,8.5],"to":[16.0,11.0,8.5],"faces":{"south":{"uv":[1.2,11.2,2.8,12.400001],"tintindex":0,"rotation":0,"texture":"#3"},"north":{"uv":[10.8,1.8000001,12.400001,3.0],"tintindex":0,"rotation":0,"texture":"#3"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

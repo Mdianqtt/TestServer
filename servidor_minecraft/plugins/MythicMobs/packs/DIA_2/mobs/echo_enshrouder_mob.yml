@@ -1,0 +1,47 @@
+
+# ~Written by RopeFire~
+
+echo_enshrouder:
+  Type: WOLF
+  Display: 'Echo Enshrouder'
+  Faction: SCULK
+  Health: 200
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - movetowardstarget
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Modules:
+    ThreatTable: true
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0.2
+    FollowRange: 20
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 20
+  Skills: 
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=echo_enshrouder;n=false;step=1;usm=true} @self ~onSpawn
+  - model{mid=echo_enshrouder;n=false;step=1;usm=true} @self ~onLoad
+  - randomskill{skills=echo_enshrouder_soul_explosion,echo_enshrouder_summon_spike,echo_enshrouder_enshroud,
+                       echo_enshrouder_right_shot,echo_enshrouder_left_shot} @self ~onTimer:65
+  - skill{s=echo_enshrouder_death} @self ~onDeath
+  - skill{s=echo_enshrouder_ambient} @self ~onTimer:200
+
+# 8273U62YRGDQJXG5OO6ECFV

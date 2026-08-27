@@ -1,0 +1,39 @@
+SkillRosaCurativa:
+  Cooldown: 5
+  # Evita que se use si el jugador ya tiene la vida llena (opcional)
+  Conditions:
+  - health{h=<20} true 
+  Skills:
+  # 1. CURACIÓN: 2 puntos de daño equivalen a 1 corazón real
+  - heal{amount=2} @self
+  
+  # 2. PARTICULAS: Un aura de corazones y destellos verdes
+  # Corazones rojos clásicos
+  - effect:particles{p=heart;amount=5;speed=0.1;hS=0.5;vS=1} @self
+  # Destellos verdes (Esencia de vida)
+  - effect:particles{p=dust;color=0,255,0;amount=20;speed=0.05;hS=0.8;vS=1.5;size=1} @self
+  # Un pequeño destello blanco tipo "flash"
+  - effect:particles{p=flash;amount=1;speed=0} @self
+  
+  # 3. SONIDO: Un efecto mágico y relajante
+  - sound{s=entity.experience_orb.pickup;p=1.5;v=1} @self
+  - sound{s=block.amethyst_block.hit;p=0.8;v=1} @self
+
+  # Mensaje opcional para el jugador
+  - message{m="&d&o¡Usaste la Rosa de La Vida!"} @self
+
+SkillRosaDorada:
+  Skills:
+  - consumeuseditem @self
+  - heal{amount=8} @self
+  - potion{type=REGENERATION;duration=200;level=2} @self
+  - potion{type=DAMAGE_RESISTANCE;duration=300;level=1} @self
+  
+  # Partículas doradas estilo "Totem"
+  - effect:particles{p=dust;color=255,215,0;amount=50;speed=0.1;hS=1;vS=2;size=1.2} @self
+  - effect:particles{p=totem_of_undying;amount=30;speed=0.5;hS=1;vS=1.5} @self
+  - effect:particles{p=flash;amount=2;speed=0} @self
+  
+  - sound{s=item.totem.use;p=1.5;v=1} @self
+  - sound{s=entity.player.levelup;p=0.8;v=1} @self
+  - message{m="&6&l¡Has usado la Rosa Dorada!"} @self

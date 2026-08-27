@@ -1,0 +1,71 @@
+info:
+  namespace: xmas_costume
+armors_rendering:
+  snowman_costume:
+    color: '#fffffe'
+    layer_1: armor/snowman_costume/layer_1
+    layer_2: armor/snowman_costume/layer_2
+    use_color: false
+items:
+  snowman_head:
+    display_name: Snowman Head
+    permission: snowman_costume
+    resource:
+      material: PAPER
+      generate: false
+      model_path: items/snowman_head
+    durability:
+      max_durability: 1562
+    behaviours:
+      hat: true
+  snowman_chestplate:
+    display_name: Snowman Chestplate
+    permission: snowman_costume
+    resource:
+      generate: true
+      textures:
+      - item/snowman_costume/snowman_chestplate
+    durability:
+      max_custom_durability: 240
+    specific_properties:
+      armor:
+        slot: chest
+        custom_armor: snowman_costume
+    attribute_modifiers:
+      chest:
+        armor: 5
+        armorToughness: 1
+  snowman_leggings:
+    display_name: Snowman Leggings
+    permission: snowman_costume
+    resource:
+      generate: true
+      textures:
+      - item/snowman_costume/snowman_leggings
+    durability:
+      max_custom_durability: 225
+    specific_properties:
+      armor:
+        slot: legs
+        custom_armor: snowman_costume
+    attribute_modifiers:
+      legs:
+        armor: 4
+        armorToughness: 1
+  snowman_boots:
+    display_name: Snowman Boots
+    permission: snowman_costume
+    resource:
+      generate: true
+      textures:
+      - item/snowman_costume/snowman_boots
+    durability:
+      max_custom_durability: 195
+    specific_properties:
+      armor:
+        slot: FEET
+        custom_armor: snowman_costume
+    attribute_modifiers:
+      feet:
+        armor: 1
+        armorToughness: 1

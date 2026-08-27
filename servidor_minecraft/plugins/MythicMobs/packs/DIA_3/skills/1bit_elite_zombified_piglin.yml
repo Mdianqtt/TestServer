@@ -1,0 +1,323 @@
+1bit_elite_zombified_piglin_random_attack:
+  Cooldown: 1.5
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - fieldofview{angle=35;r=3.6} true
+  Skills:
+  - randomskill{skills=1bit_elite_zombified_piglin_random_attack_1,1bit_elite_zombified_piglin_random_attack_2,1bit_elite_zombified_piglin_random_attack_3} @self
+1bit_elite_baby_zombified_piglin_random_attack:
+  Cooldown: 1.5
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - fieldofview{angle=35;r=2.5} true
+  Skills:
+  - randomskill{skills=1bit_elite_baby_zombified_piglin_random_attack_1,1bit_elite_baby_zombified_piglin_random_attack_2,1bit_elite_baby_zombified_piglin_random_attack_3} @self
+1bit_elite_baby_zombified_piglin_random_attack_1:
+  Skills:
+  - setAI{ai=false} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=true;lockpitch=true} @self
+  - velocity{m=SET;x=0;y=0;z=0;repeat=21;repeatInterval=1} @self
+  - setAI{ai=true;delay=21} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=false;lockpitch=false;delay=21} @self
+  - delay 1
+  - state{s=attack_1} @self
+  - delay 2
+  - effect:particles{particle=Smoke;speed=0.05;Size=1;a=30;hS=1;vS=0.1;y=0.35;repeat=3;repeatInterval=1} @self
+  - delay 2
+  - potion{t=SLOW;d=20;l=2;force=false;p=true;i=true} @EntitiesNearOrigin{r=2.5} ?!hastag{t=pet}
+  - potion{t=SLOW;d=20;l=2;force=false;p=true;i=true} @EntitiesNearOrigin{r=2.5;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+
+1bit_elite_baby_zombified_piglin_random_attack_1hit:
+  Skills:
+  - skill{s=1bit_elite_zombified_piglin_sound_attack1;sync=true} @self
+  - summon{t=1bit_elite_zombified_piglin_trigger;a=1;l=0;r=0;then=[
+      - sudoskill{s=[
+          - effect:particles{particle=Instant_Effect;speed=0.5;Size=1;a=7;hS=0.85;vS=0.3;y=0.3;delay=1}
+          - effect:particles{particle=White_Smoke;speed=0.1;Size=1;a=15;hS0.85;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{particle=dust_plume;speed=0.1;Size=1;a=15;hS0.85;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{particle=campfire_cosy_smoke;speed=0.1;Size=1;a=2;hS=0.25;vS=0.1;d=true;y=0.5;fo=true;origin=@SelfLocation{y=0.5}} @Ring{radius=1;points=10;offsety=0.5}
+          - remove{sync=true;delay=20}
+        ];cat=true}
+    ]} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark}
+  - delay 1
+  - totem{yo=0;md=2;oS=[
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=8;vy=2.5;fo=true}
+        ];sync=true} @EntitiesNearOrigin{r=3} ?!hastag{t=pet}
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=8;vy=2.5;fo=true}
+        ];sync=true} @EntitiesNearOrigin{r=3;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+    ]} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark}
+
+1bit_elite_baby_zombified_piglin_random_attack_2:
+  Skills:
+  - setAI{ai=false} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=true;lockpitch=true} @self
+  - velocity{m=SET;x=0;y=0;z=0;repeat=18;repeatInterval=1} @self
+  - setAI{ai=true;delay=18} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=false;lockpitch=false;delay=18} @self
+  - delay 1
+  - state{s=attack_2} @self
+  - delay 6
+  - skill{s=1bit_elite_zombified_piglin_sound_attack2;sync=true} @self
+  - skill{s=1bit_elite_baby_zombified_piglin_random_attack_2_damage;sync=true} @EntitiesNearOrigin{r=3} ?!hastag{t=pet}
+  - skill{s=1bit_elite_baby_zombified_piglin_random_attack_2_damage;sync=true} @EntitiesNearOrigin{r=3;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+1bit_elite_baby_zombified_piglin_random_attack_2_damage:
+  TargetConditions:
+  - fieldofview{angle=180} true
+  Skills:
+  - setNoDamageTicks{ticks=0}
+  - delay 1
+  - damage{a=<caster.damage>}
+  - effect:particles{particle=Instant_Effect;speed=0.5;Size=1;a=8;hS=0.2;vS=0.3;y=1}
+  - delay 1
+  - throw{v=6;vy=1.5}
+1bit_elite_baby_zombified_piglin_random_attack_3:
+  Skills:
+  - setAI{ai=false} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=true;lockpitch=true} @self
+  - setAI{ai=true;delay=25} @self
+  - velocity{m=SET;x=0;y=-0.1;z=0;repeat=25;repeatInterval=1} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=false;lockpitch=false;delay=25} @self
+  - delay 1
+  - state{s=attack_3} @self
+  - delay 4
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=15;hS=0.65;vS=0.4;y=1}
+1bit_elite_baby_zombified_piglin_random_attack_3_hit:
+  Skills:
+  - skill{s=1bit_elite_zombified_piglin_sound_attack3;sync=true} @self
+  - summon{t=1bit_elite_zombified_piglin_trigger;a=1;l=0;r=0;then=[
+      - sudoskill{s=[
+          - effect:particles{repeat=2;repeatInterval=2;particle=lava;speed=0.5;Size=1;a=7;hS=1;vS=0.3;y=0.3;delay=1}
+          - effect:particles{particle=Smoke;speed=0.1;Size=1;a=15;hS=1;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{particle=dust_plume;speed=0.1;Size=1;a=15;hS=1;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{repeat=1;repeatInterval=2;particle=campfire_cosy_smoke;speed=0.15;Size=1;a=2;hS=0.25;vS=0.1;d=true;y=0.3;fo=true;origin=@SelfLocation{y=0.3}} @Ring{radius=1;points=<random.7to10>;offsety=0.3}
+          - remove{sync=true;delay=20}
+        ];cat=true}
+    ]} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark2}
+  - totem{yo=0;md=2;oS=[
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=12.5;vy=6;fo=true}
+          - ignite{t=60}
+        ];sync=true} @EntitiesNearOrigin{r=3} ?!hastag{t=pet}
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=12.5;vy=6;fo=true}
+          - ignite{t=60}
+        ];sync=true} @EntitiesNearOrigin{r=3;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+    ]} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark2}
+
+1bit_elite_zombified_piglin_random_attack_1:
+  Skills:
+  - setAI{ai=false} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=true;lockpitch=true} @self
+  - velocity{m=SET;x=0;y=0;z=0;repeat=21;repeatInterval=1} @self
+  - setAI{ai=true;delay=21} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=false;lockpitch=false;delay=21} @self
+  - delay 1
+  - state{s=attack_1} @self
+  - delay 2
+  - effect:particles{particle=Smoke;speed=0.05;Size=1;a=45;hS=1.5;vS=0.7;y=1;repeat=3;repeatInterval=1} @self
+  - delay 2
+  - potion{t=SLOW;d=20;l=2;force=false;p=true;i=true} @EntitiesNearOrigin{r=4.5} ?!hastag{t=pet}
+  - potion{t=SLOW;d=20;l=2;force=false;p=true;i=true} @EntitiesNearOrigin{r=4.5;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+
+1bit_elite_zombified_piglin_random_attack_hit:
+  Skills:
+  - skill{s=1bit_elite_zombified_piglin_sound_attack1;sync=true} @self
+  - summon{t=1bit_elite_zombified_piglin_trigger;a=1;l=0;r=0;then=[
+      - sudoskill{s=[
+          - effect:particles{particle=Instant_Effect;speed=0.5;Size=1;a=15;hS=1.15;vS=0.3;y=0.3;delay=1}
+          - effect:particles{particle=White_Smoke;speed=0.1;Size=1;a=35;hS=1.15;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{particle=dust_plume;speed=0.1;Size=1;a=35;hS=1.15;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{particle=campfire_cosy_smoke;speed=0.15;Size=1;a=3;hS=0.25;vS=0.1;d=true;yOffset=0;fo=true;origin=@self} @Ring{radius=1;points=15;offsety=0}
+          - remove{sync=true;delay=20}
+        ];cat=true}
+    ]} @ModelPart{m=1bit_elite_zombified_piglin;p=mark}
+  - delay 1
+  - totem{yo=0;md=2;oS=[
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=12;vy=4.5;fo=true}
+        ];sync=true} @EntitiesNearOrigin{r=3.5} ?!hastag{t=pet}
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=12;vy=4.5;fo=true}
+        ];sync=true} @EntitiesNearOrigin{r=3.5;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+    ]} @ModelPart{m=1bit_elite_zombified_piglin;p=mark}
+1bit_elite_zombified_piglin_random_attack_2:
+  Skills:
+  - setAI{ai=false} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=true;lockpitch=true} @self
+  - velocity{m=SET;x=0;y=0;z=0;repeat=18;repeatInterval=1} @self
+  - setAI{ai=true;delay=18} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=false;lockpitch=false;delay=18} @self
+  - delay 1
+  - state{s=attack_2} @self
+  - delay 6
+  - skill{s=1bit_elite_zombified_piglin_sound_attack2;sync=true} @self
+  - skill{s=1bit_elite_zombified_piglin_random_attack_2_damage;sync=true} @EntitiesNearOrigin{r=3.7} ?!hastag{t=pet}
+  - skill{s=1bit_elite_zombified_piglin_random_attack_2_damage;sync=true} @EntitiesNearOrigin{r=3.7;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+1bit_elite_zombified_piglin_random_attack_2_damage:
+  TargetConditions:
+  - fieldofview{angle=180} true
+  Skills:
+  - setNoDamageTicks{ticks=0}
+  - delay 1
+  - damage{a=<caster.damage>}
+  - effect:particles{particle=Instant_Effect;speed=0.5;Size=1;a=8;hS=0.2;vS=0.3;y=1}
+  - delay 1
+  - throw{v=10;vy=2}
+
+1bit_elite_zombified_piglin_random_attack_3:
+  Skills:
+  - setAI{ai=false} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=true;lockpitch=true} @self
+  - setAI{ai=true;delay=25} @self
+  - velocity{m=SET;x=0;y=-0.1;z=0;repeat=25;repeatInterval=1} @self
+  - lockmodelhead{mid=1bit_elite_zombified_piglin;lockyaw=false;lockpitch=false;delay=25} @self
+  - delay 1
+  - state{s=attack_3} @self
+  - delay 4
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=15;hS=0.65;vS=0.4;y=1}
+1bit_elite_zombified_piglin_random_attack_3_hit:
+  Skills:
+  - skill{s=1bit_elite_zombified_piglin_sound_attack3;sync=true} @self
+  - summon{t=1bit_elite_zombified_piglin_trigger;a=1;l=0;r=0;then=[
+      - sudoskill{s=[
+          - effect:particles{repeat=2;repeatInterval=2;particle=lava;speed=0.5;Size=1;a=15;hS=1.15;vS=0.3;y=0.3;delay=1}
+          - effect:particles{particle=Smoke;speed=0.1;Size=1;a=35;hS=1.15;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{particle=dust_plume;speed=0.1;Size=1;a=35;hS=1.15;vS=0.3;y=0.3;repeat=1;repeatInterval=1}
+          - effect:particles{repeat=1;repeatInterval=2;particle=campfire_cosy_smoke;speed=0.3;Size=1;a=3;hS=0.25;vS=0.1;d=true;yOffset=0;fo=true;origin=@self} @Ring{radius=1;points=<random.10to15>;offsety=0}
+          - remove{sync=true;delay=20}
+        ];cat=true}
+    ]} @ModelPart{m=1bit_elite_zombified_piglin;p=mark2}
+  - totem{yo=0;md=2;oS=[
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=14.5;vy=8;fo=true}
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=3.5} ?!hastag{t=pet}
+      - skill{s=[
+          - setNoDamageTicks{ticks=0}
+          - delay 1
+          - damage{a=<caster.damage>}
+          - delay 1
+          - throw{v=14.5;vy=8;fo=true}
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=3.5;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+    ]} @ModelPart{m=1bit_elite_zombified_piglin;p=mark2}
+1bit_elite_zombified_piglin_sound_spawn_a1:
+  Skills:
+  - particle{p=block_crack;material=DIRT;Size=1;a=7;hS=0.20;vS=0.05;y=0.2} @ModelPart{m=1bit_elite_zombified_piglin;p=mark3}
+  - particle{p=block_crack;material=NETHERRACK;Size=1;a=7;hS=0.20;vS=0.05;y=0.2} @ModelPart{m=1bit_elite_zombified_piglin;p=mark3}
+  - sound{s=item.mace.smash_ground;p=1.00;v=1.0} @self
+  - sound{s=entity.zombie.attack_iron_door;p=1.00;v=1.0} @self
+  - sound{s=block.anvil.place;p=0.60;v=0.2} @self
+  - sound{s=item.mace.smash_ground_heavy;p=0.60;v=0.3} @self
+
+1bit_elite_zombified_piglin_sound_spawn_a2:
+  Skills:
+  - skill{s=[
+      - particle{p=block_crack;material=DIRT;Size=1;a=7;hS=0.75;vS=0.05;repeat=2;repeatInterval=2} @self
+      - particle{p=block_crack;material=NETHERRACK;Size=1;a=7;hS=0.75;vS=0.05;repeat=2;repeatInterval=2} @self
+      - sound{s=block.rooted_dirt.fall;p=0.60;v=0.4} @self
+      - sound{s=block.rooted_dirt.break;p=1.20;v=0.5} @self
+      - sound{s=block.netherrack.fall;p=1.00;v=1.0} @self
+      - sound{s=block.netherrack.hit;p=1.00;v=1.0} @self
+    ];sync=true;repeat=6;repeatInterval=5} @self
+
+1bit_elite_zombified_piglin_sound_spawn_a3:
+  Skills:
+  - sound{s=minecraft:item.armor.equip_iron;p=0.6;v=2} @self
+
+1bit_elite_zombified_piglin_sound_walk:
+  Skills:
+  - sound{s=entity.hoglin.step;p=1.00;v=1.0} @self ?!hastag{t=Baby}
+  - sound{s=entity.hoglin.step;p=1.5;v=0.7} @self ?hastag{t=Baby}
+
+1bit_elite_zombified_piglin_sound_damaged:
+  Skills:
+  - sound{s=entity.zombified_piglin.hurt;p=0.80;v=1.0} @self
+  - sound{s=entity.pig.hurt;p=0.57;v=0.4} @self
+  - sound{s=entity.piglin_brute.hurt;p=1.25;v=0.4} @self
+
+1bit_elite_zombified_piglin_sound_attack1:
+  Skills:
+  - sound{s=item.mace.smash_ground;p=0.95;v=0.9} @self
+  - sound{s=entity.zombie.attack_iron_door;p=0.89;v=0.5} @self
+  - sound{s=entity.iron_golem.attack;p=1.00;v=1.0} @self
+  - sound{s=entity.hoglin.attack;p=1.85;v=0.6} @self
+  - sound{s=entity.player.attack.nodamage;p=0.73;v=0.9} @self
+  - sound{s=entity.player.attack.knockback;p=0.77;v=0.7} @self
+
+1bit_elite_zombified_piglin_sound_attack2:
+  Skills:
+  - sound{s=entity.iron_golem.attack;p=1.00;v=1.0} @self
+  - sound{s=entity.player.attack.nodamage;p=0.73;v=0.9} @self
+  - sound{s=entity.player.attack.knockback;p=0.77;v=0.7} @self
+  - sound{s=entity.hoglin.attack;p=1.85;v=0.6} @self
+
+1bit_elite_zombified_piglin_sound_attack3:
+  Skills:
+  - sound{s=item.mace.smash_ground;p=0.95;v=0.9} @self
+  - sound{s=entity.zombie.attack_iron_door;p=0.89;v=0.7} @self
+  - sound{s=entity.iron_golem.attack;p=1.00;v=1.0} @self
+  - sound{s=entity.hoglin.attack;p=1.85;v=1} @self
+  - sound{s=entity.player.attack.nodamage;p=0.73;v=1} @self
+  - sound{s=entity.player.attack.knockback;p=0.77;v=1} @self
+  - sound{s=minecraft:entity.generic.extinguish_fire;p=0.8;v=1} @self
+
+1bit_elite_baby_zombified_piglin_a1:
+  Skills:
+  - skill{s=[
+      - particle{p=block_crack;material=DIRT;Size=1;a=7;hS=0.75;vS=0.05;repeat=2;repeatInterval=2} @self
+      - particle{p=block_crack;material=NETHERRACK;Size=1;a=7;hS=0.75;vS=0.05;repeat=2;repeatInterval=2} @self
+      - sound{s=block.rooted_dirt.fall;p=0.60;v=0.4} @self
+      - sound{s=block.rooted_dirt.break;p=1.20;v=0.5} @self
+      - sound{s=block.netherrack.fall;p=1.00;v=1.0} @self
+      - sound{s=block.netherrack.hit;p=1.00;v=1.0} @self
+    ];sync=true;repeat=6;repeatInterval=5} @self
+1bit_elite_zombified_piglin_sound_death:
+  Skills:
+  - sound{s=entity.zombified_piglin.death;p=0.90;v=1.0} @self
+  - sound{s=entity.zombified_piglin.angry;p=1.15;v=0.8} @self
+  - sound{s=entity.husk.death;p=0.55;v=1.0} @self
+  - delay 26
+  - effect:particles{particle=Sneeze;speed=0.02;Size=1;a=5;hS=0.8;vS=0.1;y=0.2;repeat=17;repeatInterval=2} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark4}
+  - effect:particles{particle=Falling_Spore_Blossom;speed=0.02;Size=1;a=3;hS=0.8;vS=0.1;y=0.2;repeat=17;repeatInterval=2} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark4}
+
+1bit_elite_baby_zombified_piglin_sound_death:
+  Skills:
+  - sound{s=entity.zombified_piglin.death;p=0.90;v=1.0} @self
+  - sound{s=entity.zombified_piglin.angry;p=1.15;v=0.8} @self
+  - sound{s=entity.husk.death;p=0.55;v=1.0} @self
+  - delay 26
+  - effect:particles{particle=Sneeze;speed=0.02;Size=1;a=4;hS=0.5;vS=0.1;y=0.2;repeat=17;repeatInterval=2} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark4}
+  - effect:particles{particle=Falling_Spore_Blossom;speed=0.02;Size=1;a=2;hS=0.5;vS=0.1;y=0.2;repeat=17;repeatInterval=2} @ModelPart{m=1bit_elite_baby_zombified_piglin;p=mark4}

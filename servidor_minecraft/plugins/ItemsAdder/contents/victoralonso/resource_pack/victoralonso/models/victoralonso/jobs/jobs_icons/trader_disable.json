@@ -1,0 +1,6 @@
+{
+    "parent":"minecraft:item/handheld",
+    "textures":{
+        "layer0":"victoralonso:icons/jobs/jobs_icons/trader_disable"
+    }
+}

@@ -1,0 +1,71 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made by Manning Design",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "custom/bs_mushroom_large_pink_texture",
+		"particle": "custom/bs_mushroom_large_pink_texture"
+	},
+	"elements": [
+		{
+			"from": [7.95495, 0, -3.04505],
+			"to": [7.95495, 32, 18.95495],
+			"rotation": {"angle": 45, "axis": "y", "origin": [7.95495, 8, 7.95495]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 8], "texture": "#0"},
+				"east": {"uv": [0, 0, 5.5, 8], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 8], "texture": "#0"},
+				"west": {"uv": [5.5, 0, 0, 8], "texture": "#0"},
+				"up": {"uv": [0, 5.5, 0, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 5.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.97434, 0, -2.97434],
+			"to": [7.97434, 32, 19.02566],
+			"shade": false,
+			"rotation": {"angle": -45, "axis": "y", "origin": [7.97434, 8, 8.02566]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 5.5, 8], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 16], "texture": "#0"},
+				"west": {"uv": [5.5, 0, 0, 8], "texture": "#0"},
+				"up": {"uv": [0, 22, 0, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 22], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.48, 0.48, 0.48]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.46, 0.46, 0.46]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.41, 0.41, 0.41]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.32, 0.32, 0.32]
+		},
+		"ground": {
+			"translation": [0, 2.25, 0],
+			"scale": [0.48, 0.48, 0.48]
+		},
+		"gui": {
+			"rotation": [0, 45, 0],
+			"translation": [0, -2.5, 0],
+			"scale": [0.48, 0.48, 0.48]
+		},
+		"head": {
+			"translation": [0, 14.5, 0]
+		},
+		"fixed": {
+			"rotation": [-90, -180, 0],
+			"translation": [0, 0, -16],
+			"scale": [2.01, 2.01, 2.01]
+		}
+	}
+}

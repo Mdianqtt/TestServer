@@ -1,0 +1,38 @@
+Events:
+  DormirSancion:
+    type: player_bed_enter
+    conditions:
+    - '%result% == OK'
+    - '%world_time_world% >= 11800'
+    - '%world_time_world% <= 23500'
+    actions:
+      default:
+      - 'cancel_event: true'
+      - 'message: &cNo puedes dormir ahora.'
+    enabled: true
+  
+  dormir_decision:
+    type: repetitive_server
+    repetitive_time: 200
+    conditions:
+    - '%world_time_world% >= 11800'
+    - '%world_time_world% <= 12000'
+    - '%random_1_100% <= 50'
+    actions:
+      default:
+      - 'to_all: message: &c☀ &8[&b&lZONA CERO&8] &cNadie podra dormir esta noche.'
+      - 'console_command: ce enable DormirSancion'
+      - 'console_command: ce enable dormir_fin'
+  
+  dormir_fin:
+    type: repetitive_server
+    enabled: true
+    repetitive_time: 100
+    conditions:
+    - '%world_time_world% >= 23500'
+    actions:
+      default:
+      - 'to_all: message: &a☀&8[&b&lZONA CERO&8] &aHan pasado la noche.'
+      - 'console_command: ce disable DormirSancion'
+      - 'console_command: ce disable dormir_fin'
+

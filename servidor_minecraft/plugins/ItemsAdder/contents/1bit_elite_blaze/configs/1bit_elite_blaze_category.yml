@@ -1,0 +1,12 @@
+info:
+    namespace: 1bit_elite_blaze
+categories:
+    1bit_elite_blaze:
+        name: Elite Blaze Mob
+        enabled: true
+        icon: 1bit_elite_blaze:1bit_elite_blaze_head
+        permission: ia.menu.1bit_elite_blaze
+        items:
+        - 1bit_elite_blaze:1bit_elite_blaze_core
+        - 1bit_elite_blaze:1bit_elite_blaze_doll
+        - 1bit_elite_blaze:1bit_elite_blaze_head

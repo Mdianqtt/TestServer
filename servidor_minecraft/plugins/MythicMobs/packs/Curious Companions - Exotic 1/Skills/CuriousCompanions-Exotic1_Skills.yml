@@ -1,0 +1,12 @@
+bs_call_cc_interaction:
+  Skills:
+  - CancelEvent
+  - skill{s=bs_cc_interaction}
+  
+bs_cc_interaction:
+  Condition:
+  - offgcd
+  Skills:
+  - gcd{ticks=85}  
+  - potion{type=SLOW;duration=82;level=100;p=false;force=true} @Self  
+  - state{state=effect;li=2;lo=4;n=false;speed=1} @Self

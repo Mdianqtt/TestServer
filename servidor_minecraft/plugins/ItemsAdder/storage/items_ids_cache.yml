@@ -1,0 +1,419 @@
+PAPER:
+  _iainternal:icon_left_blue: 10000
+  _iainternal:icon_right_blue: 10001
+  _iainternal:icon_search: 10002
+  _iainternal:icon_cancel: 10003
+  _iainternal:icon_arrow_chest: 10004
+  _iainternal:icon_back_orange: 10005
+  _iainternal:icon_next_orange: 10006
+  nogs_menagerie:nm_orca_fin: 2536
+  tutorial:cointoss: 10007
+  nogs_menagerie:nm_hat_orca: 3536
+  xmas_costume:snowman_head: 10008
+  xmas_costume:reindeer_head: 10009
+  nogs_menagerie:nm_head_orca: 4591
+  tutorial:nucicoin: 10010
+  nogs_menagerie:nm_plushie_orca: 1536
+  pixelmine:aladdin_lamp: 15080
+  pixelmine:amethyst_amulet: 15081
+  pixelmine:amethyst_seeds: 15082
+  pixelmine:amethyst_septer: 15083
+  pixelmine:ancient_amulet: 15084
+  pixelmine:ancient_coin: 15085
+  pixelmine:ancient_totem: 15086
+  pixelmine:ancient_trophy: 15087
+  pixelmine:aquamarine_dust: 15088
+  pixelmine:aquamarine_helmet: 15089
+  pixelmine:aqua_book: 15090
+  pixelmine:arcane_scroll: 15091
+  pixelmine:bag_of_jewellry: 15092
+  pixelmine:bat_wing: 15093
+  pixelmine:black_knight: 15094
+  pixelmine:blue_crystal: 15095
+  pixelmine:bowl_blue_flame: 15096
+  pixelmine:charred_skull: 15097
+  pixelmine:crown: 15098
+  pixelmine:dark_mask: 15099
+  pixelmine:demon_mask: 15100
+  pixelmine:diamond_eearring: 15101
+  pixelmine:diamond_glasses: 15102
+  pixelmine:divine_amulet: 15103
+  pixelmine:divine_pickaxe: 15104
+  pixelmine:divine_ring: 15105
+  pixelmine:divine_scepter: 15106
+  pixelmine:dragon_egg: 15107
+  pixelmine:earring: 15108
+  pixelmine:elemental_orb: 15109
+  pixelmine:emerald_axe: 15110
+  pixelmine:enchanted_vase: 15111
+  pixelmine:eye_of_the_future: 15112
+  pixelmine:falcom_with_spirits: 15113
+  pixelmine:fire_shuriken: 15114
+  pixelmine:flame: 15115
+  pixelmine:flame_stack_decks: 15116
+  pixelmine:flask_with_blood: 15117
+  pixelmine:golden_amulet: 15118
+  pixelmine:golden_egg: 15119
+  pixelmine:golden_harp: 15120
+  pixelmine:golden_horsehoe: 15121
+  pixelmine:golden_jug: 15122
+  pixelmine:golden_ring_blue_crystal: 15123
+  pixelmine:golden_shield: 15124
+  pixelmine:golden_trumpet: 15125
+  pixelmine:gold_bars: 15126
+  pixelmine:goodwin_hat: 15127
+  pixelmine:hand_of_midas: 15128
+  pixelmine:health_potion: 15129
+  pixelmine:hourglass: 15130
+  pixelmine:king_robe: 15131
+  pixelmine:knights_rose: 15132
+  pixelmine:lightning_bow: 15133
+  pixelmine:liquid_star: 15134
+  pixelmine:magic_ball: 15135
+  pixelmine:magic_seal: 15136
+  pixelmine:mirror_of_fog: 15137
+  pixelmine:mirror_of_kalandra: 15138
+  pixelmine:mystic_box: 15139
+  pixelmine:mythic_drop: 15140
+  pixelmine:mythic_feather: 15141
+  pixelmine:mythic_staff: 15142
+  pixelmine:netherite_amulet: 15143
+  pixelmine:netherite_shield: 15144
+  pixelmine:pawn: 15145
+  pixelmine:phoenix_egg: 15146
+  pixelmine:phoenix_feather: 15147
+  pixelmine:primitive_knife: 15148
+  pixelmine:rare_crystals: 15149
+  pixelmine:razor_ring: 15150
+  pixelmine:ritual_skull: 15151
+  pixelmine:royal_robe: 15152
+  pixelmine:ruby_amulet: 15153
+  pixelmine:ruby_beads: 15154
+  pixelmine:ruby_bracelet: 15155
+  pixelmine:ruby_crystal: 15156
+  pixelmine:ruby_pendant: 15157
+  pixelmine:rune_plate: 15158
+  pixelmine:rune_plate2: 15159
+  pixelmine:rune_stone: 15160
+  pixelmine:sapphire_butterfly: 15161
+  pixelmine:sapphire_sword: 15162
+  pixelmine:scarlet_flower: 15163
+  pixelmine:scroll_of_dead: 15164
+  pixelmine:silver_mirror: 15165
+  pixelmine:sphere_of_power: 15166
+  pixelmine:spirit_candle: 15167
+  pixelmine:spirit_mask: 15168
+  pixelmine:stuffed_raven: 15169
+  pixelmine:talisman_of_dexterity: 15170
+  pixelmine:tear_of_the_delirium: 15171
+  pixelmine:toxic_ingot: 15172
+  pixelmine:toxic_stone: 15173
+  pixelmine:void_flask: 15174
+  pixelmine:void_ingot: 15175
+  pixelmine:void_sphere: 15176
+  pixelmine:volcanic_scarab: 15177
+  pixelmine:warlocks_tome: 15178
+  pixelmine:wizard_hat: 15179
+  xmas_costume:santa_head: 10011
+  xmas_costume:nutcracker_head: 10012
+  1bit_elite_zombified_piglin:1bit_elite_zombified_piglin_doll: 9927001
+  1bit_elite_zombified_piglin:1bit_elite_zombified_piglin_head: 9927002
+  1bit_elite_zombified_piglin:1bit_elite_zombified_piglin_heart: 9927003
+  1bit_elite_ghast:1bit_elite_ghast_doll: 9927043
+  1bit_elite_ghast:1bit_elite_ghast_eyes: 9927044
+  1bit_elite_ghast:1bit_elite_ghast_head: 9927045
+  elite_piglin_brute:elite_piglin_brute_doll: 9926502
+  elite_piglin_brute:elite_piglin_brute_head: 9926503
+  elite_piglin_brute:elite_piglin_brute_warbrand_core: 9926504
+  1bit_elite_blaze:1bit_elite_blaze_core: 9926607
+  1bit_elite_blaze:1bit_elite_blaze_doll: 9926608
+  1bit_elite_blaze:1bit_elite_blaze_head: 9926609
+  nogs_menagerie:nm_plushie_santa_you: 10083
+  nogs_menagerie:nm_plushie_elf_hat_you: 10084
+  nogs_menagerie:nm_plushie_elf_you: 10085
+  medieval_rpg:announcement_board: 10087
+  nogs_menagerie:nm_plushie_santa_hat_dani: 10089
+  nogs_menagerie:nm_plushie_santa_hat_canonet: 10090
+  nogs_menagerie:nm_plushie_santa_hat_mati1: 10091
+  nogs_menagerie:nm_plushie_santa_hat_driudd: 10092
+  nogs_menagerie:nm_plushie_santa_hat_mati2: 10093
+  nogs_menagerie:nm_plushie_santa_hat_franpresen: 10094
+  nogs_menagerie:nm_plushie_santa_hat_zetkut: 10095
+  nogs_menagerie:nm_plushie_santa_hat_durazna: 10013
+  nogs_menagerie:nm_plushie_santa_hat_mqstaf: 10014
+  nogs_menagerie:nm_plushie_santa_hat_juninho: 10015
+  1bit_elite_pillager:elite_pillager_doll: 15888317
+  1bit_elite_pillager:elite_pillager_head: 15888318
+  1bit_elite_pillager:elite_pillager_treasure_bag: 15888319
+  pixelmine:golden_rose: 15180
+PLAYER_HEAD:
+  victoralonso:button_comingsoon: 10555
+COOKED_PORKCHOP:
+  nogs_menagerie:nm_orca_fin_cooked: 10000
+GOLD_NUGGET:
+  victoralonso:empty_texture: 10000
+  victoralonso:progress_locked: 10001
+  victoralonso:progress_unlocked: 10002
+  victoralonso:progress_current: 10003
+  victoralonso:button_back: 10004
+  victoralonso:button_next: 10005
+  victoralonso:quest_daily: 10006
+  victoralonso:quest_log: 10007
+  victoralonso:brewer: 11001
+  victoralonso:brewer_select: 11002
+  victoralonso:brewer_disable: 11003
+  victoralonso:builder: 11004
+  victoralonso:builder_select: 11005
+  victoralonso:builder_disable: 11006
+  victoralonso:cooker: 11007
+  victoralonso:cooker_select: 11008
+  victoralonso:cooker_disable: 11009
+  victoralonso:crafter: 11010
+  victoralonso:crafter_select: 11011
+  victoralonso:crafter_disable: 11012
+  victoralonso:digger: 11013
+  victoralonso:digger_select: 11014
+  victoralonso:digger_disable: 11015
+  victoralonso:enchanter: 11016
+  victoralonso:enchanter_select: 11017
+  victoralonso:enchanter_disable: 11018
+  victoralonso:engineer: 11019
+  victoralonso:engineer_select: 11020
+  victoralonso:engineer_disable: 11021
+  victoralonso:explorer: 11022
+  victoralonso:explorer_select: 11023
+  victoralonso:explorer_disable: 11024
+  victoralonso:farmer: 11025
+  victoralonso:farmer_select: 11026
+  victoralonso:farmer_disable: 11027
+  victoralonso:fisherman: 11028
+  victoralonso:fisherman_select: 11029
+  victoralonso:fisherman_disable: 11030
+  victoralonso:florist: 11031
+  victoralonso:florist_select: 11032
+  victoralonso:florist_disable: 11033
+  victoralonso:hunter: 11034
+  victoralonso:hunter_select: 11035
+  victoralonso:hunter_disable: 11036
+  victoralonso:miner: 11037
+  victoralonso:miner_select: 11038
+  victoralonso:miner_disable: 11039
+  victoralonso:smelter: 11040
+  victoralonso:smelter_select: 11041
+  victoralonso:smelter_disable: 11042
+  victoralonso:tamer: 11043
+  victoralonso:tamer_select: 11044
+  victoralonso:tamer_disable: 11045
+  victoralonso:taster: 11046
+  victoralonso:taster_select: 11047
+  victoralonso:taster_disable: 11048
+  victoralonso:trader: 11049
+  victoralonso:trader_select: 11050
+  victoralonso:trader_disable: 11051
+  victoralonso:weaponsmith: 11052
+  victoralonso:weaponsmith_select: 11053
+  victoralonso:weaponsmith_disable: 11054
+  victoralonso:woodcutter: 11055
+  victoralonso:woodcutter_select: 11056
+  victoralonso:woodcutter_disable: 11057
+  victoralonso:button_comingsoon: 11000
+LEATHER_CHESTPLATE:
+  xmas_costume:snowman_chestplate: 10000
+  xmas_costume:reindeer_chestplate: 10001
+  xmas_costume:santa_chestplate: 10002
+  xmas_costume:nutcracker_chestplate: 10003
+  armors_me:blue_chestplate: 10010
+  armors_me:green_chestplate: 10011
+  armors_me:purple_chestplate: 10012
+  armors_me:orange_chestplate: 10013
+  armors_me:red_chestplate: 10014
+LEATHER_LEGGINGS:
+  xmas_costume:snowman_leggings: 10000
+  xmas_costume:reindeer_leggings: 10001
+  xmas_costume:santa_leggings: 10002
+  xmas_costume:nutcracker_leggings: 10003
+  armors_me:blue_leggings: 10010
+  armors_me:green_leggings: 10011
+  armors_me:purple_leggings: 10012
+  armors_me:orange_leggings: 10013
+  armors_me:red_leggings: 10014
+LEATHER_BOOTS:
+  xmas_costume:snowman_boots: 10000
+  xmas_costume:reindeer_boots: 10001
+  xmas_costume:santa_boots: 10002
+  xmas_costume:nutcracker_boots: 10003
+  armors_me:blue_boots: 10010
+  armors_me:green_boots: 10011
+  armors_me:purple_boots: 10012
+  armors_me:orange_boots: 10013
+  armors_me:red_boots: 10014
+IRON_HOE:
+  nikolai:nikolai_sceptre: 10000
+NETHERITE_AXE:
+  weapons_me:frozengear_axe: 10000
+  weapons_me:warden_axe: 10001
+  weapons_me:iron_spear: 10002
+  weapons_me:cobblestone_spear: 10003
+  weapons_me:gold_spear: 10004
+  weapons_me:diamond_spear: 10005
+  weapons_me:netherite_spear: 10006
+  weapons_me:iron_blind_spear: 10007
+  weapons_me:diamond_blind_spear: 10008
+  weapons_me:cobblestone_blind_spear: 10009
+  weapons_me:gold_blind_spear: 10010
+  weapons_me:netherite_blind_spear: 10011
+NETHERITE_HOE:
+  weapons_me:frozengear_hoe: 10000
+  weapons_me:warden_hoe: 10001
+  weapons_me:iron_spear: 10002
+  weapons_me:cobblestone_spear: 10003
+  weapons_me:gold_spear: 10004
+  weapons_me:diamond_spear: 10005
+  weapons_me:netherite_spear: 10006
+  weapons_me:iron_blind_spear: 10007
+  weapons_me:diamond_blind_spear: 10008
+  weapons_me:cobblestone_blind_spear: 10009
+  weapons_me:gold_blind_spear: 10010
+  weapons_me:netherite_blind_spear: 10011
+NETHERITE_PICKAXE:
+  weapons_me:frozengear_pickaxe: 10000
+  weapons_me:warden_pickaxe: 10001
+NETHERITE_SHOVEL:
+  weapons_me:frozengear_shovel: 10000
+  weapons_me:warden_shovel: 10001
+NETHERITE_SWORD:
+  weapons_me:frozengear_sword: 10000
+  weapons_me:warden_sword: 10001
+BOW:
+  weapons_me:frozengear_bow: 10000
+  weapons_me:warden_bow: 10009
+  armors_me:blue_bow: 10010
+  armors_me:green_bow: 10011
+  armors_me:purple_bow: 10012
+  armors_me:orange_bow: 10013
+  armors_me:red_bow: 10014
+FEATHER: {}
+IRON_SWORD:
+  weapons_me:iron_spear: 10000
+STICK: {}
+DIAMOND_SWORD:
+  mf_snake_year:mf_snake_year_fan: 14555
+  mf_snake_year:mf_snake_year_sword: 14556
+  mf_snake_year:mf_snake_year_horn: 14557
+  mf_snake_year:mf_snake_year_hat: 14558
+  weapons_me:iron_spear: 14559
+  weapons_me:endermatriarca_sword: 14560
+TOTEM_OF_UNDYING: {}
+DIAMOND_PICKAXE: {}
+APPLE: {}
+IRON_INGOT: {}
+WHEAT_SEEDS: {}
+SHEARS: {}
+SHIELD: {}
+COAL: {}
+DIAMOND_HOE: {}
+GOLDEN_SWORD: {}
+DIAMOND_AXE: {}
+POTION: {}
+LEATHER_HELMET:
+  armors_me:blue_helmet: 10005
+  armors_me:green_helmet: 10006
+  armors_me:purple_helmet: 10007
+  armors_me:orange_helmet: 10008
+  armors_me:red_helmet: 10009
+DIAMOND_SHOVEL: {}
+WOODEN_SWORD:
+  armors_me:blue_sword: 10004
+  armors_me:green_sword: 10005
+  armors_me:purple_sword: 10006
+  armors_me:orange_sword: 10007
+  armors_me:red_sword: 10008
+  weapons_me:iron_spear: 10009
+  weapons_me:cobblestone_spear: 10010
+  weapons_me:gold_spear: 10011
+  weapons_me:diamond_spear: 10012
+  weapons_me:netherite_spear: 10013
+  weapons_me:iron_blind_spear: 10014
+  weapons_me:diamond_blind_spear: 10015
+  weapons_me:cobblestone_blind_spear: 10016
+  weapons_me:gold_blind_spear: 10017
+  weapons_me:netherite_blind_spear: 10018
+IRON_PICKAXE: {}
+FISHING_ROD: {}
+WRITABLE_BOOK: {}
+WRITTEN_BOOK: {}
+ENDER_PEARL: {}
+WATER_BUCKET: {}
+YELLOW_DYE:
+  lemon_mcpets:pet_category_common: 121
+  lemon_mcpets:pet_category_rare: 122
+  lemon_mcpets:pet_category_epic: 123
+  lemon_mcpets:pet_category_legendary: 124
+  lemon_mcpets:pet_item_name: 125
+  lemon_mcpets:pet_item_mount: 126
+  lemon_mcpets:pet_item_inventory: 127
+  lemon_mcpets:pet_item_back: 128
+  lemon_mcpets:pet_item_skin: 129
+NETHER_BRICK: {}
+BRICK:
+  rms_the_end:icon_ender_clam: 12028
+  rms_the_end:icon_ender_hammerhead: 12029
+  rms_the_end:icon_ender_ripper: 12030
+  rms_the_end:icon_ender_slime: 12031
+  rms_the_end:icon_ender_witch: 12032
+  rms_the_end:icon_end_scuttler: 12026
+  rms_the_end:icon_end_seeker: 12027
+  rms_the_end:icon_void_beholder: 12033
+WOODEN_PICKAXE:
+  armors_me:blue_pickaxe: 10000
+  armors_me:green_pickaxe: 10001
+  armors_me:purple_pickaxe: 10002
+  armors_me:orange_pickaxe: 10003
+  armors_me:red_pickaxe: 10004
+WOODEN_SHOVEL:
+  armors_me:blue_shovel: 10000
+  armors_me:green_shovel: 10001
+  armors_me:purple_shovel: 10002
+  armors_me:orange_shovel: 10003
+  armors_me:red_shovel: 10004
+WOODEN_HOE:
+  armors_me:blue_hoe: 10000
+  armors_me:green_hoe: 10001
+  armors_me:purple_hoe: 10002
+  armors_me:orange_hoe: 10003
+  armors_me:red_hoe: 10004
+WOODEN_AXE:
+  armors_me:blue_axe: 10000
+  armors_me:green_axe: 10001
+  armors_me:purple_axe: 10002
+  armors_me:orange_axe: 10003
+  armors_me:red_axe: 10004
+  weapons_me:iron_spear: 10005
+  weapons_me:cobblestone_spear: 10006
+  weapons_me:gold_spear: 10007
+  weapons_me:diamond_spear: 10008
+  weapons_me:netherite_spear: 10009
+  weapons_me:iron_blind_spear: 10010
+  weapons_me:diamond_blind_spear: 10011
+  weapons_me:cobblestone_blind_spear: 10012
+  weapons_me:gold_blind_spear: 10013
+  weapons_me:netherite_blind_spear: 10014
+STONE_AXE:
+  weapons_me:iron_spear: 10000
+  weapons_me:cobblestone_spear: 10001
+  weapons_me:gold_spear: 10002
+  weapons_me:diamond_spear: 10003
+  weapons_me:netherite_spear: 10004
+  weapons_me:iron_blind_spear: 10005
+  weapons_me:diamond_blind_spear: 10006
+  weapons_me:cobblestone_blind_spear: 10007
+  weapons_me:gold_blind_spear: 10008
+  weapons_me:netherite_blind_spear: 10009
+ENDER_EYE:
+  pixelmine:eye_of_the_future: 15112
+IRON_HELMET:
+  pixelmine:crown: 15098
+ENCHANTED_GOLDEN_APPLE:
+  items_me:glowy_enchanted_apple: 1
+GOLDEN_APPLE:
+  items_me:glowy_golden_apple: 1

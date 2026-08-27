@@ -1,0 +1,29 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+
+LR_boomerang_biome_tint:
+  Conditions:
+  - biome{b=swamp} castinstead LR_boomerang_biome_tint_swamp
+  Skills:
+  - tint{m=boomerang_splash;p=splash_outertint;c=50AAFF} @self
+  - tint{m=boomerang_splash;p=splash_innertint;c=50AAFF} @self
+  - tint{m=boomerang_splash;p=splash_outer;c=FFFFFF} @self
+  - tint{m=boomerang_splash;p=splash_inner;c=FFFFFF} @self
+  
+LR_boomerang_biome_tint_swamp:
+  Skills:
+  - tint{m=boomerang_splash;p=splash_outertint;c=768456} @self
+  - tint{m=boomerang_splash;p=splash_innertint;c=768456} @self
+  - tint{m=boomerang_splash;p=splash_outer;c=FFFFFF} @self
+  - tint{m=boomerang_splash;p=splash_inner;c=FFFFFF} @self
+  
+LR_boomerang_biome_tint_lava:
+  Skills:
+  - tint{m=boomerang_splash;p=splash_outertint;c=F1680F} @self
+  - tint{m=boomerang_splash;p=splash_innertint;c=F1680F} @self
+  - tint{m=boomerang_splash;p=splash_outer;c=FFD03C} @self
+  - tint{m=boomerang_splash;p=splash_inner;c=FFD03C} @self
+  

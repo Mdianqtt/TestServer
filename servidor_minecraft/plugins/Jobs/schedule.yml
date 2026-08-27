@@ -1,0 +1,212 @@
+# Enabled - with this false this schedule will be ignored
+# From and Until is in 24 hours format with : signs to separate minutes and seconds
+# Exp and Money determines how big is boost, to reset it. keep it at 1.0. so if you use 2.0 that means all money/exp is doubled
+# Days variables: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, All
+# Jobs can be any of your setup job or use All to give for all jobs at once
+# BroadcastOnStart or BroadcastOnStop - set it false to disable message when boost starts/stops
+# MessageOnStart or MessageOnStop - optional messages, if not given, then message from locale file will be shown
+# BroadcastInterval - how often in minutes to broadcast message about money/exp boost for jobs
+# BroadcastMessage - message to show every x minutes
+
+Boost:
+  FirstBoost:
+    Enabled: false
+    From: '00:00:00'
+    Until: '23:59:59'
+    Exp: 2.0
+    Money: 2.0
+    Days:
+    - All
+    Jobs:
+    - brewer
+    - cooker
+    - enchanter
+    BroadcastOnStart: false
+    MessageOnStart:
+    - '&e***********************************************'
+    - '&e* All jobs got 2x rate for exp and money!'
+    - '&e* For limited time only!'
+    - '&e***********************************************'
+    BroadcastOnStop: false
+    MessageOnStop:
+    - '&e***********************************************'
+    - '&e* Boost time for jobs have been stopped'
+    - '&e* All rates reseted to original ones'
+    - '&e***********************************************'
+    BroadcastInterval: 15
+    BroadcastMessage:
+    - '&e******************************************************'
+    - '&e* 2x boost time for all jobs is activated until [until] *'
+    - '&e******************************************************'
+  SecondBoost:
+    Enabled: false
+    From: '00:00:00'
+    Until: '23:59:59'
+    Exp: 2.0
+    Money: 2.0
+    Days:
+    - All
+    Jobs:
+    - engineer
+    - builder
+    - woodcutter
+    BroadcastOnStart: false
+    MessageOnStart:
+    - '&e***********************************************'
+    - '&e* All jobs got 2x rate for exp and money!'
+    - '&e* For limited time only!'
+    - '&e***********************************************'
+    BroadcastOnStop: false
+    MessageOnStop:
+    - '&e***********************************************'
+    - '&e* Boost time for jobs have been stopped'
+    - '&e* All rates reseted to original ones'
+    - '&e***********************************************'
+    BroadcastInterval: 15
+    BroadcastMessage:
+    - '&e******************************************************'
+    - '&e* 2x boost time for all jobs is activated until [until] *'
+    - '&e******************************************************'
+  ThirdBoost:
+    Enabled: false
+    From: '00:00:00'
+    Until: '23:59:59'
+    Exp: 2.0
+    Money: 2.0
+    Days:
+    - All
+    Jobs:
+    - crafter
+    - farmer
+    - miner
+    BroadcastOnStart: false
+    MessageOnStart:
+    - '&e***********************************************'
+    - '&e* All jobs got 2x rate for exp and money!'
+    - '&e* For limited time only!'
+    - '&e***********************************************'
+    BroadcastOnStop: false
+    MessageOnStop:
+    - '&e***********************************************'
+    - '&e* Boost time for jobs have been stopped'
+    - '&e* All rates reseted to original ones'
+    - '&e***********************************************'
+    BroadcastInterval: 15
+    BroadcastMessage:
+    - '&e******************************************************'
+    - '&e* 2x boost time for all jobs is activated until [until] *'
+    - '&e******************************************************'
+  FourthBoost:
+    Enabled: false
+    From: '00:00:00'
+    Until: '23:59:59'
+    Exp: 2.0
+    Money: 2.0
+    Days:
+    - All
+    Jobs:
+    - digger
+    - florist
+    - smelter
+    BroadcastOnStart: false
+    MessageOnStart:
+    - '&e***********************************************'
+    - '&e* All jobs got 2x rate for exp and money!'
+    - '&e* For limited time only!'
+    - '&e***********************************************'
+    BroadcastOnStop: false
+    MessageOnStop:
+    - '&e***********************************************'
+    - '&e* Boost time for jobs have been stopped'
+    - '&e* All rates reseted to original ones'
+    - '&e***********************************************'
+    BroadcastInterval: 15
+    BroadcastMessage:
+    - '&e******************************************************'
+    - '&e* 2x boost time for all jobs is activated until [until] *'
+    - '&e******************************************************'
+  FifthBoost:
+    Enabled: false
+    From: '00:00:00'
+    Until: '23:59:59'
+    Exp: 2.0
+    Money: 2.0
+    Days:
+    - All
+    Jobs:
+    - explorer
+    - hunter
+    - trader
+    BroadcastOnStart: false
+    MessageOnStart:
+    - '&e***********************************************'
+    - '&e* All jobs got 2x rate for exp and money!'
+    - '&e* For limited time only!'
+    - '&e***********************************************'
+    BroadcastOnStop: false
+    MessageOnStop:
+    - '&e***********************************************'
+    - '&e* Boost time for jobs have been stopped'
+    - '&e* All rates reseted to original ones'
+    - '&e***********************************************'
+    BroadcastInterval: 15
+    BroadcastMessage:
+    - '&e******************************************************'
+    - '&e* 2x boost time for all jobs is activated until [until] *'
+    - '&e******************************************************'
+  SixBoost:
+    Enabled: false
+    From: '00:00:00'
+    Until: '23:59:59'
+    Exp: 2.0
+    Money: 2.0
+    Days:
+    - All
+    Jobs:
+    - taster
+    - tamer
+    - weaponsmith
+    BroadcastOnStart: false
+    MessageOnStart:
+    - '&e***********************************************'
+    - '&e* All jobs got 2x rate for exp and money!'
+    - '&e* For limited time only!'
+    - '&e***********************************************'
+    BroadcastOnStop: false
+    MessageOnStop:
+    - '&e***********************************************'
+    - '&e* Boost time for jobs have been stopped'
+    - '&e* All rates reseted to original ones'
+    - '&e***********************************************'
+    BroadcastInterval: 15
+    BroadcastMessage:
+    - '&e******************************************************'
+    - '&e* 2x boost time for all jobs is activated until [until] *'
+    - '&e******************************************************'
+  SevenBoost:
+    Enabled: false
+    From: '00:00:00'
+    Until: '23:59:59'
+    Exp: 2.0
+    Money: 2.0
+    Days:
+    - All
+    Jobs:
+    - fisherman
+    BroadcastOnStart: false
+    MessageOnStart:
+    - '&e***********************************************'
+    - '&e* All jobs got 2x rate for exp and money!'
+    - '&e* For limited time only!'
+    - '&e***********************************************'
+    BroadcastOnStop: false
+    MessageOnStop:
+    - '&e***********************************************'
+    - '&e* Boost time for jobs have been stopped'
+    - '&e* All rates reseted to original ones'
+    - '&e***********************************************'
+    BroadcastInterval: 15
+    BroadcastMessage:
+    - '&e******************************************************'
+    - '&e* 2x boost time for all jobs is activated until [until] *'
+    - '&e******************************************************'

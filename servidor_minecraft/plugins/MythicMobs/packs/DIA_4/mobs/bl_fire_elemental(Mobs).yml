@@ -1,0 +1,80 @@
+#-------------------------
+#     Made by Bojarsky Legacy
+#     Discord bojarsky
+#-------------------------
+
+bl_fire_elemental:
+  Type: HUSK
+  Display: 'Fire Elemental'
+  Faction: bl_elementals
+  Health: 150
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  - PROJECTILE 0.25
+  - FIRE -0.1
+  - FIRE_TICK -0.1
+  - FREEZE -0.1
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  - lookatplayers
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Modules:
+    ThreatTable: true
+  Options:
+    MovementSpeed: 1
+    FollowRange: 32
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    Collidable: true
+  Skills:
+  - model{mid=bl_fire_elemental;n=false;step=1;usm=true;ride=true;drive=true;save=true} @self ~onSpawn
+  - CancelEvent{sync=true} @self ~onAttack
+  - setspeed{s=1.2} @self ~onSpawn
+  - skill{s=bl_fire_elemental_death} @self ~onDeath
+  - skill{s=bl_fire_elemental_jump_back} @self ~onDamaged
+  - skill{s=bl_fire_elemental_step} @self ~onTimer:40
+  - skill{s=bl_fire_elemental_step2} @self ~onTimer:120
+  - skill{s=bl_fire_elemental_idle} @self ~onTimer:80
+  - skill{s=bl_fire_elemental_idle2} @self ~onTimer:120
+  - skill{s=bl_fire_elemental_skills} @target ~onTimer:40
+  - BodyClamp{mh=25;rde=0;rdu=0} @self ~onSpawn
+
+bl_fire_elemental_blessed:
+  Type: ARMOR_STAND
+  AITargetSelectors:
+  - 0 clear
+  AIGoalSelectors:
+  - 0 clear
+  Options:
+    NoAI: true
+    Marker: true
+    ApplyInvisibility: true
+    Invisible: true
+  Skills:
+  - model{mid=bl_fire_elemental_blessed;n=false;usm=true} @self ~onSpawn
+  - aura{auraName=bl_fire_elemental_elemental_blessing_totem;onTick=bl_fire_elemental_elemental_blessing_totem_tick;interval=1;duration=75;delay=5} @self ~onSpawn
+  - state{s=spawn} @self ~onSpawn
+  - state{s=idle;delay=20} @self ~onSpawn
+  - state{s=end;delay=80} @self ~onSpawn
+  - remove{delay=100} @self ~onSpawn
+
+#-------------------------
+#     Made by Bojarsky Legacy
+#     Discord bojarsky
+#-------------------------
+
+#63a6df722d1a2ffa49a97aecc91252b3

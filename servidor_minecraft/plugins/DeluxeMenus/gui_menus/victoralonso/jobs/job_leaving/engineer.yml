@@ -1,0 +1,51 @@
+menu_title: 'ㆽ&f간'
+inventory_type: "HOPPER"
+open_commands:
+  - '[sound] ITEM_ARMOR_EQUIP_LEATHER 2 0.7'
+items:
+  'YES-BYPASS':
+    material: AIR
+    priority: 0
+    slots:
+      - 0-1
+    view_requirement:
+      requirements:
+        jobs_rejoinbypass:
+          type: has permission
+          permission: jobs.rejoinbypass
+    click_commands:
+      - '[console] playsound minecraft:confirm player %player_name% %player_x% %player_y% %player_z%'
+      - '[player] jobs leave engineer'
+      - '[openguimenu] jobs_menu_page_1'
+
+  'YES_COOLDOWN':
+    display_name: '&#AAFF21         Are you sure?'
+    material: GOLD_NUGGET
+    model_data: 10000
+    priority: 1
+    slots:
+      - 0-1
+    view_requirement:
+      requirements:
+        cooldown_off:
+          type: string equals
+          input: "%javascript_cooldown_7_21600%"
+          output: "0s"
+    lore:
+      - ''
+      - '&#A5ACB8Tendrás que esperar &c6 horas &#A5ACB8para'
+      - '&#A5ACB8reincorporarte al trabajo: %jobsr_chatcolor_engineer%%jobsr_name_engineer%'
+      - ''
+    click_commands:
+      - '[console] playsound minecraft:confirm player %player_name% %player_x% %player_y% %player_z%'
+      - '[console] papi parse %player_name% %javascript_cooldown_7_start% §r'
+      - '[player] jobs leave engineer'
+      - '[openguimenu] jobs_menu_page_1'
+
+  'CANCEL_ABANDONMENT':
+    material: AIR
+    slots:
+      - 3-4
+    click_commands:
+      - '[console] playsound minecraft:cancel player %player_name% %player_x% %player_y% %player_z%'
+      - '[openguimenu] jobs_menu_page_1'

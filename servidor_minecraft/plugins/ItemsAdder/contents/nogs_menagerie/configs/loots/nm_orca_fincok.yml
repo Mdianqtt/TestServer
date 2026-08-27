@@ -1,0 +1,15 @@
+info:
+  namespace: nogs_menagerie
+items:
+  nm_orca_fin_cooked:
+    enabled: true
+    display_name: "&bAleta de Orca Cocinada"
+    resource:
+      material: COOKED_PORKCHOP
+      generate: false
+      model_path: loots/nm_orca_fin_cooked
+    events:
+      eat:
+        feed:
+          amount: 5
+          saturation: 13.0

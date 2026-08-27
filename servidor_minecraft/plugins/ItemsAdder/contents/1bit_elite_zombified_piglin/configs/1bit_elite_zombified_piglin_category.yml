@@ -1,0 +1,12 @@
+categories:
+  1bit_elite_zombified_piglin:
+    enabled: true
+    icon: 1bit_elite_zombified_piglin:1bit_elite_zombified_piglin_heart
+    items:
+    - 1bit_elite_zombified_piglin:1bit_elite_zombified_piglin_doll
+    - 1bit_elite_zombified_piglin:1bit_elite_zombified_piglin_head
+    - 1bit_elite_zombified_piglin:1bit_elite_zombified_piglin_heart
+    name: Elite Zombified Piglin Mob
+    permission: ia.menu.1bit_elite_zombified_piglin
+info:
+  namespace: 1bit_elite_zombified_piglin

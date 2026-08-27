@@ -1,0 +1,515 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+
+
+### SHARK ###
+
+## needed this work around to prevent errors (passive mob with meleeattack goal) ##  
+vp1_reef_shark_cancel_meleeattack:
+  Conditions:
+  - targetwithin{d=3} orElseCast vp1_reef_shark_enable_meleeattack
+  Skills:
+  - runaigoalselector{goal=clear} @self 
+  
+vp1_reef_shark_enable_meleeattack:
+  Skills:
+  - runaigoalselector{goal=meleeattack} @self 
+
+vp1_reef_shark_player_aggro:
+  Conditions:
+  - playerwithin{d=16}
+  Skills:
+  - setstance{stance=aggro} @self
+  - threat{amount=10000} @pir{r=16}   
+  - defaultstate{type=idle;state=swim_idle} @self
+  - runaitargetselector{target=players} @self 
+  - runaigoalselector{goal=movetowardstarget} @self 
+
+## basic attacks with propel and totems ##
+
+## swim and bite ##
+vp1_reef_shark_bite:
+  Cooldown: 1
+  Conditions:
+  - targetwithin{d=14} true
+  - targetnotwithin{d=7} true
+  - offgcd true
+  Skills:
+  - gcd{ticks=100}
+  - setspeed{type=walk;speed=0} @self
+  - state{s=bite} @self
+  - delay 25
+  - skill{s=vp1_reef_shark_propel_forward;repeat=40;repeatInterval=1} @forward
+  - setspeed{type=walk;speed=6} @self
+  - delay 20
+  - totem{md=2;hs=1;vs=1;oH=vp1_reef_shark_bite_damage;drawhitbox=false;repeat=10;repeatInterval=1;hnp=true} @forward{f=2} 
+  
+## close bite ##
+vp1_reef_shark_bite_close:
+  Cooldown: 1
+  Conditions:
+  - targetwithin{d=4} true
+  - offgcd true
+  Skills:
+  - gcd{ticks=40}
+  - lockmodel{l=true} @self
+  - lockmodel{l=false;delay=10} @self
+  - setspeed{type=walk;speed=0} @self
+  - state{s=bite2} @self
+  - skill{s=vp1_reef_shark_propel_forward;repeat=5;repeatInterval=1} @forward
+  - setspeed{type=walk;speed=6} @self
+  - delay 5
+  - totem{md=2;hs=1;vs=1;oH=vp1_reef_shark_bite_damage;drawhitbox=false;repeat=5;repeatInterval=1;hnp=true} @forward{f=2} 
+  
+## this is seperated to prevent the shark from propelling outside of the water ##
+vp1_reef_shark_propel_forward:
+  Conditions:
+  - inblock{b=water} true
+  Skills:
+  - propel{v=.5}
+  
+## bite damage ##
+vp1_reef_shark_bite_damage:
+  Cooldown: 1
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.impact_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - damage{a=5} ## can change this to base damage if using levelled mobs
+  - throw{v=5;v=1}
+  - recoil{r=5;pitch=-3to3}
+  - effect:particle{p=reddust;color=#E96F6F;a=5;hs=.25;vs=.25;y=1;delay=15;repeat=15;repeatInterval=1} ?inblock{b=water}
+  - effect:particle{p=reddust;a=5;hs=.25;vs=.25;y=1;repeat=15;repeatInterval=1} ?inblock{b=water}
+  - effect:particle{p=bubble;a=1;hs=.25;vs=.25;y=1;repeat=40;repeatInterval=1} ?inblock{b=water}
+  - effect:particle{p=block;m=nether_wart;a=55;hs=.25;vs=.25;y=1} ?inblock{b=air}
+  
+## death ##
+vp1_reef_shark_death:
+  Skills:
+  - delay 50
+  - effect:particle{p=poof;a=25;hs=.5;vs=.5} @modelpart{pid=head}
+  - effect:particle{p=poof;a=25;hs=.5;vs=.5} @modelpart{pid=body}
+  - effect:particle{p=poof;a=25;hs=.5;vs=.5} @modelpart{pid=tail_2}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+### RHINO BEETLE ###
+
+## ATTACK ##
+vp1_rhino_beetle_attack_sync:
+  Skills:
+  - CancelEvent #cancels the vanilla mob attack#
+  - skill{s=vp1_rhino_beetle_attack} @self
+  
+vp1_rhino_beetle_attack:
+  Cooldown: 2
+  Skills:
+  - potion{type=SLOW;duration=40;level=4}
+  - state{s=attack} @self
+  - gcd{ticks=40}
+  - delay 10
+  #- propel{v=0.25} @forward
+  - totem{md=2;hs=1;vs=1;oH=vp1_rhino_beetle_attack_damage;drawhitbox=false;repeat=5;repeatInterval=1;hnp=true} @forward{f=1}
+  - delay 5
+  - clearthreat{} @self
+  
+vp1_rhino_beetle_attack_damage:
+  Cooldown: 1
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.impact_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - damage{a=2}
+  - throw{v=5;vy=5}
+
+## FLYING HANDLER ##
+
+#checks if rhino is in the air and applies potion effect, flying animation and flying stance#
+vp1_rhino_beetle_in_air:
+  Conditions:
+  - stance{s=flying} false
+  Skills:
+  - setstance{stance=flying} @self
+  - state{s=fly;p=2} @self
+  - potion{type=SLOW_FALLING;duration=50;level=4}
+   
+#checks if rhino is on the ground and removes flying animation and new stance#
+vp1_rhino_beetle_land:
+  Conditions:
+  - stance{s=true} false
+  Skills:
+  - stopsound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.rhinobeetle_fly} @self
+  - setstance{stance=ground} @self
+  - state{s=fly;p=2;r=true} @self
+   
+   
+#checks if player is near and makes rhino fly but only when passive#
+vp1_rhino_beetle_fly_away:
+  Cooldown: 8
+  Conditions:
+  - playerwithin{d=5}
+  - incombat false
+  Skills:
+  - state{s=fly;p=2} @self
+  - propel{v=2} @forward{f=5;y=2}
+  
+#this makes the beetle fly at the player while aggro'd#
+vp1_rhino_beetle_closegap:
+  Cooldown: 5
+  Conditions:
+  - offgcd true
+  - playerwithin{d=7} false
+  - incombat true
+  Skills:
+  - lockmodel{l=true} @self
+  - lockmodel{l=false;delay=30} @self
+  - propel{v=1.5} @targetlocation{yo=2}
+  
+#death#
+vp1_rhino_beetle_death:
+  Skills:
+  - delay 40
+  - effect:particle{p=poof;a=25;hs=.5;vs=.5} @modelpart{pid=torso}
+  
+  
+  
+  
+##HERMIT CRAB##
+
+#death#  
+vp1_hermit_crab_death:
+  Skills:
+  - delay 40
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=shell}
+  
+  
+  
+  
+##JELLYFISH##
+
+#death#  
+vp1_jellyfish_death:
+  Skills:
+  - delay 10
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=jelly}
+
+
+
+
+
+## ORE GOLEM ##
+
+#attack#
+vp1_ore_golem_attack_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=vp1_ore_golem_attack} @self
+  
+vp1_ore_golem_attack:
+  Cooldown: 2
+  Skills:
+  - state{s=attack} @self
+  - potion{type=SLOW;duration=40;level=4}
+  - delay 20
+  - totem{md=2;hs=1;vs=1;oH=vp1_ore_golem_attack_damage;drawhitbox=false;repeat=10;repeatInterval=1;hnp=true} @modelpart{pid=leftarm2;offset=LOCAL;y=-1;x=-2}
+  
+vp1_ore_golem_attack_damage:
+  Cooldown: 1
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.impact_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - damage{a=6}
+  - throw{v=5;vy=2}
+  
+#ore golem damaged handlers#
+
+
+#this skill runs each of the ore tier skills#
+vp1_ore_golem_damaged:
+  Skills:
+  - skill{s=vp1_ore_golem_damaged_tier_3} @self
+  - skill{s=vp1_ore_golem_damaged_tier_2} @self
+  - skill{s=vp1_ore_golem_damaged_tier_1} @self
+  
+  
+#this skill only runs if the player is attacking with wooden or stone pickaxe#
+vp1_ore_golem_damaged_tier_1:
+  Cooldown: 1
+  TriggerConditions:
+  - (holding wooden_pickaxe || holding stone_pickaxe)
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.oregolem_pickaxe_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - effect:particle{p=block;m=stone;y=2;a=50;hs=.5;vs=.5} @self
+  - drop{i=raw_copper} @selflocation{yo=1} .75
+  - drop{i=raw_copper} @selflocation{yo=1} .75
+  - drop{i=coal} @selflocation{yo=1} .75
+  - damagepercent{percent=0.1;ia=true} @self
+  
+#this skill only runs if the player is attacking with iron or golden pickaxe#
+vp1_ore_golem_damaged_tier_2:
+  Cooldown: 1
+  TriggerConditions:
+  - (holding iron_pickaxe || holding golden_pickaxe)
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.oregolem_pickaxe_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - effect:particle{p=block;m=stone;y=2;a=50;hs=.5;vs=.5} @self
+  - drop{i=raw_iron} @selflocation{yo=1} .75
+  - drop{i=raw_iron} @selflocation{yo=1} .75
+  - drop{i=gold_ingot} @selflocation{yo=1} .75
+  - drop{i=raw_copper} @selflocation{yo=1} .75
+  - drop{i=coal} @selflocation{yo=1} .75
+  - damagepercent{percent=0.15;ia=true} @self
+  
+#this skill only runs if the player is attacking with diamond or netherite pickaxe#
+vp1_ore_golem_damaged_tier_3:
+  Cooldown: 1
+  TriggerConditions:
+  - (holding diamond_pickaxe || holding netherite_pickaxe)
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.oregolem_pickaxe_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - effect:particle{p=block;m=stone;y=2;a=50;hs=.5;vs=.5} @self
+  - drop{i=diamond} @selflocation{yo=1} .75
+  - drop{i=diamond} @selflocation{yo=1} .75
+  - drop{i=raw_iron} @selflocation{yo=1} .75
+  - drop{i=gold_ingot} @selflocation{yo=1} .75
+  - drop{i=lapis_lazuli} @selflocation{yo=1} .75
+  - drop{i=raw_copper} @selflocation{yo=1} .75
+  - damagepercent{percent=0.25;ia=true} @self
+  
+  
+#this changes the golem's model based on how damaged it is#
+vp1_ore_golem_damaged_model:
+  Skills:
+  - skill{s=vp1_ore_golem_damaged_model_50} @self ~onDamaged <50%
+  - skill{s=vp1_ore_golem_damaged_model_25} @self ~onDamaged <25%
+  
+vp1_ore_golem_damaged_model_50:
+  Conditions:
+  - variableEquals{var=caster.damage50;value="1"} cancel
+  Skills:
+  - setvariable{var=caster.damage50;value="1"}
+  - remapmodel{m=golem;n=golem_damaged_1} @self
+  
+vp1_ore_golem_damaged_model_25:
+  Conditions:
+  - variableEquals{var=caster.damage25;value="1"} cancel
+  Skills:
+  - setvariable{var=caster.damage25;value="1"}
+  - remapmodel{m=golem;n=golem_damaged_2} @self
+  
+#death#
+vp1_ore_golem_death:
+  Skills:
+  - delay 40
+  - effect:particle{p=poof;a=35;hs=.5;vs=.5;y=-1} @modelpart{pid=head}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=leftarm2}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=rightLeg2}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=leftLeg2}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=rightArm2}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=shoulder}
+  
+  
+  
+  
+  
+## MIMIC STUFF ##
+
+#this is where it gets complicated#
+
+
+#this removes the spooky parts of the mimic on spawn#
+vp1_mimic_hideparts:
+  Skills:
+  - submodel{mid=vp1_mimic;subpart=spit1;remove=true;em=false} @self
+  - submodel{mid=vp1_mimic;subpart=spit2;remove=true;em=false} @self
+  
+### These skills check and place barriers when the mimic is spawned ###  
+
+#first step, check to see if there is air where the mimic spawns#
+vp1_mimic_1block_SPAWN:
+  TargetConditions:
+  - blocktype{type=air} castinstead vp1_mimic_1block_SPAWN2
+  Skills:
+  - remove @self
+  
+#second step, center the mob and set barrier on self#
+vp1_mimic_1block_SPAWN2:
+  Conditions:
+  - blocktype{type=air}
+  Skills:
+  - teleport{} @selflocation{centered=true}
+  - setblock{m=BARRIER;md=0} @selflocation{centered=true}
+
+#this actively checks if the mob is moving when it shouldnt be#
+vp1_mimic_1block_errorprevention:
+  Cooldown: 1
+  Conditions:
+  - ismoving orElseCast vp1_mimic_1block_errorprevention2
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5}
+  - remove @self
+  
+#this actively checks if the mob is in air#
+vp1_mimic_1block_errorprevention2:
+  Conditions:
+  - blocktype{type=air}
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{y=.5}
+  - remove @self
+ 
+#this actively checks if the barrier block is still there#
+vp1_mimic_1block_errorprevention3:
+  Conditions:
+  - blocktype{type=barrier} false
+  Skills:
+  - remove @self
+  
+#picks a random direction to face#
+
+vp1_mimic_random_rotation:
+  Skills:
+  - delay 1
+  - randomskill{skills=vp1_mimic_north,vp1_mimic_east,vp1_mimic_south,vp1_mimic_west} @self
+  
+vp1_mimic_north:
+  Skills:
+  - setrotation{relative=false;yaw=0;pitch=0} @Self
+  
+vp1_mimic_east:
+  Skills:
+  - setrotation{relative=false;yaw=-90;pitch=0} @Self
+  
+vp1_mimic_south:
+  Skills:
+  - setrotation{relative=false;yaw=180;pitch=0} @Self
+  
+vp1_mimic_west:
+  Skills:
+  - setrotation{relative=false;yaw=90;pitch=0} @Self
+
+#this removes the barrier block and summons an awakened chest mimic#
+vp1_mimic_awaken:
+  TriggerConditions:
+  - owner false
+  Skills:
+  - setblock{m=AIR;md=0} @selflocation{fo=1;y=.5;centered=true}
+  - summon{t=vp1_mimic_chest_awaken} @self
+  - setblock{m=AIR;md=0} @selflocation{y=.5;centered=true}
+  - remove @self
+
+## AWAKENED MIMIC SKILLS ##
+
+#this adds some jumpscare to the spawn#
+vp1_mimic_awaken_spawn:
+  Skills:
+  - delay 1
+  - sound{s=littleroom_mimic:littleroom.mimic.awaken;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - propel{v=.5} @pir{r=5;sort=NEAREST;limit=1}
+  - state{s=alive;p=2} @self
+  - defaultstate{type=idle;state=alive_idle} @self
+
+#attack stuff#
+vp1_mimic_attack_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=vp1_mimic_attack} @self
+  
+vp1_mimic_attack:
+  Cooldown: 1
+  Skills:
+  - state{s=attack} @self
+  - propel{v=.25} @forward
+  - delay 5  
+  - totem{md=2;oH=vp1_mimic_attack_damage;hR=1;vR=1;repeat=5;repeatInterval=1} @forward{f=1}
+
+vp1_mimic_attack_damage:
+  Cooldown: 1
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.impact_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - damage{a=1}
+  - throw{v=2}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+## SCORPID ##
+
+#attacks#
+vp1_scorpid_attack_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=vp1_scorpid_attack} @self
+  
+vp1_scorpid_attack:
+  Conditions:
+  - offgcd true
+  Skills:
+  - gcd{ticks=60}
+  - state{s=attack} @self
+  - delay 20
+  - totem{md=2;oH=vp1_scorpid_attack_damage;hR=1;vR=1;repeat=5;repeatInterval=1;drawhitbox=false} @modelpart{pid=pinsir_left}
+  - delay 15
+  - totem{md=2;oH=vp1_scorpid_attack_damage;hR=1;vR=1;repeat=5;repeatInterval=1;drawhitbox=false} @modelpart{pid=pinsir_right}
+  
+vp1_scorpid_attack_damage:
+  Cooldown: 1
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.impact_hit;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - damage{a=3}
+  
+#poison spray#
+vp1_scorpid_poison_attack:
+  Cooldown: 5
+  Conditions:
+  - targetwithin{d=6} false
+  - offgcd true
+  - incombat true
+  Skills:
+  - gcd{ticks=40}
+  - potion{type=SLOW;duration=40;level=4} @self
+  - state{s=sting} @self
+  - delay 25
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.vp1_scorpid_squirt;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - projectile{bulletType=ITEM;material=slime_ball;bmd=true;onHit=vp1_scorpid_poison_attack_damage;oE=vp1_scorpid_poison_land;onTick=vp1_scorpid_poison_attack_fx;v=20;i=1;hR=.75;vR=.75;g=1;syo=1;sfo=0;tyo=0;mr=128;d=40;sE=false;a=.75;endoffset=-1}
+  - projectile{bulletType=ITEM;material=slime_ball;bmd=true;onHit=vp1_scorpid_poison_attack_damage;oE=vp1_scorpid_poison_land;onTick=vp1_scorpid_poison_attack_fx;v=20;i=1;hR=.75;vR=.75;g=1;syo=1;sfo=0;tyo=0;mr=128;d=40;sE=false;a=.75;endoffset=0}
+  - projectile{bulletType=ITEM;material=slime_ball;bmd=true;onHit=vp1_scorpid_poison_attack_damage;oE=vp1_scorpid_poison_land;onTick=vp1_scorpid_poison_attack_fx;v=20;i=1;hR=.75;vR=.75;g=1;syo=1;sfo=0;tyo=0;mr=128;d=40;sE=false;a=.75;endoffset=1}
+  
+vp1_scorpid_poison_attack_fx:
+  Skills:
+  - effect:particle{p=block;m=lime_wool;a=5;hs=.15;vs=.15}
+  
+vp1_scorpid_poison_attack_damage:
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.vp1_scorpid_sizzle;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - damage{a=5}
+  - effect:particles{particle=dust_color_transition;color1=#03ED27;color2=#002F07;amount=15;hs=.15;vs=.25;repeat=40;repeatInterval=1;y=1}
+  - potion{type=POISON;duration=40;level=1}
+  
+vp1_scorpid_poison_land:
+  Skills:
+  - sound{s=littleroom_varietypackvol1:littleroom.varietypackvol1.vp1_scorpid_sizzle;v=1;sc=HOSTILE;p=<random.float.0.8to1.2>} @self
+  - effect:particles{particle=dust_color_transition;color1=#03ED27;color2=#002F07;amount=15;hs=.25;vs=0;repeat=40;repeatInterval=1}
+  
+#death#
+vp1_scorpid_death:
+  Skills:
+  - delay 40
+  - effect:particle{p=poof;a=35;hs=.5;vs=.5} @modelpart{pid=body}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=claw_left}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=claw_right}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=tail_2}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=tail_3}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=tail_4}
+  - effect:particle{p=poof;a=15;hs=.25;vs=.25} @modelpart{pid=tail_5}

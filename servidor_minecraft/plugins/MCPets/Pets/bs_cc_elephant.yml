@@ -1,0 +1,23 @@
+Id: bs_cc_elephant # <-- ID MCPets uses
+MythicMob: BS_CC_Elephant # <-- MythicMob of the pet
+Permission: bisectstudios.pet.bs_cc_elephant # Change or give this permission to players
+Mountable: false
+Distance: 6 # <-- Distance (radius) from the owner before the pet moves toward them
+SpawnRange: 2 # <-- radius it will spawn
+ComingBackRange: 2 # <-- Similar to Distance, but is the distance (radius) the pet will stop away from it's owner when coming back
+Icon:
+  Name: §x§b§e§a§d§8§cC§x§c§1§b§0§8§eu§x§c§3§b§2§9§0r§x§c§6§b§5§9§2i§x§c§9§b§7§9§4o§x§c§c§b§a§9§6u§x§c§e§b§c§9§8s
+    §x§d§1§b§f§9§aE§x§d§4§c§1§9§cl§x§d§6§c§4§9§ee§x§d§9§c§6§a§0p§x§d§c§c§9§a§2h§x§d§f§c§b§a§4a§x§e§1§c§e§a§6n§x§e§4§d§0§a§8t
+  # <-- Name, has to be in console - I use https://rgb.birdflop.com
+
+  Material: BRICK
+  CustomModelData: 1
+  
+  # If you don't want to use the custom model heads, you can delete the above 2 lines and remove the '#' from the next line '#TextureBase64'
+
+    # TextureBase64:
+  # TextureBase64 is the head it uses - use https://minecraft-heads.com . When you find the head use want, copy the 'Other' > 'Value'
+  Description:
+  - §eCurious Companions - Elephant
+
+# 428488CO

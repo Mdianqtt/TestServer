@@ -1,0 +1,182 @@
+priceModifiers:
+  # Food shop price modifier with ID example2, 150% of buy & sell price, permission: shopguiplus.pricemodifiers.example2
+  MODIFICADOR_ARMOR:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 2.2
+    # Shop ID (from shops.yml, case insensitive)
+    shop: armorweapon
+  MODIFICADOR_BLOCKS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.0
+    # Shop ID (from shops.yml, case insensitive)
+    shop: blocks
+  MODIFICADOR_BREWING:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 2.0
+    # Shop ID (from shops.yml, case insensitive)
+    shop: brewing
+  MODIFICADOR_BANNER:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.0
+    # Shop ID (from shops.yml, case insensitive)
+    shop: banners
+  MODIFICADOR_BLOCKS20:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.4
+    # Shop ID (from shops.yml, case insensitive)
+    shop: blocks20  
+  MODIFICADOR_DECORATION:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.2
+    # Shop ID (from shops.yml, case insensitive)
+    shop: decoration   
+  MODIFICADOR_MOBDROPS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.2
+    # Shop ID (from shops.yml, case insensitive)
+    shop: mobdrops      
+  MODIFICADOR_ENCHANTBOOKS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 2.2
+    # Shop ID (from shops.yml, case insensitive)
+    shop: enchantbooks   
+  MODIFICADOR_FARMFOOD:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 2.2
+    # Shop ID (from shops.yml, case insensitive)
+    shop: farmfood  
+  MODIFICADOR_HEADS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.0
+    # Shop ID (from shops.yml, case insensitive)
+    shop: heads     
+  MODIFICADOR_MISCELLANEOUS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 3.0
+    # Shop ID (from shops.yml, case insensitive)
+    shop: misc 
+  MODIFICADOR_ORES:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.1
+    # Shop ID (from shops.yml, case insensitive)
+    shop: ores
+  MODIFICADOR_POTIONS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 4.5
+    # Shop ID (from shops.yml, case insensitive)
+    shop: potions    
+  MODIFICADOR_REDSTONE:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.2
+    # Shop ID (from shops.yml, case insensitive)
+    shop: redstone  
+  MODIFICADOR_SLABS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.3
+    # Shop ID (from shops.yml, case insensitive)
+    shop: slabs   
+  MODIFICADOR_SPECIAL:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 2.5
+    # Shop ID (from shops.yml, case insensitive)
+    shop: special      
+  MODIFICADOR_STAIRS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.3
+    # Shop ID (from shops.yml, case insensitive)
+    shop: stairs  
+  MODIFICADOR_TOOLS:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 2.0
+    # Shop ID (from shops.yml, case insensitive)
+    shop: tools   
+  MODIFICADOR_WOOD:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.1
+    # Shop ID (from shops.yml, case insensitive)
+    shop: wood
+  MODIFICADOR_XP:
+    # Valid scopes: GLOBAL, SHOP, ITEM
+    scope: SHOP
+    # Valid types: BOTH, BUY, SELL
+    type: BUY
+    # Modifier value, 1.0 = 100%, 2.0 = 200% etc.
+    value: 1.0
+    # Shop ID (from shops.yml, case insensitive)
+    shop: xp                

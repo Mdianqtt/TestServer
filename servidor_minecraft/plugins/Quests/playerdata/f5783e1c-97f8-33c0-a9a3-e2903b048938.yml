@@ -1,0 +1,172 @@
+quest-progress:
+  woodcutting1oaklog:
+    started: false
+    started-date: 1765137693650
+    completed: true
+    completed-before: true
+    completion-date: 1765137693650
+    task-progress:
+      cut:
+        completed: false
+  woodcutting9birchlog:
+    started: false
+    started-date: 1765136761051
+    completed: true
+    completed-before: true
+    completion-date: 1765136761051
+    task-progress:
+      cut:
+        completed: false
+  building3planks:
+    started: false
+    started-date: 1765139014000
+    completed: true
+    completed-before: true
+    completion-date: 1765139014000
+    task-progress:
+      build:
+        completed: false
+  woodcutting2oaklog:
+    started: false
+    started-date: 1765137965150
+    completed: true
+    completed-before: true
+    completion-date: 1765137965150
+    task-progress:
+      cut:
+        completed: false
+  building1planks:
+    started: false
+    started-date: 1765138167350
+    completed: true
+    completed-before: true
+    completion-date: 1765138167350
+    task-progress:
+      build:
+        completed: false
+  woodcutting3oaklog:
+    started: false
+    started-date: 1765138441850
+    completed: true
+    completed-before: true
+    completion-date: 1765138441850
+    task-progress:
+      cut:
+        completed: false
+  building2planks:
+    started: false
+    started-date: 1765138937300
+    completed: true
+    completed-before: true
+    completion-date: 1765138937300
+    task-progress:
+      build:
+        completed: false
+  mining1stone:
+    started: false
+    started-date: 1765138782250
+    completed: true
+    completed-before: true
+    completion-date: 1765138782250
+    task-progress:
+      mine:
+        completed: false
+  building31stonebricks:
+    started: false
+    started-date: 1765139248450
+    completed: true
+    completed-before: true
+    completion-date: 1765139248450
+    task-progress:
+      build:
+        completed: false
+  digging3grass:
+    started: false
+    started-date: 1765139454303
+    completed: true
+    completed-before: true
+    completion-date: 1765139454303
+    task-progress:
+      dig:
+        completed: false
+  digging6dirt:
+    started: false
+    started-date: 1765139531300
+    completed: true
+    completed-before: true
+    completion-date: 1765139531300
+    task-progress:
+      dig:
+        completed: false
+  digging5dirt:
+    started: false
+    started-date: 1765139497251
+    completed: true
+    completed-before: true
+    completion-date: 1765139497251
+    task-progress:
+      dig:
+        completed: false
+  digging4grass:
+    started: false
+    started-date: 1765139478150
+    completed: true
+    completed-before: true
+    completion-date: 1765139478150
+    task-progress:
+      dig:
+        completed: false
+  building41netherbricks:
+    started: false
+    started-date: 1765139097200
+    completed: true
+    completed-before: true
+    completion-date: 1765139097200
+    task-progress:
+      build:
+        completed: false
+  enchant1exp:
+    started: false
+    started-date: 1765139348701
+    completed: true
+    completed-before: true
+    completion-date: 1765139348701
+    task-progress:
+      enchant:
+        completed: false
+  digging1grass:
+    started: false
+    started-date: 1765139417700
+    completed: true
+    completed-before: true
+    completion-date: 1765139417700
+    task-progress:
+      dig:
+        completed: false
+  building33cobblewall:
+    started: false
+    started-date: 1765139162500
+    completed: true
+    completed-before: true
+    completion-date: 1765139162500
+    task-progress:
+      build:
+        completed: false
+  building35prismarinestairs:
+    started: false
+    started-date: 1765139291451
+    completed: true
+    completed-before: true
+    completion-date: 1765139291451
+    task-progress:
+      build:
+        completed: false
+  digging2grass:
+    started: false
+    started-date: 1765139436500
+    completed: true
+    completed-before: true
+    completion-date: 1765139436500
+    task-progress:
+      dig:
+        completed: false

@@ -1,0 +1,11 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LR_diamond_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 4
+  Display: 'Diamond Boomerang' 
+  Skills:
+  - skill{s=LRBOOMERANG_throw_diamond;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_diamond} @self ~onHold

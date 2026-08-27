@@ -1,0 +1,39 @@
+
+# ~Written by RopeFire~
+
+soul_bearer:
+  Type: WOLF
+  Display: 'Soul Bearer'
+  Faction: SCULK
+  Health: 30
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0.2
+    FollowRange: 20
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 20
+  Skills:
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=soul_bearer;n=false;step=1;usm=true} @self ~onSpawn
+  - model{mid=soul_bearer;n=false;step=1;usm=true} @self ~onLoad
+  - skill{s=soul_bearer_shoot} @self ~onTimer:55

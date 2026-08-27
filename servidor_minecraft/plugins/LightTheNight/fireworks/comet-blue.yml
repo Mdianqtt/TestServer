@@ -1,0 +1,23 @@
+comet:
+  fireworks:
+    comet-head:
+      type: STAR
+      colors: ["#4ae2ff", "#1d9cff"]
+      fade: ["#91f0ff"]
+      power: 2
+      trail: true
+      flicker: true
+      fo: 0.35
+      ho: 0.15
+    comet-tail:
+      type: BALL_LARGE
+      colors: ["#1d9cff"]
+      fade: ["#4ae2ff"]
+      power: 1
+      trail: true
+      flicker: false
+      count: 3
+      spread: 0.3
+      delay: 5
+      fo: -0.25
+      ho: -0.1

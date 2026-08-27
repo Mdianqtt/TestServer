@@ -1,0 +1,21 @@
+SILLYS:
+  Type: ZOMBIE
+  Display: 'slime Creep' 
+  Health: 5
+  AITargetSelectors:
+  - clear
+  - players
+  Options:
+    PreventSunburn: true
+    PreventSlimeSplit: true
+    FollowRange: 20
+    PreventOtherDrops: true
+    Silent: false
+    Collidable: true
+    Size: 1
+  Skills:
+  - skill{s=slime_creep_attack} @self ~onTimer:5
+  - skill{s=slime_creep_death} @self ~onDamaged
+  - skill{s=slime_creep_death} @self ~onDeath
+  - model{mid=slimecreep} @self ~onSpawn
+  - model{mid=slimecreep} @self ~onLoad  

@@ -1,0 +1,14 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "item/feather"
+    },
+	"overrides": [	
+		{"predicate": {"custom_model_data":5400}, "model": "cod_model/slam_fx_1"},
+		{"predicate": {"custom_model_data":5401}, "model": "cod_model/slam_fx_2"},
+		{"predicate": {"custom_model_data":5402}, "model": "cod_model/slam_fx_3"},
+		{"predicate": {"custom_model_data":5403}, "model": "cod_model/slam_fx_4"},
+		{"predicate": {"custom_model_data":5404}, "model": "cod_model/slam_fx_5"},
+		{"predicate": {"custom_model_data":5405}, "model": "cod_model/slam_fx_6"}
+    ]
+}

@@ -1,0 +1,22 @@
+Id: Nocsy_Cat-ScottishFold
+MythicMob: Nocsy_Cat-ScottishFold
+Permission: mcpets.nocsy_scottishfold
+Mountable: false
+Distance: 6
+SpawnRange: 1
+ComingBackRange: 3
+Icon:
+  Name: §bScottish Fold
+  Material: BLAZE_ROD
+  CustomModelData: 87604
+  Description:
+  - §7Meow :3
+Signals:
+  Values:
+  - PLAY
+  Item:
+    Name: §cThread ball
+    Material: BLAZE_ROD
+    CustomModelData: 87600
+    Description:
+    - §7Right click to throw a thread ball

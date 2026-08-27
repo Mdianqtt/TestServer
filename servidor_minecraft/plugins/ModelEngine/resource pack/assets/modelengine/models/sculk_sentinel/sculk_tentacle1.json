@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/sculk_sentinel"},"elements":[{"from":[8.0,-1.0,8.0],"to":[8.0,8.0,11.0],"faces":{"east":{"uv":[12.25,12.875,11.875,14.0],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[11.875,12.875,12.25,14.0],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

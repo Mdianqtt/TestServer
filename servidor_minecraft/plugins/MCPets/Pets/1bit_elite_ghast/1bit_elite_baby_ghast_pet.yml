@@ -1,0 +1,11 @@
+Id: 1bit_elite_baby_ghast_pet
+MythicMob: 1bit_elite_baby_ghast_pet
+Permission: mcpet.1bit_elite_baby_ghast_pet
+Mountable: false
+Distance: 13
+ComingBackRange: 13
+SpawnRange: 3
+Icon:
+  Name: §3Elite Baby Ghast Pet
+  Material: PAPER
+  CustomModelData: 9927043

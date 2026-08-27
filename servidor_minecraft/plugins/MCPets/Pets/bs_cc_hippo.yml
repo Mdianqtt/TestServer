@@ -1,0 +1,21 @@
+Id: bs_cc_hippo # <-- ID MCPets uses
+MythicMob: BS_CC_Hippo # <-- MythicMob of the pet
+Permission: bisectstudios.pet.bs_cc_hippo # Change or give this permission to players
+Mountable: false
+Distance: 6 # <-- Distance (radius) from the owner before the pet moves toward them
+SpawnRange: 2 # <-- radius it will spawn
+ComingBackRange: 2 # <-- Similar to Distance, but is the distance (radius) the pet will stop away from it's owner when coming back
+Icon:
+  Name: §x§b§d§9§5§b§eC§x§b§d§9§8§b§fu§x§b§e§9§a§b§fr§x§b§e§9§d§c§0i§x§b§f§9§f§c§1o§x§b§f§a§2§c§2u§x§c§0§a§4§c§2s
+    §x§c§0§a§7§c§3H§x§c§1§a§9§c§4i§x§c§1§a§c§c§5p§x§c§2§a§e§c§5p§x§c§2§b§1§c§6o
+  # <-- Name, has to be in console - I use https://rgb.birdflop.com
+
+  Material: BRICK
+  CustomModelData: 3
+  
+  # If you don't want to use the custom model heads, you can delete the above 2 lines and remove the '#' from the next line '#TextureBase64'
+
+    # TextureBase64: 
+  # TextureBase64 is the head it uses - use https://minecraft-heads.com . When you find the head use want, copy the 'Other' > 'Value'
+  Description:
+  - §eCurious Companions - Hippo

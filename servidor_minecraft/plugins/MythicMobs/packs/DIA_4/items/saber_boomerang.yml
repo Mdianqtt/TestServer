@@ -1,0 +1,14 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+  
+LR_saber_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 17
+  Display: 'Energy<&da>sword'    
+  Skills:
+  - sound{s=littleroom_boomerang_pack:boomerang.es_pickup;v=0.5;sc=HOSTILE;p=<random.float.0.95to1.05>} @self ~onHold
+  - sound{s=littleroom_boomerang_pack:boomerang.es_swing;v=0.5;sc=HOSTILE;p=<random.float.0.95to1.05>} @self ~onSwing
+  - skill{s=LRBOOMERANG_swing_saber} @target ~onAttack
+  - skill{s=LRBOOMERANG_throw_saber;cd=1} @targetlocation ~onUse
+

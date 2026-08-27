@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/bl_flying_spider_waves"},"elements":[{"from":[5.5,5.5,8.0],"to":[10.5,10.5,8.0],"faces":{"south":{"uv":[7.0,7.0,9.5,9.5],"tintindex":0,"rotation":0,"texture":"#0"},"north":{"uv":[4.5,7.0,7.0,9.5],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

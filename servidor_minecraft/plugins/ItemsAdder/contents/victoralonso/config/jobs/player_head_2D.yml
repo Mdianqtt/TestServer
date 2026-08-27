@@ -1,0 +1,11 @@
+info:
+  namespace: "victoralonso"
+items:
+  button_comingsoon:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: PLAYER_HEAD
+      model_id: 10555
+      generate: false
+      model_path: "item/player_head"

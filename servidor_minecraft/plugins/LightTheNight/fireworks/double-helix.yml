@@ -1,0 +1,31 @@
+double-helix:
+  fireworks:
+    left-spiral:
+      type: STAR
+      colors:
+        - "#9f7bff"
+        - "#d79cff"
+      fade:
+        - "#7a3de8"
+      power: 2
+      trail: true
+      flicker: true
+      count: 3
+      spread: 0.7
+      ry: -25
+      fo: 0.4
+    right-spiral:
+      type: STAR
+      colors:
+        - "#7cd6ff"
+        - "#57a3ff"
+      fade:
+        - "#2754ff"
+      power: 2
+      trail: true
+      flicker: true
+      count: 3
+      spread: 0.7
+      ry: 25
+      fo: 0.4
+      delay: 3

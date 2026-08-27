@@ -1,0 +1,114 @@
+Nocsy_Icebear_Boss:
+  Type: VINDICATOR
+  Display: 'Nanook'
+  Health: 1250
+  Damage: 14
+  Modules:
+    ThreatTable: true
+  Equipment:
+  - AIR HEAD
+  - AIR HAND
+  Stats:
+  - SLASH_DAMAGE 8
+  Options:
+    Silent: true
+    PreventOtherDrops: true
+    MovementSpeed: 0.22
+    FollowRange: 50
+    KnockbackResistance: 1
+  AITargetSelectors:
+  - clear
+  - players
+  BossBar:
+    Enabled: true
+    Title: '<bold><aqua>ICE BEAR' #'&cNanook'
+    Color: WHITE
+    Style: SEGMENTED_10
+  DamageModifiers:
+  - SUFFOCATION 0
+  Skills:
+  - sound{s=entity.ravager.ambient;p=-1.2;v=2} @self ~onTimer:20 0.2
+  - sound{s=entity.zoglin.step;p=-1.2;v=2} @self ~onTimer:15 ?moving ?stance{s=ACTIVE}
+  - skill{s=[
+    - sound{s=entity.polar_bear.hurt;p=-1.7;v=2} @self
+    - particles{p=BLOCK_CRACK;m=BLUE_ICE;a=4;hs=1.3;vs=2} @self
+    ]} ~onDamaged ?!hasaura{n=frozen}
+
+  - skill{s=[
+    - model{mid=nocsy_icebear_boss;r=64;scale=1;tint=true} @self
+    - cullconfig{vc=false;bkc=false;blc=false} @self
+    - setstance{s=active} @self
+    ]} ~onSpawn
+  
+  # claw attack
+  - skill{s=[
+    - cancelevent{}
+    - randomskill{s=nanook_attack_claw,nanook_attack_fist;cooldown=2} ?stance{s=active}
+    ];sync=true} ~onAttack
+
+  # sky aura channeling
+  - skill{s=[
+    - state{s=channelling} @self
+    - skill:nanook_channelling
+    ];cooldown=18} @spawnlocation ~onTimer:10 0.2 ?stance{s=active}
+  
+  # ice fist charge
+  - skill:nanook_ice_charge{cooldown=4} @PIR{r=50;limit=1;sort=RANDOM;conditions=[ - fieldofview{angle=90} true ]} ~onTimer:10 0.2 ?stance{s=active}
+
+  # ice fist ground aoe
+  - skill:nanook_ice_fist_ground{cooldown=8} ~onTimer:10 0.2 ?stance{s=active}
+
+  # claw fist forward projectiles
+  - skill:nanook_claw_fist_projectile{cooldown=5} ~onTimer:10 0.2 ?stance{s=active} ?!playersInRadius{r=5;a=>0}
+
+  # claw ring
+  - skill:nanook_jump_smash{cooldown=12} ~onTimer:10 0.2 ?stance{s=active}
+
+prop_nanook_red_tile:
+  Type: ITEM_DISPLAY
+  Options:
+    Despawn: true
+    Persistent: false
+  DisplayOptions:
+    InterpolationDuration: 20  
+    Item: TINTED_GLASS
+    Translation: 0,0.1,0
+    Scale: 0.1,0.1,0.1
+  Skills:
+  - remove{delay=37} @self ~onSpawn
+  - setvariable{var=caster.timer;value=0;type=FLOAT} @self ~onSpawn
+  #- displaytransformation{action=MULTIPLY;transformation=SCALE;value=1.1,0,1.1;repeat=10;repeatInterval=1} @self ~onSpawn
+  - skill{s=[
+    - variableadd{var=caster.timer;amount=1} @self
+    - displaytransformation{action=SET;transformation=scale;value=0.5*<caster.var.timer>,0,0.5*<caster.var.timer>} @self
+    ]} @self ~onTimer:5
+
+prop_nanook_icicle:
+  Type: ITEM_DISPLAY
+  Options:
+    Despawn: true
+    Persistent: false
+  DisplayOptions:
+    InterpolationDuration: 5  
+    Item: ICE
+    Translation: 0,0.1,0
+    Scale: 0.7,0,0.7
+  Skills:
+  - remove{delay=20} @self ~onSpawn
+  - skill{s=[
+    - transformation{action=SET;transformation=scale;value=0.7,4,0.7;delay=2} @self
+    ]} @self ~onSpawn
+  
+prop_nanook_icefire:
+  Type: ARMOR_STAND
+  Options:
+    Despawn: true
+    Persistent: false
+    Marker: true
+    Invisible: true
+    Small: true
+  #Disguise: FALLING_BLOCK SOUL_FIRE setYModifier 1
+  Skills:
+  - model{mid=nocsy_icebear_claws} @self ~onSpawn 0.5
+  - remove{delay=20} @self ~onSpawn
+#e9dbe4f54850af37fe937f1c53ae8ead

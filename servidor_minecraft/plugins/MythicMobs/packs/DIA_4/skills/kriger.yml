@@ -1,0 +1,672 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+KRIGER_phantomarms_fx:
+  Conditions:
+  - score{o=phantomarmvisible;v=1} true
+  Skills:
+  - effect:particles{particle=glow_squid_ink;amount=1;hS=.15;vS=.15} @modelpart{mid=kriger;pid=right_phantomarm}
+  - effect:particles{particle=glow_squid_ink;amount=1;hS=.15;vS=.15} @modelpart{mid=kriger;pid=left_phantomarm}
+
+
+### AWAKEN ###
+
+KRIGER_invulnerable:
+  Conditions:
+  - score{o=invulnerable;v=1} true
+  Skills:
+  - potion{type=DAMAGE_RESISTANCE;duration=20;level=4}
+
+KRIGER_sleep:
+  Skills:
+  - delay 1
+  - modifytargetscore{objective=invulnerable;action=set;value=1} @self
+  - skill{s=KRIGER_hidephantomarms;repeat=5;repeatInterval=1} @self
+  - setAI{ai=false} @self
+  - defaultstate{m=kriger;t=idle;s=awaken_idle} @self ~onDamaged
+  - delay 25
+  - effect:blockmask{m=deepslate;r=1} @modelpart{mid=kriger;pid=right_hand;offset=LOCAL;z=2}
+  - effect:blockmask{m=deepslate;r=1} @modelpart{mid=kriger;pid=left_hand;offset=LOCAL;z=2}
+  - effect:blockmask{m=deepslate;r=1} @modelpart{mid=kriger;pid=right_shin}
+  - effect:blockmask{m=deepslate;r=1} @modelpart{mid=kriger;pid=left_foot}
+  - lockmodel{l=true} @self
+
+KRIGER_awaken:
+  Conditions:
+  - score{o=awake;v=1} false
+  - playerwithin{d=10} true
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.awaken;v=5;sc=HOSTILE} @self
+  - modifytargetscore{objective=awake;action=set;value=1} @self
+  - state{s=awaken_idle;r=true} @self
+  - state{s=awaken} @self
+  - skill{s=KRIGER_awaken_fx} @self
+  - delay 140
+  - modifytargetscore{objective=invulnerable;action=set;value=0} @self
+  - lockmodel{l=false} @self
+  - barCreate{name="KRIGER";display="<caster.name>";value=1.0;color=BLUE;style=SEGMENTED_6} @self
+  - delay 10
+  - defaultstate{m=kriger;t=idle;s=idle} @self ~onDamaged
+  - setAI{ai=true} @self
+  - effect:blockunmask{r=6}
+
+
+KRIGER_awaken_fx:
+  Skills:
+  - delay 40
+  - effect:particles{particle=crit;a=25;speed=.1} @modelpart{mid=kriger;pid=right_hand}
+  - effect:particles{particle=glow_squid_ink;amount=2} @modelpart{mid=kriger;pid=chain_right;offset=LOCAL;y=.5}
+  - effect:particles{particle=glow_squid_ink;amount=2} @modelpart{mid=kriger;pid=chain_right;offset=LOCAL;y=1}
+  - partvisibility{m=kriger;p=chain_right;v=false} @self
+  #- submodel{model=kriger;subpart=chain_right;remove=true} @self
+  - effect:particles{particle=block;material=deepslate;amount=25;hS=.15;vS=.15;repeat=3;repeatInterval=1} @modelpart{mid=kriger;pid=right_hand;offset=LOCAL;z=2}
+  - delay 28
+  - effect:particles{particle=crit;a=25;speed=.1} @modelpart{mid=kriger;pid=left_hand}
+  - effect:particles{particle=glow_squid_ink;amount=2} @modelpart{mid=kriger;pid=chain_left;offset=LOCAL;y=.5}
+  - effect:particles{particle=glow_squid_ink;amount=2} @modelpart{mid=kriger;pid=chain_left;offset=LOCAL;y=1}
+  - partvisibility{m=kriger;p=chain_left;v=false} @self
+  #- submodel{model=kriger;subpart=chain_left;remove=true} @self
+  - effect:particles{particle=block;material=deepslate;amount=25;hS=.15;vS=.15;repeat=3;repeatInterval=1} @modelpart{mid=kriger;pid=left_hand;offset=LOCAL;z=2}
+  - delay 34
+  - effect:particles{particle=block;material=deepslate;amount=25;hS=.15;vS=.15;repeat=3;repeatInterval=1} @modelpart{mid=kriger;pid=right_shin}
+  - delay 31
+  - effect:particles{particle=block;material=deepslate;amount=25;hS=.15;vS=.15;repeat=3;repeatInterval=1} @modelpart{mid=kriger;pid=left_foot}
+  
+  
+  
+  
+### BOSSBAR ###
+
+
+KRIGER_bossbar_damage:
+  Conditions:
+  - score{o=invulnerable;v=1} false
+  Skills: 
+  - barSet{name="KRIGER";display="<caster.name>";value="<caster.hp>/<caster.mhp>";color=WHITE;style=SEGMENTED_6} @self
+  - delay 2
+  - barSet{name="KRIGER";display="<caster.name>";value="<caster.hp>/<caster.mhp>";color=BLUE;style=SEGMENTED_6} @self
+  - delay 2
+  - barSet{name="KRIGER";display="<caster.name>";value="<caster.hp>/<caster.mhp>";color=WHITE;style=SEGMENTED_6} @self
+  - delay 2
+  - barSet{name="KRIGER";display="<caster.name>";value="<caster.hp>/<caster.mhp>";color=BLUE;style=SEGMENTED_6} @self
+
+
+### DAMAGE MODEL ###
+
+
+KRIGER_damagemodel:
+  Skills:
+  - randomskill{skills=KRIGER_damage_rightleg,KRIGER_damage_leftleg,KRIGER_damage_rightarm,KRIGER_damage_leftarm,KRIGER_damage_head,KRIGER_damage_torso} @self
+  
+KRIGER_damage_rightleg:
+  Cooldown: 999
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.1;vS=.1;repeat=240;repeatInterval=1} @modelpart{mid=kriger;pid=right_shin}
+  - effect:particles{particle=block;material=green_shulker_box;amount=25;hS=.15;vS=.15} @modelpart{mid=kriger;pid=right_shin}
+  - changepart{m=kriger;pid=right_foot;nm=kriger_parts;npid=right_foot} @self
+  - changepart{m=kriger;pid=right_shin;nm=kriger_parts;npid=right_shin} @self
+  - changepart{m=kriger;pid=right_leg;nm=kriger_parts;npid=right_leg} @self
+  
+KRIGER_damage_leftleg:
+  Cooldown: 999
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.1;vS=.1;repeat=240;repeatInterval=1} @modelpart{mid=kriger;pid=left_shin}
+  - effect:particles{particle=block;material=green_shulker_box;amount=25;hS=.15;vS=.15} @modelpart{mid=kriger;pid=left_shin}
+  - changepart{m=kriger;pid=left_foot;nm=kriger_parts;npid=left_foot} @self
+  - changepart{m=kriger;pid=left_shin;nm=kriger_parts;npid=left_shin} @self
+  - changepart{m=kriger;pid=left_leg;nm=kriger_parts;npid=left_leg} @self
+  
+KRIGER_damage_rightarm:
+  Cooldown: 999
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.1;vS=.1;repeat=240;repeatInterval=1} @modelpart{mid=kriger;pid=right_forearm}
+  - effect:particles{particle=block;material=green_shulker_box;amount=25;hS=.15;vS=.15} @modelpart{mid=kriger;pid=right_forearm}
+  - changepart{m=kriger;pid=right_arm;nm=kriger_parts;npid=right_arm} @self
+  - changepart{m=kriger;pid=right_forearm;nm=kriger_parts;npid=right_forearm} @self
+  
+KRIGER_damage_leftarm:
+  Cooldown: 999
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.1;vS=.1;repeat=240;repeatInterval=1} @modelpart{mid=kriger;pid=left_forearm}
+  - effect:particles{particle=block;material=green_shulker_box;amount=25;hS=.15;vS=.15} @modelpart{mid=kriger;pid=left_forearm}
+  - changepart{m=kriger;pid=left_arm;nm=kriger_parts;npid=left_arm} @self
+  - changepart{m=kriger;pid=left_forearm;nm=kriger_parts;npid=left_forearm} @self
+  
+KRIGER_damage_head:
+  Cooldown: 999
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.1;vS=.1;repeat=240;repeatInterval=1} @modelpart{mid=kriger;pid=jaw}
+  - effect:particles{particle=block;material=green_shulker_box;amount=25;hS=.15;vS=.15} @modelpart{mid=kriger;pid=jaw}
+  - changepart{m=kriger;pid=head;nm=kriger_parts;npid=head} @self
+  - changepart{m=kriger;pid=jaw;nm=kriger_parts;npid=jaw} @self
+  
+KRIGER_damage_torso:
+  Cooldown: 999
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.1;vS=.1;repeat=240;repeatInterval=1} @modelpart{mid=kriger;pid=torsotop}
+  - effect:particles{particle=block;material=green_shulker_box;amount=25;hS=.15;vS=.15} @modelpart{mid=kriger;pid=torsotop}
+  - changepart{m=kriger;pid=torso;nm=kriger_parts;npid=torso} @self
+  - changepart{m=kriger;pid=torsotop;nm=kriger_parts;npid=torsotop} @self
+
+
+### STUN ###
+
+KRIGER_hidephantomarms:
+  Skills:
+  - modifytargetscore{objective=phantomarmvisible;action=set;value=0} @self
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=left_phantomforearm}
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=right_phantomforearm}
+  - partvisibility{m=kriger;p=left_phantomarm;v=false} @self
+  - partvisibility{m=kriger;p=left_phantomforearm;v=false} @self
+  - partvisibility{m=kriger;p=left_hand2;v=false} @self
+  - partvisibility{m=kriger;p=right_phantomarm;v=false} @self
+  - partvisibility{m=kriger;p=right_phantomforearm;v=false} @self
+  - partvisibility{m=kriger;p=right_hand2;v=false} @self
+  
+KRIGER_revealphantomarms:
+  Skills:
+  - modifytargetscore{objective=phantomarmvisible;action=set;value=1} @self
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=left_phantomforearm}
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=right_phantomforearm}
+  - partvisibility{m=kriger;p=left_phantomarm;v=true} @self
+  - partvisibility{m=kriger;p=left_phantomforearm;v=true} @self
+  - partvisibility{m=kriger;p=left_hand2;v=true} @self
+  - partvisibility{m=kriger;p=right_phantomarm;v=true} @self
+  - partvisibility{m=kriger;p=right_phantomforearm;v=true} @self
+  - partvisibility{m=kriger;p=right_hand2;v=true} @self
+
+KRIGER_stun_75:
+  Conditions:
+  - offgcd true
+  - score{o=stun75;v=1} false
+  Skills:
+  - skill{s=random_stun_sound}
+  - lockmodel{l=true} @self
+  - gcd{ticks=140}
+  - modifytargetscore{objective=stun75;action=set;value=1} @self
+  - setAI{ai=false} @self
+  - state{s=stun} @self
+  - delay 20
+  - summon{t=KRIGER_concussion} @modelpart{m=kriger;p=head;offset=GLOBAL;y=.75}
+  - setstance{stance=stun} @self
+  - delay 80
+  - setstance{s=default} @self
+  - delay 40
+  - lockmodel{l=false} @self
+  - setAI{ai=true} @self
+
+KRIGER_stun_50:
+  Conditions:
+  - offgcd true
+  - score{o=stun50;v=1} false
+  Skills:
+  - skill{s=random_stun_sound}
+  - lockmodel{l=true} @self
+  - gcd{ticks=140}
+  - modifytargetscore{objective=stun50;action=set;value=1} @self
+  - setAI{ai=false} @self
+  - state{s=stun} @self
+  - delay 20
+  - summon{t=KRIGER_concussion} @modelpart{m=kriger;p=head;offset=GLOBAL;y=.75}
+  - setstance{stance=stun} @self
+  - delay 80
+  - setstance{s=default} @self
+  - delay 40
+  - lockmodel{l=false} @self
+  - setAI{ai=true} @self
+
+KRIGER_stun_25:
+  Conditions:
+  - offgcd true
+  - score{o=stun25;v=1} false
+  Skills:
+  - skill{s=random_stun_sound}
+  - modifytargetscore{objective=phantomarmvisible;action=set;value=0} @self
+  - skill{s=KRIGER_hidephantomarms} @self
+  - lockmodel{l=true} @self
+  - gcd{ticks=140}
+  - modifytargetscore{objective=stun25;action=set;value=1} @self
+  - setAI{ai=false} @self
+  - state{s=stun} @self
+  - delay 20
+  - summon{t=KRIGER_concussion} @modelpart{m=kriger;p=head;offset=GLOBAL;y=.75}
+  - setstance{stance=stun} @self
+  - delay 80
+  - setstance{s=default} @self
+  - delay 40
+  - skill{s=KRIGER_revealphantomarms} @self
+  - lockmodel{l=false} @self
+  - setAI{ai=true} @self
+  - modifytargetscore{objective=phantomarmvisible;action=set;value=1} @self
+  
+  
+KRIGER_stun_hit:
+  Conditions:
+  - stance{s=stun} true
+  Skills:
+  - skill{s=KRIGER_damagemodel} .2
+  - state{s=stun_hit} @self
+  - effect:particles{particle=crit;amount=25;hS=.25;vS=.25;speed=1.25} @self
+  
+  
+  
+KRIGER_concussion:
+  Skills:
+  - delay 50
+  - remove @self
+  
+
+
+
+#MOBILITY#
+
+
+KRIGER_leap:
+  Cooldown: 3
+  Conditions:
+  - ismoving true
+  - offgcd true
+  - incombat true
+  - targetwithin{d=24} true
+  - targetnotwithin{d=12} true
+  Skills:
+  - gcd{ticks=20}
+  - lockmodel{l=true} @self
+  - state{s=leap} @self
+  - delay 5
+  - lunge{y=.8;vy=.15;repeat=10;repeatInterval=1} @target
+  - delay 25
+  - lockmodel{l=false} @self
+
+
+
+
+#ATTACKS#
+
+KRIGER_attack_1_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=KRIGER_attack_1} @self
+  
+KRIGER_attack_1:
+  Conditions:
+  - score{o=spin;v=1} false
+  - offgcd true
+  Skills:
+  - gcd{ticks=55}
+  - state{s=attack_1} @self
+  - setspeed{t=walk;s=0} @self
+  - delay 15
+  - skill{s=random_sword_swing_sound}
+  - lunge{v=.5;vy=.1} @target
+  - totem{ch=1;md=2;oH=KRIGER_sword_damage;hS=2;vS=2;hnp=true;repeat=7;repeatInterval=1} @modelpart{mid=kriger;pid=right_hand;offset=LOCAL;z=1}
+  - changepart{m=kriger;pid=right_hand;nm=kriger_parts;npid=right_hand} @self
+  - delay 5
+  - changepart{m=kriger;pid=right_hand;nm=kriger;npid=right_hand} @self
+  - delay 30
+  - setspeed{t=walk;s=1.25} @self
+
+KRIGER_attack_2_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=KRIGER_attack_2} @self
+  
+KRIGER_attack_2:
+  Conditions:
+  - score{o=spin;v=1} false
+  - offgcd true
+  Skills:
+  - gcd{ticks=55}
+  - state{s=attack_2} @self
+  - setspeed{t=walk;s=0} @self
+  - delay 15
+  - skill{s=random_sword_swing_sound}
+  - lunge{v=.5;vy=.1} @target
+  - totem{ch=1;md=2;oH=KRIGER_sword_damage;hS=2;vS=2;hnp=true;repeat=7;repeatInterval=1} @modelpart{mid=kriger;pid=left_hand;offset=LOCAL;z=1}
+  - changepart{m=kriger;pid=left_hand;nm=kriger_parts;npid=left_hand} @self
+  - delay 5
+  - changepart{m=kriger;pid=left_hand;nm=kriger;npid=left_hand} @self
+  - delay 30
+  - setspeed{t=walk;s=1.25} @self
+
+KRIGER_attack_3_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=KRIGER_attack_3} @self
+  
+KRIGER_attack_3:
+  Cooldown: 8
+  Conditions:
+  - score{o=stun50;v=1} true
+  - offgcd true
+  Skills:
+  - gcd{ticks=100}
+  - state{s=attack_3} @self
+  - setstance{stance=phantom} @self
+  - setspeed{t=walk;s=0} @self
+  - delay 15
+  - skill{s=random_sword_swing_sound;repeat=2;repeatInterval=2}
+  - lunge{v=.5;vy=.1} @target
+  - totem{ch=1;md=2;oH=KRIGER_sword_damage;hS=2;vS=2;hnp=true;repeat=7;repeatInterval=1} @modelpart{mid=kriger;pid=right_hand;offset=LOCAL;z=1}
+  - totem{ch=1;md=2;oH=KRIGER_sword_damage;hS=2;vS=2;hnp=true;repeat=7;repeatInterval=1} @modelpart{mid=kriger;pid=left_hand;offset=LOCAL;z=1}
+  - changepart{m=kriger;pid=left_hand;nm=kriger_parts;npid=left_hand} @self
+  - changepart{m=kriger;pid=right_hand;nm=kriger_parts;npid=right_hand} @self
+  - delay 5
+  - throw{v=2;vy=6} @pir{r=8}
+  - changepart{m=kriger;pid=left_hand;nm=kriger;npid=left_hand} @self
+  - changepart{m=kriger;pid=right_hand;nm=kriger;npid=right_hand} @self
+  - delay 5
+  - totem{ch=1;md=2;oH=KRIGER_phantom_damage;hS=1;vS=1;hnp=true;repeat=7;repeatInterval=1} @modelpart{mid=kriger;pid=right_hand2;offset=LOCAL;z=2}
+  - changepart{m=kriger;pid=right_hand2;nm=kriger_parts;npid=right_hand3} @self
+  - delay 5
+  - changepart{m=kriger;pid=right_hand2;nm=kriger;npid=right_hand2} @self
+  - delay 5
+  - changepart{m=kriger;pid=left_hand2;nm=kriger_parts;npid=left_hand3} @self
+  - totem{ch=1;md=2;oH=KRIGER_phantom_damage;hS=1;vS=1;hnp=true;repeat=5;repeatInterval=1} @modelpart{mid=kriger;pid=left_hand2;offset=LOCAL;z=2}
+  - delay 5
+  - changepart{m=kriger;pid=left_hand2;nm=kriger;npid=left_hand2} @self
+  - delay 50
+  - setstance{stance=default} @self
+  - setspeed{t=walk;s=1.25} @self
+
+KRIGER_sword_damage:
+  Skills:
+  - skill{s=random_impact_sound}
+  - damage{a=20}
+  - throw{v=15;vy=.25}
+
+
+## DEATH BREATH ##
+
+KRIGER_deathbreath:
+  Cooldown: 10
+  Conditions:
+  - targetwithin{d=24} true
+  - targetnotwithin{d=8} true
+  - incombat true
+  - score{o=spin;v=1} false
+  - offgcd true
+  Skills:
+  - gcd{ticks=80}
+  - state{s=deathbreath} @self
+  - setspeed{t=walk;s=0;repeat=10;repeatInterval=1} @self
+  #- lockmodel{l=true} @self
+  - sound{s=littleroom_kriger:littleroom.kriger.deathbreath;v=5;sc=HOSTILE} @self
+  - delay 25
+  - projectile{bulletType=TRACKING;bulletMaterial=INK_SAC;bulletModel=31;oH=KRIGER_deathbreath_damage;oE=KRIGER_deathbreath_splash;v=20;i=1;hR=.5;vR=.5;hnp=true;syo=1.5;sfo=.5;a=.8;mr=32;d=120;sE=false;g=1;tyo=5;repeat=10;repeatInterval=1}
+  - delay 10
+  - projectile{bulletType=TRACKING;bulletMaterial=INK_SAC;bulletModel=31;oH=KRIGER_deathbreath_damage;oE=KRIGER_deathbreath_splash;v=16;i=1;hR=.5;vR=.5;hnp=true;syo=1;sfo=.5;a=.8;mr=32;d=120;sE=false;g=1;tyo=5;repeat=10;repeatInterval=1}
+  - delay 10
+  - projectile{bulletType=TRACKING;bulletMaterial=INK_SAC;bulletModel=31;oH=KRIGER_deathbreath_damage;oE=KRIGER_deathbreath_splash;v=13;i=1;hR=.5;vR=.5;hnp=true;syo=.75;sfo=.5;a=.8;mr=32;d=120;sE=false;g=1;tyo=5;repeat=10;repeatInterval=1}
+  - delay 35
+  #- lockmodel{l=false} @self
+  - setspeed{t=walk;s=1.25} @self
+
+
+KRIGER_deathbreath_damage:
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.25;vS=.5;y=.5;repeat=60;repeatInterval=1}
+  - damage{a=25}
+  - potion{type=SLOW;duration=60;level=1;p=false;i=false}
+  - potion{type=POISON;duration=60;level=1;p=false;i=false}
+  
+KRIGER_deathbreath_splash:
+  Skills:
+  - effect:particles{particle=block;material=dried_kelp_block;amount=15;hS=.15;vS=.15}
+  - effect:particles{p=reddust;color=#445914;hs=.5;vs=.15;repeat=480;repeatInterval=1;y=-1}
+  - totem{md=480;oH=KRIGER_deathbreath_totem;hS=1;vS=.25;hnp=false}
+  
+KRIGER_deathbreath_totem:
+  Skills:
+  - effect:particles{particle=falling_honey;amount=1;hS=.25;vS=.01;repeat=60;repeatInterval=1}
+  - potion{type=SLOW;duration=60;level=1;p=false;i=false}
+  - potion{type=POISON;duration=60;level=1;p=false;i=false}
+
+
+
+
+#PHANTOM LIMB#
+
+
+
+KRIGER_summon_arms:
+  Conditions:
+  - offgcd true
+  - score{o=summonarms;v=1} false
+  - score{o=stun50;v=1} true
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.summonarms;v=5;sc=HOSTILE} @self
+  - modifytargetscore{objective=invulnerable;action=set;value=1} @self
+  - gcd{ticks=100}
+  - modifytargetscore{objective=summonarms;action=set;value=1} @self
+  - state{s=summonarms} @self
+  - setAI{ai=false} @self
+  - delay 62
+  - modifytargetscore{objective=phantomarmvisible;action=set;value=1} @self
+  - skill{s=KRIGER_revealphantomarms} @self
+  - delay 40
+  - modifytargetscore{objective=invulnerable;action=set;value=0} @self
+  - setAI{ai=true} @self
+
+
+
+KRIGER_phantom_attack1_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=KRIGER_phantom_attack1} @self
+  
+  
+KRIGER_phantom_attack1:
+  Conditions:
+  - score{o=summonarms;v=1} true
+  - stance{s=phantom} false
+  Cooldown: 2
+  Skills:
+  - state{s=phantom_arm_left_attack} @self
+  - delay 5
+  - skill{s=random_phantom_swing_sound}
+  - totem{ch=1;md=2;oH=KRIGER_phantom_damage;hS=2;vS=1;hnp=true;repeat=7;repeatInterval=1} @modelpart{mid=kriger;pid=left_hand2;offset=LOCAL;z=1}
+  - changepart{m=kriger;pid=left_hand2;nm=kriger_parts;npid=left_hand3} @self
+  - delay 5
+  - changepart{m=kriger;pid=left_hand2;nm=kriger;npid=left_hand2} @self
+  
+
+KRIGER_phantom_attack2_sync:
+  Skills:
+  - CancelEvent
+  - skill{s=KRIGER_phantom_attack2} @self
+  
+  
+KRIGER_phantom_attack2:
+  Conditions:
+  - score{o=summonarms;v=1} true
+  - stance{s=phantom} false
+  Cooldown: 1
+  Skills:
+  - state{s=phantom_arm_right_attack} @self
+  - delay 5
+  - skill{s=random_phantom_swing_sound}
+  - changepart{m=kriger;pid=right_hand2;nm=kriger_parts;npid=right_hand2} @self
+  - totem{ch=1;md=2;oH=KRIGER_phantom_damage;hS=2;vS=1;hnp=true;repeat=7;repeatInterval=1} @modelpart{mid=kriger;pid=right_hand2;offset=LOCAL;z=1}
+  - delay 5
+  - changepart{m=kriger;pid=right_hand2;nm=kriger;npid=right_hand2} @self
+
+KRIGER_phantom_spin:
+  Cooldown: 40
+  Conditions:
+  - score{o=summonarms;v=1} true
+  - offgcd true
+  - targetwithin{d=12} true
+  Skills:
+  - gcd{ticks=100}
+  - state{s=phantom_arm_spin_attack} @self
+  - settargetscore{o=spin;v=1} @self
+  - delay 20
+  - skill{s=random_phantom_swing_sound;repeat=14;repeatInterval=5}
+  - totem{ch=1;md=2;oH=KRIGER_phantom_damage;hS=2;vS=1;hnp=true;repeat=70;repeatInterval=1;y=-1} @modelpart{mid=kriger;pid=left_hand2;offset=LOCAL;z=1}
+  - totem{ch=1;md=2;oH=KRIGER_phantom_damage;hS=2;vS=1;hnp=true;repeat=70;repeatInterval=1;y=-1} @modelpart{mid=kriger;pid=right_hand2;offset=LOCAL;z=1}
+  - changepart{m=kriger;pid=left_hand2;nm=kriger_parts;npid=left_hand3} @self
+  - changepart{m=kriger;pid=right_hand2;nm=kriger_parts;npid=right_hand3} @self
+  - delay 70
+  - changepart{m=kriger;pid=right_hand2;nm=kriger;npid=right_hand2} @self
+  - changepart{m=kriger;pid=left_hand2;nm=kriger;npid=left_hand2} @self
+  - delay 10
+  - settargetscore{o=spin;v=0} @self
+
+KRIGER_phantom_damage:
+  Skills:
+  - skill{s=random_phantom_hit_sound}
+  - damage{a=20}
+  - throw{v=1;vy=4}
+  
+### DEATH ###
+
+kriger_death:
+  Skills:
+  - delay 5
+  - sound{s=littleroom_kriger:littleroom.kriger.death;v=5;sc=HOSTILE} @self
+  - changepart{m=kriger;pid=right_hand;nm=kriger_parts;npid=right_hand_empty} @self
+  - changepart{m=kriger;pid=left_hand;nm=kriger_parts;npid=left_hand_empty} @self
+  - changepart{m=kriger;pid=left_hand2;nm=kriger;npid=left_hand2} @self
+  - changepart{m=kriger;pid=right_hand2;nm=kriger;npid=right_hand2} @self
+  - delay 40
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=left_phantomforearm}
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=right_phantomforearm}
+  - partvisibility{m=kriger;p=left_phantomarm;v=false} @self
+  - partvisibility{m=kriger;p=left_phantomforearm;v=false} @self
+  - partvisibility{m=kriger;p=left_hand2;v=false} @self
+  - partvisibility{m=kriger;p=right_phantomarm;v=false} @self
+  - partvisibility{m=kriger;p=right_phantomforearm;v=false} @self
+  - partvisibility{m=kriger;p=right_hand2;v=false} @self
+  - delay 40
+  - partvisibility{m=kriger;p=chain_right;v=true} @self
+  - partvisibility{m=kriger;p=chain_left;v=true} @self
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=chain_right}
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=chain_left}
+  - effect:particles{particle=glow_squid_ink;amount=2;repeat=70;repeatInterval=1} @modelpart{mid=kriger;pid=chain_right;offset=LOCAL;y=2}
+  - effect:particles{particle=glow_squid_ink;amount=2;repeat=70;repeatInterval=1} @modelpart{mid=kriger;pid=chain_left;offset=LOCAL;y=2}
+  - delay 70
+  - effect:lightning @modelpart{mid=kriger;pid=torsotop}
+  - throw{v=5;vy=1} @pir{r=8}
+  - effect:blockmask{m=light;r=.5;d=2;oa=true;na=false} @self
+  - potion{type=BLINDNESS;duration=5;level=1;p=false;i=false} @pir{r=12}
+  - effect:particles{particle=flash;amount=1} @modelpart{mid=kriger;pid=torsotop}
+  - effect:particles{particle=white_ash;amount=250;hS=.75;vS=.5} @modelpart{mid=kriger;pid=torsotop}
+  - effect:particles{particle=white_ash;amount=250;hS=.5;vS=.5} @modelpart{mid=kriger;pid=torsotop}
+  
+  
+
+
+
+### SOUNDS ###
+
+random_impact_sound:
+  Skills:
+  - randomskill{skills=random_impact01_sound,random_impact02_sound,random_impact03_sound,random_impact04_sound} @self
+  
+random_impact01_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.impact01;v=1;sc=HOSTILE} @self
+random_impact02_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.impact02;v=1;sc=HOSTILE} @self
+random_impact03_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.impact03;v=1;sc=HOSTILE} @self
+random_impact04_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.impact04;v=1;sc=HOSTILE} @self
+  
+  
+  
+random_phantom_hit_sound:
+  Skills:
+  - randomskill{skills=random_phantom_hit01_sound,random_phantom_hit02_sound,random_phantom_hit03_sound,random_phantom_hit04_sound} @self
+  
+random_phantom_hit01_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_hit01;v=1;sc=HOSTILE} @self
+random_phantom_hit02_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_hit02;v=1;sc=HOSTILE} @self
+random_phantom_hit03_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_hit03;v=1;sc=HOSTILE} @self
+random_phantom_hit04_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_hit04;v=1;sc=HOSTILE} @self
+  
+  
+  
+random_phantom_swing_sound:
+  Skills:
+  - randomskill{skills=random_phantom_swing01_sound,random_phantom_swing02_sound,random_phantom_swing03_sound,random_phantom_swing04_sound} @self
+  
+random_phantom_swing01_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_swing01;v=1;sc=HOSTILE} @self
+random_phantom_swing02_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_swing02;v=1;sc=HOSTILE} @self
+random_phantom_swing03_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_swing03;v=1;sc=HOSTILE} @self
+random_phantom_swing04_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.phantom_swing04;v=1;sc=HOSTILE} @self
+  
+  
+  
+random_stun_sound:
+  Skills:
+  - randomskill{skills=random_stun01_sound,random_stun02_sound,random_stun03_sound,random_stun04_sound} @self
+  
+random_stun01_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.stun01;v=1;sc=HOSTILE} @self
+random_stun02_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.stun02;v=1;sc=HOSTILE} @self
+random_stun03_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.stun03;v=1;sc=HOSTILE} @self
+random_stun04_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.stun04;v=1;sc=HOSTILE} @self
+  
+  
+  
+random_sword_swing_sound:
+  Skills:
+  - randomskill{skills=random_sword_swing01_sound,random_sword_swing02_sound,random_sword_swing03_sound,random_sword_swing04_sound} @self
+  
+random_sword_swing01_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.sword_swing01;v=1;sc=HOSTILE} @self
+random_sword_swing02_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.sword_swing02;v=1;sc=HOSTILE} @self
+random_sword_swing03_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.sword_swing03;v=1;sc=HOSTILE} @self
+random_sword_swing04_sound:
+  Skills:
+  - sound{s=littleroom_kriger:littleroom.kriger.sword_swing04;v=1;sc=HOSTILE} @self
+
+#---------TITLE------------
+
+kriger_death_title:
+  Skills:
+  - delay 5
+  - effect:sound{s=entity.wither.spawn;p=1} @self
+  - delay 38
+  - particles{p=SMOKE;a=20;hs=0.3;vs=0.5;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+  - particles{p=CRIMSON_SPORE;a=20;s=0.2;hs=0.5;vs=0.2;repeat=24;repeatInterval=4;yOffset=0.2} @forward{f=0.5}
+  - delay 92
+  - particles{p=SMOKE;a=50;s=1;hs=0.3;vs=0.5} @origin
+  - particles{p=end_rod;a=40;hs=1;s=0.3;vs=0.3} @self
+  - particles{p=CRIMSON_SPORE;a=50;s=0.3;hs=0.5;vs=0.2} @origin
+  - particles{p=end_rod;a=80;hs=1;s=0.6;vs=0.3} @self
+  - particles{p=CRIMSON_SPORE;a=100;s=0.6;hs=0.5;vs=0.2} @origin
+  - sendtitle{title="&6&lBOSS DERROTADO";subtitle="TIER 2";d=60;fi=60;fo=60} @PlayersInRadius{r=50}

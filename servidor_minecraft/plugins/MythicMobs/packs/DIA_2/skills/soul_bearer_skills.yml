@@ -1,0 +1,30 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Shoot
+soul_bearer_shoot:
+  Cooldown: 3
+  Conditions:
+  - incombat true
+  - targetwithin{d=20} true
+  Skills:
+  - delay 1
+  - CancelEvent @self
+  - setspeed{speed=0;type=WALKING} @self
+  - state{model=soul_bearer;state=shoot} @self
+  - lockmodel @self
+  - delay 18
+  - particles{p=sculk_soul;a=25;hs=0.5;vs=0.5} @self
+  - missile{bulletscale=1,1,1;bulletType=display;bulletcolor=#ffffff;material=leather_horse_armor;model=87;inertia=50;i=2;hR=1;vR=1;
+      oH=[ - damage{a=6;ia=true} ];
+      oT=[ - particles{p=sculk_soul;a=1;hs=0.5} ];d=200;v=10;hp=true;sE=false;hnp=true;syo=0;tyo=2;fo=true;origin=@ModelPart{pid=soul_projectile}} @target
+  - sound{s=tugkandeman.soul_shot1;v=3;p=1} @self
+  - delay 32
+  - lockmodel{l=false} @self
+  - setspeed{speed=1;type=WALKING} @self

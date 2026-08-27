@@ -1,0 +1,26 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:item/handheld",
+	"textures": {
+		"layer0": "weapons_me:item/warden_set/bow/warden_bow"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-80, 90, 0],
+			"translation": [0, 0, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-80, -90, 0],
+			"translation": [0, 0, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [-100, 90, 0],
+			"translation": [0, 1, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0, 1, -1]
+		}
+	}
+}

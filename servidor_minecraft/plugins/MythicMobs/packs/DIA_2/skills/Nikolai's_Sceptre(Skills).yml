@@ -1,0 +1,54 @@
+NStaffHit:
+  Skills:
+  - potion{t=SLOW;l=0;d=60;p=false} @trigger
+  - skill{s=NStaffHitVar} @self
+NStaffHitVar:
+  Conditions:
+  - hasaura StaffAura castinstead NStaffHitAura
+  - variableisset caster.staffhits castinstead NStaffHitVar1
+  Skills:
+  - setvariable{var=caster.staffhits;val=1;type=INTEGER}
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=0.8;points=8}
+NStaffHitVar12:
+  Skills:
+  - setvariable{var=caster.staffhits;val=0;type=INTEGER} @self
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=0.8;points=8} @self
+NStaffHitVar1:
+  Skills:
+  - variableadd{var=caster.staffhits;amount=1} @self
+  - skill{s=NStaffHitEffect1} @self
+  - skill{s=NStaffHitEffect2} @self 
+  - skill{s=NStaffHitEffect3} @self
+NStaffHitEffect1:
+  Conditions:
+  - variableequals{var=caster.staffhits;val=1} true
+  Skills:
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=0.8;points=8}
+NStaffHitEffect2:
+  Conditions:
+  - variableequals{var=caster.staffhits;val=2} true
+  Skills:
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=0.8;points=8}
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=1.2;points=10}
+NStaffHitEffect3:
+  Conditions:
+  - variableequals{var=caster.staffhits;val=3} true
+  Skills:
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=0.8;points=8}
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=1.2;points=10}
+  - effect:particlering{p=reddust;color=#58a6af;a=3;hs=0.15;vs=0.05;y=0.25;r=1.4;points=12}
+  - setvariable{var=caster.staffhits;val=0;type=INTEGER} @self
+  - aura{auraName=StaffAura;i=4;onTick=StaffAuraTick;d=120}
+NStaffHitAura:
+  Skills:
+  - aura{auraName=StaffAura;i=4;onTick=StaffAuraTick;d=120;rd=true}
+StaffAuraTick:
+  Skills:
+  - effect:particlering{p=reddust;color=#58a6af;r=3;points=20;a=3;hs=0.2;vs=0.05;y=0.025;repeat=1;repeatInterval=2} @self
+  - effect:particles{p=reddust;color=#58a6af;a=30;hs=1.3;vs=0.6;y=0.6;repeat=1;repeatInterval=2} @self
+  - effect:particles{p=snowballpoof;a=30;hs=1.3;vs=0.1;y=0.1;repeat=1;repeatInterval=1} @self
+  - damage{a=2;ia=true} @EIR{r=3}
+  - sound{s=block.glass.step;p=0.1} @EIR{r=3}
+  - sound{s=block.snow.break;p=0.1} @self
+  - sound{s=nikolai:nikolai_hit1;v=0.2;p=2} @EIR{r=3}
+  - potion{t=SLOW;l=0;d=60;p=false} @EIR{r=3}

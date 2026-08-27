@@ -1,0 +1,24 @@
+info:
+  namespace: "victoralonso"
+font_images:
+  space_split-4:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "space/space_split.png"
+    symbol: "ㆼ"
+    y_position: -32768 #ascent
+    scale_ratio: -4 #height
+  space_split-50:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "space/space_split.png"
+    symbol: "ㆽ"
+    y_position: -32768 #ascent
+    scale_ratio: -50 #height
+  space_split-259:
+    permission: "jobs.menus"
+    suggest_in_command: false
+    path: "space/space_split.png"
+    symbol: "ㆾ"
+    y_position: -32768 #ascent
+    scale_ratio: -259 #height

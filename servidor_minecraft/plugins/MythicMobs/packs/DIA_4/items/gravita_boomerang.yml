@@ -1,0 +1,11 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LR_gravita_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 15
+  Display: 'Gravita Boomerang'  
+  Skills:
+  - skill{s=LRBOOMERANG_throw_gravita;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_gravita} @self ~onHold

@@ -1,0 +1,275 @@
+1bit_elite_blaze_attack:
+  Cooldown: 1
+  Conditions:
+  - offgcd
+  TargetConditions:
+  - (distance{d=<4.2} true && fieldofview{angle=65;r=4.1} true) castinstead 1bit_elite_blaze_attack_2
+  Skills:
+  - randomskill{skills=1bit_elite_blaze_attack_1,1bit_elite_blaze_attack_3}
+
+1bit_elite_blaze_attack_1:
+  Skills:
+  - gcd{t=65} @self
+  - stun{d=65;ai=false;g=false;f=true} @self
+  - BodyRotation{headuneven=true;maxhead=0;bodyuneven=true;minbody=0;maxbody=1} @self
+  - velocity{m=SET;x=0;y=0;z=0;repeat=50;repeatInterval=1} @self
+  - state{s=attack_1;priority=3;lerpin=10} @self
+  - delay 65
+  - state{s=sword_spin;priority=3;lerpout=10} @self
+  - BodyRotation{headuneven=true;maxhead=0;bodyuneven=true;minbody=0;maxbody=55} @self
+
+1bit_elite_blaze_attack_1_shoot:
+  Skills:
+  - sound{s=entity.blaze.shoot;p=<random.float.0.85to1>;v=1.0} @self
+  - sound{s=entity.breeze.shoot;p=1.25;v=0.6} @self
+  - sound{s=entity.shulker.shoot;p=1.75;v=1} @self
+  - sound{s=entity.wither.shoot;p=1.70;v=4} @self
+  - shootfireball{y=2.15;v=1.5;type=LARGE;incendiary=truee;fireTicks=5} @target{yoffset=1} ?!hastag{t=pet}
+  - shootfireball{y=0;v=1.5;type=LARGE;incendiary=false;fireTicks=5} @target{yoffset=1} ?hastag{t=pet}
+
+
+1bit_elite_baby_blaze_attack_1_shoot:
+  Skills:
+  - sound{s=entity.blaze.shoot;p=<random.float.0.85to1>;v=1.0} @self
+  - sound{s=entity.breeze.shoot;p=1.25;v=0.6} @self
+  - sound{s=entity.shulker.shoot;p=1.75;v=1} @self
+  - sound{s=entity.wither.shoot;p=1.70;v=4} @self
+  - shootfireball{y=1.35;v=1.25;type=LARGE;incendiary=true;fireTicks=5} @target{yoffset=1} ?!hastag{t=pet}
+  - shootfireball{y=0;v=1.25;type=LARGE;incendiary=false;fireTicks=5} @target{yoffset=1} ?hastag{t=pet}
+
+1bit_elite_blaze_attack_3:
+  Skills:
+  - gcd{t=65} @self
+  - stun{d=65;ai=false;g=false;f=true} @self
+  - state{s=attack_3_1;lerpin=10} @self
+  - sound{s=entity.drowned.shoot;p=1.00;v=0.3} @self
+  - sound{s=entity.breeze.land;p=1.30;v=1.0} @self
+  - sound{s=entity.breeze.shoot;p=1.50;v=0.3} @self
+  - sound{s=entity.player.attack.weak;p=1.00;v=1.0} @self
+  - delay 7
+  - skill{s=1bit_elite_blaze_attack_3_damage;sync=true} @TargetedTarget
+  - delay 30
+  - state{s=attack_3_2;lerpin=10} @self
+  - delay 10
+  - sound{s=entity.drowned.shoot;p=0.92;v=0.3} @self
+  - sound{s=entity.breeze.land;p=0.76;v=1.0} @self
+  - sound{s=entity.breeze.shoot;p=0.80;v=0.3} @self
+  - sound{s=entity.player.attack.weak;p=0.75;v=1.0} @self
+  - sound{s=item.mace.smash_air;p=1.50;v=0.1} @self
+
+1bit_elite_blaze_attack_3_damage:
+  Skills:
+  - potion{t=SLOW;d=60;l=4}
+  - delay 5
+  - summon{t=1bit_elite_blaze_sword;a=1} ?!hastag{t=baby}
+  - summon{t=1bit_elite_baby_blaze_sword;a=1} ?hastag{t=baby}
+  - totem{yo=0;md=2;oS=[
+        - delay 8
+        - skill{s=1bit_elite_blaze_attack_3_damage_soundSword;sync=true} @Origin
+        - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - skill{s=[
+            - damage{a=<caster.damage>} 
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2} ?!hastag{t=pet}
+        - skill{s=[
+            - damage{a=<caster.damage>} 
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+        - delay 2
+        - skill{s=1bit_elite_blaze_attack_3_damage_soundSword;sync=true} @Origin
+        - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - skill{s=[
+            - damage{a=<caster.damage>} 
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2} ?!hastag{t=pet}
+        - skill{s=[
+            - damage{a=<caster.damage>} 
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+        - delay 2
+        - skill{s=1bit_elite_blaze_attack_3_damage_soundSword;sync=true} @Origin
+        - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - skill{s=[
+            - damage{a=<caster.damage>} 
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2} ?!hastag{t=pet}
+        - skill{s=[
+            - damage{a=<caster.damage>} 
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+        - delay 2
+        - skill{s=1bit_elite_blaze_attack_3_damage_soundSword;sync=true} @Origin
+        - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1} @Origin
+        - skill{s=[ 
+            - damage{a=<caster.damage>}
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2} ?!hastag{t=pet}
+        - skill{s=[ 
+            - damage{a=<caster.damage>}
+            - velocity{m=SET;x=0;y=0;z=0}
+            - setNoDamageTicks{ticks=0;delay=1}
+            - delay 1
+            - ignite{t=100}
+          ];sync=true} @EntitiesNearOrigin{r=2;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+      ]}
+
+1bit_elite_blaze_attack_3_damage_soundSword:
+  Skills:
+  - sound{s=entity.wither.shoot;p=1.70;v=0.2}
+  - sound{s=item.trident.return;p=1.58;v=0.6}
+  - sound{s=entity.zombie.attack_iron_door;p=1.70;v=0.6}
+  - sound{s=item.mace.smash_ground_heavy;p=1.55;v=0.1}
+  - sound{s=item.mace.smash_air;p=1.50;v=0.4}
+  - sound{s=entity.breeze.shoot;p=2.00;v=1.0}
+  - sound{s=item.firecharge.use;p=1.38;v=1.0}
+1bit_elite_blaze_attack_2:
+  Conditions:
+  - altitude{h=1-2.5;onFail=[ - setSkillCooldown{s=1bit_elite_blaze_attack;t=3.2} @self - randomskill{skills=1bit_elite_blaze_attack_1,1bit_elite_blaze_attack_3} ]} true
+  Cooldown: 1
+  Skills:
+  - gcd{t=50} @self
+  - stun{d=50} @self
+  - velocity{m=SET;x=0;y=0;z=0;repeat=50;repeatInterval=1} @self
+  - state{s=attack_2;priority=3;lerpin=10} @self
+  - totem{yo=0;md=2;oS=[
+      - sound{s=entity.player.attack.strong;p=1.50;v=0.5} @self
+      - sound{s=entity.player.attack.nodamage;p=0.55;v=1.0} @self
+      - sound{s=entity.player.attack.weak;p=1.42;v=0.8} @self
+      - sound{s=block.fire.extinguish;p=1.00;v=0.4} @self
+      - sound{s=item.firecharge.use;p=0.75;v=0.5} @self
+      - sound{s=entity.blaze.shoot;p=1.00;v=0.3} @self
+      - sound{s=entity.drowned.shoot;p=1.00;v=1.0} @self
+      - sound{s=item.trident.return;p=1.58;v=1.0} @self
+      - skill{s=[
+          - damage{a="<caster.damage>"} 
+          - setNoDamageTicks{ticks=0;delay=1}
+          - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1}
+          - delay 1
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=2.5} ?!hastag{t=pet}
+      - skill{s=[
+          - damage{a="<caster.damage>"} 
+          - setNoDamageTicks{ticks=0;delay=1}
+          - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=1}
+          - delay 1
+          - ignite{t=100}
+        ];sync=true} @EntitiesNearOrigin{r=2.5;Conditions=[ - isPlayer{} false]} ?hastag{t=pet}
+      ];delay=25;repeat=1;repeatInterval=3} @ModelPart{p=mark}
+  - delay 50
+  - state{s=sword_spin;priority=3;lerpout=10} @self
+
+1bit_elite_blaze_sound_damaged:
+  Skills:
+  - sound{s=entity.blaze.hurt;p=0.90;v=1.0} @self
+  - sound{s=entity.breeze.hurt;p=1.60;v=0.5} @self
+  - sound{s=entity.guardian.hurt;p=1.00;v=0.6} @self
+  - sound{s=entity.iron_golem.hurt;p=1.16;v=0.4} @self
+1bit_elite_blaze_sound_death:
+  Skills:
+  - sound{s=entity.blaze.death;p=0.80;v=1.0} @self
+  - sound{s=entity.husk.death;p=0.70;v=1.0} @self
+  - sound{s=entity.iron_golem.death;p=0.80;v=0.4} @self
+  - sound{s=entity.phantom.death;p=0.80;v=0.6} @self
+  - delay 35
+  - effect:particles{particle=Smoke;speed=0.025;Size=1;a=35;hS=1.5;vS=0.2;y=0.2;repeat=24;repeatInterval=1} @self
+1bit_elite_baby_blaze_sound_death:
+  Skills:
+  - sound{s=entity.blaze.death;p=0.80;v=1.0} @self
+  - sound{s=entity.husk.death;p=0.70;v=1.0} @self
+  - sound{s=entity.iron_golem.death;p=0.80;v=0.4} @self
+  - sound{s=entity.phantom.death;p=0.80;v=0.6} @self
+  - delay 20
+  - effect:particles{particle=Smoke;speed=0.025;Size=1;a=35;hS=1;vS=0.2;y=0.2;repeat=14;repeatInterval=1} @self
+
+1bit_elite_blaze_sound_spawn_s1:
+  Skills:
+  - sound{s=block.creaking_heart.spawn;p=1.00;v=0.8} @self
+  - sound{s=block.frogspawn.break;p=0.77;v=0.5} @self
+  - sound{s=block.trial_spawner.ambient_ominous;p=0.75;v=0.6} @self
+  - sound{s=entity.blaze.ambient;p=0.80;v=0.9} @self
+  - sound{s=particle.soul_escape;p=0.70;v=0.3} @self
+  - sound{s=entity.generic.small_fall;p=0.77;v=0.9} @self
+  - sound{s=entity.warden.heartbeat;p=0.80;v=0.8} @self
+
+1bit_elite_blaze_sound_spawn_s2a1:
+  Skills:
+  - sound{s=entity.player.attack.strong;p=1.50;v=0.5} @self
+  - sound{s=entity.player.attack.nodamage;p=0.55;v=1.0} @self
+  - sound{s=entity.player.attack.weak;p=1.42;v=0.8} @self
+  - sound{s=block.fire.extinguish;p=1.00;v=0.4} @self
+  - sound{s=item.firecharge.use;p=0.75;v=0.5} @self
+  - sound{s=entity.blaze.shoot;p=1.00;v=0.3} @self
+  - sound{s=entity.drowned.shoot;p=1.00;v=1.0} @self
+  - sound{s=item.trident.return;p=1.58;v=1.0} @self
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_1} ?!hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_1} ?!hastag{t=baby}
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_1} ?hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_1} ?hastag{t=baby}
+1bit_elite_blaze_sound_spawn_s2a2:
+  Skills:
+  - sound{s=entity.player.attack.strong;p=1.50;v=0.5} @self
+  - sound{s=entity.player.attack.nodamage;p=0.55;v=1.0} @self
+  - sound{s=entity.player.attack.weak;p=1.42;v=0.8} @self
+  - sound{s=block.fire.extinguish;p=1.00;v=0.4} @self
+  - sound{s=item.firecharge.use;p=0.75;v=0.5} @self
+  - sound{s=entity.blaze.shoot;p=1.00;v=0.3} @self
+  - sound{s=entity.drowned.shoot;p=1.00;v=1.0} @self
+  - sound{s=item.trident.return;p=1.58;v=1.0} @self
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_2} ?!hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_2} ?!hastag{t=baby}
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_2} ?hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_2} ?hastag{t=baby}
+1bit_elite_blaze_sound_spawn_s2a3:
+  Skills:
+  - sound{s=entity.player.attack.strong;p=1.50;v=0.5} @self
+  - sound{s=entity.player.attack.nodamage;p=0.55;v=1.0} @self
+  - sound{s=entity.player.attack.weak;p=1.42;v=0.8} @self
+  - sound{s=block.fire.extinguish;p=1.00;v=0.4} @self
+  - sound{s=item.firecharge.use;p=0.75;v=0.5} @self
+  - sound{s=entity.blaze.shoot;p=1.00;v=0.3} @self
+  - sound{s=entity.drowned.shoot;p=1.00;v=1.0} @self
+  - sound{s=item.trident.return;p=1.58;v=1.0} @self
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_3} ?!hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_3} ?!hastag{t=baby}
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_3} ?hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_3} ?hastag{t=baby}
+1bit_elite_blaze_sound_spawn_s2a4:
+  Skills:
+  - sound{s=entity.player.attack.strong;p=1.50;v=0.5} @self
+  - sound{s=entity.player.attack.nodamage;p=0.55;v=1.0} @self
+  - sound{s=entity.player.attack.weak;p=1.42;v=0.8} @self
+  - sound{s=block.fire.extinguish;p=1.00;v=0.4} @self
+  - sound{s=item.firecharge.use;p=0.75;v=0.5} @self
+  - sound{s=entity.blaze.shoot;p=1.00;v=0.3} @self
+  - sound{s=entity.drowned.shoot;p=1.00;v=1.0} @self
+  - sound{s=item.trident.return;p=1.58;v=1.0} @self
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_4} ?!hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=13;hS=0.35;vS=0.4;y=-1.5} @ModelPart{p=sword_4} ?!hastag{t=baby}
+  - effect:particles{particle=flame;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_4} ?hastag{t=baby}
+  - effect:particles{particle=lava;speed=0.1;Size=1;a=7;hS=0.35;vS=0.4;y=-1} @ModelPart{p=sword_4} ?hastag{t=baby}
+#kENwJTTNl1UhdzTZxUdidnW00WU4ZESipFbWNWMSVUYsZEMNhlV2UFeIZXZnxGRZVXcwgWO

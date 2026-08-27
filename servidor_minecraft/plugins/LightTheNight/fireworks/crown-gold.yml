@@ -1,0 +1,26 @@
+crown-gold:
+  fireworks:
+    ring:
+      type: BALL_LARGE
+      colors:
+        - "#ffdd55"
+        - "#ffc200"
+      fade:
+        - "#ff9d00"
+      power: 2
+      trail: true
+      flicker: true
+      count: 6
+      spread: 1.1
+      ho: 0.5
+    spike:
+      type: BURST
+      colors:
+        - "#fff1a8"
+      power: 1
+      trail: false
+      flicker: true
+      count: 3
+      spread: 0.2
+      delay: 8
+      fo: 0.3

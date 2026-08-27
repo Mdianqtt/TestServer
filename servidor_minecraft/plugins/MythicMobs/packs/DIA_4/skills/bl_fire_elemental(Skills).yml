@@ -1,0 +1,182 @@
+#-------------------------
+#     Made by Bojarsky Legacy 
+#     Discord bojarsky
+#-------------------------
+
+# -- Death -- # 
+
+bl_fire_elemental_death:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=40;speed=0.2;hS=0.5;vS=0.8;delay=30} @modelpart{pid=root;o=model}
+  - sound{s=entity.blaze.ambient;p=0.8;v=3;delay=5} @self
+
+# -- General -- # 
+
+bl_fire_elemental_skills:
+  Skills:
+  - randomskill{s=bl_fire_elemental_strike,bl_fire_elemental_rage,bl_fire_elemental_elemental_blessing} @target
+  #- skill{s=bl_fire_elemental_elemental_blessing} @target
+
+bl_fire_elemental_step:
+  Conditions:
+  - moving true
+  - inblock{b=WATER,LAVA} false
+  - offgcd
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=20;speed=0.2;hS=1;vS=1} @modelpart{pid=root;o=model}
+
+bl_fire_elemental_step2:
+  Conditions:
+  - chance{c=0.5}
+  - moving true
+  - inblock{b=WATER,LAVA} false
+  - offgcd
+  Skills:
+  - sound{s=entity.blaze.ambient;p=0.8;v=3} @self
+
+bl_fire_elemental_idle:
+  Conditions:
+  - moving false
+  - offgcd
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=20;speed=0.2;hS=1;vS=1} @modelpart{pid=root;o=model}
+
+bl_fire_elemental_idle2:
+  Conditions:
+  - chance{c=0.5}
+  - moving false
+  - offgcd
+  Skills:
+  - sound{s=entity.blaze.ambient;p=0.8;v=3} @self
+
+# -- Skills -- #
+
+bl_fire_elemental_strike:
+  Cooldown: 5
+  Conditions:
+  - targetwithin{d=3} true
+  - offgcd
+  Skills:
+  - gcd{ticks=43} @self
+  - state{s=strike} @self
+  - aura{auraName=bl_fire_elemental_strike_totem;oT=bl_fire_elemental_strike_totem_tick;interval=1;duration=7;delay=16} @self
+  - sound{s=entity.blaze.shoot;p=0.8;v=3;delay=14} @self
+  - setspeed{s=0} @self
+  - delay 14
+  - lockmodel{l=true} @self
+  - setspeed{s=1.8} @self
+  - delay 11
+  - setspeed{s=0} @self
+  - lockmodel{l=false} @self
+  - delay 18
+  - setspeed{s=1.2} @self
+
+bl_fire_elemental_strike_totem_tick:
+  Skills:
+  - totem{md=1;oT=bl_ice_elemental_strike_tick;oH=bl_fire_elemental_strike_damage;hr=1.4;vr=1.4;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=bone21;o=model;y=-0.3}
+
+bl_fire_elemental_strike_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=1;hS=0;vS=0;speed=0;size=0.8}
+  
+bl_fire_elemental_strike_damage:
+  Skills:
+  - damage{a=10}
+  - ignite{ticks=40}
+  - shieldbreak{duration=60}
+
+bl_fire_elemental_rage:
+  Cooldown: 7
+  Conditions:
+  - targetwithin{d=5} true
+  - offgcd
+  Skills:
+  - gcd{ticks=45} @self
+  - state{s=rage} @self
+  - aura{auraName=bl_fire_elemental_rage_totem;oT=bl_fire_elemental_rage_totem_tick;interval=1;duration=10;delay=15} @self
+  - sound{s=entity.blaze.shoot;p=0.8;v=3;delay=12} @self
+  - sound{s=bl_elementals.whoosh_elementals;p=0.5;v=3;delay=12} @self
+  - setspeed{s=0} @self
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=20;speed=0.2;hS=2;vS=1;delay=15} @modelpart{pid=root;o=model}
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=20;speed=0.2;hS=2;vS=1;delay=29} @modelpart{pid=root;o=model}
+  - delay 15
+  - lockmodel{l=true} @self
+  - propel{v=2} @forward{f=4;yo=0.1;lockpitch=true}
+  - delay 10
+  - lockmodel{l=false} @self
+  - delay 20
+  - setspeed{s=1.2} @self
+
+bl_fire_elemental_rage_totem_tick:
+  Skills:
+  - totem{md=1;oT=bl_ice_elemental_rage_tick;oH=bl_fire_elemental_rage_damage;hr=1.5;vr=1.5;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=bone21;o=model;z=-1;y=-0.3}
+
+bl_fire_elemental_rage_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=1;hS=0;vS=0;speed=0;size=0.8}
+  
+bl_fire_elemental_rage_damage:
+  Skills:
+  - damage{a=15}
+  - ignite{ticks=40}
+  - shieldbreak{duration=100}
+
+bl_fire_elemental_elemental_blessing:
+  Cooldown: 15
+  Conditions:
+  - targetwithin{d=4} true
+  - offgcd
+  Skills:
+  - gcd{ticks=130} @self
+  - state{s=elemental_blessing} @self
+  - sound{s=entity.blaze.shoot;p=0.8;v=3;delay=19} @self
+  - sound{s=bl_elementals.blessed_elementals;p=1;v=3;delay=19} @self
+  - sound{s=bl_elementals.whoosh_elementals;p=0.5;v=3;delay=19} @self
+  - setspeed{s=0} @self
+  - delay 21
+  - propel{v=2} @forward{f=-4;yo=0.1;lockpitch=true}
+  - summon{m=bl_fire_elemental_blessed;a=1;r=0;yr=0;os=true} @TargetLocation{y=0}
+  - delay 28
+  - setspeed{s=1.2} @self
+
+bl_fire_elemental_elemental_blessing_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_fire_elemental_elemental_blessing_damage;oT=bl_fire_elemental_elemental_blessing_tick;hr=1.5;vr=1.5;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=stones;o=model;z=0;y=0}
+  
+bl_fire_elemental_elemental_blessing_damage:
+  Skills:
+  - damage{a=5}
+  - throw{v=0;vy=0}
+  - ignite{ticks=100}
+  - potion{type=SLOW;duration=10;level=5}
+  - shieldbreak{duration=80}
+
+bl_fire_elemental_elemental_blessing_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#cf5236;color2=#ffe159;amount=10;hS=0.5;vS=0.5;speed=0;size=0.8}
+
+bl_fire_elemental_jump_back:
+  Cooldown: 8
+  Conditions:
+  - chance{c=0.3}
+  - offgcd
+  Skills:
+  - gcd{ticks=38} @self
+  - state{s=jump_back} @self
+  - sound{s=bl_elementals.whoosh_elementals;p=0.5;v=3;delay=8} @self
+  - setspeed{s=0} @self
+  - delay 8
+  - lockmodel{l=true} @self
+  - propel{v=2} @forward{f=-4;yo=0.1;lockpitch=true}
+  - delay 22
+  - lockmodel{l=false} @self
+  - delay 8
+  - setspeed{s=1.2} @self
+
+#-------------------------
+#     Made by Bojarsky Legacy 
+#     Discord bojarsky
+#-------------------------
+
+#63a6df722d1a2ffa49a97aecc91252b3
+#onb2Zke3ckTlp2ZaJVMrFzSVJjU3VlaNBTUE5kMJRlT4NGSWZUYEhTNMhWe4I3aJF3TKd1M

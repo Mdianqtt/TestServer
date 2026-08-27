@@ -1,0 +1,21 @@
+Id: bs_cc_rhino # <-- ID MCPets uses
+MythicMob: BS_CC_Rhino # <-- MythicMob of the pet
+Permission: bisectstudios.pet.bs_cc_rhino # Change or give this permission to players
+Mountable: false
+Distance: 6 # <-- Distance (radius) from the owner before the pet moves toward them
+SpawnRange: 2 # <-- radius it will spawn
+ComingBackRange: 2 # <-- Similar to Distance, but is the distance (radius) the pet will stop away from it's owner when coming back
+Icon:
+  Name: §x§b§e§b§6§8§dC§x§c§1§b§9§8§fu§x§c§5§b§c§9§2r§x§c§8§b§f§9§4i§x§c§b§c§2§9§7o§x§c§e§c§5§9§9u§x§d§2§c§9§9§cs
+    §x§d§5§c§c§9§eR§x§d§8§c§f§a§1h§x§d§b§d§2§a§3i§x§d§f§d§5§a§6n§x§e§2§d§8§a§8o
+  # <-- Name, has to be in console - I use https://rgb.birdflop.com
+
+  Material: BRICK
+  CustomModelData: 2
+  
+  # If you don't want to use the custom model heads, you can delete the above 2 lines and remove the '#' from the next line '#TextureBase64'
+
+    # TextureBase64: 
+  # TextureBase64 is the head it uses - use https://minecraft-heads.com . When you find the head use want, copy the 'Other' > 'Value'
+  Description:
+  - §eCurious Companions - Rhino

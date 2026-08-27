@@ -1,0 +1,11 @@
+type: shaped
+shape:
+- ' ab'
+- ' ca'
+- 'a  '
+source:
+  a: minecraft:gold_ingot
+  b: minecraft:diamond
+  c: items_adder:weapons_me:diamond_spear
+unlock: true
+result: items_adder:weapons_me:diamond_blind_spear 1

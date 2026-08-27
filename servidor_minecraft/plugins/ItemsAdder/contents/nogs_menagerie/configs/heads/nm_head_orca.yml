@@ -1,0 +1,10 @@
+info:
+  namespace: nogs_menagerie
+items:
+  nm_head_orca:
+    display_name: '&fOrca Head'
+    resource:
+      material: PAPER
+      generate: false
+      model_id: 4591
+      model_path: heads/nm_head_orca

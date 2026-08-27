@@ -1,0 +1,51 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+jackpot_2_NORTH:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 NORTH'
+  NBT:
+    MYTHIC_EGG: jackpot_2_NORTH
+  
+jackpot_2_SOUTH:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 SOUTH'
+  NBT:
+    MYTHIC_EGG: jackpot_2_SOUTH
+  
+jackpot_2_WEST:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 WEST'
+  NBT:
+    MYTHIC_EGG: jackpot_2_WEST
+  
+jackpot_2_EAST:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 EAST'
+  NBT:
+    MYTHIC_EGG: jackpot_2_EAST
+
+jackpot_2_converter_NORTH:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 Converter NORTH'
+  NBT:
+    MYTHIC_EGG: jackpot_2_converter_NORTH
+  
+jackpot_2_converter_SOUTH:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 Converter SOUTH'
+  NBT:
+    MYTHIC_EGG: jackpot_2_converter_SOUTH
+  
+jackpot_2_converter_WEST:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 Converter WEST'
+  NBT:
+    MYTHIC_EGG: jackpot_2_converter_WEST
+  
+jackpot_2_converter_EAST:
+  Id: PIG_SPAWN_EGG
+  Display: 'Jackpot 2 Converter EAST'
+  NBT:
+    MYTHIC_EGG: jackpot_2_converter_EAST

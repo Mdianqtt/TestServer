@@ -1,0 +1,3 @@
+# LuckPerms UUID lookup cache
+f1afec0d-dcc8-3917-8765-ef5f0051b637:Mdinqt
+ce03fb61-3ef2-3ed1-8980-c9e51a35f83b:Nucico

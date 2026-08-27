@@ -1,0 +1,88 @@
+bl_shadow_spider:
+  Type: HUSK
+  Display: 'Shadow Spider'
+  Faction: bl_spiders
+  Health: 20
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  - lookatplayers
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Modules:
+    ThreatTable: true
+  Options:
+    MovementSpeed: 0.3
+    FollowRange: 32
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: false
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    Collidable: true
+  Skills:
+  - model{mid=bl_shadow_spider;n=false;step=1;usm=true;save=true;d=true} @self ~onSpawn
+  - model{mid=bl_shadow_spider;n=false;step=1;usm=true;save=true;d=true} @self ~onLoad
+  - CancelEvent{sync=true} @self ~onAttack
+  - setspeed{s=1.2} @self ~onSpawn
+  - skill{s=bl_shadow_spider_death} @self ~onDeath
+  - skill{s=bl_shadow_spider_step} @self ~onTimer:15
+  - skill{s=bl_shadow_spider_idle} @self ~onTimer:80
+  - skill{s=bl_shadow_spider_skills} @target ~onTimer:30
+  - BodyClamp{mh=25;rde=0;rdu=0} @self ~onSpawn
+
+
+bl_shadow_spider_illusion:
+  Type: HUSK
+  Display: 'Shadow Spider'
+  Faction: bl_spiders
+  Health: 10
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  - lookatplayers
+  AITargetSelectors:
+  - clear
+  - attacker
+  - players
+  Modules:
+    ThreatTable: true
+  Options:
+    MovementSpeed: 0.25
+    FollowRange: 24
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: true
+    Invincible: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    Collidable: true
+  Skills:
+  - model{mid=bl_shadow_spider;n=false;step=1;usm=true;save=true;d=true} @self ~onSpawn
+  - model{mid=bl_shadow_spider;n=false;step=1;usm=true;save=true;d=true} @self ~onLoad
+  - CancelEvent{sync=true} @self ~onAttack
+  - setspeed{s=1} @self ~onSpawn
+  - skill{s=bl_shadow_spider_death} @self ~onDeath
+  - skill{s=bl_shadow_spider_step} @self ~onTimer:15
+  - skill{s=bl_shadow_spider_idle} @self ~onTimer:80
+  - skill{s=bl_shadow_spider_skills_illusion} @target ~onTimer:30
+  - BodyClamp{mh=25;rde=0;rdu=0} @self ~onSpawn

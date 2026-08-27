@@ -1,0 +1,19 @@
+
+# ~Written by RopeFire~
+
+CancelEvent:
+  Conditions:
+  - incombat true
+  Skills:
+  - CancelEvent @self
+
+#Spawn
+sculk_spike_summoned:
+  Skills:
+  - sound{s=tugkandeman.sculk_spike1;v=3;p=1} @self
+  - delay 4
+  - damage{a=20;is=true} @LivingInRadius{r=3}
+  - delay 3
+  - sound{s=entity.iron_golem.damage;v=3;p=1} @self
+  - delay 55
+  - remove @self

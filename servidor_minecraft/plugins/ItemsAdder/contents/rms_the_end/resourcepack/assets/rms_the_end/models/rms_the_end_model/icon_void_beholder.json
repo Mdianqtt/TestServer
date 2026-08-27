@@ -1,0 +1,166 @@
+{
+	"credit": "Made by samus2002",
+	"textures": {
+		"1": "rms_the_end:rms_the_end_texture/void_beholder",
+		"particle": "rms_the_end:rms_the_end_texture/void_beholder"
+	},
+	"elements": [
+		{
+			"from": [3.4625, -1.72835, 0.31108],
+			"to": [12.5375, 12.27165, 14.31108],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [2.5, 9.5, 3.625, 11.25], "texture": "#1"},
+				"east": {"uv": [1.25, 7.625, 3, 9.375], "texture": "#1"},
+				"south": {"uv": [3.75, 9.5, 4.875, 11.25], "texture": "#1"},
+				"west": {"uv": [3.125, 7.625, 4.875, 9.375], "texture": "#1"},
+				"up": {"uv": [11.375, 1.75, 10.25, 0], "texture": "#1"},
+				"down": {"uv": [11.375, 4.5, 10.25, 6.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 6.52165, 0.03608],
+			"to": [9, 8.52165, 0.03608],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [14.5, 4.625, 14.625, 4.75], "texture": "#1"},
+				"east": {"uv": [5.75, 2.5, 5.75, 3.25], "texture": "#1"},
+				"south": {"uv": [14.625, 4.625, 14.5, 4.75], "texture": "#1"},
+				"west": {"uv": [5.5, 6, 5.5, 6.75], "texture": "#1"},
+				"up": {"uv": [5.625, 3.375, 4.75, 3.375], "texture": "#1"},
+				"down": {"uv": [7.5, 1.875, 6.625, 1.875], "texture": "#1"}
+			}
+		},
+		{
+			"from": [4.5, 5.27165, 0.18608],
+			"to": [11.5, 10.27165, 0.18608],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4.75, 2.5, 5.625, 3.25], "texture": "#1"},
+				"east": {"uv": [5.75, 2.5, 5.75, 3.25], "texture": "#1"},
+				"south": {"uv": [5.625, 2.5, 4.75, 3.25], "texture": "#1"},
+				"west": {"uv": [5.5, 6, 5.5, 6.75], "texture": "#1"},
+				"up": {"uv": [5.625, 3.375, 4.75, 3.375], "texture": "#1"},
+				"down": {"uv": [7.5, 1.875, 6.625, 1.875], "texture": "#1"}
+			}
+		},
+		{
+			"from": [3.5, 1.47301, 5.9018],
+			"to": [12.5, 13.47301, 26.9018],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [3.625, 11.375, 4.75, 12.875], "texture": "#1"},
+				"east": {"uv": [0, 6, 2.625, 7.5], "texture": "#1"},
+				"south": {"uv": [4.875, 11.375, 6, 12.875], "texture": "#1"},
+				"west": {"uv": [2.75, 6, 5.375, 7.5], "texture": "#1"},
+				"up": {"uv": [8.875, 4.5, 7.75, 1.875], "texture": "#1"},
+				"down": {"uv": [8.875, 4.625, 7.75, 7.25], "texture": "#1"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"gui": {
+			"rotation": [22, 144, 0],
+			"translation": [-1.25, -1, 0],
+			"scale": [0.4, 0.4, 0.4]
+		}
+	},
+	"groups": [
+		{
+			"name": "h_head",
+			"origin": [8, -1.42668, 8.94929],
+			"color": 0,
+			"children": [
+				0,
+				{
+					"name": "h_eye",
+					"origin": [8, 7.64665, 0.16108],
+					"color": 0,
+					"children": [
+						{
+							"name": "h_pupil",
+							"origin": [8, 7.52165, 0.03608],
+							"color": 0,
+							"children": [1]
+						},
+						2,
+						{
+							"name": "p5",
+							"origin": [8.20902, 7.77659, -0.35062],
+							"color": 0,
+							"children": []
+						}
+					]
+				},
+				3,
+				{
+					"name": "h_up_left_tentacle",
+					"origin": [4.94235, 5.08404, 6.86872],
+					"color": 0,
+					"children": [
+						{
+							"name": "h_up_left_tentacle_mid",
+							"origin": [-3.30348, -5.11783, 6.77255],
+							"color": 0,
+							"children": [
+								{
+									"name": "h_up_left_tentacle_end",
+									"origin": [-4.79098, -16.47341, -0.25062],
+									"color": 0,
+									"children": [
+										{
+											"name": "p1",
+											"origin": [-4.79098, -24.47341, -20.25062],
+											"color": 0,
+											"children": []
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "h_up_right_tentacle",
+					"origin": [11.05765, 5.08404, 6.86872],
+					"color": 0,
+					"children": [
+						{
+							"name": "h_up_right_tentacle_mid",
+							"origin": [19.30348, -5.11783, 6.77255],
+							"color": 0,
+							"children": [
+								{
+									"name": "h_up_right_tentacle_end",
+									"origin": [20.79098, -16.47341, -0.25062],
+									"color": 0,
+									"children": [
+										{
+											"name": "p2",
+											"origin": [20.79098, -24.47341, -20.25062],
+											"color": 0,
+											"children": []
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "tag_name",
+					"origin": [8, 13.57332, 5.94929],
+					"color": 0,
+					"children": []
+				},
+				{
+					"name": "mount",
+					"origin": [8, 13.14582, 14.80711],
+					"color": 0,
+					"children": []
+				}
+			]
+		}
+	]
+}

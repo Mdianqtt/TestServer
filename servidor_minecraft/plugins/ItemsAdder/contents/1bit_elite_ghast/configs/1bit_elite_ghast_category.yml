@@ -1,0 +1,12 @@
+info:
+    namespace: 1bit_elite_ghast
+categories:
+    1bit_elite_ghast:
+        name: Elite Ghast Mob
+        enabled: true
+        icon: 1bit_elite_ghast:1bit_elite_ghast_head
+        permission: ia.menu.1bit_elite_ghast
+        items:
+        - 1bit_elite_ghast:1bit_elite_ghast_doll
+        - 1bit_elite_ghast:1bit_elite_ghast_eyes
+        - 1bit_elite_ghast:1bit_elite_ghast_head

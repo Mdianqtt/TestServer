@@ -1,0 +1,55 @@
+tasks:
+  collect:
+    type: "inventory"
+    item: AMETHYST_SHARD
+    amount: 768
+    remove-items-when-complete: false
+    allow-partial-completion: true
+    update-progress: true
+display:
+  name: "&aMisiones de Recolector &8▪ &7Amethyst Shard #3"
+  lore-normal:
+  - "&8Necesitas colocar una cierta cantidad"
+  - "&8de bloques antes de recibir la recompensa."
+  - ""
+  - "&aOpciones:"
+  - "&8■ &7Objetivo: &aRecolectar 768 Amethyst Shard."
+  - "&8■ &7Progreso: &a{collect:progress}/768 amethyst shard."
+  - ""
+  - "&aRecompensas:"
+  - "&8■ &7Usted recibirá &a&l$&a1500&7."
+  - ""
+  - "&c&n¡¡¡Atención!!!"
+  - "&c&oSus artículos serán tomados de su inventario"
+  - "&c&oy se incluirán en el recuento de los progresos."
+  lore-started:
+  - "&e▲ Se ha iniciado la misión."
+  type: "AMETHYST_SHARD"
+# Here you can list messages which will be sent to the player (if they are online) upon the quest starting.
+startstring:
+- "&7Al completar esta misión, serás recompensado con"
+- " &8■ &a&l$&a1500"
+rewards:
+- "eco give {player} 1500"
+# Here you can list messages which will be sent to the player (if they are online) upon completion.
+rewardstring:
+- " &8■ &a&l$&a1500 &7se agregó a tu saldo en el juego."
+
+# These placeholders are accessible using PlaceholderAPI, for example %quests_tracked_p:description%
+# They are useful for putting information about the players tracked quest on a scoreboard
+# You may want to keep the names of them the same for ALL quests for this use-case
+#### TOOSIE NOTE: I removed this section to get rid of all errors when doing /quests a reload.
+ #### I will add it only to people who need it, so contact me on discord if you do.
+options:
+  category: "collecting"
+  requires:
+  - "collect148amethystshard"
+  repeatable: true
+  cooldown:
+    enabled: true
+    time: 2880
+  sort-order: 149
+placeholders:
+  description: ''
+  progress: '{collect:progress}'
+  max: '768'

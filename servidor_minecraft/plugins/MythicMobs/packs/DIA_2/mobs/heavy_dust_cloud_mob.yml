@@ -1,0 +1,36 @@
+
+# ~Written by RopeFire~
+
+heavy_dust_cloud:
+  Type: WOLF
+  Display: ''
+  Faction: VOID SOULS
+  Health: 200
+  Damage: 0
+  DamageModifiers:
+  - SUFFOCATION 0
+  - FALL 0
+  AIGoalSelectors:
+  - clear
+  AITargetSelectors:
+  - clear
+  Options:
+    NoDamageTicks: 10
+    MovementSpeed: 0
+    FollowRange: 50
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: false
+    Invincible: true
+    Collidable: false
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+    MaxCombatDistance: 50
+  Skills: 
+  - skill{s=CancelEvent} @self ~onAttack
+  - model{mid=heavy_dust_cloud;n=false;step=1;usm=true} @self ~onSpawn
+  - model{mid=heavy_dust_cloud;n=false;step=1;usm=true} @self ~onLoad
+  - skill{s=heavy_dust_cloud_summoned} @self ~onSpawn

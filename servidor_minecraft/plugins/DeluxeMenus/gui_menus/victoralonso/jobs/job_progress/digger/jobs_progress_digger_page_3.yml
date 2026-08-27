@@ -1,0 +1,1664 @@
+menu_title: 'ㆽ&f갅ㆾ갊'
+size: 45
+
+items:
+  'JOB':
+    display_name: '%jobsr_chatcolor_digger%%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11013
+    priority: 1
+    slot: 0
+    lore:
+      - '%jobsr_description_digger%'
+      - ''
+      - '&#A1E6D8[Click para ver los pagos]'
+    click_commands:
+      - '[sound] BLOCK_STONE_BUTTON_CLICK_ON 0.3 0.95'
+      - '[player] jobs info digger'
+  'JOB_JOIN':
+    display_name: '%jobsr_chatcolor_digger%%jobsr_name_digger%'
+    material: GOLD_NUGGET
+    model_data: 11014
+    priority: 0
+    slot: 0
+    view_requirement:
+      requirements:
+        jobs_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_digger%"
+          output: 'True'
+    lore:
+      - '%jobsr_description_digger%'
+      - ''
+      - '&#A1E6D8[Click para ver los pagos]'
+    click_commands:
+      - '[sound] BLOCK_STONE_BUTTON_CLICK_ON 0.3 0.95'
+      - '[player] jobs info digger'
+  'TOP_JOB':
+    display_name: '&#F97C16   Top player'
+    material: GOLD_NUGGET
+    model_data: 10000
+    slot: 2
+    lore:
+      - '&#A5ACB8Muestra a los top 10 de %jobsr_chatcolor_digger%%jobsr_name_digger%'
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.8 1.4'
+      - '[player] jobs top digger'
+      - '[close]'
+  'PROFILE_OFF':
+    display_name: '&#F97C16%player_name%'
+    material: head-%player_name%
+    model_data: 10555
+    priority: 1
+    slot: 4
+    lore:
+      - '&8❯ &#A5ACB8Rango: %jobsr_user_title_digger%'
+      - '&8❯ &#A5ACB8Trabajadores: &#FCFCFC%jobsr_totalplayers_digger%'
+      - '&8❯ &#A5ACB8Level Max: &#FCFCFC%jobsr_maxlvl_digger%'
+      - ''
+      - '&7Level: &#FCFCFC%jobsr_user_archived_jobs_level_digger%'
+      - '&#3E3E3E괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ'
+  'PROFILE_JOIN':
+    display_name: '&#F97C16%player_name%'
+    material: head-%player_name%
+    model_data: 10555
+    priority: 0
+    slot: 4
+    view_requirement:
+      requirements:
+        jobs_requirement:
+          type: string contains
+          input: "%jobsr_user_isin_digger%"
+          output: 'True'
+    lore:
+      - '&8❯ &#A5ACB8Rango: %jobsr_user_title_digger%'
+      - '&8❯ &#A5ACB8Trabajadores: &#FCFCFC%jobsr_totalplayers_digger%'
+      - '&8❯ &#A5ACB8Level Max: &#FCFCFC%jobsr_maxlvl_digger%'
+      - ''
+      - '&7Level: &#FCFCFC%jobsr_user_jlevel_digger%'
+      - '&7Progress: &#F19C0B%jobsr_user_jexpunf_digger% &a▲'
+      - '%progress_bar_{jobsr_user_jexp_digger}_c:&#EFE7A5괄ㆼ_p:&#EFE7A5괄ㆼ_r:&#3E3E3E괄ㆼ_l:12_m:{jobsr_user_jmaxexp_digger}_fullbar:&#EFE7A5괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ괄ㆼ% &#F19C0B%jobsr_user_jmexp_digger% EXP'
+  'BACK':
+    material: AIR
+    slot: 7
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.6 1.8'
+      - '[openguimenu] jobs_menu_page_1'
+  'LEAVE_JOB':
+    display_name: '&fAbandonar trabajo'
+    material: GOLD_NUGGET
+    model_data: 10000
+    slot: 8
+    click_commands:
+      - '[openguimenu] job_leaving_digger'
+  'PAGE_NEXT_4':
+    display_name: '&fPágina 4'
+    material: GOLD_NUGGET
+    model_data: 10005
+    slot: 35
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.6 1.8'
+      - '[openguimenu] jobs_progress_digger_page_4'
+  'PAGE_BACK_2':
+    display_name: '&fPágina 2'
+    material: GOLD_NUGGET
+    model_data: 10004
+    slot: 27
+    click_commands:
+      - '[sound] BLOCK_NOTE_BLOCK_HAT 0.6 1.8'
+      - '[openguimenu] jobs_progress_digger_page_2'
+
+#    _                _   _ _ ____
+#   | |   _____ _____| | | | |__ /
+#   | |__/ -_) V / -_) | |_  _|_ \
+#   |____\___|\_/\___|_|   |_|___/
+  'LOCKED_Level 43':
+    display_name: '&#D92625Level 43'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 19
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 3300 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 43':
+    display_name: '&#57D110Level 43'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 19
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 43"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 3300 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 43':
+    display_name: '&#F8CD00Level 43'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 19
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 43"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 3300 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 43':
+    display_name: '&#D92625Level 43'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 19
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 40"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   _ _  _ _
+#   | |   _____ _____| | | | || | |
+#   | |__/ -_) V / -_) | |_  _|_  _|
+#   |____\___|\_/\___|_|   |_|  |_|
+  'LOCKED_Level 44':
+    display_name: '&#D92625Level 44'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 20
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 3400 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 44':
+    display_name: '&#57D110Level 44'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 20
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 44"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 3400 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 44':
+    display_name: '&#F8CD00Level 44'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 20
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 44"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 3400 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 44':
+    display_name: '&#D92625Level 44'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 20
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 40"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   _ _  ___
+#   | |   _____ _____| | | | || __|
+#   | |__/ -_) V / -_) | |_  _|__ \
+#   |____\___|\_/\___|_|   |_||___/
+  'LOCKED_Level 45':
+    display_name: '&#D92625Level 45'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 21
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 3500 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 45':
+    display_name: '&#57D110Level 45'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 21
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 45"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 3500 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 45':
+    display_name: '&#F8CD00Level 45'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 21
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 45"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 3500 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 45':
+    display_name: '&#D92625Level 45'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 21
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 40"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   _ _   __
+#   | |   _____ _____| | | | | / /
+#   | |__/ -_) V / -_) | |_  _/ _ \
+#   |____\___|\_/\___|_|   |_|\___/
+  'LOCKED_Level 46':
+    display_name: '&#D92625Level 46'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 22
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 3600 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 46':
+    display_name: '&#57D110Level 46'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 22
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 46"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 3600 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 46':
+    display_name: '&#F8CD00Level 46'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 22
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 46"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 3600 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 46':
+    display_name: '&#D92625Level 46'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 22
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 45"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   _ _ ____
+#   | |   _____ _____| | | | |__  |
+#   | |__/ -_) V / -_) | |_  _|/ /
+#   |____\___|\_/\___|_|   |_|/_/
+  'LOCKED_Level 47':
+    display_name: '&#D92625Level 47'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 23
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 3700 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 47':
+    display_name: '&#57D110Level 47'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 23
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 47"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 3700 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 47':
+    display_name: '&#F8CD00Level 47'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 23
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 47"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 3700 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 47':
+    display_name: '&#D92625Level 47'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 23
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 45"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   _ _  ___
+#   | |   _____ _____| | | | |( _ )
+#   | |__/ -_) V / -_) | |_  _/ _ \
+#   |____\___|\_/\___|_|   |_|\___/
+  'LOCKED_Level 48':
+    display_name: '&#D92625Level 48'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 24
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 3800 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 48':
+    display_name: '&#57D110Level 48'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 24
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 48"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 3800 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 48':
+    display_name: '&#F8CD00Level 48'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 24
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 48"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 3800 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 48':
+    display_name: '&#D92625Level 48'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 24
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 45"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   _ _  ___
+#   | |   _____ _____| | | | |/ _ \
+#   | |__/ -_) V / -_) | |_  _\_, /
+#   |____\___|\_/\___|_|   |_| /_/
+  'LOCKED_Level 49':
+    display_name: '&#D92625Level 49'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 25
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 3900 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 49':
+    display_name: '&#57D110Level 49'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 25
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 49"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 3900 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 49':
+    display_name: '&#F8CD00Level 49'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 25
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 49"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 3900 ⛃'
+      - '&8 +&a 100 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 49':
+    display_name: '&#D92625Level 49'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 25
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 45"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___  __
+#   | |   _____ _____| | | __|/  \
+#   | |__/ -_) V / -_) | |__ \ () |
+#   |____\___|\_/\___|_| |___/\__/
+  'LOCKED_Level 50':
+    display_name: '&#D92625Level 50'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 28
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 4000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 50':
+    display_name: '&#57D110Level 50'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 28
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 50"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 4000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 50':
+    display_name: '&#F8CD00Level 50'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 28
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 50"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 4000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 50':
+    display_name: '&#D92625Level 50'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 28
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 45"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___ _
+#   | |   _____ _____| | | __/ |
+#   | |__/ -_) V / -_) | |__ \ |
+#   |____\___|\_/\___|_| |___/_|
+  'LOCKED_Level 51':
+    display_name: '&#D92625Level 51'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 29
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 4500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 51':
+    display_name: '&#57D110Level 51'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 29
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 51"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 4500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 51':
+    display_name: '&#F8CD00Level 51'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 29
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 51"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 4500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 51':
+    display_name: '&#D92625Level 51'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 29
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 50"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___ ___
+#   | |   _____ _____| | | __|_  )
+#   | |__/ -_) V / -_) | |__ \/ /
+#   |____\___|\_/\___|_| |___/___|
+  'LOCKED_Level 52':
+    display_name: '&#D92625Level 52'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 30
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 5000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 52':
+    display_name: '&#57D110Level 52'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 30
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 52"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 5000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 52':
+    display_name: '&#F8CD00Level 52'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 30
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 52"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 5000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 52':
+    display_name: '&#D92625Level 52'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 30
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 50"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___ ____
+#   | |   _____ _____| | | __|__ /
+#   | |__/ -_) V / -_) | |__ \|_ \
+#   |____\___|\_/\___|_| |___/___/
+  'LOCKED_Level 53':
+    display_name: '&#D92625Level 53'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 31
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 5500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 53':
+    display_name: '&#57D110Level 53'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 31
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 53"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 5500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 53':
+    display_name: '&#F8CD00Level 53'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 31
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 53"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 5500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 53':
+    display_name: '&#D92625Level 53'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 31
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 50"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___ _ _
+#   | |   _____ _____| | | __| | |
+#   | |__/ -_) V / -_) | |__ \_  _|
+#   |____\___|\_/\___|_| |___/ |_|
+  'LOCKED_Level 54':
+    display_name: '&#D92625Level 54'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 32
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 6000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 54':
+    display_name: '&#57D110Level 54'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 32
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 54"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 6000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 54':
+    display_name: '&#F8CD00Level 54'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 32
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 54"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 6000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 54':
+    display_name: '&#D92625Level 54'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 32
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 50"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___ ___
+#   | |   _____ _____| | | __| __|
+#   | |__/ -_) V / -_) | |__ \__ \
+#   |____\___|\_/\___|_| |___/___/
+  'LOCKED_Level 55':
+    display_name: '&#D92625Level 55'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 33
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 6500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 55':
+    display_name: '&#57D110Level 55'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 33
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 55"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 6500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 55':
+    display_name: '&#F8CD00Level 55'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 33
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 55"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 6500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 55':
+    display_name: '&#D92625Level 55'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 33
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 50"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___   __
+#   | |   _____ _____| | | __| / /
+#   | |__/ -_) V / -_) | |__ \/ _ \
+#   |____\___|\_/\___|_| |___/\___/
+  'LOCKED_Level 56':
+    display_name: '&#D92625Level 56'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 34
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 7000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 56':
+    display_name: '&#57D110Level 56'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 34
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 56"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 7000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 56':
+    display_name: '&#F8CD00Level 56'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 34
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 56"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 7000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 56':
+    display_name: '&#D92625Level 56'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 34
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 55"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___ ____
+#   | |   _____ _____| | | __|__  |
+#   | |__/ -_) V / -_) | |__ \ / /
+#   |____\___|\_/\___|_| |___//_/
+  'LOCKED_Level 57':
+    display_name: '&#D92625Level 57'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 37
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 7500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 57':
+    display_name: '&#57D110Level 57'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 37
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 57"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 7500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 57':
+    display_name: '&#F8CD00Level 57'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 37
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 57"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 7500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 57':
+    display_name: '&#D92625Level 57'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 37
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 55"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___  ___
+#   | |   _____ _____| | | __|( _ )
+#   | |__/ -_) V / -_) | |__ \/ _ \
+#   |____\___|\_/\___|_| |___/\___/
+  'LOCKED_Level 58':
+    display_name: '&#D92625Level 58'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 38
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 8000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 58':
+    display_name: '&#57D110Level 58'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 38
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 58"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 8000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 58':
+    display_name: '&#F8CD00Level 58'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 38
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 58"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 8000 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 58':
+    display_name: '&#D92625Level 58'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 38
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 55"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _   ___ ___
+#   | |   _____ _____| | | __/ _ \
+#   | |__/ -_) V / -_) | |__ \_, /
+#   |____\___|\_/\___|_| |___//_/
+  'LOCKED_Level 59':
+    display_name: '&#D92625Level 59'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 39
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 8500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 59':
+    display_name: '&#57D110Level 59'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 39
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 59"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 8500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 59':
+    display_name: '&#F8CD00Level 59'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 39
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 59"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 8500 ⛃'
+      - '&8 +&a 200 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 59':
+    display_name: '&#D92625Level 59'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 39
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 55"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _    __  __
+#   | |   _____ _____| |  / / /  \
+#   | |__/ -_) V / -_) | / _ \ () |
+#   |____\___|\_/\___|_| \___/\__/
+  'LOCKED_Level 60':
+    display_name: '&#D92625Level 60'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 40
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 9000 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 60':
+    display_name: '&#57D110Level 60'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 40
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 60"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 9000 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 60':
+    display_name: '&#F8CD00Level 60'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 40
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 60"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 9000 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 60':
+    display_name: '&#D92625Level 60'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 40
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 55"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _    __ _
+#   | |   _____ _____| |  / // |
+#   | |__/ -_) V / -_) | / _ \ |
+#   |____\___|\_/\___|_| \___/_|
+  'LOCKED_Level 61':
+    display_name: '&#D92625Level 61'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 41
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 9500 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 61':
+    display_name: '&#57D110Level 61'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 41
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 61"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 9500 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 61':
+    display_name: '&#F8CD00Level 61'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 41
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 61"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 9500 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 61':
+    display_name: '&#D92625Level 61'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 41
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 60"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _    __ ___
+#   | |   _____ _____| |  / /|_  )
+#   | |__/ -_) V / -_) | / _ \/ /
+#   |____\___|\_/\___|_| \___/___|
+  'LOCKED_Level 62':
+    display_name: '&#D92625Level 62'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 42
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 10000 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 62':
+    display_name: '&#57D110Level 62'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 42
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 62"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 10000 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 62':
+    display_name: '&#F8CD00Level 62'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 42
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 62"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 10000 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 62':
+    display_name: '&#D92625Level 62'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 42
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 60"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+#    _                _    __ ____
+#   | |   _____ _____| |  / /|__ /
+#   | |__/ -_) V / -_) | / _ \|_ \
+#   |____\___|\_/\___|_| \___/___/
+  'LOCKED_Level 63':
+    display_name: '&#D92625Level 63'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 3
+    slot: 43
+    lore:
+      - '&#A5ACB8Recompensas:'
+      - '&8 +&6 10500 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'UNLOCKED_Level 63':
+    display_name: '&#57D110Level 63'
+    material: GOLD_NUGGET
+    model_data: 10002
+    priority: 2
+    slot: 43
+    view_requirement:
+      requirements:
+        unlocked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% >= 63"
+    lore:
+      - '&#A5ACB8Reclamado:'
+      - '&8 +&6 10500 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#27A737&lDESBLOQUEADO'
+    click_commands:
+      - '[refresh]'
+  'CURRENT_Level 63':
+    display_name: '&#F8CD00Level 63'
+    material: GOLD_NUGGET
+    model_data: 10003
+    priority: 1
+    slot: 43
+    view_requirement:
+      requirements:
+        current:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% == 63"
+    lore:
+      - '&#A5ACB8Recompensa reclamada:'
+      - '&8 +&6 10500 ⛃'
+      - '&8 +&a 300 EXP'
+      - ''
+      - '&#E3CE00&lLEVEL ACTUAL'
+    click_commands:
+      - '[refresh]'
+  'BLOKED_Description_Level 63':
+    display_name: '&#D92625Level 63'
+    material: GOLD_NUGGET
+    model_data: 10001
+    priority: 0
+    slot: 43
+    view_requirement:
+      requirements:
+        locked:
+          type: javascript
+          expression: "%jobsr_user_jlevel_digger% < 60"
+    lore:
+      - '&#C7CDD6Level up to see'
+      - '&#C7CDD6the rewards.'
+      - ''
+      - '&#E02626&lBLOQUEADO'
+    click_commands:
+      - '[refresh]'

@@ -1,0 +1,14 @@
+
+# ~Written By RopeFire~
+
+random_sculk_screamer:
+  Type: sculk_screamer
+  Worlds: world
+  Chance: 1
+  Priority: 1
+  Action: ADD
+  Biomes: DEEP_DARK
+  PositionType: LAND
+  Cooldown: 60
+  Conditions:
+  - mobsInRadius{a=<1;r=64;type=sculk_screamer}

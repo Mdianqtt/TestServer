@@ -1,0 +1,22 @@
+ special:
+    name: "&8Special ✚ (page %page% ┃ 1)"
+    size: 54
+    buttons:
+      goBack:
+        slot: 4     
+      previousPage:
+        slot: 2
+      nextPage:
+        slot: 6   
+    fillItem:
+        material: ORANGE_STAINED_GLASS_PANE
+        name: ""    
+    items:
+      1:
+        type: item
+        item:
+          mythicMobs: "cointoss"
+          quantity: 1
+        buyPrice: 1000000
+        sellPrice: 10000
+        slot: 10

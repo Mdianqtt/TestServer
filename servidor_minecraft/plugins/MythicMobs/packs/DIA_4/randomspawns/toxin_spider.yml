@@ -1,0 +1,10 @@
+bl_toxin_spider:
+  Action: REPLACE
+  Type: bl_toxin_spider
+  Chance: 0.0
+  Priority: 2
+  UseWorldScaling: true
+  Worlds: world
+  Conditions:
+   - entitytype{t=SPIDER} true
+  Reason: NATURAL

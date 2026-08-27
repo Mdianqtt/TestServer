@@ -1,0 +1,36 @@
+info:
+  namespace: mf_snake_year
+items:
+  mf_snake_year_fan:
+    display_name: fan
+    resource:
+      material: DIAMOND_SWORD
+      model_id: 14555
+      generate: false
+      model_path: mf_snake_year_fan
+  mf_snake_year_sword:
+    display_name: sword
+    resource:
+      material: DIAMOND_SWORD
+      model_id: 14556
+      generate: false
+      model_path: mf_snake_year_sword
+  mf_snake_year_horn:
+    display_name: horn
+    resource:
+      material: DIAMOND_SWORD
+      model_id: 14557
+      generate: false
+      model_path: mf_snake_year_horn
+    behaviours:
+      hat: true
+  mf_snake_year_hat:
+    display_name: hat
+    resource:
+      material: DIAMOND_SWORD
+      model_id: 14558
+      generate: false
+      model_path: mf_snake_year_hat
+    behaviours:
+      hat: true
+# 6354BTS2

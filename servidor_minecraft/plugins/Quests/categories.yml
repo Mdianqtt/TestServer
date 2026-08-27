@@ -1,0 +1,403 @@
+# Categories are a way of grouping up quests.
+# When a player uses /quests, a menu of categories will be presented to them.
+# When a player clicks ona category, a list of quests under that category will show.
+# If categories are disabled, all quests will be shown under one big GUI.
+# Players can access specific categories by command using /quests c [category].
+# If a quest does not have a category, it will not be shown.
+categories:
+  farming:
+    display:
+      name: '&d&lMisiones de Agricultor'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&dDescripción:"
+        - "&d&l* &7En esta categoría puedes encontrar"
+        - "&d&l* &7misiones relacionadas a la &dagricultura&7, en las que"
+        - '&d&l* &7tendrás que &7&ncosechar, romper, recolectar&7 ciertos items/bloques.'
+        - "&r"
+        - "&dOpciones:"
+        - "&d&l* &7Hay actualmente &a&n%quests_category:farming_all% misiones&7 en esta categoría."
+        - "&d&l* &7El nivel de dificultad varía desde: &eMediana &7a &cDifícil"
+        - "&d&l* &7Numero de misiones completadas en esta categoría: &d%quests_category:farming_completed%"
+        - "&r"
+        - "&dRecompensas:"
+        - "&d&l* &7Recompensas tipo: &a&nDinero"
+        - "&d&l* &7Recompensas entre: &a&l$&a150 &7a &c&l$&c2000"
+        - ""
+        - "&d&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:farming_started%"
+      type: "WHEAT"
+  mining:
+    display:
+      name: '&b&lMisiones de Minero'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&bDescripción:"
+        - "&b&l* &7En esta categoría puedes encontrar"
+        - "&b&l* &7misiones relacionadas a &bminar&7, en las que"
+        - '&b&l* &7tendrás que &7&nromper&7 ciertos bloques.'
+        - "&r"
+        - "&bOpciones:"
+        - "&b&l* &7Hay actualmente &a&n%quests_category:mining_all% misiones&7 en esta categoría."
+        - "&b&l* &7El nivel de dificultad varía desde:: &aFácil &7a &cDifícil"
+        - "&b&l* &7Numero de misiones completadas en esta categoría: &b%quests_category:mining_completed%"        
+        - "&r"
+        - "&bRecompensas:"
+        - "&b&l* &7Recompensas tipo: &a&nDinero"
+        - "&b&l* &7Recompensas entre: &a&l$&a250 &7a &4&l$&48000"
+        - ""
+        - "&b&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:mining_started%"       
+      type: "GOLDEN_PICKAXE"
+  collecting:
+    display:
+      name: '&a&lMisiones de Recolector'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&aDescripción:"
+        - "&a&l* &7En esta categoría puedes encontrar"
+        - "&a&l* &7misiones relacionadas a &arecolectar&7, en las que"
+        - '&a&l* &7tendrás que &7&nrecolectar&7 ciertos items/bloques.'
+        - "&r"
+        - "&aOpciones:"
+        - "&a&l* &7Hay actualmente &a&n%quests_category:collecting_all% misiones&7 en esta categoría."
+        - "&a&l* &7El nivel de dificultad varía desde:: &eMediana &7a &cDifícil"
+        - "&a&l* &7Numero de misiones completadas en esta categoría: &a%quests_category:collecting_completed%"        
+        - "&r"
+        - "&aRecompensas:"
+        - "&a&l* &7Recompensas tipo: &a&nDinero"
+        - "&a&l* &7Recompensas entre: &a&l$&a250 &7a &c&l$&c2500"
+        - ""
+        - "&a&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:collecting_started%"       
+      type: "HOPPER"
+  hunter:
+    display:
+      name: '&c&lMisiones de Cazador'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&cDescripción:"
+        - "&c&l* &7En esta categoría puedes encontrar"
+        - "&c&l* &7misiones relacionadas a &ccazar&7, en las que"
+        - '&c&l* &7tendrás que &7&nmatar&7 ciertas entidades.'
+        - "&r"
+        - "&cOpciones:"
+        - "&c&l* &7Hay actualmente &a&n%quests_category:hunter_all% misiones&7 en esta categoría."
+        - "&c&l* &7El nivel de dificultad varía desde:: &eMediana &7a &cDifícil"
+        - "&c&l* &7Numero de misiones completadas en esta categoría: &c%quests_category:hunter_completed%"        
+        - "&r"
+        - "&cRecompensas:"
+        - "&c&l* &7Recompensas tipo: &a&nDinero"
+        - "&c&l* &7Recompensas entre: &e&l$&e500 &7a &4&l$&410000"
+        - ""
+        - "&c&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:hunter_started%"        
+      type: "GOLDEN_SWORD"
+  enchanting:
+    display:
+      name: '&5&lMisiones de Encatamientos'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&5Descripción:"
+        - "&5&l* &7En esta categoría puedes encontrar"
+        - "&5&l* &7misiones relacionadas a &5encantar&7, en las que"
+        - '&5&l* &7tendrás que &7&nencantar&7 ciertos items.'
+        - "&r"
+        - "&5Opciones:"
+        - "&5&l* &7Hay actualmente &a&n%quests_category:enchanting_all% misiones&7 en esta categoría."
+        - "&5&l* &7El nivel de dificultad varía desde:: &aFácil &7a &eMediana"
+        - "&5&l* &7Numero de misiones completadas en esta categoría: &5%quests_category:enchanting_completed%"        
+        - "&r"
+        - "&5Recompensas:"
+        - "&5&l* &7Recompensas tipo: &a&nDinero"
+        - "&5&l* &7Recompensas entre: &a&l$&a250 &7a &c&l$&c2500"
+        - ""
+        - "&5&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:enchanting_started%"       
+      type: "ENCHANTING_TABLE"
+  brewing:
+    display:
+      name: '&e&lMisiones de Alquímia'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&eDescripción:"
+        - "&e&l* &7En esta categoría puedes encontrar"
+        - "&e&l* &7misiones relacionadas a la &ealquímia&7, en las que"
+        - '&e&l* &7tendrás que &7&nfabricar&7 ciertas pociones.'
+        - "&r"
+        - "&eOpciones:"
+        - "&e&l* &7Hay actualmente &a&n%quests_category:brewing_all% misiones&7 en esta categoría."
+        - "&e&l* &7El nivel de dificultad varía desde:: &aFácil &7a &eMediana"
+        - "&e&l* &7Numero de misiones completadas en esta categoría: &e%quests_category:brewing_completed%"        
+        - "&r"
+        - "&eRecompensas:"
+        - "&e&l* &7Recompensas tipo: &a&nDinero"
+        - "&e&l* &7Recompensas entre: &a&l$&a250 &7a &e&l$&e1500"
+        - ""
+        - "&e&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:brewing_started%"       
+      type: "BREWING_STAND"
+  woodcutting:
+    display:
+      name: '&6&lMisiones de Leñador'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&6Descripción:"
+        - "&6&l* &7En esta categoría puedes encontrar"
+        - "&6&l* &7misiones relacionadas a &6leñador&7, en las que"
+        - '&6&l* &7tendrás que &7&ntalar&7 cierta madera.'
+        - "&r"
+        - "&6Opciones:"
+        - "&6&l* &7Hay actualmente &a&n%quests_category:woodcutting_all% misiones&7 en esta categoría."
+        - "&6&l* &7El nivel de dificultad varía desde:: &aFácil &7a &eMediana"
+        - "&6&l* &7Numero de misiones completadas en esta categoría: &6%quests_category:woodcutting_completed%"        
+        - "&r"
+        - "&6Recompensas:"
+        - "&6&l* &7Recompensas tipo: &a&nDinero"
+        - "&6&l* &7Recompensas entre: &a&l$&a250 &7a &c&l$&c2000"
+        - ""
+        - "&6&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:woodcutting_started%"       
+      type: "GOLDEN_AXE"
+  building:
+    display:
+      name: '&2&lMisiones de Constructor'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&2Descripción:"
+        - "&2&l* &7En esta categoría puedes encontrar"
+        - "&2&l* &7misiones relacionadas a la &2construcción&7, en las que"
+        - '&2&l* &7tendrás que &7&ncolocar&7 ciertos bloques.'
+        - "&r"
+        - "&2Opciones:"
+        - "&2&l* &7Hay actualmente &a&n%quests_category:building_all% misiones&7 en esta categoría."
+        - "&2&l* &7El nivel de dificultad varía desde:: &eMediana &7a &cDifícil"
+        - "&2&l* &7Numero de misiones completadas en esta categoría: &2%quests_category:building_completed%"        
+        - "&r"
+        - "&2Recompensas:"
+        - "&2&l* &7Recompensas tipo: &a&nDinero"
+        - "&2&l* &7Recompensas entre: &a&l$&a250 &7a &c&l$&c2500"
+        - ""
+        - "&2&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:building_started%"       
+      type: "QUARTZ_BLOCK"
+  crafting:
+    display:
+      name: '&f&lMisiones de Elaboración'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&fDescripción:"
+        - "&f&l* &7En esta categoría puedes encontrar"
+        - "&f&l* &7misiones relacionadas a &felaborar&7, en las que"
+        - '&f&l* &7tendrás que &7&nelaborar&7 ciertos items.'
+        - "&r"
+        - "&fOpciones:"
+        - "&f&l* &7Hay actualmente &a&n%quests_category:crafting_all% misiones&7 en esta categoría."
+        - "&f&l* &7El nivel de dificultad varía desde:: &aFácil &7a &eMediana"
+        - "&f&l* &7Numero de misiones completadas en esta categoría: &f%quests_category:crafting_completed%"        
+        - "&r"
+        - "&fRecompensas:"
+        - "&f&l* &7Recompensas tipo: &a&nDinero"
+        - "&f&l* &7Recompensas entre: &a&l$&a150 &7a &c&l$&c2000"
+        - ""
+        - "&f&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:crafting_started%"       
+      type: "CRAFTING_TABLE"
+  digging:
+    display:
+      name: '&e&lMisiones de Cavador'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&eDescripción:"
+        - "&e&l* &7En esta categoría puedes encontrar"
+        - "&e&l* &7misiones relacionadas a &eexcavar&7 en las que"
+        - '&e&l* &7tendrás que &7&ncavar&7 ciertos bloques.'
+        - "&r"
+        - "&eOpciones:"
+        - "&e&l* &7Hay actualmente &a&n%quests_category:digging_all% misiones&7 en esta categoría."
+        - "&e&l* &7El nivel de dificultad varía desde:: &aFácil &7a &eMediana"
+        - "&e&l* &7Numero de misiones completadas en esta categoría: &e%quests_category:digging_completed%"        
+        - "&r"
+        - "&eRecompensas:"
+        - "&e&l* &7Recompensas tipo: &a&nDinero"
+        - "&e&l* &7Recompensas entre: &a&l$&a250 &7a &c&l$&c2000"
+        - ""
+        - "&e&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:digging_started%"      
+      type: "GOLDEN_SHOVEL"
+  activities:
+    display:
+      name: '&9&lMisiones de Actividades'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&9Descripción:"
+        - "&9&l* &7En esta categoría puedes encontrar"
+        - "&9&l* &7misiones relacionadas a &9animales&7, en las que"
+        - '&9&l* &7tendrás que &7&ndomar, criar, esquilar&7 ciertos animales.'
+        - "&r"
+        - "&9Opciones:"
+        - "&9&l* &7Hay actualmente &a&n%quests_category:activities_all% misiones&7 en esta categoría."
+        - "&9&l* &7El nivel de dificultad varía desde:: &aFácil &7a &cDifícil"
+        - "&9&l* &7Numero de misiones completadas en esta categoría: &9%quests_category:activities_completed%"        
+        - "&r"
+        - "&9Recompensas:"
+        - "&9&l* &7Recompensas tipo: &a&nDinero"
+        - "&9&l* &7Recompensas entre: &e&l$&e500 &7a &c&l$&c2000"
+        - ""
+        - "&9&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:activities_started%"        
+      type: "LEAD"
+  misc:
+    display:
+      name: '&6&lMisiones Diversas'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&6Descripción:"
+        - "&6&l* &7En esta categoría puedes encontrar"
+        - "&6&l* &7misiones &6diversas &7en las que"
+        - '&6&l* &7tendrás que &7&nhacer&7 ciertas cosas.'
+        - "&r"
+        - "&6Opciones:"
+        - "&6&l* &7Hay actualmente &a&n%quests_category:misc_all% misiones&7 en esta categoría."
+        - "&6&l* &7El nivel de dificultad varía desde:: &eMediana &7a &cDifícil"
+        - "&6&l* &7Numero de misiones completadas en esta categoría: &6%quests_category:misc_completed%"        
+        - "&r"
+        - "&6Recompensas:"
+        - "&6&l* &7Recompensas tipo: &a&nDinero"
+        - "&6&l* &7Recompensas entre: &a&l$&a50 &7a &c&l$&c3000"
+        - ""
+        - "&6&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:misc_started%"       
+      type: "SADDLE"
+  fishing:
+    display:
+      name: '&3&lMisiones de Pescador'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&3Descripción:"
+        - "&3&l* &7En esta categoría puedes encontrar"
+        - "&3&l* &7misiones relacionadas a &3pescar&7, en las que"
+        - '&3&l* &7tendrás que &7&npescar&7 ciertos items.'
+        - "&r"
+        - "&3Opciones:"
+        - "&3&l* &7Hay actualmente &a&n%quests_category:fishing_all% misiones&7 en esta categoría."
+        - "&3&l* &7El nivel de dificultad varía desde:: &aFácil &7a &eMediana"
+        - "&3&l* &7Numero de misiones completadas en esta categoría: &3%quests_category:fishing_completed%"        
+        - "&r"
+        - "&3Recompensas:"
+        - "&3&l* &7Recompensas tipo: &a&nDinero"
+        - "&3&l* &7Recompensas entre: &a&l$&a50 &7a &e&l$&e1250"
+        - ""
+        - "&3&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:fishing_started%"       
+      type: "FISHING_ROD"
+  impossible:
+    display:
+      name: '&4&lMisiones Imposibles'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&4Descripción:"
+        - "&4&l* &7En esta categoría puedes encontrar"
+        - "&4&l* &7the most &4impossible&7 quests en las que"
+        - '&4&l* &7tendrás que &7&ndo&7 ciertas cosas.'
+        - "&r"
+        - "&4Opciones:"
+        - "&4&l* &7Hay actualmente &a&n%quests_category:impossible_all% misiones&7 en esta categoría."
+        - "&4&l* &7El nivel de dificultad varía desde:: &cDifícil &7a &4Impossible"
+        - "&4&l* &7Numero de misiones completadas en esta categoría: &4%quests_category:impossible_completed%"         
+        - "&r"
+        - "&4Recompensas:"
+        - "&4&l* &7Recompensas tipo: &a&nDinero"
+        - "&4&l* &7Rewards from: &4&l$&43000"
+        - ""
+        - "&4&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:impossible_started%"        
+      type: "ENDER_EYE"      
+  weaponsmith:
+    display:
+      name: '&8&lMisiones de Armero'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&8Descripción:"
+        - "&8&l* &7En esta categoría puedes encontrar"
+        - "&8&l* &7misiones relacionadas a &8armería&7 en las que"
+        - '&8&l* &7tendrás que &7&nelaborar/obtener&7 ciertas herramientas/armaduras.'
+        - "&r"
+        - "&8Opciones:"
+        - "&8&l* &7Hay actualmente &a&n%quests_category:weaponsmith_all% misiones&7 en esta categoría."
+        - "&8&l* &7El nivel de dificultad varía desde:: &aFácil &7a &eMediana"
+        - "&8&l* &7Numero de misiones completadas en esta categoría: &8%quests_category:weaponsmith_completed%"        
+        - "&r"
+        - "&8Recompensas:"
+        - "&8&l* &7Recompensas tipo: &a&nDinero"
+        - "&8&l* &7Recompensas entre: &a&l$&a50 &7a &e&l$&e1000"
+        - ""
+        - "&8&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:weaponsmith_started%"        
+      type: "ANVIL"
+  customquests:
+    display:
+      name: '&#34495e&lPlantillas de misiones personalizadas '
+      lore:
+        - "&7Haga clic para ver esta categoría"
+        - "&r"
+        - "&#34495eDescripción:"
+        - "&#34495e&l* &7Esta categoría es opcional y está destinada a ser utilizada únicamente por los propietarios."
+        - "&#34495e&l* &7que tienen los complementos necesarios para completar misiones. Si quieres "
+        - '&#34495e&l* &7usa las misiones de esta categoría, edítalas según tus preferencias.'
+        - "&r"
+        - "&#34495eOpciones:"
+        - "&#34495e&l* &7Hay actualmente &#34495e&n%quests_category:customquests_all% misiones&7 en esta categoría."
+        - "&#34495e&l* &7El nivel de dificultad varía desde: &a[InsertDifficulty] &7a &c[InsertDifficulty]"
+        - "&#34495e&l* &7Numero de misiones completadas en esta categoría: &a%quests_category:customquests_completed%"        
+        - "&r"
+        - "&#34495eRecompensas:"
+        - "&#34495e&l* &7Recompensas tipo: &a&n[InsertRewardType]"
+        - "&#34495e&l* &7Recompensas entre: &a[InsertRewardNumber] &7to &c[InsertRewardNumber]"
+        - ""
+        - "&#34495e&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:customquests_started%"        
+      type: "NAME_TAG"
+  smelting:
+    display:
+      name: '&c&lMisiones de fundición'
+      lore:
+        - "&7Haga clic para ver esta categoría"
+        - "&r"
+        - "&cDescripción:"
+        - "&c&l* &7En esta categoría puedes encontrar"
+        - "&c&l* &7misiones relacionadas a &cfundición&7 en las que"
+        - '&c&l* &7tendrás que &7&ncocinero o fundidor&7 ciertos artículos.'
+        - "&r"
+        - "&cOpciones:"
+        - "&c&l* &7Hay actualmente &a&n%quests_category:smelting_all% misiones&7 en esta categoría."
+        - "&c&l* &7El nivel de dificultad varía desde: &aFácil &7to &eMedio"
+        - "&c&l* &7Numero de misiones completadas en esta categoría: &c%quests_category:smelting_completed%"        
+        - "&r"
+        - "&cRecompensas:"
+        - "&c&l* &7Recompensas tipo: &a&nDinero"
+        - "&c&l* &7Recompensas entre: &a&l$&a50 &7a &e&l$&e1000"
+        - ""
+        - "&c&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:smelting_started%"        
+      type: "BLAST_FURNACE"
+  expquests:
+    display:
+      name: '&a&lMisiones de EXP'
+      lore:
+        - "&7Click para ver esta categoría"
+        - "&r"
+        - "&aDescripción:"
+        - "&a&l* &7En esta categoría puedes encontrar"
+        - "&a&l* &7una variedad de misiones, en las que"
+        - '&a&l* &7tendrás que hacer &7&nciertas cosas&7 para ganar &a&nexp como recompensa&7.'
+        - "&r"
+        - "&aOpciones:"
+        - "&a&l* &7Hay actualmente &a&n%quests_category:expquests_all% misiones&7 en esta categoría."
+        - "&a&l* &7El nivel de dificultad varía desde:: &aFácil &7a &cDifícil"
+        - "&a&l* &7Numero de misiones completadas en esta categoría: &a%quests_category:expquests_completed%"        
+        - "&r"
+        - "&aRecompensas:"
+        - "&a&l* &7Recompensas tipo: &d&nEXP"
+        - "&a&l* &7Recompensas entre: &d160 exp &7a &52,045 exp"
+        - ""
+        - "&a&l* &7Misiones iniciales de esta categoría: &7&n%quests_category:expquests_started%"        
+      type: "EXPERIENCE_BOTTLE"

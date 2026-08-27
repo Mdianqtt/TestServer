@@ -1,0 +1,156 @@
+
+1bit_elite_ghast_shoot:
+  Cooldown: 7
+  Conditions:
+  - offgcd
+  Skills:
+  - randomskill{skills=1bit_elite_ghast_shoot1 0.6,1bit_elite_ghast_shoot2 0.4} @self
+
+1bit_elite_ghast_shoot1:
+  Conditions:
+  - offgcd
+  Skills:
+  - gcd{t=40} @self
+  - stun{d=40;ai=false;g=false;f=true} @self
+  - state{m=1bit_elite_ghast;s=attack_1} @self
+  - skill{s=1bit_elite_ghast_shoot_sound;sync=true} @self
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=11} @self
+  - skill{s=1bit_elite_ghast_shoot_sa;sync=true;delay=11} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=21} @self
+  - skill{s=1bit_elite_ghast_shoot_sa;sync=true;delay=21} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=27} @self
+  - skill{s=1bit_elite_ghast_shoot_sa;sync=true;delay=27} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+
+1bit_elite_ghast_shoot2:
+  Conditions:
+  - offgcd
+  Skills:
+  - gcd{t=80} @self
+  - stun{d=80;ai=false;g=false;f=true} @self
+  - state{m=1bit_elite_ghast;s=attack_2} @self
+  - skill{s=1bit_elite_ghast_shoot_sound;sync=true} @self
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=24} @self
+  - skill{s=1bit_elite_ghast_shoot_sad;sync=true;delay=24} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=34} @self
+  - skill{s=1bit_elite_ghast_shoot_sad;sync=true;delay=34} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=43} @self
+  - skill{s=1bit_elite_ghast_shoot_sad;sync=true;delay=43} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=54} @self
+  - skill{s=1bit_elite_ghast_shoot_sad;sync=true;delay=54} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=63} @self
+  - skill{s=1bit_elite_ghast_shoot_sad;sync=true;delay=63} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+
+1bit_elite_ghast_shoot_sa:
+  TargetConditions:
+  - fieldofview{angle=120} true
+  Skills:
+  - shootfireball{y=2.3;v=1.75;type=LARGE;incendiary=true;fireTicks=5}
+
+1bit_elite_ghast_shoot_sad:
+  TargetConditions:
+  - fieldofview{angle=120} true
+  Skills:
+  - shootfireball{y=2.3;v=2.25;type=LARGE;incendiary=true;fireTicks=5}
+
+
+1bit_elite_baby_ghast_shoot:
+  Cooldown: 7
+  Conditions:
+  - offgcd
+  Skills:
+  - randomskill{skills=1bit_elite_baby_ghast_shoot1 0.6,1bit_elite_baby_ghast_shoot2 0.4} @self
+
+1bit_elite_baby_ghast_shoot1:
+  Conditions:
+  - offgcd
+  Skills:
+  - gcd{t=40} @self
+  - stun{d=40;ai=false;g=false;f=true} @self
+  - state{m=1bit_elite_baby_ghast;s=attack_1} @self
+  - skill{s=1bit_elite_ghast_shoot_sound;sync=true} @self
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=9} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sa;sync=true;delay=9} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=19} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sa;sync=true;delay=19} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=29} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sa;sync=true;delay=29} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+
+1bit_elite_baby_ghast_shoot_sa:
+  TargetConditions:
+  - fieldofview{angle=120} true
+  Skills:
+  - shootfireball{y=1.35;v=1.25;type=LARGE;incendiary=true;fireTicks=5}
+
+1bit_elite_baby_ghast_shoot2:
+  Cooldown: 6
+  Conditions:
+  - offgcd
+  Skills:
+  - gcd{t=40} @self
+  - stun{d=40;ai=false;g=false;f=true} @self
+  - state{m=1bit_elite_baby_ghast;s=attack_2} @self
+  - skill{s=1bit_elite_ghast_shoot_sound;sync=true} @self
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=21} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sad;sync=true;delay=21} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=32} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sad;sync=true;delay=32} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=42} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sad;sync=true;delay=42} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=52} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sad;sync=true;delay=52} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+  - sound{s=entity.ghast.shoot;p=0.90;v=3;delay=62} @self
+  - skill{s=1bit_elite_baby_ghast_shoot_sad;sync=true;delay=62} @EntitiesNearOrigin{r=55;limit=1;sort=RANDOM;Conditions=[ - isPlayer{}]}
+
+1bit_elite_baby_ghast_shoot_sad:
+  TargetConditions:
+  - fieldofview{angle=120} true
+  Skills:
+  - shootfireball{y=1.35;v=1.25;type=LARGE;incendiary=true;fireTicks=5}
+
+
+1bit_elite_ghast_shoot_sound:
+  Skills:
+  - sound{s=entity.warden.listening_angry;p=2.00;v=3.0} @self
+  - sound{s=entity.warden.listening;p=2.00;v=2.0} @self
+  - sound{s=entity.ghast.warn;p=0.85;v=3.0} @self
+  - sound{s=entity.happy_ghast.unequip;p=1.00;v=3.0} @self
+
+1bit_elite_ghast_spawn:
+  Skills:
+  - sound{s=event.mob_effect.bad_omen;p=2.00;v=3.0} @self
+  - sound{s=particle.soul_escape;p=1.15;v=2} @self
+  - sound{s=entity.ghast.scream;p=0.88;v=1.0} @self
+
+1bit_elite_ghast_damaged:
+  Skills:
+  - sound{s=entity.ghast.hurt;p=0.70;v=1.0} @self
+  - sound{s=particle.soul_escape;p=1.50;v=0.4} @self
+
+1bit_elite_ghast_death:
+  Skills:
+  - sound{s=entity.ghast.death;p=0.81;v=2} @self
+  - sound{s=entity.husk.death;p=0.95;v=1} @self
+  - sound{s=particle.soul_escape;p=1.00;v=2} @self
+  - delay 10
+  - sound{s=entity.creaking.twitch;p=1.40;v=2} @self
+  - sound{s=entity.breeze.inhale;p=0.50;v=2} @self
+  - sound{s=entity.breeze.charge;p=0.50;v=2} @self
+  - sound{s=entity.parrot.imitate.creaking;p=1.00;v=2} @self
+  - delay 10
+  - effect:particles{particle=White_Smoke;speed=0.025;Size=1;a=35;hS=2.5;vS=2.3;y=1.75;repeat=15;repeatInterval=2} @self
+  - effect:particles{particle=White_Ash;speed=0.005;Size=1;a=35;hS=2.5;vS=2.3;y=1.75;repeat=15;repeatInterval=2} @self
+
+1bit_elite_baby_ghast_death:
+  Skills:
+  - sound{s=entity.ghast.death;p=0.81;v=2} @self
+  - sound{s=entity.husk.death;p=0.95;v=1} @self
+  - sound{s=particle.soul_escape;p=1.00;v=2} @self
+  - delay 10
+  - sound{s=entity.creaking.twitch;p=1.40;v=2} @self
+  - sound{s=entity.breeze.inhale;p=0.50;v=2} @self
+  - sound{s=entity.breeze.charge;p=0.50;v=2} @self
+  - sound{s=entity.parrot.imitate.creaking;p=1.00;v=2} @self
+  - delay 10
+  - effect:particles{particle=White_Smoke;speed=0.025;Size=1;a=10;hS=1.2;vS=1.2;y=0.85;repeat=15;repeatInterval=2} @self
+  - effect:particles{particle=White_Ash;speed=0.005;Size=1;a=20;hS=1.2;vS=1.2;y=0.85;repeat=15;repeatInterval=2} @self
+

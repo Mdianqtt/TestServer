@@ -1,0 +1,100 @@
+quest-progress:
+  farming89cocoa:
+    started: false
+    started-date: 1733714438421
+    completed: false
+    completed-before: false
+    completion-date: 0
+    task-progress:
+      break:
+        completed: false
+  custom1shopguibuy:
+    started: false
+    started-date: 1733785851371
+    completed: true
+    completed-before: true
+    completion-date: 1733785851371
+    task-progress:
+      shopguibuy:
+        completed: false
+  misc17helpcommand:
+    started: false
+    started-date: 1734230417864
+    completed: true
+    completed-before: true
+    completion-date: 1734230417864
+    task-progress:
+      command:
+        completed: false
+  misc19spawncommand:
+    started: false
+    started-date: 1734230438164
+    completed: true
+    completed-before: true
+    completion-date: 1734230438164
+    task-progress:
+      command:
+        completed: false
+  mining21ironore:
+    started: false
+    started-date: 1765336554397
+    completed: false
+    completed-before: false
+    completion-date: 0
+    task-progress:
+      mine:
+        completed: false
+  mining13andesite:
+    started: false
+    started-date: 1765336553026
+    completed: false
+    completed-before: false
+    completion-date: 0
+    task-progress:
+      mine:
+        completed: false
+  mining1stone:
+    started: false
+    started-date: 1765336540942
+    completed: false
+    completed-before: false
+    completion-date: 0
+    task-progress:
+      mine:
+        completed: false
+  mining29redstoneore:
+    started: false
+    started-date: 1765336555877
+    completed: false
+    completed-before: false
+    completion-date: 0
+    task-progress:
+      mine:
+        completed: false
+  activities3milk:
+    started: false
+    started-date: 1765336615367
+    completed: true
+    completed-before: true
+    completion-date: 1765336615367
+    task-progress:
+      activity:
+        completed: false
+  activities2milk:
+    started: false
+    started-date: 1765336594167
+    completed: true
+    completed-before: true
+    completion-date: 1765336594167
+    task-progress:
+      activity:
+        completed: false
+  activities1milk:
+    started: false
+    started-date: 1765336576367
+    completed: true
+    completed-before: true
+    completion-date: 1765336576367
+    task-progress:
+      activity:
+        completed: false

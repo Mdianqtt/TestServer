@@ -1,0 +1,1 @@
+{"textures":{"1":"modelengine:entity/nm_mini_you_archer_extras_texture"},"elements":[{"from":[8.0,7.4875,8.125],"to":[8.0,8.4875,13.125],"faces":{"east":{"uv":[9.0,2.0,14.0,3.0],"tintindex":0,"rotation":0,"texture":"#1"},"west":{"uv":[9.0,3.0,14.0,4.0],"tintindex":0,"rotation":0,"texture":"#1"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

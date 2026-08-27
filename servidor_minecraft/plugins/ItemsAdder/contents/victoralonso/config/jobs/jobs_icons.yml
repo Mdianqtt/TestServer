@@ -1,0 +1,531 @@
+info:
+  namespace: "victoralonso"
+items:
+  empty_texture:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10000
+      generate: false
+      model_path: "victoralonso/empty_texture"
+  progress_locked:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10001
+      generate: false
+      model_path: "victoralonso/jobs/progress/locked"
+  progress_unlocked:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10002
+      generate: false
+      model_path: "victoralonso/jobs/progress/unlocked"
+  progress_current:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10003
+      generate: false
+      model_path: "victoralonso/jobs/progress/current"
+  button_back:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10004
+      generate: false
+      model_path: "victoralonso/jobs/button_back"
+  button_next:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10005
+      generate: false
+      model_path: "victoralonso/jobs/button_next"
+  quest_daily:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10006
+      generate: false
+      model_path: "victoralonso/jobs/quest/quest_daily"
+  quest_log:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 10007
+      generate: false
+      model_path: "victoralonso/jobs/quest/quest_log"
+  button_comingsoon:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11000
+      generate: false
+      model_path: "victoralonso/jobs/button_comingsoon"
+  brewer:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11001
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/brewer"
+  brewer_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11002
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/brewer_select"
+  brewer_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11003
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/brewer_disable"
+  builder:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11004
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/builder"
+  builder_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11005
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/builder_select"
+  builder_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11006
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/builder_disable"
+  cooker:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11007
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/cooker"
+  cooker_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11008
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/cooker_select"
+  cooker_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11009
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/cooker_disable"
+  crafter:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11010
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/crafter"
+  crafter_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11011
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/crafter_select"
+  crafter_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11012
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/crafter_disable"
+  digger:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11013
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/digger"
+  digger_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11014
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/digger_select"
+  digger_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11015
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/digger_disable"
+  enchanter:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11016
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/enchanter"
+  enchanter_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11017
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/enchanter_select"
+  enchanter_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11018
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/enchanter_disable"
+  engineer:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11019
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/engineer"
+  engineer_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11020
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/engineer_select"
+  engineer_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11021
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/engineer_disable"
+  explorer:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11022
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/explorer"
+  explorer_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11023
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/explorer_select"
+  explorer_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11024
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/explorer_disable"
+  farmer:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11025
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/farmer"
+  farmer_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11026
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/farmer_select"
+  farmer_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11027
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/farmer_disable"
+  fisherman:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11028
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/fisherman"
+  fisherman_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11029
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/fisherman_select"
+  fisherman_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11030
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/fisherman_disable"
+  florist:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11031
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/florist"
+  florist_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11032
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/florist_select"
+  florist_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11033
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/florist_disable"
+  hunter:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11034
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/hunter"
+  hunter_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11035
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/hunter_select"
+  hunter_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11036
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/hunter_disable"
+  miner:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11037
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/miner"
+  miner_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11038
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/miner_select"
+  miner_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11039
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/miner_disable"
+  smelter:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11040
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/smelter"
+  smelter_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11041
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/smelter_select"
+  smelter_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11042
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/smelter_disable"
+  tamer:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11043
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/tamer"
+  tamer_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11044
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/tamer_select"
+  tamer_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11045
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/tamer_disable"
+  taster:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11046
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/taster"
+  taster_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11047
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/taster_select"
+  taster_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11048
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/taster_disable"
+  trader:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11049
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/trader"
+  trader_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11050
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/trader_select"
+  trader_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11051
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/trader_disable"
+  weaponsmith:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11052
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/weaponsmith"
+  weaponsmith_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11053
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/weaponsmith_select"
+  weaponsmith_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11054
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/weaponsmith_disable"
+  woodcutter:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11055
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/woodcutter"
+  woodcutter_select:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11056
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/woodcutter_select"
+  woodcutter_disable:
+    enabled: true
+    display_name: ' '
+    resource:
+      material: GOLD_NUGGET
+      model_id: 11057
+      generate: false
+      model_path: "victoralonso/jobs/jobs_icons/woodcutter_disable"

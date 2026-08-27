@@ -1,0 +1,22 @@
+Id: Nocsy_Cat-Fallen
+MythicMob: Nocsy_Cat-Fallen
+Permission: mcpets.nocsy_fallen
+Mountable: false
+Distance: 6
+SpawnRange: 1
+ComingBackRange: 3
+Icon:
+  Name: §cFallen Cat
+  Material: BLAZE_ROD
+  CustomModelData: 87607
+  Description:
+  - §7Meow :3
+Signals:
+  Values:
+  - PLAY
+  Item:
+    Name: §cThread ball
+    Material: BLAZE_ROD
+    CustomModelData: 87600
+    Description:
+    - §7Right click to throw a thread ball

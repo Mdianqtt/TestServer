@@ -1,0 +1,52 @@
+Huevo_Invocar_Pollos:
+  Cooldown: 120
+  Skills:
+  # 1. Efecto de eclosión
+  - sound{s=entity.chicken.egg;p=0.5;v=2} @self
+  - effect:particles{p=block;m=gold_block;amount=40;hS=1;vS=1} @self
+  
+  # 2. Invocar a los 3 guardaespaldas
+  # Usamos un pequeño delay entre ellos para que no spawneen pegados
+  - summon{mob=PolloGuardaespaldas;amount=1;r=3} @self
+  - delay 2
+  - summon{mob=PolloGuardaespaldas;amount=1;r=3} @self
+  - delay 2
+  - summon{mob=PolloGuardaespaldas;amount=1;r=3} @self
+  - delay 2
+  - summon{mob=PolloGuardaespaldas;amount=1;r=3} @self
+  - delay 15
+  - consumeuseditem @self
+
+Pollo_Muerte_Programada:
+  Skills:
+  - delay 300 # Espera 15 segundos (300 ticks)
+  - effect:particles{p=poof;amount=10;hS=0.5;vS=0.5} # Humito al irse
+  - sound{s=entity.chicken.death;p=1.5;v=1}
+  - remove @self
+
+
+  # TOTEM AUREO-----------------------------------
+
+
+Totem_Check_Vida:
+  Cooldown: 1
+  Conditions:
+  # Probamos con el rango de 0 a 0.25 (que es el 25%)
+  # Esta sintaxis es la que menos errores internos genera
+  - health 0-5 # Si el jugador tiene 20 de vida, 5 es el 25%
+  - holding{i=TotemAureo} true
+  Skills:
+  - sound{s=item.totem.use;p=1.5;v=1} @self
+  - effect:particles{p=totem;amount=50;hS=1;vS=1.5;speed=0.5} @self
+  - effect:particles{p=flash;amount=1;y=1} @self
+  - heal{a=8} @self
+  - potion{type=RESISTANCE;duration=80;level=3} @self
+  - potion{type=REGENERATION;duration=100;level=2} @self
+  - skill{s=Totem_Onda_Choque} @EntitiesInRadius{r=6;ignore=players}
+  - consumeuseditem @self
+
+Totem_Onda_Choque:
+  Skills:
+  - velocity{set;x=0;y=0.5;z=0}
+  - throw{velocity=10;vVelocity=5}
+  - effect:particles{p=cloud;amount=20;hS=1;vS=0.1}

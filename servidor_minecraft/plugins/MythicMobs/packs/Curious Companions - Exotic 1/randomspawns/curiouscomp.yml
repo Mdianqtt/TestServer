@@ -1,0 +1,13 @@
+curiouscompanions_pets:
+  Action: ADD
+  Types:
+  - BS_CC_Elephant 001
+  - BS_CC_Rhino 001
+  - BS_CC_Hippo 001
+  Chance: 0.001
+  Priority: 3
+  UseWorldScaling: false
+  Worlds: world
+  Biomes: SAVANNA
+  Conditions:
+  - day true

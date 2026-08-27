@@ -1,0 +1,78 @@
+
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+adventurer_loot_crane:
+  Type: CAT
+  Name: 'Adventurers Loot Crane'
+  AIGoalSelectors:
+  - clear
+  AITargetSelectors:
+  - clear
+  Options:
+    PreventOtherDrops: true
+    Invincible: true
+    Silent: true
+    Collidable: false
+    Despawn: false
+    Persistent: true
+  Equipment:
+    - torch:0
+  Skills:
+  - model{mid=littleroom_cranegame} @self ~onSpawn
+  - model{mid=littleroom_cranegame;force=true} @self ~onTimer:100
+  - skill{s=removecranegame} @self ~onInteract
+  - skill{s=rotatecranegame} @self ~onInteract
+  - skill{s=craneNOMONEY} @self ~onInteract
+  - sound{s=littleroom_cranegame:littleroom.cranegame.music_loop;v=.25;sc=HOSTILE} @self ~onTimer:275
+  - skill{s=cranegameSPAWNinvisible} @self ~onSpawn
+  - potion{type=INVISIBILITY;duration=200;level=4;p=false} @self ~onTimer:180
+  - model{mid=cranegame;n=false;d=false;i=false} @self ~onSpawn
+  - randomskill{s=craneDIAMOND,
+                  craneHONEY,
+                  craneHONEY,
+                  craneHONEY,
+                  craneHONEY,
+                  craneLEAD,
+                  craneLEAD,
+                  craneCAKE,
+                  craneCAKE,
+                  craneCAKE,
+                  craneEYE,
+                  craneTOTEM,
+                  craneBONE,
+                  craneBONE,
+                  craneBONE,
+                  craneBONE,
+                  craneMUTTON,
+                  craneMUTTON,
+                  craneMUTTON,
+                  craneMUTTON,
+                  cranePICKAXE,
+                  cranePICKAXE,
+                  cranePICKAXE,
+                  craneRECORD,
+                  craneRECORD,
+                  craneNOTHING1,
+                  craneNOTHING2,
+                  craneNOTHING3,
+                  craneNOTHING1,
+                  craneNOTHING2,
+                  craneNOTHING3,
+                  craneNOTHING1,
+                  craneNOTHING2,
+                  craneNOTHING3,
+                  craneNOTHING1,
+                  craneNOTHING2,
+                  craneNOTHING3,
+                  craneNOTHING1,
+                  craneNOTHING2,
+                  craneNOTHING3,
+                  craneNOTHING1,
+                  craneNOTHING2,
+                  craneNOTHING3,
+                  craneNOTHING1,
+                  craneNOTHING2,
+                  craneNOTHING3
+                  } @self ~onInteract

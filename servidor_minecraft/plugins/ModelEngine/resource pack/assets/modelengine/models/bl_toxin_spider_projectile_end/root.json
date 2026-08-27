@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/bl_toxin_spider_projectile_end"},"elements":[{"from":[3.5,8.1,3.5],"to":[12.5,8.1,12.5],"faces":{"up":{"uv":[4.5,4.5,0.0,0.0],"tintindex":0,"rotation":0,"texture":"#0"},"down":{"uv":[4.5,4.5,0.0,9.0],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

@@ -1,0 +1,85 @@
+info:
+  namespace: weapons_me
+items:
+  frozengear_axe:
+    display_name: "&bFrozen Axe"
+    permission: weaponsme.frozenaxe
+    resource:
+      material: NETHERITE_AXE
+      generate: false
+      model_path: item/fg_set/frozengear_axe
+    durability:
+      max_durability: 2452
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 14
+        attackSpeed: 0.9
+      offhand:
+        attackDamage: 14
+        attackSpeed: 0.9
+  frozengear_hoe:
+    display_name: "&bFrozen Hoe"
+    permission: weaponsme.frozenhoe
+    resource:
+      material: NETHERITE_HOE
+      generate: false
+      model_path: item/fg_set/frozengear_hoe
+    durability:
+      max_durability: 2452
+  frozengear_pickaxe:
+    display_name: "&bFrozen Pickaxe"
+    permission: weaponsme.frozenpickaxe
+    resource:
+      material: NETHERITE_PICKAXE
+      generate: false
+      model_path: item/fg_set/frozengear_pickaxe
+    durability:
+      max_durability: 2452
+    item_flags:
+        - HIDE_ATTRIBUTES
+    attribute_modifiers:
+      mainhand:
+        player.mining_efficiency: 19
+      offhand:
+        player.mining_efficiency: 19
+  frozengear_shovel:
+    display_name: "&bFrozen Shovel"
+    permission: weaponsme.frozenshovel
+    resource:
+      material: NETHERITE_SHOVEL
+      generate: false
+      model_path: item/fg_set/frozengear_shovel
+    durability:
+      max_durability: 2452
+    item_flags:
+        - HIDE_ATTRIBUTES
+    attribute_modifiers:
+      mainhand:
+        player.mining_efficiency: 1.5
+      offhand:
+        player.mining_efficiency: 1.5
+  frozengear_sword:
+    display_name: "&bFrozen Sword"
+    permission: weaponsme.frozensword
+    resource:
+      material: NETHERITE_SWORD
+      generate: false
+      model_path: item/fg_set/frozengear_sword
+    durability:
+      max_durability: 2452
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 12
+        attackSpeed: 1.5
+      offhand:
+        attackDamage: 12
+        attackSpeed: 1.5
+  frozengear_bow:
+    display_name: "&bFrozen Bow"
+    permission: weaponsme.frozenbow
+    resource:
+      material: BOW
+      generate: false
+      model_path: item/fg_set/bow/frozengear_bow
+    durability:
+      max_durability: 1005

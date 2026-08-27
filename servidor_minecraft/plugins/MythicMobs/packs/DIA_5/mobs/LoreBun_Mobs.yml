@@ -1,0 +1,417 @@
+lorebun_idle:
+  Type: IRON_GOLEM
+  Display: '&d&lMagic Bunny'
+  Faction: lorebun
+  Health: 1750
+  Damage: 0
+  AIGoalSelectors:
+  - 0 clear
+  Modules:
+    ThreatTable: true
+  Options:
+    NoDamageTicks: 1
+    MovementSpeed: 0
+    FollowRange: 64
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: false
+    Invincible: false
+    Invisible: true
+    PreventBlockInfection: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    Collidable: false
+  Skills:
+  - model{mid=lorebun_idle;n=false;tint=true} @self ~onSpawn
+  - skill{s=lorebun_start} @self ~onDamaged
+  - skill{s=lorebun_idle_cancelEvent;sync=true} @self ~onDamaged
+
+lorebun:
+  Type: IRON_GOLEM
+  Display: '&d&lMagic Bunny'
+  Faction: lorebun
+  Health: 1850
+  Damage: 0
+  DamageModifiers:
+  - FALL 0.02
+  - PROJECTILE 0.3
+  - ENTITY_ATTACK 0.7
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 randomstroll
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  BossBar:
+    Enabled: true
+    Title: '<bold><gold>MAGIC BUNNY'
+    Color: YELLOW
+    Style: SEGMENTED_6
+  Options:
+    NoDamageTicks: 1
+    MovementSpeed: 0.33
+    FollowRange: 64
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: false
+    Invincible: false
+    Invisible: true
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    MaxCombatDistance: 30
+  Skills:
+  - clearThreat{} @self ~onTimer:120
+  - model{mid=lorebun;n=false;tint=true;h=true} @self ~onSpawn
+  - randomskill{s=lorebun_time_walk,lorebun_throw_portal,lorebun_shoot_clock,lorebun_cblade,lorebun_ult} @target ~onTimer:20
+  - skill{s=lorebun_combo_start} @target ~onTimer:20
+  - skill{s=lorebun_dash} @target ~onTimer:30
+  - skill{s=Changetarget} ~onTimer:160 <99%
+  - skill{s=lorebun_timeback_check} @PiR{r=40;sort=LOWEST_HEALTH;limit=1} ~onTimer:400
+  - sound{s=minecraft:entity.rabbit.hurt;p=0.8;v=2;sc=HOSTILE} @self ~onDamaged .50
+  - skill{s=lorebun_hit_arrow} @self ~onDamaged
+  - sound{s=minecraft:entity.rabbit.death;p=0.8;v=2;sc=HOSTILE} @self ~onDeath
+  - skill{s=lorebun_title} @self ~ondeath
+
+lorebun_copy:
+  Type: IRON_GOLEM
+  Display: '&d&lLorebun Copy'
+  Faction: lorebun
+  Health: 40
+  Damage: 0
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  AITargetSelectors:
+  - 0 clear
+  - 1 players
+  Modules:
+    ThreatTable: true
+  Options:
+    NoDamageTicks: 1
+    MovementSpeed: 0.35
+    FollowRange: 64
+    KnockbackResistance: 1
+    Silent: true
+    Despawn: false
+    Invincible: false
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    MaxCombatDistance: 30
+  Skills:
+  - model{mid=lorebun_copy_walk;n=false;tint=true;h=true} @self ~onSpawn
+  - skill{s=lorebun_copy_combo_start} @target ~onTimer:1
+  - skill{s=lorebun_copy_remove} @self ~onSpawn
+  - effect:particles{p=portal;a=2;hs=0.25;vs=0.5;y=0.25} @self ~onTimer:2
+  - sound{s=minecraft:entity.enderman.ambient;p=2;v=2;sc=HOSTILE} @self ~onDeath
+
+lorebun_hourglass:
+  Type: ARMOR_STAND
+  Display: '&d&lLorebun Hourglass'
+  Options:
+    Marker: true
+    Interactable: false
+    Silent: true
+    Despawn: true
+    PreventOtherDrops: true
+  Skills:
+  - model{mid=hourglass;n=false;tint=true;h=true} @self ~onSpawn
+  - state{mid=hourglass;s=spin} @self ~onSpawn
+
+
+lorebun_combo_a:
+  Type: ARMOR_STAND
+  Display: '&d&lLorebun Combo'
+  Options:
+    Marker: true
+    Interactable: false
+    Silent: true
+    Despawn: true
+    PreventOtherDrops: true
+  Skills:
+  - model{mid=lorebun_copy_walk;n=false;tint=true;h=true} @self ~onSpawn
+  - skill{s=lorebun_combo_skill_a} @self ~onSpawn
+
+
+lorebun_combo_b:
+  Type: ARMOR_STAND
+  Display: '&d&lLorebun Combo'
+  Options:
+    Marker: true
+    Interactable: false
+    Silent: true
+    Despawn: true
+    PreventOtherDrops: true
+  Skills:
+  - model{mid=lorebun_copy_walk;n=false;tint=true;h=true} @self ~onSpawn
+  - skill{s=lorebun_combo_skill_b} @self ~onSpawn
+
+
+lorebun_combo_c:
+  Type: ARMOR_STAND
+  Display: '&d&lLorebun Combo'
+  Options:
+    Marker: true
+    Interactable: false
+    Silent: true
+    Despawn: true
+    PreventOtherDrops: true
+  Skills:
+  - model{mid=lorebun_copy_walk;n=false;tint=true;h=true} @self ~onSpawn
+  - skill{s=lorebun_combo_skill_c} @self ~onSpawn
+
+stunned:
+  Type: ARMOR_STAND
+  Display: '*stunned*'
+  Options:
+    Silent: true
+    Despawn: true
+    PreventOtherDrops: true
+    Invincible: true
+    Interactable: false
+  Skills:
+  - model{mid=stunned;n=false;tint=true;h=true} @self ~onSpawn
+  - skill{s=lorebun_stunned} @PiR{r=50} ~onSpawn
+  - remove{delay=60} @self ~onSpawn
+
+esplash:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=esplash} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+lorebun_walk:
+  Type: ARMOR_STAND
+  Skills:
+  - model{mid=lorebun_copy_walk;n=false;tint=true;h=true} @self ~onSpawn
+  - state{mid=lorebun_copy_walk;s=time_walk} @self ~onSpawn
+  - skill{s=lorebun_walk_remove} @self ~onSpawn
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+lorebun_esplash_start:
+  Type: ARMOR_STAND
+  Skills:
+  - projectile{v=10;sfo=0;syo=0;hs=true;hfs=0;sE=false;sB=false;oT=lorebun_cblade_splash;i=10;md=100;delay=10} @Forward{f=10} ~onSpawn
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+lorebun_copy_ult:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lorebun_copy_walk;n=false;tint=true;h=true} @self ~onSpawn
+   - effect:particles{p=portal;a=2;hs=0.25;vs=0.5;y=0.25} @self ~onTimer:2
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+
+jsmoke:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=jsmoke} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+
+jsmoke_ult:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - teleport{spreadh=0;spreadv=0} @origin{yoffset=-0.5} ~onSpawn
+   - skill{s=jsmoke_ult} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+pportal:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=pportal} @self ~onSpawn
+   - totem{oT=pportal_tick;i=1;md=20} @Selflocation{y=-5} ~OnSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+pportal2:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=pportal} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+cblade:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=cblade} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+backtp:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=backtp} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+combo_f:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=combo_f} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+attack_c:
+  Type: ARMOR_STAND
+  Skills:
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=attack_c} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+ddash:
+  Type: ARMOR_STAND
+  Skills:
+   - mounttarget @parent ~onSpawn
+   - model{mid=lbblank;n=false} @self ~onSpawn
+   - skill{s=ddash} @self ~onSpawn
+   - cancelEvent{sync=true} ~onAttack
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    Interactable: false
+    Marker: true
+    Invisible: true
+    Collidable: false
+    NoGravity: true
+
+# 34611ZFVNFTXTWNCDY3U

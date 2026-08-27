@@ -1,0 +1,11 @@
+#########################################################
+## Developed by Little Room, patreon.com/littleroomdev ##
+#########################################################
+
+LR_netherite_boomerang:
+  Id: CARROT_ON_A_STICK
+  Model: 5
+  Display: 'Netherite Boomerang' 
+  Skills:
+  - skill{s=LRBOOMERANG_throw_netherite;cd=1} @targetlocation ~onUse
+  - skill{s=LRBOOMERANG_fix_throwvar_netherite} @self ~onHold

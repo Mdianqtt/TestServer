@@ -1,0 +1,24 @@
+Id: Nocsy_Cat-MaineCoon
+MythicMob: Nocsy_Cat-MaineCoon
+Permission: mcpets.nocsy_mainecoon
+Mountable: false
+Distance: 6
+SpawnRange: 1
+ComingBackRange: 3
+Icon:
+  Name: §6Maine Coon
+  Material: BLAZE_ROD
+  CustomModelData: 87605
+  Description:
+  - §7Meow :3
+Signals:
+  Values:
+  - PLAY
+  Item:
+    Name: §cThread ball
+    Material: BLAZE_ROD
+    CustomModelData: 87600
+    Description:
+    - §7Right click to throw a thread ball
+
+# 04259T

@@ -1,0 +1,99 @@
+Nikolai:
+  Type: ZOMBIE
+  Display: '&3Nikolai'
+  Health: 2750
+  Damage: 30
+  BossBar:
+    Enabled: true
+    Title: '&3Kolyushka'
+    Range: 48
+    Color: BLUE
+    Style: SEGMENTED_12
+    FollowRange: 48
+  Options:
+    PreventSunburn: true
+    MovementSpeed: 0.31
+    PreventOtherDrops: true
+    PreventOtherEquipment: true
+    KnockbackResistance: 1
+    Silent: true
+  Skills:
+  - setvariable{var=caster.damage;val=1;type=INTEGER} @self ~onSpawn
+  - setvariable{var=caster.boss;val=1;type=INTEGER} @self ~onSpawn
+  - model{m=nikolai_the_apostate} @self ~onSpawn
+  - stun{d=87;ai=true} @self ~onSpawn
+  - effect:particles{p=snowballpoof;a=600;hs=4;vs=0.5;y=0.5;delay=23} @self ~onSpawn
+  - effect:particles{p=reddust;color=#FFFFFF;a=1000;hs=4;vs=0.5;y=0.5;delay=23} @self ~onSpawn
+  - effect:particlesphere{p=reddust;r=2;color=#FFFFFF;a=1000;y=0.5;delay=23} @self ~onSpawn
+  - effect:particlesphere{p=reddust;r=3;color=#FFFFFF;a=1000;y=0.5;delay=23} @self ~onSpawn
+  - effect:particlesphere{p=reddust;r=4;color=#FFFFFF;a=500;y=0.5;delay=23} @self ~onSpawn
+  - aura{auraName=CantAttack;d=87} @self ~onSpawn
+  - state{m=nikolai_the_apostate;s=spawn} @self ~onSpawn
+  - skill{s=NikolaiAttack;sync=true} @trigger ~onAttack
+  - skill{s=NikolaiAttack;sync=true} @target ~onTimer:3
+  - skill{s=NikolaiBlizzard} @PIR{r=25} ~onTimer:60 0.5
+  - skill{s=NikolaiRun} @target ~onTimer:40 0.5
+  - skill{s=NikolaiPierceAttack} @target ~onTimer:20
+  - skill{s=NikolaiBagThrow} @target ~onTimer:20 0.8
+  - skill{s=NikolaiDeers} @target ~onTimer:40
+  - skill{s=NikolaiSlide} ~onTimer:15 0.4
+  - skill{s=NikolaiFreeze} @target ~onTimer:10 0.7
+  - skill{s=NikolaiTitle} @self ~onDeath
+NBTend:
+  Type: silverfish
+  Options:
+    NoAI: true
+    Invincible: true
+    ApplyInvisibility: true
+    Silent: true
+  Skills:
+  - skill{s=NBThiGround;repeat=5;repeatInterval=1} @self ~onSpawn
+  - skill{s=NBThit;repeat=5;repeatInterval=10} @self ~onSpawn
+  - remove{delay=61;repeat=10;repeatInterval=1} @self ~onSpawn
+NikolaiBag:
+  Type: silverfish
+  Options:
+    NoAI: true
+    Invincible: true
+    Silent: true
+  Skills:
+  - model{m=nikolai_bag;n=false} @self ~onSpawn
+NikolaiDeer:
+  Type: silverfish
+  Options:
+    NoAI: true
+    Invincible: true
+    Silent: true
+  Skills:
+  - model{m=snow_deer;n=false} @self ~onSpawn
+  - randomskill{skills=NikolaiDeerAnimation1,NikolaiDeerAnimation2,NikolaiDeerAnimation3} @self ~onSpawn
+NikolaiSlideLeap:
+  Type: silverfish
+  Options:
+    NoAI: true
+    Invincible: true
+    ApplyInvisibility: true
+    Silent: true
+  Skills:
+  - skill{s=NikolaiSlidePull} @parent ~onTimer:1
+  - remove{delay=23} @self ~onTimer:1
+NikolaiIce:
+  Type: silverfish
+  Options:
+    NoAI: true
+    Invincible: true
+    ApplyInvisibility: true
+    Silent: true
+  Skills:
+  - model{m=nikolai_ice;n=false} @self ~onSpawn
+  - remove{delay=100} @self ~onTimer:1
+NFReAnger:
+  Type: silverfish
+  Options:
+    NoAI: true
+    Invincible: true
+    ApplyInvisibility: true
+    Silent: true
+  Skills:
+  - rally{t=Nikolai;r=1;ot=true} @PIR{r=20;limit=1;sort=NEAREST} ~onSpawn
+  - remove @self ~onTimer:1

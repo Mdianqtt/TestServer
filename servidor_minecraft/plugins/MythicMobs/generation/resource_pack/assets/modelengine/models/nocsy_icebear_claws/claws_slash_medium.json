@@ -1,0 +1,1 @@
+{"textures":{"0":"modelengine:entity/nocsy_icebear_clash_slash_medium"},"elements":[{"from":[7.5,7.5,-10.5],"to":[7.5,31.5,11.0],"faces":{"east":{"uv":[0.0,0.0,5.375,6.0],"tintindex":0,"rotation":0,"texture":"#0"},"west":{"uv":[5.375,0.0,0.0,6.0],"tintindex":0,"rotation":0,"texture":"#0"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

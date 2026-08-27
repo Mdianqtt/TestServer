@@ -1,0 +1,10 @@
+cointoss_spawn:
+  Action: ADD
+  Type: cointoss
+  Chance: 0.00001
+  Priority: 1
+  UseWorldScaling: false
+  Worlds: world
+  Reason: NATURAL
+  Conditions:
+  - onblock{m=AIR,WATER} false

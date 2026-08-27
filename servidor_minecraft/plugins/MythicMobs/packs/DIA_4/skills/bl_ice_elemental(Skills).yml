@@ -1,0 +1,171 @@
+#-------------------------
+#     Made by Bojarsky Legacy 
+#     Discord bojarsky
+#-------------------------
+
+# -- Death -- # 
+
+bl_ice_elemental_death:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#5f8ccc;color2=#d0f0fd;amount=40;speed=0.2;hS=0.5;vS=0.8;delay=30} @modelpart{pid=root;o=model}
+  - sound{s=entity.blaze.ambient;p=0.8;v=3;delay=5} @self
+
+# -- General -- # 
+
+bl_ice_elemental_skills:
+  Skills:
+  - randomskill{s=bl_ice_elemental_archery,bl_ice_elemental_powerful_archery,bl_ice_elemental_elemental_blessing} @target
+  #- skill{s=bl_ice_elemental_elemental_blessing} @target
+
+bl_ice_elemental_step:
+  Conditions:
+  - moving true
+  - inblock{b=WATER,LAVA} false
+  - offgcd
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#5f8ccc;color2=#d0f0fd;amount=20;speed=0.2;hS=1;vS=1} @modelpart{pid=root;o=model}
+
+bl_ice_elemental_step2:
+  Conditions:
+  - chance{c=0.5}
+  - moving true
+  - inblock{b=WATER,LAVA} false
+  - offgcd
+  Skills:
+  - sound{s=entity.blaze.ambient;p=0.8;v=3} @self
+
+bl_ice_elemental_idle:
+  Conditions:
+  - moving false
+  - offgcd
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#5f8ccc;color2=#d0f0fd;amount=20;speed=0.2;hS=1;vS=1} @modelpart{pid=root;o=model}
+
+bl_ice_elemental_idle2:
+  Conditions:
+  - chance{c=0.5}
+  - moving false
+  - offgcd
+  Skills:
+  - sound{s=entity.blaze.ambient;p=0.8;v=3} @self
+
+# -- Skills -- #
+
+bl_ice_elemental_archery:
+  Cooldown: 5
+  Conditions:
+  - targetwithin{d=6} true
+  - offgcd
+  Skills:
+  - gcd{ticks=44} @self
+  - state{s=archery} @self
+  - sound{s=item.crossbow.loading_start;p=0.8;v=3;delay=10} @self
+  - sound{s=item.crossbow.shoot;p=0.8;v=3;delay=19} @self
+  - setspeed{s=0} @self
+  - partvis{mid=bl_ice_elemental;p=arrow;v=true;child=true;delay=5} @self
+  - partvis{mid=bl_ice_elemental;p=arrow;v=false;child=true;delay=20} @self
+  - delay 20
+  - projectile{oT=bl_ice_elemental_archery_tick;oH=bl_ice_elemental_archery_damage;b=MOB;mm=bl_ice_elemental_arrow;byo=1;hR=1;vR=0.7;mr=30;v=30;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawHitbox=false} @forward{f=20}
+  - propel{v=1} @forward{f=-1;yo=0.1;lockpitch=true}
+  - delay 24
+  - setspeed{s=1.2} @self
+
+bl_ice_elemental_archery_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#5f8ccc;color2=#d0f0fd;amount=1;hS=0;vS=0;speed=0;size=0.8}
+
+bl_ice_elemental_archery_damage:
+  Skills:
+  - damage{a=10}
+  - freeze{ticks=100}
+  - shieldbreak{duration=100}
+  
+bl_ice_elemental_powerful_archery:
+  Cooldown: 7
+  Conditions:
+  - targetwithin{d=8} true
+  - offgcd
+  Skills:
+  - gcd{ticks=59} @self
+  - state{s=powerful_archery} @self
+  - sound{s=item.crossbow.loading_start;p=0.6;v=3;delay=20} @self
+  - sound{s=item.crossbow.shoot;p=0.8;v=3;delay=27} @self
+  - setspeed{s=0} @self
+  - partvis{mid=bl_ice_elemental;p=arrow;v=true;child=true;delay=5} @self
+  - partvis{mid=bl_ice_elemental;p=arrow;v=false;child=true;delay=30} @self
+  - delay 27
+  - projectile{oT=bl_ice_elemental_powerful_archery_tick;oH=bl_ice_elemental_powerful_archery_damage;b=MOB;mm=bl_ice_elemental_arrow;byo=1;hR=1;vR=0.7;mr=30;v=30;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawHitbox=false} @forward{f=20}
+  - projectile{oT=bl_ice_elemental_powerful_archery_tick;oH=bl_ice_elemental_powerful_archery_damage;b=MOB;mm=bl_ice_elemental_arrow;byo=1;hR=1;vR=0.7;mr=30;v=30;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawHitbox=false} @forward{f=20;x=8}
+  - projectile{oT=bl_ice_elemental_powerful_archery_tick;oH=bl_ice_elemental_powerful_archery_damage;b=MOB;mm=bl_ice_elemental_arrow;byo=1;hR=1;vR=0.7;mr=30;v=30;syo=1.65;tyo=1.65;hO=0;a=1;sE=true;sB=true;hp=true;hnp=true;g=0.4;drawHitbox=false} @forward{f=20;x=-8}
+  - propel{v=1.5} @forward{f=-2;yo=0.1;lockpitch=true}
+  - delay 32
+  - setspeed{s=1.2} @self
+
+bl_ice_elemental_powerful_archery_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#5f8ccc;color2=#d0f0fd;amount=1;hS=0;vS=0;speed=0;size=0.8}
+
+bl_ice_elemental_powerful_archery_damage:
+  Skills:
+  - damage{a=16}
+  - freeze{ticks=160}
+  - shieldbreak{duration=100}
+
+bl_ice_elemental_elemental_blessing:
+  Cooldown: 15
+  Conditions:
+  - targetwithin{d=4} true
+  - offgcd
+  Skills:
+  - gcd{ticks=130} @self
+  - state{s=elemental_blessing} @self
+  - sound{s=bl_elementals.blessed_elementals;p=1;v=3;delay=19} @self
+  - sound{s=bl_elementals.whoosh_elementals;p=0.5;v=3;delay=19} @self
+  - setspeed{s=0} @self
+  - delay 21
+  - propel{v=2} @forward{f=-4;yo=0.1;lockpitch=true}
+  - summon{m=bl_ice_elemental_blessed;a=1;r=0;yr=0;os=true} @TargetLocation{y=0}
+  - delay 28
+  - setspeed{s=1.2} @self
+
+bl_ice_elemental_elemental_blessing_totem_tick:
+  Skills:
+  - totem{md=1;oH=bl_ice_elemental_elemental_blessing_damage;oT=bl_ice_elemental_elemental_blessing_tick;hr=1.5;vr=1.5;hnp=true;drawhitbox=false;ti=25} @modelpart{pid=stones;o=model;z=0;y=0}
+  
+bl_ice_elemental_elemental_blessing_damage:
+  Skills:
+  - damage{a=5}
+  - throw{v=0;vy=0}
+  - freeze{ticks=100}
+  - potion{type=SLOW;duration=10;level=5}
+  - shieldbreak{duration=80}
+
+bl_ice_elemental_elemental_blessing_tick:
+  Skills:
+  - effect:particles{p=dust_color_transition;color1=#5f8ccc;color2=#d0f0fd;amount=10;hS=0.5;vS=0.5;speed=0;size=0.8}
+
+bl_ice_elemental_jump_back:
+  Cooldown: 8
+  Conditions:
+  - chance{c=0.3}
+  - offgcd
+  Skills:
+  - gcd{ticks=38} @self
+  - state{s=jump_back} @self
+  - sound{s=bl_elementals.whoosh_elementals;p=0.5;v=3;delay=8} @self
+  - setspeed{s=0} @self
+  - delay 8
+  - lockmodel{l=true} @self
+  - propel{v=2} @forward{f=-4;yo=0.1;lockpitch=true}
+  - delay 22
+  - lockmodel{l=false} @self
+  - delay 8
+  - setspeed{s=1.2} @self
+
+#-------------------------
+#     Made by Bojarsky Legacy 
+#     Discord bojarsky
+#-------------------------
+
+#63a6df722d1a2ffa49a97aecc91252b3
+#onb2Zke3ckTlp2ZaJVMrFzSVJjU3VlaNBTUE5kMJRlT4NGSWZUYEhTNMhWe4I3aJF3TKd1M

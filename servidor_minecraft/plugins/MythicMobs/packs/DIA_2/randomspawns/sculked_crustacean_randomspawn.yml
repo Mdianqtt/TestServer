@@ -1,0 +1,14 @@
+
+# ~Written By RopeFire~
+
+random_sculked_crustacean:
+  Type: sculked_crustacean
+  Worlds: world
+  Chance: 1
+  Priority: 1
+  Action: ADD
+  Biomes: DEEP_DARK
+  PositionType: LAND
+  Cooldown: 60
+  Conditions:
+  - mobsInRadius{a=<2;r=64;type=sculked_crustacean}

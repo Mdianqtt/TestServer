@@ -1,0 +1,74 @@
+info:
+  namespace: xmas_costume
+armors_rendering:
+  reindeer_costume:
+    color: '#db8c4e'
+    layer_1: armor/reindeer_costume/layer_1
+    layer_2: armor/reindeer_costume/layer_2
+    use_color: false
+items:
+  reindeer_head:
+    display_name: Reindeer Head
+    permission: reindeer_costume
+    resource:
+      material: PAPER
+      generate: false
+      model_path: items/reindeer_head
+    durability:
+      max_durability: 1562
+    behaviours:
+      hat: true
+  reindeer_chestplate:
+    display_name: Reindeer Chestplate
+    permission: reindeer_costume
+    resource:
+      generate: true
+      textures:
+      - item/reindeer_costume/reindeer_chestplate
+    durability:
+      max_custom_durability: 240
+    specific_properties:
+      armor:
+        slot: chest
+        custom_armor: reindeer_costume
+    attribute_modifiers:
+      chest:
+        armor: 5
+        armorToughness: 1
+  reindeer_leggings:
+    display_name: Reindeer Leggings
+    permission: reindeer_costume
+    resource:
+      generate: true
+      textures:
+      - item/reindeer_costume/reindeer_leggings
+    durability:
+      max_custom_durability: 225
+    specific_properties:
+      armor:
+        slot: legs
+        custom_armor: reindeer_costume
+    attribute_modifiers:
+      legs:
+        armor: 4
+        armorToughness: 1
+  reindeer_boots:
+    display_name: Reindeer Boots
+    permission: reindeer_costume
+    resource:
+      generate: true
+      textures:
+      - item/reindeer_costume/reindeer_boots
+    durability:
+      max_custom_durability: 195
+    specific_properties:
+      armor:
+        slot: FEET
+        custom_armor: reindeer_costume
+    attribute_modifiers:
+      feet:
+        armor: 1
+        armorToughness: 1
+
+
+# 0878UC0OTZDR61CB

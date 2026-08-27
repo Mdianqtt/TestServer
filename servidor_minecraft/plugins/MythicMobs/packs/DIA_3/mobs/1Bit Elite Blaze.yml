@@ -1,0 +1,119 @@
+1bit_elite_blaze:
+  Type: blaze
+  Display: '&cElite Blaze'
+  Health: 60
+  Damage: 6
+  Armor: 7
+  Faction: Elite
+  Modules:
+    ThreatTable: true
+  Options:
+    Silent: true
+    Invisible: true
+    Collidable: true
+    FollowRange: 25
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  DamageModifiers:
+  - ENTITY_EXPLOSION -0.1
+  - BLOCK_EXPLOSION -0.1
+  AITargetSelectors:
+  - 0 clear
+  - 1 player
+  Drops:
+  - elite_blaze_core 1to2 1
+  Skills:
+  - model{mid=1bit_elite_blaze;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_blaze;n=false;usestatemachine=true} @self ~onLoad
+  - state{m=1bit_elite_blaze;s=spin;delay=51;priority=2} @self ~onSpawn
+  - state{m=1bit_elite_blaze;s=sword_spin;delay=51;priority=3;lerpout=10} @self ~onSpawn
+  - CancelEvent{sync=true} ~onShoot
+  - potion{t=SLOW_FALLING;d=15;l=1;force=true;p=false;i=false} @self ?hasgravity{} ~onTimer:10
+  - effect:particles{particle=Smoke;speed=0.013;Size=1;a=20;hS=0.4;vS=0.6;y=1.2} @ModelPart{m=1bit_elite_blaze;p=root} ~onTimer:6
+  - onDamaged{auraName=spawn;cE=true;time=50;oS=[ 
+      - stun{d=50;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=50;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - CancelEvent{sync=true} ~onAttack
+  - skill{s=1bit_elite_blaze_attack;sync=true} @target ~onShoot
+  - skill{s=1bit_elite_blaze_sound_damaged;sync=true} @self ~onDamaged
+  - skill{s=1bit_elite_blaze_sound_death;sync=true} @self ~onDeath
+  - skill{s=[
+      - sound{s=entity.blaze.ambient;p=0.80;v=1.0} @self
+      - sound{s=particle.soul_escape;p=0.90;v=1.0} @self
+      - sound{s=entity.breeze.inhale;p=0.65;v=1.0} @self
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}
+
+1bit_elite_blaze_sword:
+  Type: block_display
+  DisplayOptions:
+    Block: AIR
+  Faction: vfx
+  Skills:
+  - model{mid=1bit_elite_blaze_sword;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_blaze_sword;n=false;usestatemachine=true} @self ~onLoad
+  - remove{sync=true;delay=25} @self ~onSpawn
+
+1bit_elite_baby_blaze:
+  Type: blaze
+  Display: '&cElite Baby Blaze'
+  Health: 30
+  Damage: 3
+  Armor: 3
+  Faction: Elite
+  Modules:
+    ThreatTable: true
+  Options:
+    Silent: true
+    Invisible: true
+    Collidable: true
+    FollowRange: 25
+    PreventItemPickup: true
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+  DamageModifiers:
+  - ENTITY_EXPLOSION -0.1
+  - BLOCK_EXPLOSION -0.1
+  AITargetSelectors:
+  - 0 clear
+  - 1 player
+  Drops:
+  - elite_blaze_core 1to2 1
+  Skills:
+  - model{mid=1bit_elite_baby_blaze;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_baby_blaze;n=false;usestatemachine=true} @self ~onLoad
+  - state{m=1bit_elite_baby_blaze;s=spin;delay=51;priority=2} @self ~onSpawn
+  - state{m=1bit_elite_baby_blaze;s=sword_spin;delay=51;priority=3;lerpout=10} @self ~onSpawn
+  - addtag{t=baby} @self ~onSpawn
+  - addtag{t=baby} @self ~onLoad
+  - CancelEvent{sync=true} ~onShoot
+  - potion{t=SLOW_FALLING;d=15;l=1;force=true;p=false;i=false} @self ?hasgravity{} ~onTimer:10
+  - effect:particles{particle=Smoke;speed=0.013;Size=1;a=15;hS=0.3;vS=0.45;y=1.2} @ModelPart{m=1bit_elite_baby_blaze;p=root} ~onTimer:6
+  - onDamaged{auraName=spawn;cE=true;time=50;oS=[ 
+      - stun{d=50;ai=true;g=true;f=true} @self
+      - velocity{m=SET;x=0;y=0;z=0;repeat=50;repeatInterval=1} @self
+    ]} @self ~onSpawn
+  - CancelEvent{sync=true} ~onDamaged ?hasaura{n=spawn}
+  - CancelEvent{sync=true} ~onAttack
+
+  - skill{s=1bit_elite_blaze_attack;sync=true} @target ~onShoot
+
+  - skill{s=1bit_elite_blaze_sound_damaged;sync=true} @self ~onDamaged
+  - skill{s=1bit_elite_baby_blaze_sound_death;sync=true} @self ~onDeath
+  - skill{s=[
+      - sound{s=entity.blaze.ambient;p=0.80;v=1.0} @self
+      - sound{s=particle.soul_escape;p=0.90;v=1.0} @self
+      - sound{s=entity.breeze.inhale;p=0.65;v=1.0} @self
+    ];sync=true} @self ~onTimer:60 ?chance{chance=0.75}
+
+1bit_elite_baby_blaze_sword:
+  Type: block_display
+  DisplayOptions:
+    Block: AIR
+  Faction: vfx
+  Skills:
+  - model{mid=1bit_elite_baby_blaze_sword;n=false;usestatemachine=true} @self ~onSpawn
+  - model{mid=1bit_elite_baby_blaze_sword;n=false;usestatemachine=true} @self ~onLoad
+  - remove{sync=true;delay=25} @self ~onSpawn
