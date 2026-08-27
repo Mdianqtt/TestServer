@@ -13,4 +13,7 @@ java/
 *.pyc
 *.msp
 *.msx
-msx.py
+msx.pyservidor_minecraft/world/
+servidor_minecraft/logs/
+*.log
+*.rar
